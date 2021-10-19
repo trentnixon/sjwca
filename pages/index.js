@@ -1,4 +1,4 @@
-import { API,server } from "../config/index"
+import { API } from "../config/index"
 /*
 git add .
 git commit -am " Int Strapi Test"
@@ -15,13 +15,14 @@ export default function Home({mission}) {
       <h1>Reg as a Individual</h1>
       <h1>Contact</h1>
       
-      <h2>{mission.Title}</h2>
-      <p>{mission.Copy}</p>
+    
     </div>
   )
 }
 
-
+/* 
+<h2>{mission.Title}</h2>
+<p>{mission.Copy}</p>
 export const getStaticProps = async (context) => {
 
 
@@ -36,7 +37,7 @@ export const getStaticProps = async (context) => {
     },
   }
 }
-
+ */
 
 /* export const getStaticProps  = async()=>{
   const res = await fetch('https://jsonplaceholder.typicode.com/posts?_limit=5')
