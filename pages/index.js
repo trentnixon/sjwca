@@ -2,9 +2,8 @@ import { API,server } from "../config/index"
 /*
 git add .
 git commit -am " Int Strapi Test"
-
 git push heroku main:main
-git push heroku master
+
 */
 export default function Home({mission}) {
   //console.log(articles)
