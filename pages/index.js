@@ -1,10 +1,10 @@
-
+import { API,server } from "../config/index"
 /*
 git add .
-git commit -am "make it better"
+git commit -am " Int Strapi Test"
 git push heroku master
 */
-export default function Home() {
+export default function Home({mission}) {
   //console.log(articles)
   return (
     <div>
@@ -14,12 +14,39 @@ export default function Home() {
       <h1>Reg as a Individual</h1>
       <h1>Contact</h1>
       
-
+      <h2>{mission.Title}</h2>
+      <p>{mission.Copy}</p>
     </div>
   )
 }
 
 
+export const getStaticProps = async (context) => {
+
+
+  const res = await fetch(`${API}/misson`)
+
+  const mission = await res.json()
+
+  console.log(mission)
+  return {
+    props: {
+      mission,
+    },
+  }
+}
+
+
+/* export const getStaticProps  = async()=>{
+  const res = await fetch('https://jsonplaceholder.typicode.com/posts?_limit=5')
+  const articles = await res.json()
+  return{
+    props:{
+      articles
+    }
+  }
+}
+ */
 /* {
   articles.map((article,i)=>{
     return(
