@@ -6,7 +6,7 @@ git push heroku main:main
 
 */
 export default function Home({mission}) {
-  //console.log(articles)
+  console.log(mission)
   return (
     <div>
       <h1>SJWCA</h1>
@@ -14,30 +14,27 @@ export default function Home({mission}) {
       <h1>Reg as a team</h1>
       <h1>Reg as a Individual</h1>
       <h1>Contact</h1>
-      
+      <h2>{mission.Title}</h2>
+      <p>{mission.Copy}</p>
     
     </div>
   )
 }
 
-/* 
-<h2>{mission.Title}</h2>
-<p>{mission.Copy}</p>
+
+
 export const getStaticProps = async (context) => {
 
-
-  const res = await fetch(`${API}/misson`)
-
+  const res = await fetch(`${API}misson`)
   const mission = await res.json()
 
-  console.log(mission)
   return {
     props: {
       mission,
     },
   }
 }
- */
+
 
 /* export const getStaticProps  = async()=>{
   const res = await fetch('https://jsonplaceholder.typicode.com/posts?_limit=5')
