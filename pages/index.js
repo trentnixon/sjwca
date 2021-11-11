@@ -1,4 +1,4 @@
-import { server } from "../config/index"
+import { server,API } from "../config/index"
 //import ReactMarkdown from 'react-markdown';
 //import Header from "../components/Header"
 
@@ -22,13 +22,16 @@ export default function Home(props) {
 
 export const getStaticProps = async (context) => {
 
-  const registrationPageRes = await fetch(`${server}api/registrationPage`)
+  //const registrationPageRes = await fetch(`${server}api/registrationPage`)
+  const registrationPageRes = await fetch(`${API}registration-page`)
     const registrationPage = await registrationPageRes.json()
     
-    const taglineRes = await fetch(`${server}api/tagline`)
+    //const taglineRes = await fetch(`${server}api/tagline`)
+    const taglineRes = await fetch(`${API}tagline`)
     const tagline = await taglineRes.json()
 
-    const logoLargeRes = await fetch(`${server}api/logoLarge`)
+    //const logoLargeRes = await fetch(`${server}api/logoLarge`)
+    const logoLargeRes = await fetch(`${API}logo-large`)
     const logoLarge = await logoLargeRes.json() 
 
     return {
