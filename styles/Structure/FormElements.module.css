@@ -1,0 +1,21 @@
+
+.FormElementGroup{
+    border: 1px solid #fff;
+    margin: .5rem 1rem 2rem;
+    padding: 1rem;
+    border-radius: var(--Border-Radius);
+   
+    background: var(--base-color);
+    box-shadow: var(--DropShadow) var(--DropShadow) var(--DropShadowSpread) #CBDDF4, var(--DropShadowMinus) var(--DropShadowMinus) var(--DropShadowSpread) rgba(255, 255, 255, 0.7);
+}
+.FormElementsContainer{
+  margin: 1rem 0 ;
+ 
+}
+
+
+.FormTitles h4{
+  text-align: right;
+    font-weight: 400 !important;
+    margin: 0 1rem !important;
+}

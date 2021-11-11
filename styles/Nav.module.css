@@ -1,3 +1,32 @@
 .nav{
-background-color: red;
+    background-color: var(--dark-color);
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    position: sticky;
+    top:0;
+    padding: 0 1rem;
+}
+
+.ul{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100vw;
+    align-items: center;
+    align-content: center;
+    padding: 2rem;
+}
+
+.lia a{
+    text-decoration: none;
+}
+
+.a{ color: var(--dark-color); }
+.active{ color: red;}
+
+
+.navLogo{
+    height: 70%;
 }

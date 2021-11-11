@@ -1,12 +1,9 @@
-
-
 import Headerstyles from "../styles/Header.module.css"
 
-const Header = ()=>{
- 
+const Header = ({tagline})=>{
     return(
         <div className={Headerstyles.header}>
-            <h1>HEADER</h1>
+            <h2>{tagline}</h2>
         </div>
     )
 }

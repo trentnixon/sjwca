@@ -1,0 +1,21 @@
+.Group{
+    display: flex;
+}
+
+.Group img{
+        padding: 2rem !important;
+}
+
+.SupportedGroup{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    width: 100% !important;
+    margin: 2rem 0 ;
+
+}
+.SupportedGroup h2{
+    margin-bottom: 1rem !important;
+}

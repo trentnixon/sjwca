@@ -1,0 +1,86 @@
+
+.RegistrationHeader{
+    background-color: var(--main-bg-color);
+    min-height: 80vh;
+  
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: flex-start;
+    align-items: stretch;
+    border-radius: 0 0 var(--Border-Radius) var(--Border-Radius);
+}
+
+.RegistrationMeta{
+    flex-basis: 40%;
+    padding: 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.RegistrationDetails{
+    flex-basis: 30%;
+    padding: 2rem;
+    background-color: var(--accent-color);
+}
+
+
+.RegistrationSection{
+    background-color: var(--main-bg-color);
+    height: 80vh;
+    border-radius: 0 0 var(--Border-Radius) var(--Border-Radius);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    flex-direction: row;
+
+}
+
+.RegistrationSection:nth-child(even){
+    background-color: var(--color-tile-1); 
+}
+.RegistrationSection:nth-child(odd){
+    background-color: var(--main-bg-color);
+}
+
+.Logo{
+    width:200px;
+}
+
+
+.HalfSplit{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    background-color: red;
+    justify-content: flex-start;
+    padding: 2rem;
+}
+.HalfSplit div{
+    width: 50%;
+}
+
+
+.column{
+    flex-direction: column;
+}
+
+
+.JoinOver{
+    background-color: blue;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    .RegistrationHeader {
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        
+    }
+  }

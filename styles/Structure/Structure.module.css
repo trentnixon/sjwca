@@ -1,0 +1,46 @@
+.Outer{
+    display: flex;
+    flex-direction: column;
+}
+
+/* Structures*/
+
+.COl2{
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        align-content: center;
+        
+}
+
+
+
+.COl2 >div{ width: 50%; }
+.COl2 >div.Width70{ width: 70%; }
+.COl2 >div.Width30{ 
+        width: 30%; 
+     
+    }
+
+
+.Column{ flex-direction: column;}
+
+
+/*  Page Headers */
+
+.PageHeaderSmall{
+    height: 35vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin-bottom: 3rem;
+    background-size: cover;
+    background-position: center top;
+}
+
+
+/* Page Width Breaks*/
+.FullWidth{ width: 100%; }
+.ContentWidth{  width: 68rem; margin: 0 auto; }

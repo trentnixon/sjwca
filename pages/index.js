@@ -1,22 +1,20 @@
-import { API } from "../config/index"
+import { server } from "../config/index"
+//import ReactMarkdown from 'react-markdown';
+//import Header from "../components/Header"
+
+import RegistrationLandingPage from "../components/RegistrationLandingPage/index"
 /*
 git add .
 git commit -am " Int Strapi Test"
 git push heroku main:main
 
 */
-export default function Home({mission}) {
-  console.log(mission)
+export default function Home(props) {
+  //const {tagline,registrationPage,logosmall} = props
   return (
     <div>
-      <h1>SJWCA</h1>
-      <h1>New Season Dates</h1>
-      <h1>Reg as a team</h1>
-      <h1>Reg as a Individual</h1>
-      <h1>Contact</h1>
-      <h2>{mission.Title}</h2>
-      <p>{mission.Copy}</p>
-    
+        <RegistrationLandingPage {... props}/>
+
     </div>
   )
 }
@@ -25,44 +23,16 @@ export default function Home({mission}) {
 
 export const getStaticProps = async (context) => {
 
-  const res = await fetch(`${API}misson`)
-  const mission = await res.json()
+  const registrationPageRes = await fetch(`${server}api/registrationPage`)
+    const registrationPage = await registrationPageRes.json()
+    
+    const taglineRes = await fetch(`${server}api/tagline`)
+    const tagline = await taglineRes.json()
 
-  return {
-    props: {
-      mission,
-    },
-  }
-}
+    const logoLargeRes = await fetch(`${server}api/logoLarge`)
+    const logoLarge = await logoLargeRes.json() 
 
-
-/* export const getStaticProps  = async()=>{
-  const res = await fetch('https://jsonplaceholder.typicode.com/posts?_limit=5')
-  const articles = await res.json()
-  return{
-    props:{
-      articles
+    return {
+      props: {tagline,registrationPage, logoLarge},
     }
   }
-}
- */
-/* {
-  articles.map((article,i)=>{
-    return(
-      <h3>
-          {article.title}
-      </h3>
-    )
-  })
-} */
-
-/* export const getStaticProps  = async()=>{
-    const res = await fetch('https://jsonplaceholder.typicode.com/posts?_limit=5')
-    const articles = await res.json()
-    return{
-      props:{
-        articles
-      }
-    }
-}
- */
