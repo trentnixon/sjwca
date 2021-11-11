@@ -5,9 +5,9 @@ import { server } from "../config/index"
 import RegistrationLandingPage from "../components/RegistrationLandingPage/index"
 /*
 git add .
-git commit -am " Int Strapi Test"
+git commit -am "Register Live Test"
 git push heroku main:main
-
+git push heroku master
 */
 export default function Home(props) {
   //const {tagline,registrationPage,logosmall} = props
