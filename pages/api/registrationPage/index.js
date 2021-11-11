@@ -4,7 +4,6 @@ import fetch from 'node-fetch';
 
 const handler  = async(req, res) => {
     try{
-          
             const fetchReturn = await fetch(`${API}registration-page`)
             const fetchReturnJson = await fetchReturn.json()
             await res.status(200).json(fetchReturnJson)
