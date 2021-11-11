@@ -1,6 +1,7 @@
+import { useRouter } from 'next/router';
 import { API } from "../../../config/index"
 import fetch from 'node-fetch';
-import { useRouter } from 'next/router';
+
 
 import StructureStyles from "../../../styles/Structure/Structure.module.css";
 import PageHeaderSmall from "../../../components/Structure/PageHeaderSmall"
