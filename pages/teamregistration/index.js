@@ -1,10 +1,10 @@
-import { useRouter } from 'next/router'
+//import { useRouter } from 'next/router'
 
 const TeamRegistration = ()=>{
-    const router = useRouter()
+    /* const router = useRouter()
     const { id } = router.query;
 
-    console.log(id)
+    console.log(id) */
     return(
         <>
             TEAM REGO

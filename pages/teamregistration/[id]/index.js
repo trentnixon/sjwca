@@ -1,4 +1,3 @@
-//import { useRouter } from 'next/router'
 import { API } from "../../../config/index"
 import fetch from 'node-fetch';
 import { useRouter } from 'next/router';
@@ -8,8 +7,6 @@ import PageHeaderSmall from "../../../components/Structure/PageHeaderSmall"
   
 // Form
 import TeamRegistrationForm from "../../../components/RegisterATeam/TeamRegistrationForm"
-import { H1, H2, H3, H4, P,P_ERROR, S} from "../../../components/type";
-
 
 
 const TeamRegistration = (Team)=>{

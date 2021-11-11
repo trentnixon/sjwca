@@ -4,7 +4,7 @@ import PageHeaderSmall from "../components/Structure/PageHeaderSmall"
 import SupportersIcons from "../components/Structure/SupportersIcons"
 // COmpoennts
 import ManagerSignupForm from "../components/ManagerSeasonSignup/ManagerSignupForm"
-import { H1, H2,P } from "../components/type"
+import { H2,P } from "../components/type"
 const RegisterTeam = ()=>{
 
         return(

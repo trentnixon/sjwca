@@ -29,8 +29,6 @@ export default about
 
 export const getStaticProps = async (context) => {
 
-
-
   const aboutRes = await fetch(`${server}api/about`)
   const about = await aboutRes.json()
 
