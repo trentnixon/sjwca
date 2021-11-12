@@ -5,10 +5,13 @@ const PageHeaderSmall = (props)=>{
     const {HeaderCopy,SubCopy, BGIMG} = props;
 
     return(
-        <div className={StructureStyles.PageHeaderSmall} style={{backgroundImage: "url(" + BGIMG + ")"}}>
-            <H1>{HeaderCopy}</H1>
-            <H2>{SubCopy}</H2>
+        <div className={StructureStyles.PageHeaderSmall} >
+            <div className={StructureStyles.HeaderCopy}>
+                <H1>{HeaderCopy}</H1>
+                <H2>{SubCopy}</H2>
+            </div>
+            <div className={StructureStyles.FixedHeaderIMG} style={{backgroundImage: "url(" + BGIMG + ")"}}></div>
         </div>
     )
 }
-export default PageHeaderSmall; 
+export default PageHeaderSmall;  

@@ -42,7 +42,7 @@ const styles={
         margin: '0 0 .5rem',
         padding: 0,
         lineHeight: '1.3rem',
-        fontSize: '1.065rem',
+        fontSize: '1rem',
         fontWeight: 400
     },
     S:{

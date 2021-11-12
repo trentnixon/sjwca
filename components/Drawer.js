@@ -1,4 +1,6 @@
 import * as React from 'react';
+
+
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import Button from '@mui/material/Button';
@@ -7,15 +9,20 @@ import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
-
 
 import Link from 'next/link'
 import { useRouter } from 'next/router';
 import navStyles from '../styles/Nav.module.css';
 
-
+// Icons
+import MenuIcon from '@mui/icons-material/Menu';
+import HomeIcon from '@mui/icons-material/Home';
+import AcUnitIcon from '@mui/icons-material/AcUnit';
+import HelpIcon from '@mui/icons-material/Help';
+import GroupIcon from '@mui/icons-material/Group';
+import PersonIcon from '@mui/icons-material/Person';
+import EditLocationAltIcon from '@mui/icons-material/EditLocationAlt';
+import SportsCricketIcon from '@mui/icons-material/SportsCricket';
 export default function TemporaryDrawer() {
   const [state, setState] = React.useState({
     top: false,
@@ -26,21 +33,34 @@ export default function TemporaryDrawer() {
   const router = useRouter();
   const Nav = [
     {
-        label:'Home',
-        url:'/'
-    }, {
-        label:'The 2022 Season',
-        url:'/2022season'
-    }, {
-        label:'Register a Team',
-        url:'/registerTeam'
-    }, {
-        label:'Register an Individual',
-        url:'/registerIndividual'
-    }, {
-        label:'About SJWCA',
-        url:'/about'
-    }
+      label:'SJWCA',
+      url:'/',
+      Icon:<HomeIcon />
+    },{
+      label:'Winter 2022',
+      url:'/2022season',
+      Icon:<AcUnitIcon />
+    },{
+      label:'Register a Team',
+      url:'/registerTeam',
+      Icon:<GroupIcon />
+    },{
+      label:'Register an Individual',
+      url:'/registerIndividual',
+      Icon:<PersonIcon />
+    },{
+      label:'Regions we Play',
+      url:'/regions',
+      Icon:<EditLocationAltIcon />
+    },{
+      label:'SJWCA Grounds',
+      url:'/grounds',
+      Icon:<SportsCricketIcon />
+    },{
+      label:'About SJWCA',
+      url:'/about',
+      Icon:<HelpIcon />
+  }
 ]
 
 
@@ -62,16 +82,16 @@ export default function TemporaryDrawer() {
     >
       <List>
         {Nav.map((text, index) => (
-             <ListItem button key={text}>
-             <ListItemIcon>
-               {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-             </ListItemIcon>
-                    <Link href={text.url}  >
-                        <a className={router.pathname == text.url ? navStyles.active : navStyles.a}>
-                            <ListItemText primary={text.label} />
-                        </a>
-                    </Link>
-           </ListItem>
+          <Link href={text.url}  >
+            <ListItem button key={text}>
+                <ListItemIcon>
+                <div className={router.pathname == text.url ? navStyles.active : navStyles.a} >{text.Icon}</div>
+                </ListItemIcon>
+                  <a className={router.pathname == text.url ? navStyles.active : navStyles.a}>
+                      <ListItemText primary={text.label} />
+              </a>
+            </ListItem>
+          </Link>
         ))}
       </List>
      
@@ -85,7 +105,9 @@ export default function TemporaryDrawer() {
     <div>
       {['top'].map((anchor) => (
         <React.Fragment key={anchor}>
-          <Button onClick={toggleDrawer(anchor, true)}>{`Menu`}</Button>
+          <Button className={navStyles.NavBtn} onClick={toggleDrawer(anchor, true)}>
+            <MenuIcon />
+          </Button>
 
           <Drawer
             anchor={anchor}
@@ -99,18 +121,3 @@ export default function TemporaryDrawer() {
     </div>
   );
 }
-
-
-/*
- <Divider />
-      <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
-*/

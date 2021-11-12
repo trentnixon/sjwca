@@ -3,24 +3,35 @@
     flex-direction: column;
 }
 
-/* Structures*/
-
-.COl2{
-        display: flex;
+.BaseLine{
+    background-color: var(--base-color);
+    z-index: 1000;
+    position: relative;
+    padding: 3rem 0;
+    display: flex;
         justify-content: center;
         align-items: flex-start;
         align-content: center;
-        
 }
+/* Page Width Breaks*/
+.FullWidth{ width: 100%; }
+.ContentWidth{  
+    width: 68rem; 
+    margin: 0 auto;  
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: center;}
+
+/* Structures*/
 
 
 
-.COl2 >div{ width: 50%; }
-.COl2 >div.Width70{ width: 70%; }
-.COl2 >div.Width30{ 
-        width: 30%; 
-     
-    }
+
+
+
+.BaseLine div >div.Width70{ width: 70%; }
+.BaseLine div >div.Width30{ width: 30%; }
 
 
 .Column{ flex-direction: column;}
@@ -29,18 +40,46 @@
 /*  Page Headers */
 
 .PageHeaderSmall{
-    height: 35vh;
+    height: 55vh;
     display: flex;
     flex-direction: column;
+    z-index: 100;
+    position: relative;
     justify-content: center;
     align-items: center;
     align-content: center;
-    margin-bottom: 3rem;
+    
+}
+.HeaderCopy{
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+
+}
+.FixedHeaderIMG{
     background-size: cover;
     background-position: center top;
+    position: fixed;
+    width: 100%;
+    height: 55vh;
+    z-index: 0;
 }
 
 
-/* Page Width Breaks*/
-.FullWidth{ width: 100%; }
-.ContentWidth{  width: 68rem; margin: 0 auto; }
+
+
+
+.ReactMarkdown{}
+.ReactMarkdown p{
+    margin: 1rem 0;
+    font-family:'Heebo';
+    margin: 0 0 .5rem;
+    padding: 0;
+    line-height: 1.3rem;
+    font-size: 1rem;
+    font-weight: 400;
+}

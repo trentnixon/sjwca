@@ -1,9 +1,10 @@
 import Nav from "../components/Nav"
 import Meta from "./Meta"
-import GlobalFooter from "./GlobalFooter"
+import GlobalFooter from "./Structure/GlobalFooter"
 import useSWR from 'swr';
 import { server } from "../config/index"
-
+import LoadingAnimation from "./Structure/PageLoader"
+import { H2 } from "./type";
 
 const SJWCA_Layout =  ({children })=>{
 
@@ -11,8 +12,8 @@ const SJWCA_Layout =  ({children })=>{
     const { data, error } =  useSWR(`${server}api/logosmall`, fetcher)
 
   
-        if (error) return <div>Failed to load</div>
-        if (!data) return <div>Loading...</div>
+        if (error) return  <div className="Container">Failed to load</div>
+        if (!data) return  <LoadingPage />
         return(
             <>
                 <Meta />
@@ -26,3 +27,13 @@ const SJWCA_Layout =  ({children })=>{
 }
 
 export default SJWCA_Layout;
+
+
+const LoadingPage = ()=>{
+        return(
+            <div className="Container">
+                  <H2>Loading Page Content</H2>
+                <LoadingAnimation />
+            </div>
+        )
+}

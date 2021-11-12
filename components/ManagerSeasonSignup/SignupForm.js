@@ -17,7 +17,7 @@ import Button from '@mui/material/Button';
 import {EmailError, NumberError} from "../FormElements/Errors"
 
 import { API } from "../../config/index"
-import { H1,P,S } from "../type";
+import { H1,H2,P,S } from "../type";
 
 const SignupForm  = ({setisFormSent, setResponse})=>{
     const label = { inputProps: { 'aria-label': 'Agree to the terms and conditions' } };
@@ -86,6 +86,8 @@ const SignupForm  = ({setisFormSent, setResponse})=>{
     useEffect(()=>{FormCheck() },[Position,Agreed,Name,Email,Number])
 
     return(
+        <>
+        <RegisterFormCopy />
         <FormElementGroup>
           
                 <FormElementsContainer>
@@ -120,6 +122,22 @@ const SignupForm  = ({setisFormSent, setResponse})=>{
                
                 <Button variant="contained" onClick={()=>{handleSendForm()}} disabled={disable}>Register</Button>
         </FormElementGroup>
+        </>
     )
 }
 export default SignupForm;
+
+
+
+
+const RegisterFormCopy=()=>{
+
+    return(
+        <>
+         <H2>Register your team for the 2022 SJWCA Season</H2>
+                                                 <P>The SJWCA Season begins in * of * 2022. Registrations for this coming season will close * of weeks before teh seasons starts, and there are limited spaces in each region</P>
+                                                <P>Select your local Region to find out how many Spaces are left for your team </P>
+                                               
+        </>
+    )
+}

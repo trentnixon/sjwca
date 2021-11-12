@@ -13,14 +13,14 @@ const RegisterIndividual = ()=>{
   return(
     <div className={StructureStyles.Outer}>
         <PageHeaderSmall 
-          HeaderCopy={`Individual Registration`}  
-          SubCopy={`Sydney Junior Winter Cricket Association`} 
+          HeaderCopy={`Regions`}  
+          SubCopy={`Where can we be found`} 
           BGIMG={`/images/BGIMG/RegoBG.jpg`}
         />
 
             <ContentContainer> 
                 <div className={`${StructureStyles.Width70} ${StructureStyles.ReactMarkdown}`} >
-                  <H2>Individual Registration</H2>
+                  <H2>Regions</H2>
                   
                 </div>
                 <div className={`${StructureStyles.Width30}`} >

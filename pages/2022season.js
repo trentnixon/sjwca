@@ -1,26 +1,34 @@
-import { server,API } from "../config/index"
+import { API } from "../config/index"
 import ReactMarkdown from 'react-markdown';
+import StructureStyles from "../styles/Structure/Structure.module.css";
+// Components
+import PageHeaderSmall from "../components/Structure/PageHeaderSmall"
+import ContentContainer from "../components/Structure/ContentContainer"
+// Type
+import { H2 } from "../components/type";
 
 const about = ({about})=>{
 
-        return(
-            <div>
-                 <h1>{about.Name}</h1>
+  return(
+    <div className={StructureStyles.Outer}>
+        <PageHeaderSmall 
+          HeaderCopy={`2022 Season`}  
+          SubCopy={`Sydney Junior Winter Cricket Association`} 
+          BGIMG={`/images/BGIMG/RegoBG.jpg`}
+        />
 
-                 Season kicks off in #####
-               
-                Where would you like to play?
-                 select a location. Site changes to reflect everything about that location.
-                 pervious seasons, number of teams, grounds, games ages, standards. 
-                 google map of locations
-
-                 register a team for this location.
-
-                 how can you help out?
-                
-                  
-            </div>
-        )
+            <ContentContainer> 
+                <div className={`${StructureStyles.Width70} ${StructureStyles.ReactMarkdown}`} >
+                  <H2>{about.Name}</H2>
+                  { <ReactMarkdown>{about.Description}</ReactMarkdown> }
+                </div>
+                <div className={`${StructureStyles.Width30}`} >
+                hello
+                </div>
+              </ContentContainer> 
+      </div>
+          
+) 
 }
 
 export default about
@@ -39,3 +47,4 @@ export const getStaticProps = async (context) => {
     props: {about},
   }
 }
+

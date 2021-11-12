@@ -9,7 +9,6 @@ const RegistrationLandingPage = (props)=>{
  
     return(
         <>
-          
           <RegistrationHeader {...props}/>
           <WantToPlay {...props}/>
           <JoinOver {...props} />
@@ -37,8 +36,6 @@ const WantToPlay = (props)=>{
             <div>
               IMG
             </div>
-        
-        
         </div>
     </section>
   )

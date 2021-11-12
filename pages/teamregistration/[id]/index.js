@@ -5,7 +5,7 @@ import fetch from 'node-fetch';
 
 import StructureStyles from "../../../styles/Structure/Structure.module.css";
 import PageHeaderSmall from "../../../components/Structure/PageHeaderSmall"
-  
+import ContentContainer from "../../../components/Structure/ContentContainer"
 // Form
 import TeamRegistrationForm from "../../../components/RegisterATeam/TeamRegistrationForm"
 
@@ -28,7 +28,9 @@ const TeamRegistration = (Team)=>{
                   HeaderCopy={`Team Registration`}  
                   SubCopy={`SJWCA 2022`} 
                     BGIMG={`/images/BGIMG/RegoBG.jpg`}/>
-                <TeamRegistrationForm SelectedTeam={SelectedTeam} refreshData={refreshData}/>
+                    <ContentContainer>
+                      <TeamRegistrationForm SelectedTeam={SelectedTeam} refreshData={refreshData}/>
+                    </ContentContainer>
         </div>
     )  
 }
