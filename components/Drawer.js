@@ -33,13 +33,9 @@ export default function TemporaryDrawer() {
   const router = useRouter();
   const Nav = [
     {
-      label:'SJWCA',
+      label:'Play Cricket in 2022',
       url:'/',
-      Icon:<HomeIcon />
-    },{
-      label:'Winter 2022',
-      url:'/2022season',
-      Icon:<AcUnitIcon />
+      Icon:<SportsCricketIcon />
     },{
       label:'Register a Team',
       url:'/registerTeam',
@@ -64,7 +60,13 @@ export default function TemporaryDrawer() {
 ]
 
 
-
+/*
+,{
+      label:'Winter 2022',
+      url:'/2022season',
+      Icon:<AcUnitIcon />
+    }
+*/
   const toggleDrawer = (anchor, open) => (event) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
       return;

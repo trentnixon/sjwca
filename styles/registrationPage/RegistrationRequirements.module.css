@@ -1,0 +1,19 @@
+.MainList{
+    margin: 10px;
+    border-top: 1px solid;
+    width: 100%;
+}
+.MainList li{
+    padding: 1rem 2rem ;
+    border-bottom: 1px solid;
+}
+
+
+.MainList li ul{
+    padding: .5rem 2rem ;
+}
+
+.MainList li ul li{
+    padding: .5rem ;
+    border-bottom: none;
+}

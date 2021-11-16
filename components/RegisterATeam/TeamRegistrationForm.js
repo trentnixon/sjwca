@@ -56,7 +56,7 @@ const TeamRegistrationForm = (props)=>{
 
     if(!SelectedTeam.hasReadInstructions || !SelectedTeam.hasAgreedToTerms)
         return(<RegistrationInsructions SelectedTeam={SelectedTeam} setUX={setUX} {...props}/>)
-    if(hasUserSumbitted)
+    if(hasUserSumbitted) 
         return(<RegistrationSubmitted />)
     if(!SelectedTeam.RegistrationOpen || hasUserSumbitted)
         return(<SubmissionUnderReview />)

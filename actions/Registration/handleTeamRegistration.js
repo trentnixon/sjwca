@@ -57,6 +57,17 @@ export const handleSelectDivision = (OBJ)=>{
 
 /* CREATE NEW TEAM */
 
+
+const EmailNewTeamRegistrationPage = (TEAM)=>{
+
+    console.log(TEAM)
+    const URI =`${API}NewTeamConfirm/${TEAM.id}`
+  
+    axios({ url: URI, method: 'get'}).then((res)=>{
+            console.log(res)
+    })
+}
+
 export const handleCreateNewTeam = (OBJ)=>{
   
     /* const OBJ={
@@ -77,7 +88,8 @@ export const handleCreateNewTeam = (OBJ)=>{
     .then(function (response) {
         console.log(response)
         OBJ._CALLBACK(response)
-        // always executed
+        EmailNewTeamRegistrationPage(response.data)
+        // always executed 
     })
     .catch(function (error) {
         // handle error
