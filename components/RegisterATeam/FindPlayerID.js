@@ -48,7 +48,7 @@ const AddPlayer = (props)=>{
        setPlayerRoster(StoreRoster)
     },[]) */
     
-    useEffect(()=>{ console.log(PlayerReturn) },[PlayerReturn])
+    useEffect(()=>{ },[PlayerReturn])
     
     return(
         <>
@@ -64,7 +64,7 @@ const AddPlayer = (props)=>{
                                             MyCricketID={MyCricketID}
                                             {...props}
                                             /></> : 
-                                        < PlayerLookupCheck />
+                                        < PlayerLookupCheck /> 
                     }
         </>
     )
@@ -74,14 +74,20 @@ export default AddPlayer;
 
 
 const NewPlayerPath = (props)=>{
-    const {PlayerReturn, CurrentSeasonID } = props
+    const {PlayerReturn, CurrentSeasonID , isNextFetching} = props
+
+    console.log("isNextFetching = ", isNextFetching)
+    useEffect(()=>{},[isNextFetching])
         return(
             <>
                 {
                     !PlayerReturn.length ?
                             <>
                                 <PlayerID  {...props}/>
-                                <SelectedPlayerList {...props} CurrentSeasonID={CurrentSeasonID}/>
+                                {
+                                    isNextFetching ?'Loading':<SelectedPlayerList {...props} CurrentSeasonID={CurrentSeasonID}/>
+                                }
+                                
                             </> : 
                                 <CreateorUpdatePlayer {...props}/>
                 }
@@ -102,10 +108,10 @@ const CreateorUpdatePlayer = (props)=>{
     const {PlayerReturn,SelectedTeam, ResetParentComponent} = props;
 
     const hasPlayeralreadyBeenAssignedToTeam = (ID)=>{
-        console.log(ID, PlayerReturn, SelectedTeam?.TeamSeason[0]?.TeamRoster[0]?.players)
+        //console.log(ID, PlayerReturn, SelectedTeam?.TeamSeason[0]?.TeamRoster[0]?.players)
         let INDEX = findIndex(SelectedTeam?.TeamSeason[0]?.TeamRoster[0]?.players, function(o) { return o.id == ID; });
         
-        console.log(INDEX)
+        //console.log(INDEX)
         if(INDEX != -1)
             return true
                 return false
@@ -114,7 +120,6 @@ const CreateorUpdatePlayer = (props)=>{
     if(hasPlayeralreadyBeenAssignedToTeam(PlayerReturn[0].id))
         return(
             <>
-                
                 <H3>PLAYER ALREADY IN TEAM</H3>
                 <Btn_ResetParentComponent ResetParentComponent={ResetParentComponent}/>
             </>

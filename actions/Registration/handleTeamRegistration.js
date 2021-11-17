@@ -9,14 +9,14 @@ export const UpdateRegistrationFormHandler = (OBJ)=>{
             _DATA:{Name:event.target.value.id}
         } */
 
-        console.log(OBJ._DATA)
+        //console.log(OBJ._DATA)
         OBJ._CALLBACK(true)
     
         const header = { headers: {'Content-Type': 'application/json',}}
        
         axios({ url: OBJ._URI, method: 'put', data:OBJ._DATA})
         .then(function (response) {
-            console.log(response)
+            //console.log(response)
             OBJ._CALLBACK(false)
             // always executed
         })

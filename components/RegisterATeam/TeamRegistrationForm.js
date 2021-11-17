@@ -47,11 +47,11 @@ const TeamRegistrationForm = (props)=>{
     const [TeamCoachName, setTeamCoachName] = useState(false)
     const [TeamCoachEmail, setTeamCoachEmail] = useState(false)
     const [TeamCoachNumber, setTeamCoachNumber] = useState(false)
-    
-    const LimitedManagerNumber = 3;
-    
+     
 
-    useEffect(()=>{ console.log(`isFormUpdating? ${UX} ${SelectedTeam.RegistrationOpen}`) },[UX, SelectedTeam])
+    useEffect(()=>{ 
+        //console.log(`isFormUpdating? ${UX} ${SelectedTeam.RegistrationOpen}`) 
+    },[UX, SelectedTeam])
 
 
     if(!SelectedTeam.hasReadInstructions || !SelectedTeam.hasAgreedToTerms)

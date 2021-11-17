@@ -135,8 +135,7 @@ const RegisterFormCopy=()=>{
     return(
         <>
             <H2>Register your team for the 2022 SJWCA Season</H2>
-            <P>The SJWCA Season begins in * of * 2022. Registrations for this coming season will close * of weeks before teh seasons starts, and there are limited spaces in each region</P>
-                                              
+            <P>The SJWCA Season begins in * of * 2022. Registrations for this coming season will close * of weeks before the seasons starts, and there are limited spaces in each region</P>                                
         </>
     )
 }

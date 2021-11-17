@@ -16,7 +16,7 @@ export const FindPlayerDetails = (OBJ)=>{
     })
     .catch(function (error) {
         // handle error
-        console.log('FindPlayerDetails ERROR ', error); 
+        console.log('FindPlayerDetails ERROR ', error);  
         OBJ._CALLBACK([{id:false}])
     })
 }
@@ -55,7 +55,7 @@ export const UpdatePlayer = (OBJ)=>{
     axios({ url: URI, method: 'put', data:{id:OBJ._PLAYERID, Season_receipts : OBJ._PLAYER_SEASON_RECEIPTS}})
         .then(function (response) { 
             // Prep Roster and send to Team Update
-            console.log(OBJ)
+            //console.log(OBJ)
             PrepTeamRosterforUpdate(OBJ, OBJ._PLAYERID)
             // always executed
         })

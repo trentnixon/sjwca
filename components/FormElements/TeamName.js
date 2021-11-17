@@ -1,11 +1,15 @@
 import TextField from '@mui/material/TextField';
+import { useState } from 'react';
 import {UpdateRegistrationFormHandler} from "../../actions/Registration/handleTeamRegistration"
 import { API } from "../../config/index"
 import FormElementsContainer from "./FormElementContainer"
 
 export default function TeamName({setTeamName, CurrentName, SelectedTeam, setUX}) {
-    const handleChange=(e)=>{
 
+  const [focusClass, setFocusClass] = useState('false')
+    const handleChange=(e)=>{
+      console.log("FOCVUISED OUT")
+      setFocusClass(false)
         if(e.target.value.length != 0 ){
             
             setTeamName(e.target.value)
@@ -20,9 +24,14 @@ export default function TeamName({setTeamName, CurrentName, SelectedTeam, setUX}
         }
     }
 
+    const handleonFocus = ()=>{
+        console.log("FOCVUISED")
+        setFocusClass(true)
+    }
+
   return (
-          <FormElementsContainer>
-            <TextField label={SelectedTeam.Name} variant="standard" placeholder={CurrentName} fullWidth onBlur={handleChange}/>
+          <FormElementsContainer focusClass={focusClass}>
+            <TextField label={SelectedTeam.Name} variant="standard" placeholder={CurrentName} onFocus={handleonFocus} fullWidth onBlur={handleChange}/>
           </FormElementsContainer>
       );
-}
+} 

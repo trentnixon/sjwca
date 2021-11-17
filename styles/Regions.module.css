@@ -1,0 +1,27 @@
+.Region{
+    
+}
+
+.List{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+}
+.List li{
+    width: 31%;
+    padding: .8rem 0.3rem;
+    font-size: .9rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+}
+.List li svg{
+    fill: var(--accent-color);
+    margin: 0 5px 0 0;
+    cursor: pointer;
+}
+
+.List li svg:hover{ fill: var(--dark-color);}

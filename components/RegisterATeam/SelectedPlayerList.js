@@ -25,7 +25,7 @@ const SelectedPlayerList = (props)=>{
             setNewSeason([]) 
     },[SelectedTeam])
 
-    useEffect(()=>{ console.log(TeamRoster)  },[NewSeason])
+    useEffect(()=>{  },[NewSeason])
 
     
     if(NewSeason?.length === 0)
