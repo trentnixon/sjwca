@@ -2,9 +2,10 @@ import StructureStyles from "../styles/Structure/Structure.module.css";
 
 import PageHeaderSmall from "../components/Structure/PageHeaderSmall"
 import SupportersIcons from "../components/Structure/SupportersIcons"
-// COmpoennts
+// Compoennts
 import ManagerSignupForm from "../components/ManagerSeasonSignup/ManagerSignupForm"
-import ContentContainer from "../components/Structure/ContentContainer"
+import ContentContainer from "../components/Structure/ContentContainer";
+import RegistrationSideNav from "../components/RegisterATeam/RegistrationSideNav";
 const RegisterTeam = ()=>{
 
         return(
@@ -18,12 +19,9 @@ const RegisterTeam = ()=>{
                         <div className={StructureStyles.Width70}>
                                 <ManagerSignupForm />
                         </div>
+
                         <div className={`${StructureStyles.Width30}`} >
-                                Side Nav
-                                Things needed to register a Team.
-                                Where we play.
-                                Rules.
-                                Facebook contact?
+                                <RegistrationSideNav />
                         </div>
                 </ContentContainer>
                 <SupportersIcons />

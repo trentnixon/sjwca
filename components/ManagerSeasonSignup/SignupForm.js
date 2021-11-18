@@ -17,7 +17,13 @@ import Button from '@mui/material/Button';
 import {EmailError, NumberError} from "../FormElements/Errors"
 
 import { API } from "../../config/index"
-import { H1,H2,P,S } from "../type";
+import { H1,H2,H4,P,S } from "../type";
+
+// Icons
+import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
+import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
+import ContactPhoneIcon from '@mui/icons-material/ContactPhone';
+import PersonIcon from '@mui/icons-material/Person';
 
 const SignupForm  = ({setisFormSent, setResponse})=>{
     const label = { inputProps: { 'aria-label': 'Agree to the terms and conditions' } };
@@ -91,13 +97,14 @@ const SignupForm  = ({setisFormSent, setResponse})=>{
         <FormElementGroup>
           
                 <FormElementsContainer>
+                    <DriveFileRenameOutlineIcon />
                     <TextField label={'Name'} variant="standard" placeholder={'Name'} fullWidth onBlur={handleName} 
                     autocomplete={false}
-                    />
+                    /> 
                 </FormElementsContainer>
-
+        
                 <FormElementsContainer>
-                    <InputLabel id="Select-Age-Group">I am the teams</InputLabel>
+                 <PersonIcon />
                         <Select value={Position} label="I am the teams" variant="standard"fullWidth onChange={handleSelectPosition}>
                             {
                                 data.map((item,i)=>{
@@ -112,15 +119,17 @@ const SignupForm  = ({setisFormSent, setResponse})=>{
 
             <FormElementsContainer>
             <EmailError Valid={isEmail} Email={Email}/>
+                    <AlternateEmailIcon />
                     <TextField label={'Contact Email Address'} variant="standard" placeholder={'Contact Email Address'} fullWidth onBlur={handleEmail}/>
                 </FormElementsContainer>
 
+                <NumberError Valid={isNumber} Number={Number}/>
                 <FormElementsContainer>
-                    <NumberError Valid={isNumber} Number={Number}/>
+                    <ContactPhoneIcon />
                     <TextField label={'Contact Number'} type="number" variant="standard" placeholder={'Contact Number'} fullWidth onBlur={handleNumber}/>
                 </FormElementsContainer>
 
-                <S>I agree to let SJWCA contact me via the Supplied Email Address  <Switch onChange={handleAgree} label="Label"/></S>
+                <S style={{color:'#969595'}}>I agree to let SJWCA contact me via the Supplied Email Address  <Switch onChange={handleAgree} label="Label"/></S>
                
                 <Button variant="contained" onClick={()=>{handleSendForm()}} disabled={disable}>Register</Button>
         </FormElementGroup>
@@ -136,7 +145,7 @@ const RegisterFormCopy=()=>{
 
     return(
         <>
-            <H2>Register your team for the 2022 SJWCA Season</H2>
+            <H2>Register a team</H2>
             <P>The SJWCA Season begins in * of * 2022. Registrations for this coming season will close * of weeks before the seasons starts, and there are limited spaces in each region</P>                                
         </>
     )

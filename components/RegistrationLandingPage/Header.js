@@ -12,17 +12,12 @@ const RegistrationHeader = (props)=>{
 
                     <div className={Registrationstyles.RegistrationMeta}>
                        
-
                          
                             <img src={logoLarge.image.url} className={Registrationstyles.Logo}  />
                             
                             <S style={{fontWeight:200, textTransform:'uppercase'}} >established 2005</S>
                             <H2>17th Season</H2>
                             <P>Sydney's Only Junior Winter Cricket Competition!</P>
-
-
-                            
-
 
                     </div>    
                     <div className={Registrationstyles.RegistrationDetails}>

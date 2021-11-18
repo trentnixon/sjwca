@@ -2,8 +2,13 @@
     --main-bg-color: #F1F7FF;
     --base-color: #F1F7FF;
     --color-tile-1:#DCEBFF;
-    --dark-color : #373737;
-	---dark-100:#f3f3f3;
+   
+
+	--dark-100:#f3f3f3;
+	--dark-300:#c9c8c8;
+	--dark-600:#969595;
+	--dark-900:#383838;
+	--dark-color : #373737;
     --accent-color: #FF9813;
     --Error-color:#c96b6b;
 	--Success-color:#6bc98a;
