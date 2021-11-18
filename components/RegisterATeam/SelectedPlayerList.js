@@ -5,7 +5,7 @@ import ButtonsStyles from "../../styles/Structure/Buttons.module.css";
 
 import FormElementGroup from "../FormElements/FormElementGroup"
 import DeletePlayerFromRoster from "../FormElements/DeletePlayerFromRoster"
-import {H1,H2, H4} from "../type"
+import {H1,H2, H3, H4} from "../type"
 import {find} from "lodash"
 import GroupIcon from '@mui/icons-material/Group';
 import PersonIcon from '@mui/icons-material/Person';
@@ -18,18 +18,17 @@ const DisplayPlayerlist = (props)=>{
     const [TeamRoster, setTeamRoster] = useState([])
 
     const FindSeason = ()=>{
+        console.log('run FindSeason')
         let NewSeason  = find(SelectedTeam.TeamSeason, function(o) { return o.season.id === CurrentSeasonID; });
         setNewSeason(NewSeason)
         setTeamRoster(NewSeason?.TeamRoster[0].players)
     } 
     
-    NewSeason.length === 0 ? FindSeason() : false
-
-
-
-    console.log(SelectedTeam)
+    NewSeason?.length === 0 ? FindSeason() : false
+    console.log(SelectedTeam);
+    
     if(!NewSeason)
-        return(<>Rehydrating</>)
+        return(<><H3>Enter a Player to start the Season</H3></>)
         return( <Roster TeamRoster={TeamRoster} {...props}/>)
 
 }
