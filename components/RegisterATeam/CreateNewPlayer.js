@@ -1,5 +1,5 @@
 import { useState,useEffect } from "react";
-
+import  ButtonStyle from "../../styles/Structure/Buttons.module.css"
 //Actions
 import {AddNewPlayer, CreateTeamRosterforStrapi} from "../../actions/Registration/handlePlayerRoster"
 
@@ -17,7 +17,7 @@ import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 
 
-import {H1,H2,H3,P} from "../type";
+import {H1,H2,H3,H4,P} from "../type";
 
 const CreateNewPlayer = (props)=>{
     const {SelectedTeam, ResetParentComponent, MyCricketID, CurrentSeasonID} = props;
@@ -38,7 +38,7 @@ const CreateNewPlayer = (props)=>{
     const handleClick = ()=>{
 
         let FirstReciept =[{ReceiptNumber:ReceiptNum, season:[Season],team:[SelectedTeam.id] }]
-        console.log(SelectedTeam, Season)
+        //console.log(PlayerDOB)
         const OBJ={
                   
             _PLAYERNAME:PlayerName,
@@ -57,8 +57,8 @@ const CreateNewPlayer = (props)=>{
           
         }
        
-        AddNewPlayer(OBJ)
-        setUpdatingPlayer(true)
+            AddNewPlayer(OBJ)
+            setUpdatingPlayer(true)
     }
 
 
@@ -70,18 +70,23 @@ const CreateNewPlayer = (props)=>{
         return(
             <FormElementGroup>
                 <H2>Create New Player</H2>
-                <H3>My Cricket ID : {MyCricketID}</H3>
-             {PlayerDOB}
+                <H4>My Cricket ID : {MyCricketID}</H4>
+           
                     <Create_Player_Name setPlayerName={setPlayerName}/>
                     <Create_PlayerContactNumber setPlayerContactNumber={setPlayerContactNumber}/>
                     <Create_PlayerEmail setPlayerEmail={setPlayerEmail}/>
+                    <Select_Gender setGender={setGender}/>   
+                    <DateOfBirth setPlayerDOB={setPlayerDOB} />
+
                     <SeasonReceipt setReceiptNum={setReceiptNum}/>
                     <Select_Seasons setSeason={setSeason}/>
-                    <Select_Gender setGender={setGender}/>  
-                   <DateOfBirth setPlayerDOB={setPlayerDOB} />
-                <Button variant="contained" onClick={()=>{handleClick()}} disabled={disabled}>Create New Player</Button>
-                <Btn_ResetParentComponent ResetParentComponent={ResetParentComponent}/>
                     
+                    <div className={ButtonStyle.BtnRight}>
+                        <div className={ButtonStyle.BtnGroup}>
+                            <Button variant="contained" className={ButtonStyle.Next} onClick={()=>{handleClick()}} disabled={disabled}>Create New Player</Button>
+                            <Btn_ResetParentComponent ResetParentComponent={ResetParentComponent}/>
+                        </div>
+                    </div>
             </FormElementGroup>
         )
 }

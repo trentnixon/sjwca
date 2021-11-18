@@ -7,6 +7,15 @@
     flex-direction: column;
 }
 
+.BtnGroup{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    width: 100%;
+}
+
 .Next{
     background-color: var(--Next-color) !important ;
     color: var(--base-color) !important ;
@@ -18,6 +27,11 @@
 .Next:disabled{
     background-color: var(--color-tile-1) !important ;
     color: var(--base-color) !important ;
+}
+
+
+.Back{
+    background-color: var(--Error-color) !important;
 }
 
 .Error svg{

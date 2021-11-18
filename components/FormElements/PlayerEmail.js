@@ -4,6 +4,8 @@ import TextField from '@mui/material/TextField';
 import FormElementsContainer from "./FormElementContainer"
 import {EmailError} from "./Errors"
 import {validateEmail} from "../../actions/handleUX"
+import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
+
 const PlayerName = (props)=>{
     const {setPlayerEmail} = props;
 
@@ -17,17 +19,21 @@ const PlayerName = (props)=>{
         if(validateEmail(e.target.value)){ setPlayerEmail(e.target.value)}
     }
     return (
-        <FormElementsContainer>
-          <EmailError Valid={isEmail} Email={Email}/>
-            <TextField 
-                    id="outlined-basic" 
-                    label={`Contact Email`}
-                    variant="standard" 
-                    placeholder={`Contact Email`} 
-                    fullWidth
-                    onBlur={handleChange}
-            />
-        </FormElementsContainer>
+        <>
+           
+                <FormElementsContainer>
+                    <AlternateEmailIcon />
+                        <TextField 
+                                id="outlined-basic" 
+                                label={`Contact Email`}
+                                variant="standard" 
+                                placeholder={`Contact Email`} 
+                                fullWidth
+                                onBlur={handleChange}
+                        />
+                </FormElementsContainer>
+                <EmailError Valid={isEmail} Email={Email}/>
+        </>
         ); 
 }
 export default PlayerName;

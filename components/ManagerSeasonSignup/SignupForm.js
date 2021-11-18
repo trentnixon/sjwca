@@ -120,13 +120,13 @@ const SignupForm  = ({setisFormSent, setResponse})=>{
             <FormElementsContainer>
             <EmailError Valid={isEmail} Email={Email}/>
                     <AlternateEmailIcon />
-                    <TextField label={'Contact Email Address'} variant="standard" placeholder={'Contact Email Address'} fullWidth onBlur={handleEmail}/>
+                    <TextField autocomplete={false} label={'Contact Email Address'} variant="standard" placeholder={'Contact Email Address'} fullWidth onBlur={handleEmail}/>
                 </FormElementsContainer>
 
                 <NumberError Valid={isNumber} Number={Number}/>
                 <FormElementsContainer>
                     <ContactPhoneIcon />
-                    <TextField label={'Contact Number'} type="number" variant="standard" placeholder={'Contact Number'} fullWidth onBlur={handleNumber}/>
+                    <TextField autocomplete={false} label={'Contact Number'} type="number" variant="standard" placeholder={'Contact Number'} fullWidth onBlur={handleNumber}/>
                 </FormElementsContainer>
 
                 <S style={{color:'#969595'}}>I agree to let SJWCA contact me via the Supplied Email Address  <Switch onChange={handleAgree} label="Label"/></S>

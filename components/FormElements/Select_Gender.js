@@ -7,7 +7,7 @@ import Select from '@mui/material/Select';
 import FormElementsContainer from "./FormElementContainer"
 import useSWR from 'swr';
 import { server, API } from "../../config/index"
-
+import WcIcon from '@mui/icons-material/Wc';
 
  const SelectGender = ({setGender}) => {
 
@@ -25,7 +25,9 @@ import { server, API } from "../../config/index"
   if (!data) return <div>Loading...</div>
   return (
     <FormElementsContainer>
+      <WcIcon />
       <FormControl fullWidth>
+        
         <InputLabel id="Select-Age-Group">Gender</InputLabel>
         <Select
           labelId="Select-Age-Group"

@@ -32,7 +32,7 @@ export default SJWCA_Layout;
 const LoadingPage = ()=>{
         return(
             <div className="Container">
-                  <H2>Loading Page Content</H2>
+                <H2>Loading Page Content</H2>
                 <LoadingAnimation />
             </div>
         )

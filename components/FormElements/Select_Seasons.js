@@ -9,7 +9,7 @@ import useSWR from 'swr';
 import { server, API } from "../../config/index"
 import {UpdateRegistrationFormHandler} from "../../actions/Registration/handleTeamRegistration";
 import FormElementsContainer from "./FormElementContainer"
-
+import SportsCricketIcon from '@mui/icons-material/SportsCricket';
  const SelectARegion = ({setSeason}) => {
 
     const fetcher = (url) => fetch(url).then((res) => res.json());
@@ -29,6 +29,7 @@ import FormElementsContainer from "./FormElementContainer"
   console.log(data)
   return (
     <FormElementsContainer>
+      <SportsCricketIcon />
       <FormControl fullWidth>
         <InputLabel id="Select-Age-Group">Select a Season</InputLabel>
         <Select

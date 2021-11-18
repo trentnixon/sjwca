@@ -7,7 +7,7 @@ import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DesktopDatePicker from '@mui/lab/DesktopDatePicker';
 
 import FormElementsContainer from "./FormElementContainer"
-
+import DateRangeIcon from '@mui/icons-material/DateRange';
 export default function MaterialUIPickers({setPlayerDOB}) {
 
   const [value, setValue] = React.useState(new Date('2013-01-01'));
@@ -21,6 +21,7 @@ export default function MaterialUIPickers({setPlayerDOB}) {
 
   return (
     <FormElementsContainer>
+      <DateRangeIcon />
     <LocalizationProvider dateAdapter={AdapterDateFns}>
      
         <DesktopDatePicker

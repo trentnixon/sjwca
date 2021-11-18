@@ -1,7 +1,7 @@
 
 import TextField from '@mui/material/TextField';
 import FormElementsContainer from "./FormElementContainer"
-
+import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
 const PlayerName = (props)=>{
     const {setPlayerName} = props;
 
@@ -11,7 +11,8 @@ const PlayerName = (props)=>{
       
     }
     return (
-        <FormElementsContainer>
+        <FormElementsContainer> 
+            <DriveFileRenameOutlineIcon />
             <TextField 
                     id="outlined-basic" 
                     label={`Player Name`}

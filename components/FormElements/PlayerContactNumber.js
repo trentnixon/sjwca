@@ -4,6 +4,7 @@ import { useState } from 'react';
 import FormElementsContainer from "./FormElementContainer"
 import {ValidateNumberOnly} from "../../actions/handleUX"
 import {NumberError} from "./Errors"
+import ContactPhoneIcon from '@mui/icons-material/ContactPhone';
 const PlayerName = (props)=>{
     
     const {setPlayerContactNumber} = props;
@@ -19,9 +20,10 @@ const PlayerName = (props)=>{
         
     }
     return (
-        <FormElementsContainer>
-           
-            <NumberError Valid={isNumber} Number={Number}/>
+        <>
+        
+            <FormElementsContainer>
+            <ContactPhoneIcon />
             <TextField 
                     id="outlined-basic" 
                     label={`Contact Number`}
@@ -31,6 +33,8 @@ const PlayerName = (props)=>{
                     onBlur={handleChange}
             />
         </FormElementsContainer>
+        <NumberError Valid={isNumber} Number={Number}/>
+        </> 
         );  
 }
 export default PlayerName;

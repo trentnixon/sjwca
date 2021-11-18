@@ -27,7 +27,7 @@ const TeamRegistration = ({Team, Completed})=>{
 
 
   useEffect(()=>{ setSelectedTeam(Team) },[Team])
-
+ 
     
     if(SelectedTeam.length === 0){
       return(
