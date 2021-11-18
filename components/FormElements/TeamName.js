@@ -28,10 +28,18 @@ export default function TeamName({setTeamName, CurrentName, SelectedTeam, setUX}
         console.log("FOCVUISED")
         setFocusClass(true)
     }
-
+ 
   return (
           <FormElementsContainer focusClass={focusClass}>
-            <TextField label={SelectedTeam.Name} variant="standard" placeholder={CurrentName} onFocus={handleonFocus} fullWidth onBlur={handleChange}/>
+            <TextField 
+              label={SelectedTeam.Name} 
+              variant="standard" 
+              placeholder={CurrentName} 
+              onFocus={handleonFocus} 
+              fullWidth 
+              onBlur={handleChange}
+            
+              />
           </FormElementsContainer>
       );
 } 

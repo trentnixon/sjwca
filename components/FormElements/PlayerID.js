@@ -1,20 +1,25 @@
 import * as React from 'react';
-
+import  ButtonStyle from "../../styles/Structure/Buttons.module.css"
 import {FindPlayerDetails} from "../../actions/Registration/handlePlayerRoster";
 import FormElementsContainer from "./FormElementContainer"
 import FormElementGroup from "./FormElementGroup"
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { H4 } from '../type';
-
+import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
 
 export default function PlayerID({FindPlayerID, FetchPlayerValue, setMyCricketID}) {
 
    const [InternalMyCricketID, setInternalMyCricketID] = React.useState(null)
 
+   const [disabled, setDisabled] = React.useState(true)
   const handleIDInput = (e)=>{
     setMyCricketID(e.target.value)
     setInternalMyCricketID(e.target.value)
+    
+    e.target.value.length === 0 ? setDisabled(true) :setDisabled(false)
+      
+        
   }
 
 
@@ -32,7 +37,7 @@ export default function PlayerID({FindPlayerID, FetchPlayerValue, setMyCricketID
     }
   return (
       <>
-        <H4>Add a Player</H4>
+        <H4>Add a Player <PersonAddAlt1Icon /> </H4>
         <FormElementGroup>
         <form  onSubmit={handleSubmit} > 
               <FormElementsContainer>
@@ -44,7 +49,9 @@ export default function PlayerID({FindPlayerID, FetchPlayerValue, setMyCricketID
                     onInput={handleIDInput}
                     />
                     </FormElementsContainer>
-                <Button variant="outlined" type="submit">Find Player</Button>
+                    <div className={ButtonStyle.BtnRight}>
+                      <Button variant="contained" type="submit" className={ButtonStyle.Next} disabled={disabled}>Find Player</Button>
+                  </div>
           </form>
           </FormElementGroup>
         </>

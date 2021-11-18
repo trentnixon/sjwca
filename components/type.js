@@ -7,6 +7,7 @@ const styles={
         fontFamily: 'Heebo',
         padding: '0',
         margin: '0 0 0.5rem',
+      
     },
     H1:{
         lineHeight: '2.5rem',

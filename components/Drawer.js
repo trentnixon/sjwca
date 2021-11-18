@@ -84,7 +84,7 @@ export default function TemporaryDrawer() {
     >
       <List>
         {Nav.map((text, index) => (
-          <Link href={text.url}  >
+          <Link href={text.url} key={index} >
             <ListItem button key={text}>
                 <ListItemIcon>
                 <div className={router.pathname == text.url ? navStyles.active : navStyles.a} >{text.Icon}</div>

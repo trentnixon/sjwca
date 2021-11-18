@@ -14,7 +14,7 @@ import {findIndex} from "lodash"
 
 const UpdateExictingPlayer = (props)=>{
 
-    const {PlayerReturn, SelectedTeam, ResetParentComponent,CurrentSeasonID} = props;
+    const {PlayerReturn, SelectedTeam, ResetParentComponent,CurrentSeasonID, setisAddingNewPlayer} = props;
    
     const [ReceiptNum, setReceiptNum] = useState(0)
     const [Season, setSeason] = useState(0)
@@ -51,6 +51,7 @@ const UpdateExictingPlayer = (props)=>{
     const PostFetchCALLBACK = ()=>{
         ResetParentComponent()
         setUpdatingPlayer(false) 
+        
     }
 
 
@@ -76,6 +77,7 @@ const UpdateExictingPlayer = (props)=>{
                 }
                 UpdatePlayer(OBJ)
                 setUpdatingPlayer(true)
+                
             }
     }
 

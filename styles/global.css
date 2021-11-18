@@ -5,7 +5,12 @@
     --dark-color : #373737;
 	---dark-100:#f3f3f3;
     --accent-color: #FF9813;
-    --Border-Radius: 5px;
+    --Error-color:#c96b6b;
+	--Success-color:#6bc98a;
+	--Next-color:#6ba3c9;
+	--Border-Radius: 5px;
+
+
 
 	--DropShadow: 10px;
 	--DropShadowMinus:-10px;

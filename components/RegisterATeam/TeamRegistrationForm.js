@@ -26,6 +26,12 @@ import RegistrationInsructions from "./RegistrationInsructions";
 import RegistrationSubmitted from "./RegistrationSubmitted";
 import SubmissionUnderReview from "./SubmissionUnderReview";
 
+// Icons
+import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
+import GradeIcon from '@mui/icons-material/Grade';
+import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
+import AccessibilityNewIcon from '@mui/icons-material/AccessibilityNew';
+
 import {H1,H2,H3,H4, P} from "../type"
 
 const TeamRegistrationForm = (props)=>{
@@ -53,6 +59,7 @@ const TeamRegistrationForm = (props)=>{
         //console.log(`isFormUpdating? ${UX} ${SelectedTeam.RegistrationOpen}`) 
     },[UX, SelectedTeam])
 
+    
 
     if(!SelectedTeam.hasReadInstructions || !SelectedTeam.hasAgreedToTerms)
         return(<RegistrationInsructions SelectedTeam={SelectedTeam} setUX={setUX} {...props}/>)
@@ -72,13 +79,14 @@ const TeamRegistrationForm = (props)=>{
 
 
             <div className={`${StructureStyles.Width30} ${FormElementsStyles.FormTitles}`} >
-                
-                <H4>Team Name</H4>
-                <FormElementGroup>
+                    <Btn_ConfirmTeam SelectedTeam={SelectedTeam} setUX={setUX} sethasUserSumbitted={sethasUserSumbitted}/>
+
+                <H4>Team Name <DriveFileRenameOutlineIcon /></H4>
+                    <FormElementGroup>
                         <SelectTeamName setTeamName={setTeamName} CurrentName={SelectedTeam.Name} SelectedTeam={SelectedTeam} setUX={setUX} />
                     </FormElementGroup>
 
-                <H4>Grading</H4>
+                <H4>Grading <GradeIcon /></H4>
                 <FormElementGroup>
                     
                     <SelectAgeGroup setAgeGroup={setAgeGroup} SelectedTeam={SelectedTeam} setUX={setUX}/>
@@ -87,7 +95,7 @@ const TeamRegistrationForm = (props)=>{
                     
                 </FormElementGroup>
 
-                <H4>Manager Details</H4>
+                <H4>Manager Details <ManageAccountsIcon /></H4>
                 <FormElementGroup>
                     <Name_Team_Manager setTeamManagerName={setTeamManagerName} SelectedTeam={SelectedTeam} setUX={setUX}/>
                     <Email_Team_Manager setTeamManagerEmail={setTeamManagerEmail} SelectedTeam={SelectedTeam} setUX={setUX} />
@@ -95,7 +103,7 @@ const TeamRegistrationForm = (props)=>{
                     
                 </FormElementGroup>
 
-                <H4>Coach Details</H4>
+                <H4>Coach Details <AccessibilityNewIcon /></H4>
                 <FormElementGroup>
                    
                     <Name_Team_Coach setTeamCoachName={setTeamCoachName} SelectedTeam={SelectedTeam} setUX={setUX}/>
@@ -104,7 +112,6 @@ const TeamRegistrationForm = (props)=>{
                     
                 </FormElementGroup>
 
-                <Btn_ConfirmTeam SelectedTeam={SelectedTeam} setUX={setUX} sethasUserSumbitted={sethasUserSumbitted}/>
             
             </div>  
         </div>

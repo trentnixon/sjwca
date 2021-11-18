@@ -1,0 +1,28 @@
+.BtnRight{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    align-content: flex-end;
+    margin: 10px 0;
+    flex-direction: column;
+}
+
+.Next{
+    background-color: var(--Next-color) !important ;
+    color: var(--base-color) !important ;
+}
+.Next:hover{
+    background-color: var(--base-color ) !important ;
+    color: var(--Next-color) !important ;
+}
+.Next:disabled{
+    background-color: var(--color-tile-1) !important ;
+    color: var(--base-color) !important ;
+}
+
+.Error svg{
+        fill: var(--Error-color)
+}
+
+
+.Success{ fill: var(--Success-color) !important; }

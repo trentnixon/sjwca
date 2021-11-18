@@ -26,7 +26,7 @@ const PlayerName = (props)=>{
                     id="outlined-basic" 
                     label={`Contact Number`}
                     variant="standard" 
-                    placeholder={`Contact Number`} 
+                   
                     fullWidth
                     onBlur={handleChange}
             />

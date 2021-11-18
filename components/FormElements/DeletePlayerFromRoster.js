@@ -1,11 +1,11 @@
-
+import ButtonStyles from "../../styles/Structure/Buttons.module.css"
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import {UpdateRegistrationFormHandler} from "../../actions/Registration/handleTeamRegistration"
 import { API } from "../../config/index";
 import {filter} from 'lodash';
 
-const DeletePlayerFromRoster = ({player,SelectedTeam,refreshData})=>{
+const DeletePlayerFromRoster = ({player,SelectedTeam,refreshData, ResetParentComponent})=>{
 
     const handleDelete = ()=>{
         let OBJ={
@@ -17,10 +17,11 @@ const DeletePlayerFromRoster = ({player,SelectedTeam,refreshData})=>{
       
         OBJ._DATA = {TeamSeason :SelectedTeam.TeamSeason}
         UpdateRegistrationFormHandler(OBJ)
+        ResetParentComponent()
     }
     
     return(
-        <IconButton aria-label="delete" onClick={handleDelete}>
+        <IconButton aria-label="delete" onClick={handleDelete} className={ButtonStyles.Error}>
             <DeleteIcon />
         </IconButton>
     )

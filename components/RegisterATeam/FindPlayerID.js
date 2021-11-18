@@ -11,19 +11,25 @@ import SelectedPlayerList from "./SelectedPlayerList";
 
 
 const AddPlayer = (props)=>{
+
     const {SelectedTeam, refreshData, CurrentSeasonID} = props
-    const LimitedPlayerNumber = 15;
+   
     const [PlayerLookup, setPlayerLookup] = useState(false);
     const [PlayerReturn, setPlayerReturn] = useState([]);
     //const [PlayerRoster, setPlayerRoster] = useState([]);
     const [MyCricketID, setMyCricketID] = useState(null)
+    
+    //const [isAddingNewPlayer, setisAddingNewPlayer] = useState(true)
+   
 
     const ResetParentComponent = ()=>{
         console.log("RESET FORM COMPONENTS")
+        refreshData()
         setPlayerLookup(false)
         setPlayerReturn([])
-        //setPlayerRoster([])
-        refreshData()
+        //setisAddingNewPlayer(true)
+       
+        
     }
     const FindPlayerID = ()=>{
         setPlayerLookup(true) 
@@ -35,18 +41,6 @@ const AddPlayer = (props)=>{
         setPlayerReturn(Value)
        
     }
-    
-/*     useEffect(()=>{
-        let StoreRoster=[]
-        SelectedTeam.players.map((player,i)=>{
-            console.log(player)
-            StoreRoster.push({
-                Name:player.Name,
-                MyCricketID: player.MyCricketID
-            })
-        })
-       setPlayerRoster(StoreRoster)
-    },[]) */
     
     useEffect(()=>{ },[PlayerReturn])
     
@@ -62,6 +56,8 @@ const AddPlayer = (props)=>{
                                             ResetParentComponent={ResetParentComponent}
                                             CurrentSeasonID={CurrentSeasonID}
                                             MyCricketID={MyCricketID}
+                                            /* isAddingNewPlayer={isAddingNewPlayer}
+                                            setisAddingNewPlayer={setisAddingNewPlayer} */
                                             {...props}
                                             /></> : 
                                         < PlayerLookupCheck /> 
@@ -74,19 +70,14 @@ export default AddPlayer;
 
 
 const NewPlayerPath = (props)=>{
-    const {PlayerReturn, CurrentSeasonID , isNextFetching} = props
-
-    console.log("isNextFetching = ", isNextFetching)
-    useEffect(()=>{},[isNextFetching])
+    const {PlayerReturn} = props
         return(
             <>
                 {
                     !PlayerReturn.length ?
                             <>
                                 <PlayerID  {...props}/>
-                                {
-                                    isNextFetching ?'Loading':<SelectedPlayerList {...props} CurrentSeasonID={CurrentSeasonID}/>
-                                }
+                                <SelectedPlayerList {...props} />
                                 
                             </> : 
                                 <CreateorUpdatePlayer {...props}/>

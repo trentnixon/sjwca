@@ -1,7 +1,5 @@
-import RegionStyles from "../../../styles/Regions.module.css";
-
 import { API } from "../../../config/index"
-import Link from 'next/link'
+
 import ReactMarkdown from 'react-markdown';
 import fetch from 'node-fetch';
 import { GoogleMap, Marker } from '@react-google-maps/api';
@@ -12,7 +10,7 @@ import ContentContainer from "../../../components/Structure/ContentContainer"
 import FullWidthContainer from "../../../components/Structure/FullWidthContainer"
 import { H2 } from "../../../components/type";
 import { useState } from "react";
-import LaunchIcon from '@mui/icons-material/Launch';
+
 
 
 const SingleRegion = (region)=>{
@@ -28,17 +26,7 @@ const SingleRegion = (region)=>{
         lat: parseFloat(useRegion.Lat),
         lng: parseFloat(useRegion.Long)
       };
-    
-      const svgMarker = {
-        path: "M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z",
-        fillColor: "#ffffff",
-        fillOpacity: 1,
-        strokeWeight: 0,
-        rotation: 0,
-        scale: 1.5,
-        anchor: new google.maps.Point(15, 30),
-      }
-
+  
 
       
   const GroundMarker = {
@@ -51,19 +39,7 @@ const SingleRegion = (region)=>{
     anchor: new google.maps.Point(15, 30),
   }
 
-      const Markers = ()=>{
-        let Markers = []
-        useRegion.grounds.map((region,i)=>{
-          Markers.push(<Marker 
-                        icon={GroundMarker}
-                       
-                        position={{lat: parseFloat(region.Lat),lng: parseFloat(region.Long) }}
-        />)
-          
-      })
-  
-      return Markers
-      }
+
 
     return(
         <div className={StructureStyles.Outer}> 
@@ -77,43 +53,25 @@ const SingleRegion = (region)=>{
                             <H2>{useRegion.Name}</H2>
                                 { <ReactMarkdown>{useRegion.About}</ReactMarkdown> }
                         </div>
-                    <div className={`${StructureStyles.Width30}`} >
-                            <H2>Pitches</H2>
-                            <ul className={RegionStyles.List_col}>
-                        {
-                            useRegion.grounds.map((grounds,i)=>{
-                                    return(
-                                        <li>
-                                             {grounds.Name}
-                                            <Link href={`/ground/${grounds.id}`}>
-                                                <LaunchIcon />
-                                            </Link>
-                                           
-                                        </li>
-                                    )
-                            })
-                        }
-                          </ul>
-                    </div>
+                        <div className={`${StructureStyles.Width30}`} >
+                              
+                        </div>
                     </ContentContainer>
 
                     <FullWidthContainer> 
-                  <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={15}>
-                        <Marker icon={svgMarker} position={{lat: parseFloat(useRegion.Lat),lng: parseFloat(useRegion.Long) }} />
-                
-                    {Markers()}
-                  </GoogleMap>
-              </FullWidthContainer>
+                      <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={18}>
+                        <Marker icon={GroundMarker} position={{lat: parseFloat(useRegion.Lat),lng: parseFloat(useRegion.Long) }} />
+                      </GoogleMap>
+                  </FullWidthContainer>
         </div>
     )  
 }
 export default SingleRegion;
 
-
  
 
 export const getServerSideProps = async(ctx)=>{
-        const res = await fetch(`${API}regions/${ctx.params.id}`);
+        const res = await fetch(`${API}grounds/${ctx.params.id}`);
         const region = await res.json()
         return{ props:{ region:region }} 
 }

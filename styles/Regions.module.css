@@ -1,5 +1,11 @@
-.Region{
-    
+
+.List_col{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .List{
@@ -9,7 +15,7 @@
     align-content: center;
     align-items: center;
 }
-.List li{
+.List li, .List_col li{
     width: 31%;
     padding: .8rem 0.3rem;
     font-size: .9rem;
@@ -18,10 +24,12 @@
     align-items: center;
     align-content: center;
 }
-.List li svg{
+.List li svg, .List_col li svg{
     fill: var(--accent-color);
     margin: 0 5px 0 0;
     cursor: pointer;
 }
 
-.List li svg:hover{ fill: var(--dark-color);}
+.List li svg:hover, .List_col li svg:hover{ fill: var(--dark-color);}
+
+.List_col li{width: 100%;}

@@ -91,7 +91,9 @@ const SignupForm  = ({setisFormSent, setResponse})=>{
         <FormElementGroup>
           
                 <FormElementsContainer>
-                    <TextField label={'Name'} variant="standard" placeholder={'Name'} fullWidth onBlur={handleName}/>
+                    <TextField label={'Name'} variant="standard" placeholder={'Name'} fullWidth onBlur={handleName} 
+                    autocomplete={false}
+                    />
                 </FormElementsContainer>
 
                 <FormElementsContainer>
