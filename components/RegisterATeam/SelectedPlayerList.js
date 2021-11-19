@@ -1,5 +1,5 @@
-import { server, API } from "../../config/index"
-import { useEffect, useState } from "react";
+//import { server, API } from "../../config/index"
+import {  useState } from "react";
 import PlayerListCSS from "../../styles/registrationPage/PlayerList.module.css";
 import ButtonsStyles from "../../styles/Structure/Buttons.module.css";
 
@@ -28,9 +28,8 @@ const DisplayPlayerlist = (props)=>{
     console.log(SelectedTeam);
     
     if(!NewSeason)
-        return(<><H3>Enter a Player to start the Season</H3></>)
+        return(<></>)
         return( <Roster TeamRoster={TeamRoster} {...props}/>)
-
 }
 
 export default DisplayPlayerlist;

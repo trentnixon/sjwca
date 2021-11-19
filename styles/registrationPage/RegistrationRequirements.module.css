@@ -1,19 +1,75 @@
 .MainList{
-    margin: 10px;
-    border-top: 1px solid;
     width: 100%;
 }
-.MainList li{
-    padding: 1rem 2rem ;
-    border-bottom: 1px solid;
+
+.MainList p{
+    font-family: 'Heebo';
+    margin: 0px 0px 0.5rem;
+    padding: 0px;
+    line-height: 1.3rem;
+    font-size: 1rem;
+    font-weight: 400;
 }
+
+.MainList h2{
+    font-family: 'Heebo';
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin: 0 2rem 2rem;
+    position: relative;
+    border-bottom: 1px solid;
+    padding-bottom: .5rem;
+}
+
+.MainList h2:before{
+    
+    background-size: 28px 28px;
+    content:  url('/images/svg/NoteDown.svg');
+    width: 24px; 
+    height: 24px;
+    position: absolute;
+    left: -35px;
+    top:0
+}
+
+.MainList ul{
+    
+    margin: 10px 1rem 20px ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+.MainList li{
+    padding: .8rem 2rem ;
+    background-color: var(--color-tile-1);
+    width: 85%;
+    position: relative;
+    margin: 1px 0 ;
+    border-radius: var(--Border-Radius);
+}
+
+.MainList ul li:before{
+    
+    background-size: 28px 28px;
+    content:  url('/images/svg/Person.svg');
+    width: 24px; 
+    height: 24px;
+    position: absolute;
+    left: 3px;
+    top: 10px;
+}
+
 
 
 .MainList li ul{
-    padding: .5rem 2rem ;
+   padding: 0;
+   margin: 0 ;
 }
 
 .MainList li ul li{
-    padding: .5rem ;
+    padding: 0;
+    margin: 0 2rem ;
     border-bottom: none;
 }

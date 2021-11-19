@@ -6,17 +6,18 @@ import fetch from 'node-fetch';
 import StructureStyles from "../../../styles/Structure/Structure.module.css";
 import PageHeaderSmall from "../../../components/Structure/PageHeaderSmall"
 import ContentContainer from "../../../components/Structure/ContentContainer"
+import DataLoadingPlaceHolder from "../../../components/Structure/DataLoadingPlaceHolder"
 // Form
 import TeamRegistrationForm from "../../../components/RegisterATeam/TeamRegistrationForm"
 import { useEffect, useState } from 'react';
 import { H2 } from '../../../components/type';
 
 
-const TeamRegistration = ({Team, Completed})=>{
+const TeamRegistration = ({Team, RegistrationInsructions})=>{
     // In your component body
   const router = useRouter()
 
- 
+
   const [SelectedTeam, setSelectedTeam] = useState(Team)
   // call this method whenever you want to refresh server-side props
   const refreshData = () => {
@@ -30,17 +31,7 @@ const TeamRegistration = ({Team, Completed})=>{
  
     
     if(SelectedTeam.length === 0){
-      return(
-        <div className={StructureStyles.Outer}> 
-                <PageHeaderSmall 
-                  HeaderCopy={`Team Registration`}  
-                  SubCopy={`SJWCA 2022`} 
-                    BGIMG={`/images/BGIMG/RegoBG.jpg`}/> 
-                    <ContentContainer>
-                     <H2>Gathering Details</H2>
-                    </ContentContainer> 
-        </div>
-      )
+      return( <DataLoadingPlaceHolder Copy={`Gathering Details`}/>)
     }
     return(
         <div className={StructureStyles.Outer}> 
@@ -49,10 +40,10 @@ const TeamRegistration = ({Team, Completed})=>{
                   SubCopy={`SJWCA 2022`} 
                     BGIMG={`/images/BGIMG/RegoBG.jpg`}/> 
                     <ContentContainer>
-                      <TeamRegistrationForm SelectedTeam={SelectedTeam} refreshData={refreshData} />
+                      <TeamRegistrationForm SelectedTeam={SelectedTeam} refreshData={refreshData}  Insructions={RegistrationInsructions.Insructions}/>
                     </ContentContainer> 
         </div>
-    )  
+    )   
 }
 export default TeamRegistration;
 
@@ -61,6 +52,8 @@ export default TeamRegistration;
 
 export const getServerSideProps = async(ctx)=>{
         const res = await fetch(`${API}teams/${ctx.params.id}`);
+        const resRego = await fetch(`${API}registration-insructions`);
         const Team = await res.json()
-        return{ props:{ Team:Team, Completed: false }} 
+        const RegistrationInsructions = await resRego.json()
+        return{ props:{ Team:Team, Completed: false, RegistrationInsructions:RegistrationInsructions }} 
 }

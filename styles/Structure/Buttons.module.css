@@ -5,6 +5,7 @@
     align-content: flex-end;
     margin: 10px 0;
     flex-direction: column;
+    width: 100%;
 }
 
 .BtnGroup{

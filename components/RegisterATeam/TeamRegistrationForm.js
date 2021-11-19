@@ -55,12 +55,10 @@ const TeamRegistrationForm = (props)=>{
     const [TeamCoachNumber, setTeamCoachNumber] = useState(false)
      
 
-    useEffect(()=>{ 
-        //console.log(`isFormUpdating? ${UX} ${SelectedTeam.RegistrationOpen}`) 
-    },[UX, SelectedTeam])
+    useEffect(()=>{ },[UX, SelectedTeam])
 
     
-
+    
     if(!SelectedTeam.hasReadInstructions || !SelectedTeam.hasAgreedToTerms)
         return(<RegistrationInsructions SelectedTeam={SelectedTeam} setUX={setUX} {...props}/>)
     if(hasUserSumbitted) 
