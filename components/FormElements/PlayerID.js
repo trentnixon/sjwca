@@ -8,6 +8,8 @@ import Button from '@mui/material/Button';
 import { H4 } from '../type';
 import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
 import DialpadIcon from '@mui/icons-material/Dialpad';
+import {isEmpty} from "../../actions/handleUX"
+
 export default function PlayerID({FindPlayerID, FetchPlayerValue, setMyCricketID}) {
 
    const [InternalMyCricketID, setInternalMyCricketID] = React.useState(null)
@@ -17,7 +19,9 @@ export default function PlayerID({FindPlayerID, FetchPlayerValue, setMyCricketID
     setMyCricketID(e.target.value)
     setInternalMyCricketID(e.target.value)
     
-    e.target.value.length === 0 ? setDisabled(true) :setDisabled(false)
+    isEmpty(e.target.value) ?  setMyCricketID(false) :setMyCricketID(e.target.value)
+
+    isEmpty(e.target.value) ? setDisabled(true) :setDisabled(false)
       
         
   }
@@ -47,6 +51,7 @@ export default function PlayerID({FindPlayerID, FetchPlayerValue, setMyCricketID
                     label="Entry a players MyCricket ID" 
                     variant="standard"
                     fullWidth
+                    type='number'
                     onInput={handleIDInput}
                     />
                     </FormElementsContainer>

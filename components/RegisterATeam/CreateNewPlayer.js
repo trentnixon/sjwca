@@ -42,7 +42,7 @@ const CreateNewPlayer = (props)=>{
         const OBJ={
                   
             _PLAYERNAME:PlayerName,
-            _SEASON:Season,
+            _SEASON:Season, 
             _MyCricketID:MyCricketID,
             _RECEIPTNUM:ReceiptNum,
             _TEAMID:SelectedTeam.id,
@@ -62,10 +62,17 @@ const CreateNewPlayer = (props)=>{
     }
 
 
+    const FieldCheck = ()=>{
+        console.log('FieldCheck')
+        console.log(Gender)
+        if(Season && ReceiptNum && PlayerName && Gender && PlayerEmail && PlayerContactNumber && PlayerDOB)
+            return true 
+                return false
+    }
+
     useEffect(()=>{
-        if(Season && ReceiptNum && PlayerName && Gender && PlayerEmail && PlayerContactNumber)
-        setDisabled(false)
-    },[Season,ReceiptNum, PlayerName,Gender])
+        FieldCheck() ? setDisabled(false) :setDisabled(true)
+    },[Season , ReceiptNum , PlayerName , Gender, PlayerEmail , PlayerContactNumber , PlayerDOB])
 
         return(
             <FormElementGroup>
@@ -77,7 +84,6 @@ const CreateNewPlayer = (props)=>{
                     <Create_PlayerEmail setPlayerEmail={setPlayerEmail}/>
                     <Select_Gender setGender={setGender}/>   
                     <DateOfBirth setPlayerDOB={setPlayerDOB} />
-
                     <SeasonReceipt setReceiptNum={setReceiptNum}/>
                     <Select_Seasons setSeason={setSeason}/>
                     

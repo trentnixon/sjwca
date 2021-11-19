@@ -7,9 +7,11 @@ import Select from '@mui/material/Select';
 
 import useSWR from 'swr';
 import { server, API } from "../../config/index"
-import {UpdateRegistrationFormHandler} from "../../actions/Registration/handleTeamRegistration";
+//import {UpdateRegistrationFormHandler} from "../../actions/Registration/handleTeamRegistration";
 import FormElementsContainer from "./FormElementContainer"
 import SportsCricketIcon from '@mui/icons-material/SportsCricket';
+import {isEmpty} from "../../actions/handleUX"
+
  const SelectARegion = ({setSeason}) => {
 
     const fetcher = (url) => fetch(url).then((res) => res.json());
@@ -18,15 +20,14 @@ import SportsCricketIcon from '@mui/icons-material/SportsCricket';
 
 
     const handleChange = (event) => {
-        setSeason(event.target.value);
+     
         setvalue(event.target.value)
-
+        isEmpty(event.target.value) ?  setSeason(false) :setSeason(event.target.value) 
     };
   
   if (error) return <div>Failed to load</div>
   if (!data) return <div>Loading...</div>
 
-  console.log(data)
   return (
     <FormElementsContainer>
       <SportsCricketIcon />

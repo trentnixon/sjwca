@@ -23,7 +23,7 @@ const RegisterTeam = ()=>{
                         <div className={`${StructureStyles.Width30}`} >
                                 <RegistrationSideNav />
                         </div>
-                </ContentContainer>
+                </ContentContainer> 
                 <SupportersIcons />
             </> 
         ) 

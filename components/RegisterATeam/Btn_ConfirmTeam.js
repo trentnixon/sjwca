@@ -29,6 +29,7 @@ const Btn_ConfirmTeam = ({SelectedTeam, setUX, sethasUserSumbitted})=>{
       !SelectedTeam.TeamSeason[0]?.TeamRoster[0].players.length ? setDisabled(true) :
       SelectedTeam.TeamSeason[0]?.TeamRoster[0].players.length>=MinPlayerNum ?  setDisabled(false) :   setDisabled(true)
    
+        console.log(SelectedTeam)
     },[SelectedTeam])
 
     const PlayersLeft = ()=>{

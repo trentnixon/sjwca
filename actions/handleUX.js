@@ -10,3 +10,11 @@ export const ValidateNumberOnly = (email) => {
     const re = /^\d+$/;
     return re.test(String(email).toLowerCase());
 }
+
+export const isEmpty = (STR)=>{
+
+        if(!STR|| STR.match(/^ *$/) !== null)
+            return true
+                return false
+        
+}

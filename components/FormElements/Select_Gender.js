@@ -8,7 +8,7 @@ import FormElementsContainer from "./FormElementContainer"
 import useSWR from 'swr';
 import { server, API } from "../../config/index"
 import WcIcon from '@mui/icons-material/Wc';
-
+import {isEmpty} from "../../actions/handleUX"
  const SelectGender = ({setGender}) => {
 
     const fetcher = (url) => fetch(url).then((res) => res.json());
@@ -18,6 +18,7 @@ import WcIcon from '@mui/icons-material/Wc';
     const handleChange = (event) => {
         setGender(event.target.value);
         setvalue(event.target.value)
+        isEmpty(event.target.value) ?  setGender(false) :setGender(event.target.value) 
 
     };
   

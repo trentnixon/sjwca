@@ -5,6 +5,7 @@ import FormElementsContainer from "./FormElementContainer"
 import {EmailError} from "./Errors"
 import {validateEmail} from "../../actions/handleUX"
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
+import {isEmpty} from "../../actions/handleUX"
 
 const PlayerName = (props)=>{
     const {setPlayerEmail} = props;
@@ -16,7 +17,11 @@ const PlayerName = (props)=>{
         setisEmail(validateEmail(e.target.value))
         setEmail(e.target.value)
 
-        if(validateEmail(e.target.value)){ setPlayerEmail(e.target.value)}
+        if(validateEmail(e.target.value)){ 
+            isEmpty(e.target.value) ?  setPlayerEmail(false) :setPlayerEmail(e.target.value) 
+          }else{
+            setPlayerEmail(false)
+          }
     }
     return (
         <>

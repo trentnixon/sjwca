@@ -5,6 +5,8 @@ import FormElementsContainer from "./FormElementContainer"
 import {ValidateNumberOnly} from "../../actions/handleUX"
 import {NumberError} from "./Errors"
 import ContactPhoneIcon from '@mui/icons-material/ContactPhone';
+import {isEmpty} from "../../actions/handleUX"
+
 const PlayerName = (props)=>{
     
     const {setPlayerContactNumber} = props;
@@ -15,9 +17,10 @@ const PlayerName = (props)=>{
         setisNumber(ValidateNumberOnly(e.target.value))
         setNumber(e.target.value)
         if(ValidateNumberOnly(e.target.value)){
-            setPlayerContactNumber(e.target.value)
+           isEmpty(e.target.value) ?  setPlayerContactNumber(false) :setPlayerContactNumber(e.target.value)  
+        }else{
+            setPlayerContactNumber(false)
         }
-        
     }
     return (
         <>
@@ -28,7 +31,7 @@ const PlayerName = (props)=>{
                     id="outlined-basic" 
                     label={`Contact Number`}
                     variant="standard" 
-                   
+                    type='number'
                     fullWidth
                     onBlur={handleChange}
             />

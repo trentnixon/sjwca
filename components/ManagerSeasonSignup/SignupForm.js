@@ -24,7 +24,7 @@ import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutli
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import ContactPhoneIcon from '@mui/icons-material/ContactPhone';
 import PersonIcon from '@mui/icons-material/Person';
-
+import {isEmpty} from "../../actions/handleUX" 
 const SignupForm  = ({setisFormSent, setResponse})=>{
     const label = { inputProps: { 'aria-label': 'Agree to the terms and conditions' } };
 
@@ -34,7 +34,7 @@ const SignupForm  = ({setisFormSent, setResponse})=>{
     const [Position, setPosition] = useState('')
     const [Name, setName] = useState(false)
     const [Email, setEmail] = useState('')
-    const [Number, setNumber] = useState('')
+    const [Number, setNumber] = useState('') 
 
     const [Agreed, setAgreed] = useState(false)
     const [isPosition, setisPosition] = useState(false)
@@ -75,18 +75,27 @@ const SignupForm  = ({setisFormSent, setResponse})=>{
         setPosition(event.target.value)
     }
     const handleName = (event)=>{ 
-        setName(event.target.value)
-        setisName(true)
+      
+        isEmpty(event.target.value) ?  setName(false) :setName(event.target.value)
+        isEmpty(event.target.value) ?  setisName(false) :setisName(true)
+        
     }
 
-    const handleEmail = (e)=>{
-        setisEmail(validateEmail(e.target.value))
-        setEmail(e.target.value)
+    const handleEmail = (event)=>{
+     /*    //setisEmail(validateEmail(event.target.value))
+        //setEmail(e.target.value) */
+
+        isEmpty(event.target.value) ?  setisEmail(false) :setisEmail(validateEmail(event.target.value))
+        isEmpty(event.target.value) ?  setEmail(false) :setEmail(event.target.value)
     }
     const handleAgree = (e)=>{ setAgreed(e.target.checked) }
-    const handleNumber  = (e)=>{
-        setisNumber(ValidateNumberOnly(e.target.value))
-        setNumber(e.target.value)
+    
+    
+    const handleNumber  = (event)=>{
+  
+
+        isEmpty(event.target.value) ?  setisNumber(false) :setisNumber(ValidateNumberOnly(event.target.value))
+        isEmpty(event.target.value) ?  setNumber(false) :setNumber(event.target.value)
     }
 
     useEffect(()=>{FormCheck() },[Position,Agreed,Name,Email,Number])
@@ -118,16 +127,19 @@ const SignupForm  = ({setisFormSent, setResponse})=>{
             
 
             <FormElementsContainer>
-            <EmailError Valid={isEmail} Email={Email}/>
                     <AlternateEmailIcon />
                     <TextField autocomplete={false} label={'Contact Email Address'} variant="standard" placeholder={'Contact Email Address'} fullWidth onBlur={handleEmail}/>
                 </FormElementsContainer>
+                <EmailError Valid={isEmail} Email={Email}/>
 
-                <NumberError Valid={isNumber} Number={Number}/>
+                
+               
+               
                 <FormElementsContainer>
                     <ContactPhoneIcon />
                     <TextField autocomplete={false} label={'Contact Number'} type="number" variant="standard" placeholder={'Contact Number'} fullWidth onBlur={handleNumber}/>
                 </FormElementsContainer>
+                <NumberError Valid={isNumber} Number={Number}/>
 
                 <S style={{color:'#969595'}}>I agree to let SJWCA contact me via the Supplied Email Address  <Switch onChange={handleAgree} label="Label"/></S>
                

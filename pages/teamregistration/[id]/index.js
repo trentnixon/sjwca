@@ -30,7 +30,7 @@ const TeamRegistration = ({Team, RegistrationInsructions})=>{
   useEffect(()=>{ setSelectedTeam(Team) },[Team])
  
     
-    if(SelectedTeam.length === 0){
+    if(SelectedTeam.length === 0){ 
       return( <DataLoadingPlaceHolder Copy={`Gathering Details`}/>)
     }
     return(
@@ -42,7 +42,7 @@ const TeamRegistration = ({Team, RegistrationInsructions})=>{
                     <ContentContainer>
                       <TeamRegistrationForm SelectedTeam={SelectedTeam} refreshData={refreshData}  Insructions={RegistrationInsructions.Insructions}/>
                     </ContentContainer> 
-        </div>
+        </div> 
     )   
 }
 export default TeamRegistration;
