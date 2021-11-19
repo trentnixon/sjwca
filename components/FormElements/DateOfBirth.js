@@ -20,9 +20,9 @@ export default function MaterialUIPickers({setPlayerDOB}) {
     
     setValue(newValue);
 
-    isEmpty(newValue) ?  setPlayerDOB(false) :setPlayerDOB(D.getTime())
+    isEmpty(parseInt(D.getTime())) ?  setPlayerDOB(false) :setPlayerDOB(D.getTime())
   };
-
+ 
   return (
     <FormElementsContainer>
       <DateRangeIcon /> 

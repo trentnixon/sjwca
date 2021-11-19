@@ -7,7 +7,6 @@ import { useEffect, useState } from 'react';
 import { S } from '../type';
 const Btn_ConfirmTeam = ({SelectedTeam, setUX, sethasUserSumbitted})=>{
     
-    console.log(SelectedTeam.TeamSeason[0]?.TeamRoster[0].players.length);
     const MinPlayerNum = 9;
 
     const [disabled,setDisabled] = useState(true)

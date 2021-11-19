@@ -18,15 +18,14 @@ const DisplayPlayerlist = (props)=>{
     const [TeamRoster, setTeamRoster] = useState([])
 
     const FindSeason = ()=>{
-        console.log('run FindSeason')
+        //console.log('run FindSeason')
         let NewSeason  = find(SelectedTeam.TeamSeason, function(o) { return o.season.id === CurrentSeasonID; });
         setNewSeason(NewSeason)
         setTeamRoster(NewSeason?.TeamRoster[0].players)
     } 
     
     NewSeason?.length === 0 ? FindSeason() : false
-    console.log(SelectedTeam);
-    
+  
     if(!NewSeason)
         return(<></>)
         return( <Roster TeamRoster={TeamRoster} {...props}/>)
