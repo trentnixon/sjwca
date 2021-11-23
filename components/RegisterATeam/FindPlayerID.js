@@ -24,14 +24,14 @@ const AddPlayer = (props)=>{
     
     useEffect(()=>{ console.log(PlayerRoster) },[PlayerRoster])
     
-    console.log(PlayerRoster) 
+  
 
     if(!PlayerRoster)
     return( <PlayerLookupCheck setPlayerRoster={setPlayerRoster} {...props}/>)
     return(
         <>
             {
-                !isMyCricketIDEntered ? <NewPlayerPath  ResetParentComponent={ResetParentComponent} PlayerRoster={PlayerRoster} setPlayerRoster={setPlayerRoster} {...props} />:< PlayerLookupCheck /> 
+                !isMyCricketIDEntered ? <NewPlayerPath  ResetParentComponent={ResetParentComponent} PlayerRoster={PlayerRoster} setPlayerRoster={setPlayerRoster} {...props} />:<Interim /> 
             }
         </>
     )
@@ -110,6 +110,13 @@ const PlayerLookupCheck = (props)=>{
     fetchLatestTeamRoster(SelectedTeam.id,CurrentSeasonID,  setPlayerRoster)
     return(
         <H3>Player Lookup...</H3> 
+    )
+}
+
+const Interim = (props)=>{
+
+    return(
+        <H3>Interim...</H3> 
     )
 }
 
