@@ -9,7 +9,6 @@ import SeasonReceipt from "../FormElements/SeasonReceipt"
 import Select_Seasons from "../FormElements/Select_Seasons"
 import Btn_ResetParentComponent from "./Btn_ResetParentComponent"
 import Button from '@mui/material/Button';
-import {findIndex} from "lodash"
 
 
 
@@ -23,38 +22,40 @@ const UpdateExictingPlayer = (props)=>{
     const [receiptUsed, setReceiptUsed] = useState(false)
  
 
-    const RecieptCheck = ()=>{
+    const CreateNewReceiptObj = ()=>{
+        let OBJ=[]
 
-        let INDEX  = findIndex(PlayerReturn[0].Season_receipts, function(o) { return o.ReceiptNumber == ReceiptNum; })
-        if(INDEX === -1)
-            {
-                PlayerReturn[0].Season_receipts.push({ ReceiptNumber:ReceiptNum, season:[Season],team:[SelectedTeam.id] })
-                return PlayerReturn[0].Season_receipts;
-            }
-        else{
-            console.log(`INDEX ${INDEX} already exists`)
-            return false
-        }
+        PlayerReturn[0].Season_receipts.map((receipt, )=>{
+            console.log(receipt)
+            OBJ.push({
+                ReceiptNumber:receipt.ReceiptNumber,
+                Confirmed:receipt.Confirmed,
+                season:receipt.season.id,
+                team:receipt.team.id
+            })
+        })
+
+        OBJ.push({
+            ReceiptNumber:ReceiptNum,
+            Confirmed:false,
+            season:CurrentSeasonID,
+            team:SelectedTeam.id
+        })
+
+        console.log(OBJ)
+        return OBJ
     }
-
-
-
 
     const handleClick = ()=>{
       
-        // CHeck to see if reciept has been used
-        let New_Season_receipts =  RecieptCheck()
- 
-        if(!New_Season_receipts)
-            {
-                console.log(`New_Season_receipts  = ${New_Season_receipts}`)
-                setReceiptUsed(true)
-            }else{
                 RefreshUIonAddUpdate(true)
 
+                //let FirstReciept =[{ReceiptNumber:ReceiptNum, season:[Season],team:[SelectedTeam.id] }]
+                CreateNewReceiptObj()
+                console.log(PlayerReturn[0].Season_receipts)
                 const OBJ={
                     _PLAYERID:PlayerReturn[0].id,
-                    _PLAYER_SEASON_RECEIPTS:PlayerReturn[0].Season_receipts,
+                    _PLAYER_SEASON_RECEIPTS:CreateNewReceiptObj(),
                     _SEASON:Season,
                     _RECEIPTNUM:ReceiptNum,
                     _TEAMID:SelectedTeam.id,
@@ -64,22 +65,13 @@ const UpdateExictingPlayer = (props)=>{
                     _CALLBACK:RequestnewDatafromStrapi
                 }
                 UpdatePlayer(OBJ)
-            }
     }
 
     useEffect(()=>{
         if(Season && ReceiptNum)
-        setDisabled(false)
+            setDisabled(false)
     },[Season,ReceiptNum])
 
-   
-    if(receiptUsed)
-        return(
-            <>
-                <P_ERROR> ERROR: this Reciept ID has already been used. </P_ERROR>
-                <Button variant="contained" onClick={()=>{BacktoIDInput()}} >Retry</Button>
-            </>
-        )
         return(
             <FormElementGroup>
                 <H4>MyCricket ID : {PlayerReturn[0].MyCricketID} </H4>

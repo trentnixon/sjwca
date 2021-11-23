@@ -1,6 +1,6 @@
 const axios = require('axios');
 import { API } from "../../config/index";
-import {UpdateRegistrationFormHandler} from "./handleTeamRegistration"
+//import {UpdateRegistrationFormHandler} from "./handleTeamRegistration"
 
 
 export const FindPlayerDetails = (OBJ)=>{
@@ -22,7 +22,7 @@ export const FindPlayerDetails = (OBJ)=>{
 }
 
 
-const PrepTeamRosterforUpdate = (OBJ, ID)=>{
+/* const PrepTeamRosterforUpdate = (OBJ, ID)=>{
     OBJ._URI =`${API}teams/${OBJ._TEAMID}` 
     // Add new player ID to the Team Registration and Save
     if(OBJ._TEAMROSTER.length === 0){
@@ -43,7 +43,7 @@ const PrepTeamRosterforUpdate = (OBJ, ID)=>{
     console.log("PrepTeamRosterforUpdate", OBJ)
     UpdateRegistrationFormHandler(OBJ)
 }
-
+ */
 
 
 
@@ -64,15 +64,26 @@ export const UpdateTeamSeasonRoster = (OBJ)=>{
 }
 
 
+
 export const UpdatePlayer = (OBJ)=>{
     const URI =`${API}players/${OBJ._PLAYERID}`
     //_TEAMID
     const header = { headers: {'Content-Type': 'application/json',}}
+
     console.log(" OBJ._PLAYER_SEASON_RECEIPTS",  OBJ._PLAYER_SEASON_RECEIPTS)
 
-    axios({ url: URI, method: 'put', data:{id:OBJ._PLAYERID, Season_receipts : OBJ._PLAYER_SEASON_RECEIPTS}})
+
+    const _PLAYER_UPDATE_DATA = {
+        id:OBJ._PLAYERID, 
+        Season_receipts : OBJ._PLAYER_SEASON_RECEIPTS
+    }
+
+
+    axios({ url: URI, method: 'put', data:_PLAYER_UPDATE_DATA})
         .then(function (response) { 
           
+            console.log(response)
+
             OBJ._TEAMROSTER.push(OBJ._PLAYERID)
             UpdateTeamSeasonRoster(OBJ)
             //UpdateRegistrationFormHandler(OBJ)

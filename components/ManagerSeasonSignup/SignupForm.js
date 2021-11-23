@@ -25,7 +25,7 @@ import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import ContactPhoneIcon from '@mui/icons-material/ContactPhone';
 import PersonIcon from '@mui/icons-material/Person';
 import {isEmpty} from "../../actions/handleUX" 
-const SignupForm  = ({setisFormSent, setResponse})=>{
+const SignupForm  = ({setisFormSent, setResponse, CurrentSeasonID})=>{
     const label = { inputProps: { 'aria-label': 'Agree to the terms and conditions' } };
 
     const data=['Manager', 'Coach']
@@ -42,7 +42,7 @@ const SignupForm  = ({setisFormSent, setResponse})=>{
     const [isEmail, setisEmail] = useState(false)
     const [isNumber, setisNumber] = useState(false)
 
-    const CurrentSeasonID  = '617643e7c6aed15de0691391';
+   
     const handleSendForm = ()=>{
 
         const OBJ={
@@ -55,7 +55,6 @@ const SignupForm  = ({setisFormSent, setResponse})=>{
                 Manager_Email:Email,
                 Manager_Phone:Number,
                 Current_Season_ID:CurrentSeasonID
-                
             }
           }
  

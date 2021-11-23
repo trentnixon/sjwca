@@ -102,27 +102,6 @@ const NewPlayerPath = (props)=>{
 
 
 
-
-
-
-const PlayerLookupCheck = (props)=>{
-    const {SelectedTeam,CurrentSeasonID, setPlayerRoster} = props
-    fetchLatestTeamRoster(SelectedTeam.id,CurrentSeasonID,  setPlayerRoster)
-    return(
-        <H2>Player Lookup...</H2> 
-    )
-}
-
-const Interim = (props)=>{
-
-    return(
-        <H2>Gathering Information...</H2> 
-    )
-}
-
-
-
-
 const CreateorUpdatePlayer = (props)=>{
     const {PlayerReturn,BacktoIDInput, PlayerRoster} = props;
 
@@ -151,3 +130,19 @@ const CreateorUpdatePlayer = (props)=>{
             </>
         )
 } 
+
+
+const PlayerLookupCheck = (props)=>{
+    const {SelectedTeam,CurrentSeasonID, setPlayerRoster} = props
+    fetchLatestTeamRoster(SelectedTeam.id,CurrentSeasonID,  setPlayerRoster)
+    return(
+        <H2>Player Lookup...</H2> 
+    )
+}
+
+const Interim = (props)=>{
+
+    return(
+        <H2>Gathering Information...</H2> 
+    )
+}

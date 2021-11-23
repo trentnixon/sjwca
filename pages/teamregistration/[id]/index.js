@@ -13,10 +13,10 @@ import { useEffect, useState } from 'react';
 import { H2 } from '../../../components/type';
 
 
-const TeamRegistration = ({Team, RegistrationInsructions})=>{
+const TeamRegistration = ({Team, RegistrationInsructions, switchboard})=>{
     // In your component body
   const router = useRouter()
-
+  const [CurrentSeasonID, setCurrentSeasonID] = useState(switchboard.season.id)
 
   const [SelectedTeam, setSelectedTeam] = useState(Team)
   // call this method whenever you want to refresh server-side props
@@ -32,7 +32,7 @@ const TeamRegistration = ({Team, RegistrationInsructions})=>{
     
     if(SelectedTeam.length === 0){ 
       return( <DataLoadingPlaceHolder Copy={`Gathering Details`}/>)
-    }
+    } 
     return(
         <div className={StructureStyles.Outer}> 
                 <PageHeaderSmall 
@@ -40,7 +40,7 @@ const TeamRegistration = ({Team, RegistrationInsructions})=>{
                   SubCopy={`SJWCA 2022`} 
                     BGIMG={`/images/BGIMG/RegoBG.jpg`}/> 
                     <ContentContainer>
-                      <TeamRegistrationForm SelectedTeam={SelectedTeam} refreshData={refreshData}  Insructions={RegistrationInsructions.Insructions}/>
+                      <TeamRegistrationForm SelectedTeam={SelectedTeam} refreshData={refreshData} CurrentSeasonID={CurrentSeasonID} Insructions={RegistrationInsructions.Insructions}/>
                     </ContentContainer> 
         </div> 
     )   
@@ -52,7 +52,11 @@ export default TeamRegistration;
 export const getServerSideProps = async(ctx)=>{
         const res = await fetch(`${API}teams/${ctx.params.id}`);
         const resRego = await fetch(`${API}registration-insructions`);
+        const switchboardRes = await fetch(`${API}switchboard`)
+
         const Team = await res.json()
         const RegistrationInsructions = await resRego.json()
-        return{ props:{ Team:Team, Completed: false, RegistrationInsructions:RegistrationInsructions }} 
+        const switchboard = await switchboardRes.json()
+
+        return{ props:{ Team:Team, Completed: false, RegistrationInsructions:RegistrationInsructions, switchboard:switchboard }} 
 }

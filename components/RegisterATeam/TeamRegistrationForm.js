@@ -36,8 +36,8 @@ import {H1,H2,H3,H4, P} from "../type"
 
 const TeamRegistrationForm = (props)=>{
     
-    const {SelectedTeam} = props
-    const CurrentSeasonID  = '617643e7c6aed15de0691391';
+    const {SelectedTeam, CurrentSeasonID} = props
+  
     const [UX, setUX] = useState(false) 
     const [hasUserSumbitted, sethasUserSumbitted] = useState(false) 
 
