@@ -53,11 +53,16 @@
     flex-direction: column;
     z-index: 1000;
     position: relative;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     align-content: center;
-
+    background-color: rgb(255 255 255 / 30%);
+    padding: 1rem 2rem;
+    border-radius: var(--Border-Radius);
+    height: 30%;
 }
+
+.HeaderCopy h1, .HeaderCopy h2{ margin: 0 !important; color:  var(--base-color);}
 .FixedHeaderIMG{
     background-size: cover;
     background-position: center top;

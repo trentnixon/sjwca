@@ -1,23 +1,25 @@
 import ButtonStyles from "../../styles/Structure/Buttons.module.css"
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
-import {UpdateRegistrationFormHandler} from "../../actions/Registration/handleTeamRegistration"
-import { API } from "../../config/index";
+//import {UpdateRegistrationFormHandler} from "../../actions/Registration/handleTeamRegistration"
+import {UpdateTeamSeasonRoster} from "../../actions/Registration/handlePlayerRoster"
+
 import {filter} from 'lodash';
 
-const DeletePlayerFromRoster = ({player,SelectedTeam,refreshData, ResetParentComponent})=>{
+const DeletePlayerFromRoster = ({player,RefreshUIonDelete,PlayerRoster,RequestnewDatafromStrapi})=>{
 
     const handleDelete = ()=>{
+
+        PlayerRoster.Roster[0].players = filter(PlayerRoster.Roster[0].players, function(o) { return o.id != player.id; })
+    
         let OBJ={
-            _URI :`${API}teams/${SelectedTeam.id}`,
-            _CALLBACK:refreshData
+            _TEAMROSTER : PlayerRoster.Roster[0].players,
+            _CALLBACK:RequestnewDatafromStrapi,
+            _ROSTERID:PlayerRoster.id,
         }
-     
-        SelectedTeam.TeamSeason[0].TeamRoster[0].players = filter(SelectedTeam.TeamSeason[0].TeamRoster[0].players, function(o) { return o.id != player.id; })
-      
-        OBJ._DATA = {TeamSeason :SelectedTeam.TeamSeason}
-        UpdateRegistrationFormHandler(OBJ)
-        ResetParentComponent()
+    
+       UpdateTeamSeasonRoster(OBJ)
+       RefreshUIonDelete()
     }
     
     return(

@@ -71,14 +71,13 @@ const TeamRegistrationForm = (props)=>{
             <div className={StructureStyles.Width70}>
                 <H2>Register your team</H2>
                 <P>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</P>
-                <FindPlayerID {...props} CurrentSeasonID={CurrentSeasonID}/>
-            </div>
+                <FindPlayerID {...props} CurrentSeasonID={CurrentSeasonID} setUX={setUX} sethasUserSumbitted={sethasUserSumbitted}/>
+            </div> 
 
 
 
             <div className={`${StructureStyles.Width30} ${FormElementsStyles.FormTitles}`} >
-                    <Btn_ConfirmTeam SelectedTeam={SelectedTeam} setUX={setUX} sethasUserSumbitted={sethasUserSumbitted}/>
-
+                   
                 <H4>Team Name <DriveFileRenameOutlineIcon /></H4>
                     <FormElementGroup>
                         <SelectTeamName setTeamName={setTeamName} CurrentName={SelectedTeam.Name} SelectedTeam={SelectedTeam} setUX={setUX} />

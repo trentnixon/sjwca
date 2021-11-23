@@ -7,13 +7,11 @@ import FormElementsContainer from "../FormElements/FormElementContainer"
 const SubmissionUnderReview  = ()=>{
     return(
         <div className={`${StructureStyles.COl2} ${StructureStyles.ContentWidth}  ${StructureStyles.Column}`}>
-             <FormElementsContainer>
-            <FormElementGroup>
+             
                 <H2>Team Submition Currently Under Review</H2>
                 <P>The SJWCA Team will be reviewing your Submission and be in contact shortly.</P>
                
-                </FormElementGroup>
-                </FormElementsContainer>
+             
                 <SupportersIcons />
         </div>
     )

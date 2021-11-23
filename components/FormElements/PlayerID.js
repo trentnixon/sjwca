@@ -10,20 +10,19 @@ import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
 import DialpadIcon from '@mui/icons-material/Dialpad';
 import {isEmpty} from "../../actions/handleUX"
 
-export default function PlayerID({FindPlayerID, FetchPlayerValue, setMyCricketID}) {
+export default function PlayerID({setPlayerReturn, setMyCricketID}) {
 
    const [InternalMyCricketID, setInternalMyCricketID] = React.useState(null)
 
    const [disabled, setDisabled] = React.useState(true)
-  const handleIDInput = (e)=>{
-    setMyCricketID(e.target.value)
-    setInternalMyCricketID(e.target.value)
+ 
+   const handleIDInput = (e)=>{
+      setMyCricketID(e.target.value)
+      setInternalMyCricketID(e.target.value)
     
-    isEmpty(e.target.value) ?  setMyCricketID(false) :setMyCricketID(e.target.value)
-
-    isEmpty(e.target.value) ? setDisabled(true) :setDisabled(false)
+      isEmpty(e.target.value) ?  setMyCricketID(false) :setMyCricketID(e.target.value)
+      isEmpty(e.target.value) ? setDisabled(true) :setDisabled(false)
       
-        
   }
 
 
@@ -31,13 +30,13 @@ export default function PlayerID({FindPlayerID, FetchPlayerValue, setMyCricketID
         e.preventDefault();
         console.log( 'PlayerID:', InternalMyCricketID); 
 
-        FindPlayerID()
+        //FindPlayerID()
         const OBJ={
-            _CALLBACK:FetchPlayerValue,
+            _CALLBACK:setPlayerReturn,
             _MYCRICKETID:InternalMyCricketID,
             
           }
-        FindPlayerDetails(OBJ)
+        FindPlayerDetails(OBJ)  
     }
   return (
       <>

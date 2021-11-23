@@ -1,67 +1,38 @@
 import { useEffect, useState } from "react";
+import {fetchLatestTeamRoster} from "../../actions/Registration/handleTeamRegistration"
+
 import PlayerID from "../FormElements/PlayerID"
 import UpdateExictingPlayer from "./UpdateExictingPlayer"
 import CreateNewPlayer from "./CreateNewPlayer"
-import {H3} from "../type";
+import {H2, H3} from "../type";
 import { findIndex } from "lodash";
 
 // Components
 import Btn_ResetParentComponent from "./Btn_ResetParentComponent"
 import SelectedPlayerList from "./SelectedPlayerList";
-
+import Btn_ConfirmTeam from "./Btn_ConfirmTeam"
 
 const AddPlayer = (props)=>{
-
-    const {SelectedTeam, refreshData, CurrentSeasonID} = props
-   
-    const [PlayerLookup, setPlayerLookup] = useState(false);
-    const [PlayerReturn, setPlayerReturn] = useState([]);
-    //const [PlayerRoster, setPlayerRoster] = useState([]);
-    const [MyCricketID, setMyCricketID] = useState(null)
     
-    //const [isAddingNewPlayer, setisAddingNewPlayer] = useState(true)
-   
+    const [isMyCricketIDEntered, setisMyCricketIDEntered] = useState(false);
+    const [PlayerRoster, setPlayerRoster] = useState(false);
 
-    const ResetParentComponent = ()=>{
-        console.log("RESET FORM COMPONENTS")
-        refreshData()
-        setPlayerLookup(false)
-        setPlayerReturn([])
-        //setisAddingNewPlayer(true)
-       
-        
-    }
-    const FindPlayerID = ()=>{
-        setPlayerLookup(true) 
-    }
-
-    const FetchPlayerValue = (Value, ID)=>{
-        console.log(Value, ID)
-        setPlayerLookup(false)
-        setPlayerReturn(Value)
-       
+    const ResetParentComponent = ()=>{  
+        setisMyCricketIDEntered(false) 
+     
     }
     
-    useEffect(()=>{ },[PlayerReturn])
+    useEffect(()=>{ console.log(PlayerRoster) },[PlayerRoster])
     
+    console.log(PlayerRoster)
+
+    if(!PlayerRoster)
+    return( <PlayerLookupCheck setPlayerRoster={setPlayerRoster} {...props}/>)
     return(
         <>
-                    {
-                        !PlayerLookup ? <><NewPlayerPath 
-                                            PlayerReturn={PlayerReturn}
-                                            FindPlayerID={FindPlayerID} 
-                                            FetchPlayerValue={FetchPlayerValue} 
-                                            setMyCricketID={setMyCricketID}
-                                            SelectedTeam={SelectedTeam}
-                                            ResetParentComponent={ResetParentComponent}
-                                            CurrentSeasonID={CurrentSeasonID}
-                                            MyCricketID={MyCricketID}
-                                            /* isAddingNewPlayer={isAddingNewPlayer}
-                                            setisAddingNewPlayer={setisAddingNewPlayer} */
-                                            {...props}
-                                            /></> : 
-                                        < PlayerLookupCheck /> 
-                    }
+            {
+                !isMyCricketIDEntered ? <NewPlayerPath  ResetParentComponent={ResetParentComponent} PlayerRoster={PlayerRoster} setPlayerRoster={setPlayerRoster} {...props} />:< PlayerLookupCheck /> 
+            }
         </>
     )
 }
@@ -69,18 +40,61 @@ export default AddPlayer;
 
 
 
+
+
 const NewPlayerPath = (props)=>{
-    const {PlayerReturn} = props
+   const {ResetParentComponent, setPlayerRoster,PlayerRoster} = props
+    
+    const [PlayerReturn, setPlayerReturn] = useState([]);
+    const [MyCricketID, setMyCricketID] = useState(null)
+    const [isStallUI, setisStallUI] = useState(false)
+    //const [FetchPlayerValue, setFetchPlayerValue] = useState([])
+
+    // UI Functions
+    // default view on Back btn click
+
+    const RequestnewDatafromStrapi = ()=>{
+            setPlayerRoster(false)
+            setisStallUI(false)
+            ResetParentComponent()
+    }
+
+    const BacktoIDInput = ()=>{
+        ResetParentComponent()
+        setPlayerReturn([])
+    }
+
+    const RefreshUIonDelete = ()=>{
+        console.log("RefreshUIonDelete CLICKED")
+        setisStallUI(true)
+        setPlayerReturn([])
+        ResetParentComponent()
+      
+    }
+
+    const RefreshUIonAddUpdate = ()=>{
+        console.log("RefreshUIonDelete CLICKED")
+        setisStallUI(true)
+        setPlayerReturn([])
+        ResetParentComponent()
+      
+    }
+
+//setUX={setUX} sethasUserSumbitted={sethasUserSumbitted}
+    console.log(PlayerReturn)
+        if(isStallUI)
+        return(
+            <><H2>Processing Request</H2></>
+        )
         return(
             <>
                 {
                     !PlayerReturn.length ?
                             <>
-                                <PlayerID  {...props}/>
-                                <SelectedPlayerList {...props} />
-                                
-                            </> : 
-                                <CreateorUpdatePlayer {...props}/>
+                                <Btn_ConfirmTeam PlayerRoster={PlayerRoster} {...props} />
+                                <PlayerID  {...props} setMyCricketID={setMyCricketID} setPlayerReturn={setPlayerReturn}/>
+                                <SelectedPlayerList {...props} RefreshUIonDelete={RefreshUIonDelete}  RequestnewDatafromStrapi={RequestnewDatafromStrapi}/>
+                            </> :  <CreateorUpdatePlayer {...props} MyCricketID={MyCricketID} PlayerReturn={PlayerReturn} BacktoIDInput={BacktoIDInput}  RefreshUIonAddUpdate={RefreshUIonAddUpdate} RequestnewDatafromStrapi={RequestnewDatafromStrapi}/>
                 }
             </>
         )
@@ -88,38 +102,45 @@ const NewPlayerPath = (props)=>{
 
 
 
-const PlayerLookupCheck = ()=>{
+
+
+
+const PlayerLookupCheck = (props)=>{
+    const {SelectedTeam,CurrentSeasonID, setPlayerRoster} = props
+    fetchLatestTeamRoster(SelectedTeam.id,CurrentSeasonID,  setPlayerRoster)
     return(
         <H3>Player Lookup...</H3> 
     )
 }
 
 
-const CreateorUpdatePlayer = (props)=>{
-    const {PlayerReturn,SelectedTeam, ResetParentComponent} = props;
 
-    const hasPlayeralreadyBeenAssignedToTeam = (ID)=>{
-        //console.log(ID, PlayerReturn, SelectedTeam?.TeamSeason[0]?.TeamRoster[0]?.players)
-        let INDEX = findIndex(SelectedTeam?.TeamSeason[0]?.TeamRoster[0]?.players, function(o) { return o.id == ID; });
+
+const CreateorUpdatePlayer = (props)=>{
+    const {PlayerReturn,BacktoIDInput, PlayerRoster} = props;
+
+    const hasPlayeralreadyBeenAssignedToTeam = ()=>{
         
-        //console.log(INDEX)
+        let INDEX = findIndex(PlayerRoster.Roster[0].players, function(o) { return o.id == PlayerReturn[0].id; });
+        
+        console.log(PlayerRoster.Roster[0].players)
         if(INDEX != -1)
             return true
                 return false
     }
     
-    if(hasPlayeralreadyBeenAssignedToTeam(PlayerReturn[0].id))
+    if(hasPlayeralreadyBeenAssignedToTeam())
         return(
             <>
-                <H3>PLAYER ALREADY IN TEAM</H3>
-                <Btn_ResetParentComponent ResetParentComponent={ResetParentComponent}/>
+                <H2>PLAYER ALREADY IN TEAM</H2>
+                <Btn_ResetParentComponent ResetParentComponent={BacktoIDInput}/>
             </>
         )
-    return(
-        <>
-        {
-            PlayerReturn[0].id ? <UpdateExictingPlayer  {... props}/>:<CreateNewPlayer {... props}/>
-        }
-        </>
-    )
+        return(
+            <>
+                {
+                    PlayerReturn[0].id ? <UpdateExictingPlayer  {... props} />:<CreateNewPlayer {... props} />
+                }
+            </>
+        )
 } 

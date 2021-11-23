@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 //Actions
 import {UpdatePlayer,CreateTeamRosterforStrapi} from "../../actions/Registration/handlePlayerRoster"
 
-import {H1,H2,H3,P} from "../type";
+import  ButtonStyle from "../../styles/Structure/Buttons.module.css"
+import {H1,H2,H3,H4,P, P_ERROR} from "../type";
 import FormElementGroup from "../FormElements/FormElementGroup"
 import SeasonReceipt from "../FormElements/SeasonReceipt"
 import Select_Seasons from "../FormElements/Select_Seasons"
@@ -14,17 +15,13 @@ import {findIndex} from "lodash"
 
 const UpdateExictingPlayer = (props)=>{
 
-    const {PlayerReturn, SelectedTeam, ResetParentComponent,CurrentSeasonID, setisAddingNewPlayer} = props;
+    const {PlayerReturn, SelectedTeam,CurrentSeasonID,PlayerRoster,BacktoIDInput,RefreshUIonAddUpdate,RequestnewDatafromStrapi} = props;
    
     const [ReceiptNum, setReceiptNum] = useState(0)
     const [Season, setSeason] = useState(0)
     const [disabled, setDisabled] = useState(true)
     const [receiptUsed, setReceiptUsed] = useState(false)
-    const [UpdatingPlayer, setUpdatingPlayer] = useState(false)
-
-
-    console.log(PlayerReturn[0]);
-
+ 
 
     const RecieptCheck = ()=>{
 
@@ -40,31 +37,21 @@ const UpdateExictingPlayer = (props)=>{
         }
     }
 
-    const ResetState = ()=>{
-        console.log('ResetState')
-        setReceiptNum(0)
-        setSeason(0)
-        setDisabled(true)
-        setReceiptUsed(false) 
-    }
 
-    const PostFetchCALLBACK = ()=>{
-        ResetParentComponent()
-        setUpdatingPlayer(false) 
-        
-    }
 
 
     const handleClick = ()=>{
       
         // CHeck to see if reciept has been used
         let New_Season_receipts =  RecieptCheck()
-
+ 
         if(!New_Season_receipts)
             {
                 console.log(`New_Season_receipts  = ${New_Season_receipts}`)
                 setReceiptUsed(true)
             }else{
+                RefreshUIonAddUpdate(true)
+
                 const OBJ={
                     _PLAYERID:PlayerReturn[0].id,
                     _PLAYER_SEASON_RECEIPTS:PlayerReturn[0].Season_receipts,
@@ -72,12 +59,11 @@ const UpdateExictingPlayer = (props)=>{
                     _RECEIPTNUM:ReceiptNum,
                     _TEAMID:SelectedTeam.id,
                     _CURRENTSEASONID:CurrentSeasonID,
-                    _TEAMROSTER:CreateTeamRosterforStrapi(SelectedTeam),
-                    _CALLBACK:PostFetchCALLBACK
+                    _TEAMROSTER:CreateTeamRosterforStrapi(PlayerRoster),
+                    _ROSTERID:PlayerRoster.id,
+                    _CALLBACK:RequestnewDatafromStrapi
                 }
                 UpdatePlayer(OBJ)
-                setUpdatingPlayer(true)
-                
             }
     }
 
@@ -90,27 +76,23 @@ const UpdateExictingPlayer = (props)=>{
     if(receiptUsed)
         return(
             <>
-                ERROR: this Reciept ID has already been used.
-                <Button variant="contained" onClick={()=>{ResetState()}} >Retry</Button>
+                <P_ERROR> ERROR: this Reciept ID has already been used. </P_ERROR>
+                <Button variant="contained" onClick={()=>{BacktoIDInput()}} >Retry</Button>
             </>
         )
-
-    if(UpdatingPlayer)
-        return(
-            <>
-                UPDATING PLAYER PLEASE WAIT
-            </>
-
-        )
-
         return(
             <FormElementGroup>
-                <H2>MyCricket ID  {PlayerReturn[0].MyCricketID} Found </H2>
-                <H3>Player Name : {PlayerReturn[0].Name}</H3>
+                <H4>MyCricket ID : {PlayerReturn[0].MyCricketID} </H4>
+                <H2>Player Name : {PlayerReturn[0].Name} </H2>
+                
                 <SeasonReceipt setReceiptNum={setReceiptNum}/>
                 <Select_Seasons setSeason={setSeason}/>
-                <Button variant="contained" onClick={()=>{handleClick()}} disabled={disabled}>Add {PlayerReturn[0].Name}</Button>
-                <Btn_ResetParentComponent ResetParentComponent={ResetParentComponent}/>
+                    <div className={ButtonStyle.BtnRight}>
+                        <div className={ButtonStyle.BtnGroup}>
+                            <Button variant="contained"  className={ButtonStyle.Next} onClick={()=>{handleClick()}} disabled={disabled}>Add {PlayerReturn[0].Name}</Button>
+                            <Btn_ResetParentComponent ResetParentComponent={BacktoIDInput}/>
+                        </div>
+                    </div>
             </FormElementGroup>  
         )
 }

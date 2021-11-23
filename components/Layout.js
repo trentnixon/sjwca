@@ -1,3 +1,7 @@
+import StructureStyles from "../styles/Structure/Structure.module.css";
+
+import ContentContainer from "../components/Structure/ContentContainer"
+
 import Nav from "../components/Nav"
 import Meta from "./Meta"
 import GlobalFooter from "./Structure/GlobalFooter"
@@ -31,9 +35,11 @@ export default SJWCA_Layout;
 
 const LoadingPage = ()=>{
         return(
-            <div className="Container">
-                <H2>Loading Page Content</H2>
+            <div className={StructureStyles.Outer}>
+                <ContentContainer>
+                <H2>Fetching SJWCA Content</H2> 
                 <LoadingAnimation />
+                </ContentContainer>
             </div>
-        )
+        ) 
 }

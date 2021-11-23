@@ -11,35 +11,15 @@ import GroupIcon from '@mui/icons-material/Group';
 import PersonIcon from '@mui/icons-material/Person';
 
 
-const DisplayPlayerlist = (props)=>{
-    const {SelectedTeam, CurrentSeasonID} = props;
-    
-    const [NewSeason, setNewSeason] = useState([])
-    const [TeamRoster, setTeamRoster] = useState([])
-
-    const FindSeason = ()=>{
-        //console.log('run FindSeason')
-        let NewSeason  = find(SelectedTeam.TeamSeason, function(o) { return o.season.id === CurrentSeasonID; });
-        setNewSeason(NewSeason)
-        setTeamRoster(NewSeason?.TeamRoster[0].players)
-    } 
-    
-    NewSeason?.length === 0 ? FindSeason() : false
-  
-    if(!NewSeason)
-        return(<></>)
-        return( <Roster TeamRoster={TeamRoster} {...props}/>)
-}
-
-export default DisplayPlayerlist;
-
-
 const Roster = (props)=>{
-    const {TeamRoster, CurrentSeasonID,SelectedTeam} = props
- 
+  
+    const {PlayerRoster} = props
+    const [PlayerInt, setPlayerInt] = useState(0)
+  
+    console.log(PlayerRoster)
     return(
         <>
-        <H4>Team Roster ({TeamRoster?.length ? TeamRoster?.length : 0}) Min 9 <GroupIcon /></H4>
+        <H4>Team Roster ({PlayerInt ? PlayerInt: 0}) Min 9 <GroupIcon /></H4>
         <FormElementGroup>
          
                 <ul className={PlayerListCSS.PlayerListContainer}>
@@ -50,7 +30,7 @@ const Roster = (props)=>{
                     <span>Remove</span>
                 </li>
                         {
-                            TeamRoster?.map((player,i)=>{
+                            PlayerRoster.Roster[0].players?.map((player,i)=>{
                             
                                 return(
                                     <li key={i}>
@@ -58,9 +38,9 @@ const Roster = (props)=>{
                                         <span><PersonIcon className={ButtonsStyles.Success}/></span>
                                         <span>{player.Name}</span>
                                         <span>{player.MyCricketID} </span>
-                                        <span><DeletePlayerFromRoster player={player} SelectedTeam={SelectedTeam} {...props}/></span>
+                                        <span><DeletePlayerFromRoster player={player}  {...props}/></span>
                                         
-                                    </li>
+                                    </li> 
                                 )
                             })
                         }
@@ -69,3 +49,5 @@ const Roster = (props)=>{
         </>
     )
 }
+
+export default Roster;

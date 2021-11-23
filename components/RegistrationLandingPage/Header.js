@@ -2,10 +2,17 @@ import Registrationstyles from "../../styles/registrationPage/registrationPage.m
 
 import { H1, H2, H3, H4, P,P_ERROR, S} from "../type";
 
+
+
+
 const RegistrationHeader = (props)=>{
 
     const {tagline,registrationPage, logoLarge} = props;
-    console.log(logoLarge)
+    
+
+
+
+
 
         return (
             <section className={Registrationstyles.RegistrationHeader}>

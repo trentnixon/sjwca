@@ -48,7 +48,6 @@ const TeamRegistration = ({Team, RegistrationInsructions})=>{
 export default TeamRegistration;
 
 
- 
 
 export const getServerSideProps = async(ctx)=>{
         const res = await fetch(`${API}teams/${ctx.params.id}`);

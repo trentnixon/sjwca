@@ -46,6 +46,26 @@ const PrepTeamRosterforUpdate = (OBJ, ID)=>{
 
 
 
+
+export const UpdateTeamSeasonRoster = (OBJ)=>{
+   
+    console.log(OBJ)
+    OBJ._CALLBACK(false)
+    const URI =`${API}team-season-rosters/${OBJ._ROSTERID}`
+
+    axios({ url: URI, method: 'put', data:{Roster :[{players : OBJ._TEAMROSTER}]}})
+    .then(function (response) { 
+        //console.log(response)
+        OBJ._CALLBACK(true)
+    })
+    .catch(function (error) {
+        // handle error
+        console.log('UpdatePlayer ERROR ',error);
+       // OBJ._CALLBACK(error) 
+    })
+}
+
+
 export const UpdatePlayer = (OBJ)=>{
     const URI =`${API}players/${OBJ._PLAYERID}`
     //_TEAMID
@@ -54,15 +74,16 @@ export const UpdatePlayer = (OBJ)=>{
 
     axios({ url: URI, method: 'put', data:{id:OBJ._PLAYERID, Season_receipts : OBJ._PLAYER_SEASON_RECEIPTS}})
         .then(function (response) { 
-            // Prep Roster and send to Team Update
-            //console.log(OBJ)
-            PrepTeamRosterforUpdate(OBJ, OBJ._PLAYERID)
-            // always executed
+          
+            OBJ._TEAMROSTER.push(OBJ._PLAYERID)
+            UpdateTeamSeasonRoster(OBJ)
+            //UpdateRegistrationFormHandler(OBJ)
+           
         })
         .catch(function (error) {
             // handle error
             console.log('UpdatePlayer ERROR ',error);
-            OBJ._CALLBACK(error)
+            OBJ._CALLBACK(error) 
         })
 
 }
@@ -87,8 +108,11 @@ export const AddNewPlayer = (OBJ)=>{
             }
         })
     .then(function (response) {
-        // Prep Roster and send to Team Update
-        PrepTeamRosterforUpdate(OBJ, response.data.id)
+        // Prep Roster and send to Team Update 
+        OBJ._TEAMROSTER.push(response.data.id)
+            UpdateTeamSeasonRoster(OBJ)
+
+        //PrepTeamRosterforUpdate(OBJ, response.data.id)
     })
     .catch(function (error) {
         // handle error
@@ -112,17 +136,7 @@ const FindCurrentRoster = (ROSTER)=>{
 export const CreateTeamRosterforStrapi = (_SELECTEDTEAM)=>{
     // CurrentSeasonID
     let TempSeason=[]
-
-    console.log(_SELECTEDTEAM)
-    
-    _SELECTEDTEAM.TeamSeason.map((_Season,i)=>{
-        //console.log(Season.TeamRoster[0].players)
-        TempSeason.push({
-            season:[_Season.season.id],
-            TeamRoster :[FindCurrentRoster(_Season.TeamRoster[0].players)]
-        })
-    })        
-
-    console.log(TempSeason)
+    console.log(_SELECTEDTEAM.Roster[0].players) 
+    _SELECTEDTEAM.Roster[0].players.map((_Player,i)=>{ TempSeason.push(_Player.id)})
     return TempSeason
 }

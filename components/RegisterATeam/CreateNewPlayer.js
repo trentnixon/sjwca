@@ -14,13 +14,13 @@ import Select_Gender from "../FormElements/Select_Gender"
 import DateOfBirth from "../FormElements/DateOfBirth"
 import Btn_ResetParentComponent from "./Btn_ResetParentComponent"
 import Button from '@mui/material/Button';
-import Stack from '@mui/material/Stack';
+
 
 
 import {H1,H2,H3,H4,P} from "../type";
 
 const CreateNewPlayer = (props)=>{
-    const {SelectedTeam, ResetParentComponent, MyCricketID, CurrentSeasonID} = props;
+    const {SelectedTeam, RefreshUIonAddUpdate, MyCricketID, CurrentSeasonID,BacktoIDInput,RequestnewDatafromStrapi,PlayerRoster} = props;
     const [disabled, setDisabled] = useState(true)
     const [PlayerName, setPlayerName] = useState(false)
     const [ReceiptNum, setReceiptNum] = useState(0)
@@ -29,20 +29,19 @@ const CreateNewPlayer = (props)=>{
     const [PlayerEmail, setPlayerEmail] = useState(false)
     const [PlayerContactNumber, setPlayerContactNumber] = useState(false)
     const [PlayerDOB, setPlayerDOB] = useState(false)
-    const [UpdatingPlayer, setUpdatingPlayer] = useState(false)
+    
 
-    const PostFetchCALLBACK = ()=>{
-        ResetParentComponent()
-        setUpdatingPlayer(false)
-    }
+
+
     const handleClick = ()=>{
 
         let FirstReciept =[{ReceiptNumber:ReceiptNum, season:[Season],team:[SelectedTeam.id] }]
         //console.log(PlayerDOB)
+         RefreshUIonAddUpdate(true)
         const OBJ={
                   
             _PLAYERNAME:PlayerName,
-            _SEASON:Season, 
+            _SEASON:Season,  
             _MyCricketID:MyCricketID,
             _RECEIPTNUM:ReceiptNum,
             _TEAMID:SelectedTeam.id,
@@ -51,14 +50,15 @@ const CreateNewPlayer = (props)=>{
             _EMAIL:PlayerEmail,
             _CONTACTNUMBER:PlayerContactNumber,
             _DOB : PlayerDOB,
-            _TEAMROSTER:CreateTeamRosterforStrapi(SelectedTeam, Season),
-            _CALLBACK:PostFetchCALLBACK,
+            _TEAMROSTER:CreateTeamRosterforStrapi(PlayerRoster),
+            _ROSTERID:PlayerRoster.id,
+            _CALLBACK:RequestnewDatafromStrapi,
            _PLAYER_SEASON_RECEIPTS:FirstReciept,
           
         }
        
             AddNewPlayer(OBJ)
-            setUpdatingPlayer(true)
+           
     }
 
 
@@ -90,7 +90,7 @@ const CreateNewPlayer = (props)=>{
                     <div className={ButtonStyle.BtnRight}>
                         <div className={ButtonStyle.BtnGroup}>
                             <Button variant="contained" className={ButtonStyle.Next} onClick={()=>{handleClick()}} disabled={disabled}>Create New Player</Button>
-                            <Btn_ResetParentComponent ResetParentComponent={ResetParentComponent}/>
+                            <Btn_ResetParentComponent ResetParentComponent={BacktoIDInput}/>
                         </div>
                     </div>
             </FormElementGroup>

@@ -1,6 +1,6 @@
 const axios = require('axios');
 import { API } from "../../config/index";
-
+import { findIndex } from "lodash";
 export const UpdateRegistrationFormHandler = (OBJ)=>{
   
         /* const OBJ={
@@ -96,4 +96,28 @@ export const handleCreateNewTeam = (OBJ)=>{
         console.log('UpdateRegistrationFormHandler ERROR ', error);
         OBJ._CALLBACK(error)
     })
+}
+
+
+/*  FETCH LATEST ROSTER*/
+
+export const fetchLatestTeamRoster = async(TEAMID,SEASONID, CALLBACK)=>{
+    console.log(TEAMID)
+ ///teams/:id
+    
+    const URI =`${API}teams/${TEAMID}`  
+     await axios({ url: URI, method: 'get'})
+            .then(function (response) {
+                console.log(response.data.TeamSeason, SEASONID)
+                let INDEX = findIndex(response.data.team_season_rosters, function(o) { return o.season == SEASONID; })
+                console.log(response.data.team_season_rosters[INDEX]);
+
+                CALLBACK(response.data.team_season_rosters[INDEX]) 
+                // always executed 
+            })
+            .catch(function (error) {
+                // handle error
+                console.log('UpdateRegistrationFormHandler ERROR ', error);
+                OBJ._CALLBACK(error)
+            })
 }

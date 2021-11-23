@@ -9,6 +9,7 @@
     top:0;
     padding: 0 1rem;
     z-index: 1010;
+    border-bottom : 1px solid var(--accent-color)
 }
 
 .ul{

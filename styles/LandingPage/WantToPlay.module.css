@@ -1,0 +1,30 @@
+.WantToPlay{
+    background-color: var(--color-tile-1);
+
+}
+
+.WantToPlay h1{
+    text-transform: uppercase;
+    line-height: 4rem !important;
+    letter-spacing: -3px !important;
+}
+
+.ImgCircle{
+    border-radius: 100%;
+    width: 20rem;
+    height: 20rem;
+    border:5px solid var(--accent-color)
+}
+
+.IMG{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: center;
+}
+.IMG img:nth-child(1), .IMG img:nth-child(2){
+    width: 15rem;
+    height: 15rem;
+}

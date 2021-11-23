@@ -31,7 +31,7 @@
 
 .RegistrationSection{
     background-color: var(--main-bg-color);
-    height: 80vh;
+    height: 90vh;
     border-radius: 0 0 var(--Border-Radius) var(--Border-Radius);
     display: flex;
     justify-content: center;
@@ -40,13 +40,14 @@
     text-align: center;
     flex-direction: row;
 
+    overflow: hidden;
 }
 
 .RegistrationSection:nth-child(even){
     background-color: var(--color-tile-1); 
 }
 .RegistrationSection:nth-child(odd){
-    background-color: var(--main-bg-color);
+   /*  background-color: var(--main-bg-color); */
 }
 
 .Logo{
@@ -58,7 +59,7 @@
     display: flex;
     align-items: center;
     align-content: center;
-    background-color: red;
+    background-color: #e1ecfb;
     justify-content: flex-start;
     padding: 2rem;
 }
@@ -73,8 +74,14 @@
 
 
 .JoinOver{
-    background-color: blue;
+    background-color: #adccf5;
 }
+
+
+
+
+
+
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
     .RegistrationHeader {

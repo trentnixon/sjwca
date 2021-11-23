@@ -5,11 +5,14 @@ import {UpdateRegistrationFormHandler} from "../../actions/Registration/handleTe
 import  ButtonStyle from "../../styles/Structure/Buttons.module.css"
 import { useEffect, useState } from 'react';
 import { S } from '../type';
-const Btn_ConfirmTeam = ({SelectedTeam, setUX, sethasUserSumbitted})=>{
-    
+const Btn_ConfirmTeam = ({PlayerRoster,setUX,sethasUserSumbitted,SelectedTeam})=>{
+  
     const MinPlayerNum = 9;
+    console.log(PlayerRoster.Roster[0].players)
 
     const [disabled,setDisabled] = useState(true)
+    const [RosterLength, setRosterLength] = useState(PlayerRoster.Roster[0].players.length)
+
     const ConfirmTeamDetails = ()=>{
 
             const OBJ={
@@ -25,22 +28,23 @@ const Btn_ConfirmTeam = ({SelectedTeam, setUX, sethasUserSumbitted})=>{
     }
 
     useEffect(()=>{
-      !SelectedTeam.TeamSeason[0]?.TeamRoster[0].players.length ? setDisabled(true) :
-      SelectedTeam.TeamSeason[0]?.TeamRoster[0].players.length>=MinPlayerNum ?  setDisabled(false) :   setDisabled(true)
+      !PlayerRoster.Roster[0].players.length ? setDisabled(true) :
+      PlayerRoster.Roster[0].players.length>=MinPlayerNum ?  setDisabled(false) :   setDisabled(true)
    
-        console.log(SelectedTeam)
-    },[SelectedTeam])
+        console.log(PlayerRoster.Roster[0].players)
+    },[PlayerRoster])
 
     const PlayersLeft = ()=>{
-      let Roster = SelectedTeam.TeamSeason[0]?.TeamRoster[0].players.length 
+      let Roster = PlayerRoster.Roster[0].players.length 
       if(!Roster){ Roster = 0}
       return `${(MinPlayerNum-Roster)}  Players left`
     }
 
+   
     return(
       <>
         <div className={ButtonStyle.BtnRight}>
-        <Button variant="contained"  onClick={()=>{ConfirmTeamDetails()}} disabled={disabled}>
+        <Button variant="contained" className={ButtonStyle.Next}  onClick={()=>{ConfirmTeamDetails()}} disabled={disabled}>
             { disabled ? PlayersLeft(): ' Submit Team for Review'}
         </Button>
         <S style={{color:'#b5b5b5', fontWeight:100}}>SJWCA Requires a Min of {MinPlayerNum} Players per team</S>
