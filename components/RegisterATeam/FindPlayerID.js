@@ -109,14 +109,14 @@ const PlayerLookupCheck = (props)=>{
     const {SelectedTeam,CurrentSeasonID, setPlayerRoster} = props
     fetchLatestTeamRoster(SelectedTeam.id,CurrentSeasonID,  setPlayerRoster)
     return(
-        <H3>Player Lookup...</H3> 
+        <H2>Player Lookup...</H2> 
     )
 }
 
 const Interim = (props)=>{
 
     return(
-        <H3>Interim...</H3> 
+        <H2>Gathering Information...</H2> 
     )
 }
 
