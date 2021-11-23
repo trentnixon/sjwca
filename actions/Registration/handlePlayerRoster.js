@@ -49,8 +49,6 @@ const PrepTeamRosterforUpdate = (OBJ, ID)=>{
 
 export const UpdateTeamSeasonRoster = (OBJ)=>{
    
-    console.log(OBJ)
-    OBJ._CALLBACK(false)
     const URI =`${API}team-season-rosters/${OBJ._ROSTERID}`
 
     axios({ url: URI, method: 'put', data:{Roster :[{players : OBJ._TEAMROSTER}]}})
@@ -61,7 +59,7 @@ export const UpdateTeamSeasonRoster = (OBJ)=>{
     .catch(function (error) {
         // handle error
         console.log('UpdatePlayer ERROR ',error);
-       // OBJ._CALLBACK(error) 
+        OBJ._CALLBACK(true)
     })
 }
 

@@ -19,7 +19,7 @@ const DeletePlayerFromRoster = ({player,RefreshUIonDelete,PlayerRoster,Requestne
         }
     
        UpdateTeamSeasonRoster(OBJ)
-       RefreshUIonDelete()
+       //RefreshUIonDelete() 
     }
     
     return(
