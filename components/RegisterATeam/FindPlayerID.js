@@ -24,7 +24,7 @@ const AddPlayer = (props)=>{
     
     useEffect(()=>{ console.log(PlayerRoster) },[PlayerRoster])
     
-    console.log(PlayerRoster)
+    console.log(PlayerRoster) 
 
     if(!PlayerRoster)
     return( <PlayerLookupCheck setPlayerRoster={setPlayerRoster} {...props}/>)

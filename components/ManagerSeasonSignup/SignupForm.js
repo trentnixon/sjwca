@@ -42,7 +42,7 @@ const SignupForm  = ({setisFormSent, setResponse})=>{
     const [isEmail, setisEmail] = useState(false)
     const [isNumber, setisNumber] = useState(false)
 
-
+    const CurrentSeasonID  = '617643e7c6aed15de0691391';
     const handleSendForm = ()=>{
 
         const OBJ={
@@ -54,10 +54,11 @@ const SignupForm  = ({setisFormSent, setResponse})=>{
                 Manager:Name,
                 Manager_Email:Email,
                 Manager_Phone:Number,
+                Current_Season_ID:CurrentSeasonID
                 
             }
           }
-
+ 
           handleCreateNewTeam(OBJ)
         setisFormSent(true)
     }
@@ -133,8 +134,6 @@ const SignupForm  = ({setisFormSent, setResponse})=>{
                 <EmailError Valid={isEmail} Email={Email}/>
 
                 
-               
-               
                 <FormElementsContainer>
                     <ContactPhoneIcon />
                     <TextField autocomplete={false} label={'Contact Number'} type="number" variant="standard" placeholder={'Contact Number'} fullWidth onBlur={handleNumber}/>

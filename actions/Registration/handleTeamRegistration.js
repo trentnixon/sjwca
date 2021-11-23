@@ -68,6 +68,11 @@ const EmailNewTeamRegistrationPage = (TEAM)=>{
     })
 }
 
+
+
+
+
+
 export const handleCreateNewTeam = (OBJ)=>{
   
     /* const OBJ={
@@ -86,9 +91,10 @@ export const handleCreateNewTeam = (OBJ)=>{
    
     axios({ url: OBJ._URI, method: 'post', data:OBJ._DATA})
     .then(function (response) {
-        console.log(response)
+        console.log(response.data)
         OBJ._CALLBACK(response)
-        EmailNewTeamRegistrationPage(response.data)
+        EmailNewTeamRegistrationPage(response.data) 
+        CreateNewTeamSeasonRoster(response.data.id, OBJ._DATA.Current_Season_ID)
         // always executed 
     })
     .catch(function (error) {
@@ -100,6 +106,30 @@ export const handleCreateNewTeam = (OBJ)=>{
 
 
 /*  FETCH LATEST ROSTER*/
+
+
+const CreateNewTeamSeasonRoster = (TEAMID, Current_Season_ID)=>{
+    ///team-season-rosters
+    const URI =`${API}team-season-rosters`;
+    axios({ url: URI, method: 'post', data:{
+            Roster :[{players : []}],
+            team :[TEAMID],
+            season:[Current_Season_ID]
+            }
+        })
+    .then(function (response) {
+        console.log(response.data)
+        // always executed 
+    })
+    .catch(function (error) {
+        // handle error
+        console.log('CreateNewTeamSeasonRoster ERROR ', error);
+     
+    })
+}
+
+
+
 
 export const fetchLatestTeamRoster = async(TEAMID,SEASONID, CALLBACK)=>{
     console.log(TEAMID)

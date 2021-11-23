@@ -44,12 +44,11 @@ const Btn_ConfirmTeam = ({PlayerRoster,setUX,sethasUserSumbitted,SelectedTeam})=
     return(
       <>
         <div className={ButtonStyle.BtnRight}>
-        <Button variant="contained" className={ButtonStyle.Next}  onClick={()=>{ConfirmTeamDetails()}} disabled={disabled}>
-            { disabled ? PlayersLeft(): ' Submit Team for Review'}
-        </Button>
+          <Button variant="contained" className={ButtonStyle.Next}  onClick={()=>{ConfirmTeamDetails()}} disabled={disabled}>
+              { disabled ? PlayersLeft(): ' Submit Team for Review'}
+          </Button>
         <S style={{color:'#b5b5b5', fontWeight:100}}>SJWCA Requires a Min of {MinPlayerNum} Players per team</S>
         </div>
-        
       </>
     )
 }
