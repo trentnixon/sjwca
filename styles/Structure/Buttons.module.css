@@ -30,6 +30,10 @@
     color: var(--base-color) !important ;
 }
 
+.Next a{
+    text-decoration: none;
+    color: var(--main-bg-colo);
+}
 
 .Back{
     background-color: var(--Error-color) !important;

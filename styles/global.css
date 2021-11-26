@@ -14,12 +14,15 @@
 	--Success-color:#6bc98a;
 	--Next-color:#6ba3c9;
 	--Border-Radius: 5px;
-
+	--Title-Border-Radius: 65px 0;
 
 
 	--DropShadow: 10px;
 	--DropShadowMinus:-10px;
 	--DropShadowSpread:20px;
+
+	--Landing-Color-Dark:#373737;
+	--Landing-accent-color:#6A93CA
   }
  
 

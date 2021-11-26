@@ -1,0 +1,88 @@
+.JoinOver{
+    display: flex;
+    height: 70vh;
+    align-items: stretch;
+    align-content: stretch;
+    justify-content: stretch;
+    position: relative;
+    background-color: #FBFDFF;
+    overflow: hidden;
+}
+
+.JoinOver h1{ color: #6A93CA; text-transform: uppercase; margin: 0 1rem 2rem 0 !important; font-size: 5rem !important; }
+.JoinOver h2{ color: #4C4C4C; text-transform: uppercase;margin: 0 1rem 2rem 0 !important;font-size: 4rem !important; }
+
+.JoinOver div{
+    flex: 0 0 50%;
+    text-align: right;
+    z-index: 100;
+   
+}
+
+.JoinOver div:nth-child(1){
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    align-content: center;
+    justify-content: center;
+    z-index: 1000;
+    
+}
+
+.JoinOver div:nth-child(2){
+    background-image: url('/images/Registration/IMG_Ages.jpg');
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.svgGroup{
+    position: absolute ;
+    left: 10px;
+    bottom: 0;
+    z-index: 0;
+}
+
+.svgGroup svg{
+    height: 50vh;
+}
+
+/* Large screens ----------- */
+@media only screen and (min-width : 1824px) {
+   
+}
+
+
+/* Desktops and laptops ----------- */
+@media only screen  and (min-width : 1024px)  {
+    
+.JoinOver h1{ margin: 0 1rem 2rem 0 !important; font-size: 4rem !important;}
+.JoinOver h2{ margin: 0 1rem 2rem 0 !important;font-size: 3rem !important; }
+}
+
+
+
+@media only screen and (min-width : 768px) and (max-width : 1024px)  {
+    .JoinOver h1{ margin: 0 1rem 1.5rem 0 !important; font-size: 3.5rem !important;}
+    .JoinOver h2{ margin: 0 1rem 1.5rem 0 !important;font-size: 3rem !important; }
+}
+
+
+/*  Small Catch all*/
+@media only screen and (max-width : 768px)  {
+
+    .JoinOver{ flex-direction: column-reverse; }
+    .JoinOver h1{ margin: 0 1rem 1.5rem 0 !important; font-size: 3.5rem !important;}
+    .JoinOver h2{ margin: 0 1rem 1.5rem 0 !important;font-size: 3rem !important; }
+    
+.svgGroup svg{
+    height: 30vh;
+}
+
+    }
+
+@media only screen and (max-width : 480px)  {
+     .JoinOver{ flex-direction: column-reverse; }
+    .JoinOver h1{ margin: 0 1rem 0rem 0 !important; font-size: 2.8rem !important;}
+    .JoinOver h2{ margin: 0 1rem 0rem 0 !important;font-size: 2rem !important; }
+    }

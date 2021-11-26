@@ -19,8 +19,7 @@ const UpdateExictingPlayer = (props)=>{
     const [ReceiptNum, setReceiptNum] = useState(0)
     const [Season, setSeason] = useState(0)
     const [disabled, setDisabled] = useState(true)
-    const [receiptUsed, setReceiptUsed] = useState(false)
- 
+
 
     const CreateNewReceiptObj = ()=>{
         let OBJ=[]

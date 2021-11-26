@@ -1,12 +1,10 @@
-//import { server, API } from "../../config/index"
-import {  useState } from "react";
+import {useState} from "react";
 import PlayerListCSS from "../../styles/registrationPage/PlayerList.module.css";
 import ButtonsStyles from "../../styles/Structure/Buttons.module.css";
 
 import FormElementGroup from "../FormElements/FormElementGroup"
 import DeletePlayerFromRoster from "../FormElements/DeletePlayerFromRoster"
-import {H1,H2, H3, H4} from "../type"
-import {find} from "lodash"
+import {H4} from "../type"
 import GroupIcon from '@mui/icons-material/Group';
 import PersonIcon from '@mui/icons-material/Person';
 
@@ -14,9 +12,8 @@ import PersonIcon from '@mui/icons-material/Person';
 const Roster = (props)=>{
   
     const {PlayerRoster} = props
-    const [PlayerInt, setPlayerInt] = useState(0)
+    const [PlayerInt, setPlayerInt] = useState(PlayerRoster.Roster[0].players.length)
   
-    console.log(PlayerRoster)
     return(
         <>
         <H4>Team Roster ({PlayerInt ? PlayerInt: 0}) Min 9 <GroupIcon /></H4>
@@ -31,7 +28,6 @@ const Roster = (props)=>{
                 </li>
                         {
                             PlayerRoster.Roster[0].players?.map((player,i)=>{
-                            
                                 return(
                                     <li key={i}>
                                         

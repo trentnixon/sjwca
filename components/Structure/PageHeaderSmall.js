@@ -1,5 +1,5 @@
 import StructureStyles from "../../styles/Structure/Structure.module.css";
-import { H1, H2, H3, H4, P,P_ERROR, S} from "../../components/type";
+import { H1, H2 } from "../../components/type";
 
 
 const  getRandomIntInclusive = (min, max) =>{

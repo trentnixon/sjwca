@@ -22,17 +22,14 @@ const about = ({about})=>{
                           { <ReactMarkdown>{about.Description}</ReactMarkdown> }
                         </div>
                         <div className={`${StructureStyles.Width30}`} >
-                        hello
+                        hello there this is a new change
                         </div>
                       </ContentContainer> 
               </div>
                   
         ) 
 }
-
 export default about
-
-
 
 export const getStaticProps = async (context) => {
     const aboutRes = await fetch(`${API}about`)

@@ -1,0 +1,183 @@
+
+.RegistrationHeader{
+    background-color: var(--main-bg-color);
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    background-image: url('/images/Registration/HeaderBG.jpg');
+    background-size: cover;
+    background-position: center top;
+}
+
+.Logo{ width:200px; }
+
+.RegistrationHeader h1, .RegistrationHeader h2, .RegistrationHeader h3, .RegistrationHeader h4, .RegistrationHeader p{
+    color: var(--Landing-Color-Dark);
+}
+.RegistrationHeader button{
+    padding: .8rem 2.5rem;
+}
+
+
+.Frosted{
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(255 255 255 / 40%);
+    padding: 6rem ;
+    border-radius:  200px 0 ;
+    flex-wrap: wrap;
+    width: 50vw;
+}
+
+.Frosted div{
+    flex: 0 0 50%;
+}
+
+.Frosted div:nth-child(1) {text-align: center;}
+
+  .Frosted div:nth-child(2) { 
+      text-align: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    align-content: center;
+}
+  .Frosted div:nth-child(2) h3{     
+        font-size: 3rem !important;
+        line-height: 3rem !important;
+        font-weight: 900;
+} 
+
+
+.Frosted div:nth-child(3) {
+    flex: 0 0 100%;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .Frosted div:nth-child(3) h2{
+      text-transform: uppercase;
+      font-size: 1.8rem !important;
+      font-weight: 400 !important;
+      letter-spacing: 3px !important;
+      margin: 0 !important;
+  }
+
+
+
+
+/* Large screens ----------- */
+@media only screen and (min-width : 1824px) {
+   
+}
+
+
+/* Desktops and laptops ----------- */
+@media only screen  and (min-width : 1024px)  {
+    .Frosted{ 
+        padding: 4rem 6rem 4rem 4rem ;
+        width: 60vw;
+    }
+    .Frosted div:nth-child(2) h3{     
+        font-size: 2.5rem !important;
+        line-height: 2.5rem !important;
+        font-weight: 900;
+    } 
+
+        .Logo{ width:180px; }
+
+        .Frosted div:nth-child(3){ margin-top: 1rem;}
+        .Frosted div:nth-child(3) h2{
+           
+            font-size: 1.3rem !important;
+            
+        }
+}
+
+
+
+@media only screen and (min-width : 768px) and (max-width : 1024px)  {
+/* Styles */
+.Frosted{ 
+    padding: 4rem ;
+    width: auto;
+    flex-direction: column;
+}
+.Frosted div:nth-child(2) h3{     
+    font-size: 1.5rem !important;
+    line-height: 1.5rem !important;
+    text-align: center;
+   
+} 
+.Frosted div:nth-child(2){  align-items: center; }
+
+    .Logo{ width:180px; }
+
+    .Frosted div:nth-child(3){ margin-top: 1rem;}
+    .Frosted div:nth-child(3) h2{
+       
+        font-size: 1rem !important;
+        
+    }
+}
+
+
+/*  Small Catch all*/
+@media only screen and (max-width : 768px)  {
+    /* Styles */
+    .Frosted{ 
+        padding: 1rem ;
+        width: auto;
+        flex-direction: column;
+        border-radius: 0;
+    }
+    .Frosted div:nth-child(2) h3{     
+        font-size: 1rem !important;
+        line-height: 1rem !important;
+        text-align: center;
+       
+    } 
+    .Frosted div:nth-child(2){  align-items: center; }
+    
+        .Logo{ width:120px; }
+    
+        .Frosted div:nth-child(3){ margin-top: 1rem;}
+        .Frosted div:nth-child(3) h2{
+           
+            font-size: .8rem !important;
+            line-height: 1rem !important;
+            
+        }
+    
+    }
+
+@media only screen and (max-width : 480px)  {
+    /* Styles */
+    .Frosted{ 
+        padding: 1rem ;
+        width: auto;
+        flex-direction: column;
+        border-radius: 0;
+    }
+    .Frosted div:nth-child(2) h3{     
+        font-size: 1rem !important;
+        line-height: 1rem !important;
+        text-align: center;
+       
+    } 
+    .Frosted div:nth-child(2){  align-items: center; }
+    
+      
+    
+        .Frosted div:nth-child(3){ margin-top: 1rem;}
+        .Frosted div:nth-child(3) h2{
+           
+            font-size: .8rem !important;
+            line-height: 1rem !important;
+            
+        }
+    }

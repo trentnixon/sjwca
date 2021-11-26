@@ -1,8 +1,6 @@
 import StructureStyles from "../../styles/Structure/Structure.module.css";
 import { H2,P } from "../type";
 import SupportersIcons from "../Structure/SupportersIcons";
-import FormElementGroup from "../FormElements/FormElementGroup"
-import FormElementsContainer from "../FormElements/FormElementContainer"
 
 const RegistrationSubmitted  = ()=>{
 

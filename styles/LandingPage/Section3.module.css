@@ -1,0 +1,95 @@
+.Section3{
+   background-color: #DCEBFF;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.Section3 svg{
+    position:absolute;
+    bottom:0;
+    height:90%;
+    z-index: 0;
+}
+.Layout{
+    padding: 8rem 2rem 4rem;
+    display: flex;
+    position: relative;
+    z-index: 100;
+}
+.Layout h1{
+    text-transform: uppercase;
+    color: #4C4C4C !important;
+    width: 50vw;
+    line-height: 3.1rem !important;
+    z-index: 100;
+}
+.Top{
+    position: relative;
+   
+}
+.Top h1{ text-align: left;}
+
+.Top svg{ right: 5vw;}
+
+
+.Bottom{
+ 
+    flex-direction: row-reverse;
+    position: relative;
+}
+.Bottom h1{ text-align: right;}
+
+.Gallery{
+    
+    height: 300px;
+    display: flex;
+    align-items: stretch;
+    align-content: stretch;
+    flex-direction: row;
+}
+
+.Gallery div{  
+        flex:  0 0 33.33339%;
+        background-position: center;
+        background-size: cover;
+    }
+.Gallery div:nth-child(1){ background-image: url('/images/BGIMG/gamephotos/20248243_10155573045041248_2463825217418747754_o.jpg') ;}
+.Gallery div:nth-child(2){ background-image: url('/images/BGIMG/gamephotos/20232685_10155573046666248_1329683814708820708_o.jpg') ;}
+.Gallery div:nth-child(3){ background-image: url('/images/BGIMG/gamephotos/19221835_10155437280296248_6955254248037842063_o.jpg') ;}
+
+.Bottom svg{ left: 5vw;}
+
+/* Large screens ----------- */
+@media only screen and (min-width : 1824px) {
+   
+}
+
+
+/* Desktops and laptops ----------- */
+@media only screen  and (min-width : 1024px)  {
+    
+}
+
+
+
+@media only screen and (min-width : 768px) and (max-width : 1024px)  {
+    .Layout h1{width: 80vw;}
+}
+
+
+/*  Small Catch all*/
+@media only screen and (max-width : 768px)  {
+    .Layout h1{width: 100vw;}
+    .Gallery div:nth-child(3){ display: none;}
+    .Gallery div{  
+        flex:  0 0 50%;}
+
+    }
+
+@media only screen and (max-width : 480px)  {
+    .Layout h1{width: 100vw; font-size: 1.9rem !important; line-height: 2.2rem !important;}
+    .Section3 svg{height:200px;}
+    .Layout{
+        padding: 4rem 2rem 4rem;}
+    }

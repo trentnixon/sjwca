@@ -1,0 +1,78 @@
+.JoinOver{
+    background-color: #4D4D4D;
+    position: relative;
+ 
+}
+
+.BGScroll{
+    background-image: url('/images/BGIMG/gamephotos/20280617_10155573046426248_7009830655193370719_o.jpg');
+    height: 300px;
+    background-repeat: no-repeat;
+    background-size: 110%;
+    background-position: 40% -180px;
+}
+
+.CopyContainer{
+    padding: 5rem 4rem 0rem;
+    z-index: 100;
+    text-align: right;
+    position: relative;
+}
+
+.H1 h1{ color: var(--main-bg-color)!important ; text-transform: uppercase;}
+
+.H1:nth-child(1) h1{ text-transform: uppercase;}
+.H1:nth-child(2) h1, .H1:nth-child(3) h1{ text-transform: uppercase; font-weight: 100 !important;    font-size: 2.5rem !important;}
+.H1:nth-child(4) h1{ text-transform: uppercase; font-size: 1.5rem !important; color: var(--accent-color) !important; letter-spacing: 2px !important;}
+
+.JoinOver svg{
+    position: absolute;
+    bottom: 300px;
+    left: 0;
+    width: 30vw;
+    z-index: 0;
+}
+
+
+
+/* Large screens ----------- */
+@media only screen and (min-width : 1824px) {
+    .JoinOver svg{width: 30vw;}
+}
+
+
+/* Desktops and laptops ----------- */
+@media only screen  and (min-width : 1024px) and (max-width : 1824px) {
+    .JoinOver svg{width: 30vw;}
+}
+
+
+
+@media only screen and (min-width : 768px) and (max-width : 1024px)  {
+    
+    .BGScroll{ background-position: 40% -20px; }
+    .JoinOver svg{width: 50vw;}
+    .H1:nth-child(4) h1{ font-size: 1.2rem !important;}
+}
+
+
+/*  Small Catch all*/
+@media only screen and (max-width : 768px)  {
+    .CopyContainer{ padding: 2rem 2rem 0 ;}
+    .BGScroll{ background-position: 40% 0px; }
+    .H1:nth-child(1) h1{ font-size: 2rem !important;}
+    .H1:nth-child(2) h1{ font-size: 2rem !important; margin: 0!important;}
+    .H1:nth-child(3) h1{ font-size: 2rem !important;}
+    .H1:nth-child(4) h1{ font-size: 1rem !important; line-height: 1.2rem !important;}
+    .JoinOver svg{width: 50vw;}
+    }
+
+@media only screen and (max-width : 480px)  {
+    .JoinOver svg{width: 100vw; bottom: 200px;}
+    .CopyContainer{ padding: 2rem 0.5rem 0 ;}
+    .H1:nth-child(1) h1{ font-size: 1.6rem !important;}
+    .H1:nth-child(2) h1{ font-size: 1.5rem !important; margin: 0!important;}
+    .H1:nth-child(3) h1{ font-size: 1.5rem !important;}
+    .H1:nth-child(4) h1{ font-size: 1rem !important; line-height: 1.2rem !important;}
+    .BGScroll{ background-position: 40% 0px;  height: 200px;}
+    }
