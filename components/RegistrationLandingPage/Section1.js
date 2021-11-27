@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 import WantToPlaystyles from "../../styles/LandingPage/WantToPlay.module.css";
-
+import Spliter from "./SplitterBottom";
 import { H1, H2,} from "../type";
 
 import { gsap } from 'gsap'
@@ -51,7 +51,7 @@ const Section1 = (props)=>{
                 <img src="/images/Registration/Section1Img.png" className={`${WantToPlaystyles.ImgCircle}`}/>
             
               </div>
-             
+             <Spliter color="#4D4D4D"/>
       </section>
     )
   }

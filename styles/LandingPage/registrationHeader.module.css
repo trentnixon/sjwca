@@ -10,6 +10,8 @@
     background-image: url('/images/Registration/HeaderBG.jpg');
     background-size: cover;
     background-position: center top;
+    position: relative;
+    overflow: hidden;
 }
 
 .Logo{ width:200px; }

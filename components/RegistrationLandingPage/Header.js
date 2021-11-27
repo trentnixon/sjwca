@@ -1,6 +1,6 @@
 import Registrationstyles from "../../styles/LandingPage/registrationHeader.module.css";
 import {  H2, H3, S} from "../type";
-
+import Spliter from "./SplitterBottom";
 
 import RegisterButton from "./RegisterBtn"
 
@@ -29,6 +29,7 @@ const RegistrationHeader = (props)=>{
                                 <H2>Sydney's Only Junior Winter Cricket Competition!</H2>
                         </div>
                 </div>
+                <Spliter color="#FBFDFF"/>
             </section>
         )
 }

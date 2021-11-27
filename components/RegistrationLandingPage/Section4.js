@@ -3,7 +3,7 @@ import Section4Styles from "../../styles/LandingPage/Section4.module.css";
 
 
 import { H1, H2} from "../type";
-
+import Spliter from "./SplitterBottom";
 import { gsap } from 'gsap'
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
@@ -32,7 +32,7 @@ const OpenAges = (props)=>{
 
 
     return(
-        <div className={` ${Section4Styles.JoinOver}`} id="Ages">
+        <section className={` ${Section4Styles.JoinOver}`} id="Ages">
             
             <div>
             <H2>{registrationPage.ReasonsToPlay[8].Reason}</H2>
@@ -46,7 +46,9 @@ const OpenAges = (props)=>{
                 <Boy />
                 <Girl />
             </div>
-        </div>
+            <Spliter color="#4C4C4C"/>
+
+        </section>
     )
   }
   

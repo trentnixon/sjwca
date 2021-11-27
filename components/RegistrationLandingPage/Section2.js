@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import JoinOver from "../../styles/LandingPage/JoinOver.module.css";
 
 import { H1} from "../type";
-
+import Spliter from "./SplitterBottom";
 import { gsap } from 'gsap'
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
@@ -17,23 +17,23 @@ const Section2 = (props)=>{
         scrollTrigger:{
             trigger:"#JoinOver",
             toggleActions:"restart pause reverse pause",
-            start: "top 75%",
+            start: "top center",
             end:"bottom bottom",
             scrub:1,    
             //pin: true,         
             //markers:true
         }
-        })
+        }) 
         
         .fromTo(".H1_1", { yPercent:30,opacity:0},{yPercent:0,opacity:1,duration: 2.5,ease: "power2.out"},"section1")
-        .fromTo(".H1_2", { yPercent:30,opacity:0},{yPercent:0,opacity:1,duration: 2.5,ease: "power2.out"},"section1+=0.4")
-        .fromTo(".H1_3", { yPercent:30,opacity:0},{yPercent:0,opacity:1,duration: 2.5,ease: "power2.out"},"section1+=0.6")
-        .fromTo(".H1_4", { yPercent:30,opacity:0},{yPercent:0,opacity:1,duration: 2.5,ease: "power2.out"},"section1+=0.8")
+        .fromTo(".H1_2", { yPercent:30,opacity:0},{yPercent:0,opacity:1,duration: 2.5,ease: "power2.out"},"section1+=0.5")
+        .fromTo(".H1_3", { yPercent:30,opacity:0},{yPercent:0,opacity:1,duration: 2.5,ease: "power2.out"},"section1+=1")
+        .fromTo(".H1_4", { yPercent:30,opacity:0},{yPercent:0,opacity:1,duration: 2.5,ease: "power2.out"},"section1+=2")
         .fromTo("#JoinOver svg", { xPercent:-30,opacity:0},{xPercent:0,opacity:1,duration: 2.5,ease: "power2.out"},"section1+=0.8")
         
         ;
     },[])
-  
+   
     return(
       <section  className={`${JoinOver.JoinOver}`} id="JoinOver">
           
@@ -44,12 +44,12 @@ const Section2 = (props)=>{
               <div className={`${JoinOver.H1} H1_4`}><H1>{registrationPage.ReasonsToPlay[5].Reason}</H1></div>
             </div>
             <TeamSVG />
-            <div className={JoinOver.BGScroll} >&nbsp;</div>
+            <Spliter color="#2E2D2D"/>
 
       </section>
     )
   }
-
+//<div className={JoinOver.BGScroll} >&nbsp;</div>
   export default Section2;
 
 

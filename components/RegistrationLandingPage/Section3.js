@@ -2,18 +2,20 @@ import { useEffect } from "react";
 import Section3Styles from "../../styles/LandingPage/Section3.module.css";
 
 import { H1 } from "../type";
-
+import Spliter from "./SplitterBottom";
 import { gsap } from 'gsap'
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const Section3 = (props)=>{
         return(
-            <div className={Section3Styles.Section3}>
+            <section className={Section3Styles.Section3}>
+              <SmallGallery />
                 <DevelopFriendships  {...props} />
-                <SmallGallery />
+                
                 <EnjoyableWay {...props}  />
-            </div>
+                <Spliter color="#FBFDFF"/>
+            </section>
         )
 }
 

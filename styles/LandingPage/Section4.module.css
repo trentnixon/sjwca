@@ -13,13 +13,14 @@
 .JoinOver h2{ color: #4C4C4C; text-transform: uppercase;margin: 0 1rem 2rem 0 !important;font-size: 4rem !important; }
 
 .JoinOver div{
-    flex: 0 0 50%;
+    
     text-align: right;
     z-index: 100;
    
 }
 
 .JoinOver div:nth-child(1){
+    flex: 0 0 60%;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -30,6 +31,7 @@
 }
 
 .JoinOver div:nth-child(2){
+    flex: 0 0 40%;
     background-image: url('/images/Registration/IMG_Ages.jpg');
     background-position: top left;
     background-repeat: no-repeat;
