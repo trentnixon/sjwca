@@ -13,8 +13,8 @@ import FullWidthContainer from "../../../components/Structure/FullWidthContainer
 import { H2 } from "../../../components/type";
 import { useState } from "react";
 import LaunchIcon from '@mui/icons-material/Launch';
-
-
+import EditLocationAltIcon from '@mui/icons-material/EditLocationAlt';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
 const SingleRegion = (region)=>{
 
     console.log(region.region)
@@ -77,24 +77,28 @@ const SingleRegion = (region)=>{
                             <H2>{useRegion.Name}</H2>
                                 { <ReactMarkdown>{useRegion.About}</ReactMarkdown> }
                         </div>
-                    <div className={`${StructureStyles.Width30}`} >
-                            <H2>Pitches</H2>
-                            <ul className={RegionStyles.List_col}>
-                        {
-                            useRegion.grounds.map((grounds,i)=>{
-                                    return(
-                                        <li>
-                                             {grounds.Name}
-                                            <Link href={`/ground/${grounds.id}`}>
-                                                <LaunchIcon />
-                                            </Link>
-                                           
-                                        </li>
-                                    )
-                            })
-                        }
-                          </ul>
-                    </div>
+                        <div className={`${StructureStyles.Width30}`} > 
+                               
+                                <ul className={RegionStyles.List_col}>
+                            {
+                                useRegion.grounds.map((grounds,i)=>{
+                                        return(
+                                            <li>
+                                                
+                                                <Link href={`/ground/${grounds.id}`}>
+                                                    <a>
+                                                      
+                                                        <LocationOnIcon />
+                                                        {grounds.Name}
+                                                    </a>
+                                                </Link>
+                                              
+                                            </li> 
+                                        )
+                                })
+                            }
+                              </ul>
+                        </div>
                     </ContentContainer>
 
                     <FullWidthContainer> 

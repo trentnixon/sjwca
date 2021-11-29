@@ -4,6 +4,7 @@ import StructureStyles from "../styles/Structure/Structure.module.css";
 // Components
 import PageHeaderSmall from "../components/Structure/PageHeaderSmall"
 import ContentContainer from "../components/Structure/ContentContainer"
+import SupportersIcons from "../components/Structure/SupportersIcons"
 // Type
 import { H2 } from "../components/type";
 
@@ -27,6 +28,7 @@ const RegisterIndividual = ()=>{
                 ...
                 </div>
               </ContentContainer> 
+              <SupportersIcons />
       </div>
           
 ) 

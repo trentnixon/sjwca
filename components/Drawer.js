@@ -37,6 +37,10 @@ export default function TemporaryDrawer() {
       url:'/',
       Icon:<SportsCricketIcon />
     },{
+      label:'Winter 2022',
+      url:'/2022season',
+      Icon:<AcUnitIcon />
+    },{
       label:'Register a Team',
       url:'/registerTeam',
       Icon:<GroupIcon />
@@ -49,10 +53,6 @@ export default function TemporaryDrawer() {
       url:'/regions',
       Icon:<EditLocationAltIcon />
     },{
-      label:'SJWCA Grounds',
-      url:'/grounds',
-      Icon:<SportsCricketIcon />
-    },{
       label:'About SJWCA',
       url:'/about',
       Icon:<HelpIcon />
@@ -62,9 +62,9 @@ export default function TemporaryDrawer() {
 
 /*
 ,{
-      label:'Winter 2022',
-      url:'/2022season',
-      Icon:<AcUnitIcon />
+      label:'SJWCA Grounds',
+      url:'/grounds',
+      Icon:<SportsCricketIcon />
     }
 */
   const toggleDrawer = (anchor, open) => (event) => {

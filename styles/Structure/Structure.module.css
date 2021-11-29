@@ -7,14 +7,15 @@
     background-color: var(--base-color);
     z-index: 1000;
     position: relative;
-    padding: 3rem 0;
+    padding: 3rem 0rem;
     display: flex;
         justify-content: center;
         align-items: flex-start;
         align-content: center;
+ 
 }
 /* Page Width Breaks*/
-.FullWidth{ width: 100%; }
+.FullWidth{ width: 100%;  }
 .ContentWidth{  
   
     margin: 0 auto;  
@@ -23,9 +24,9 @@
     align-items: flex-start;
     align-content: center;}
 
-
-    .BaseLine div >div.Width70{ width: 70%; }
-    .BaseLine div >div.Width30{ width: 30%; }
+    .BaseLine div >div.Width100{ flex:0 0 100%;  padding: 1rem; }
+    .BaseLine div >div.Width70{ flex:0 0 70%; padding: 1rem;}
+    .BaseLine div >div.Width30{flex:0 0 30%;   padding: 1rem;}
  
 
 /* Structures*/
@@ -59,8 +60,9 @@
     background-color: rgb(255 255 255 / 30%);
     padding: 1rem 2rem;
     border-radius: var(--Title-Border-Radius);
-    height: 30%;
+    min-height: 30%;
 }
+.HeaderCopy h1{ text-align: center;}
 
 .HeaderCopy h1, .HeaderCopy h2{ margin: 0 !important; color:  var(--base-color);}
 .FixedHeaderIMG{
@@ -93,21 +95,22 @@
 }
 /* Desktops and laptops ----------- */
 @media only screen  and (min-width : 1024px)  {
-    .ContentWidth{ width: 62rem; }
+    .ContentWidth{ width: 58rem; }
 }
 
 @media only screen and (min-width : 768px) and (max-width : 1024px)  {
 /* Styles */
-    .ContentWidth{ width: 54rem; }
+    .ContentWidth{ width: 42rem; }
+    
 }
 
 
 /*  Small Catch all*/
 @media only screen and (max-width : 768px)  {
     /* Styles */
-       
-        .BaseLine div >div.Width70{ width: 100%; }
-        .BaseLine div >div.Width30{ width: 100%; }
+    .BaseLine div >div.Width70{ width:90%; }
+    .BaseLine div >div.Width30{width:90%;}
+  
     }
 
 @media only screen and (min-width : 480px) and (max-width : 768px)  {

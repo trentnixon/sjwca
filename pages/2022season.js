@@ -1,14 +1,17 @@
 import { API } from "../config/index"
+import Link from 'next/link'
 import ReactMarkdown from 'react-markdown';
 import StructureStyles from "../styles/Structure/Structure.module.css";
+import SideNav from "../styles/registrationPage/SideNav.module.css";
 // Components
 import PageHeaderSmall from "../components/Structure/PageHeaderSmall"
 import ContentContainer from "../components/Structure/ContentContainer"
 // Type
-import { H2 } from "../components/type";
-
-const about = ({about})=>{
-
+import { H2,H4 } from "../components/type";
+import SupportingSideNav from "../components/Structure/SupportingSideNav"
+import SupportersIcons from "../components/Structure/SupportersIcons"
+import RegisterButton from "../components/RegistrationLandingPage/RegisterBtn"
+const NewSeason = ({about})=>{
   return(
     <div className={StructureStyles.Outer}>
         <PageHeaderSmall 
@@ -21,17 +24,21 @@ const about = ({about})=>{
                 <div className={`${StructureStyles.Width70} ${StructureStyles.ReactMarkdown}`} >
                   <H2>{about.Name}</H2>
                   { <ReactMarkdown>{about.Description}</ReactMarkdown> }
+              <RegisterButton />
+
+
                 </div>
+
                 <div className={`${StructureStyles.Width30}`} >
-                hello
+                  <SupportingSideNav />
                 </div>
               </ContentContainer> 
-      </div>
-          
-) 
+              <SupportersIcons />
+      </div>        
+  ) 
 }
 
-export default about
+export default NewSeason
 
 
 
@@ -39,8 +46,8 @@ export const getStaticProps = async (context) => {
 
 /*   const aboutRes = await fetch(`${server}api/about`)
   const about = await aboutRes.json() */
-
-  const aboutRes = await fetch(`${API}about`)
+  ///newseason
+  const aboutRes = await fetch(`${API}newseason`)
   const about = await aboutRes.json()
 
   return {

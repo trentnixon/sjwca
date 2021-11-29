@@ -4,6 +4,9 @@ import StructureStyles from "../styles/Structure/Structure.module.css";
 // Components
 import PageHeaderSmall from "../components/Structure/PageHeaderSmall"
 import ContentContainer from "../components/Structure/ContentContainer"
+import SupportingSideNav from "../components/Structure/SupportingSideNav"
+import SupportersIcons from "../components/Structure/SupportersIcons"
+
 
 import { H2 } from "../components/type";
 const about = ({about})=>{
@@ -22,9 +25,10 @@ const about = ({about})=>{
                           { <ReactMarkdown>{about.Description}</ReactMarkdown> }
                         </div>
                         <div className={`${StructureStyles.Width30}`} >
-                        hello
+                          <SupportingSideNav />
                         </div>
                       </ContentContainer> 
+                      <SupportersIcons />
               </div>
                   
         ) 
@@ -35,7 +39,7 @@ export default about
 
 
 export const getStaticProps = async (context) => {
-    const aboutRes = await fetch(`${API}about`)
+    const aboutRes = await fetch(`${API}my-cricket-registration`)
     const about = await aboutRes.json()
   return {  props: {about} }
 }

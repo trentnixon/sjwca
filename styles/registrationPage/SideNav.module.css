@@ -34,6 +34,7 @@
     color: var(--dark-color);
     cursor: pointer;
     text-transform: uppercase !important;
+    text-align: right;
 }
 
 
