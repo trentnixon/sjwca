@@ -24,17 +24,20 @@ const UpdateExictingPlayer = (props)=>{
     const CreateNewReceiptObj = ()=>{
         let OBJ=[] 
 
-        console.log(PlayerReturn[0].Season_receipts)
+        console.log(PlayerReturn[0].Season_receipts.length, PlayerReturn[0].Season_receipts)
 
-        PlayerReturn[0].Season_receipts.map((receipt, )=>{
-            console.log(receipt)
-            OBJ.push({
-                ReceiptNumber:receipt.ReceiptNumber,
-                Confirmed:receipt.Confirmed,
-                season:receipt.season.id,
-                team: !receipt.team ? [] :receipt.team.id
+        if(PlayerReturn[0].Season_receipts[0] !== null){
+            PlayerReturn[0].Season_receipts.map((receipt, )=>{
+               
+                OBJ.push({
+                    ReceiptNumber:receipt.ReceiptNumber,
+                    Confirmed:receipt.Confirmed,
+                    season:receipt.season.id,
+                    team: !receipt.team ? [] :receipt.team.id
+                })
             })
-        })
+        }
+        
 
         OBJ.push({
             ReceiptNumber:ReceiptNum,
@@ -43,7 +46,7 @@ const UpdateExictingPlayer = (props)=>{
             team:SelectedTeam.id
         })
 
-        console.log(OBJ)
+        //console.log(OBJ)
         return OBJ
     }
 
@@ -52,7 +55,7 @@ const UpdateExictingPlayer = (props)=>{
                 RefreshUIonAddUpdate(true)
 
                 //let FirstReciept =[{ReceiptNumber:ReceiptNum, season:[Season],team:[SelectedTeam.id] }]
-                //CreateNewReceiptObj()
+                CreateNewReceiptObj()
                 console.log(PlayerReturn[0].Season_receipts)
                 const OBJ={
                     _PLAYERID:PlayerReturn[0].id,
