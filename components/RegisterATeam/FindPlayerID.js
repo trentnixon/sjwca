@@ -22,7 +22,7 @@ const AddPlayer = (props)=>{
      
     }
     
-    useEffect(()=>{ console.log(PlayerRoster) },[PlayerRoster])
+    useEffect(()=>{ console.log(PlayerRoster) },[PlayerRoster]) 
     
   
 
