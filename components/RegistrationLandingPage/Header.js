@@ -29,7 +29,7 @@ const RegistrationHeader = (props)=>{
                                 <H2>Sydney's Only Junior Winter Cricket Competition!</H2>
                         </div>
                 </div>
-                <Spliter color="#FBFDFF"/>
+                <Spliter color="#FBFDFF"/> 
             </section>
         )
 }

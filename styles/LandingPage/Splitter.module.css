@@ -7,6 +7,7 @@ section .custom_shape_divider_bottom_1637977908 {
     line-height: 0;
     transform: rotate(180deg);
     padding: 0 !important;
+    z-index: 100;
 }
 
 section .custom_shape_divider_bottom_1637977908 svg {

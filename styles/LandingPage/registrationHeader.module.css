@@ -12,6 +12,7 @@
     background-position: center top;
     position: relative;
     overflow: hidden;
+    z-index: 1000;
 }
 
 .Logo{ width:200px; }
@@ -22,14 +23,14 @@
 .RegistrationHeader button{
     padding: .8rem 2.5rem;
 }
-
+ 
 
 .Frosted{
     display: flex;
     flex-direction: row;
     background-color: rgb(255 255 255 / 40%);
     padding: 6rem ;
-    border-radius:  200px 0 ;
+    
     flex-wrap: wrap;
     width: 50vw;
 }
@@ -102,6 +103,9 @@
 
 
 
+@media only screen and (max-height : 768px)  {
+    .RegistrationHeader{min-height: 100vh;}
+}
 @media only screen and (min-width : 768px) and (max-width : 1024px)  {
 /* Styles */
 .Frosted{ 
