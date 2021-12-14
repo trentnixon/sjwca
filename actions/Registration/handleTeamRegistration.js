@@ -131,14 +131,14 @@ const CreateNewTeamSeasonRoster = (TEAMID, Current_Season_ID)=>{
 
 
 
-export const fetchLatestTeamRoster = async(TEAMID,SEASONID, CALLBACK)=>{
+export const fetchLatestTeamRoster = async(TEAMID,SEASONID, CALLBACK)=>{ 
     console.log(TEAMID)
  ///teams/:id
     
     const URI =`${API}teams/${TEAMID}`  
      await axios({ url: URI, method: 'get'})
             .then(function (response) {
-                console.log(response.data.TeamSeason, SEASONID)
+                console.log(response.data.team_season_rosters, SEASONID)
                 let INDEX = findIndex(response.data.team_season_rosters, function(o) { return o.season == SEASONID; })
                 console.log(response.data.team_season_rosters[INDEX]);
 

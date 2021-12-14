@@ -52,7 +52,7 @@ export default function PlayerID({setPlayerReturn, setMyCricketID}) {
                     fullWidth
                     type='number'
                     onInput={handleIDInput}
-                    />
+                    /> 
                     </FormElementsContainer>
                     <div className={ButtonStyle.BtnRight}>
                       <Button variant="contained" type="submit" className={ButtonStyle.Next} disabled={disabled}>Find Player</Button>

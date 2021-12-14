@@ -19,3 +19,7 @@ export const GoToRegionBtn = ({href}) => {
           </Button>
           )
 }
+
+export const RegIndividualTerms = ({SetState, state, Title}) => {
+  return (<Button variant="contained" onClick={()=>{SetState(state)}} className={ButtonStyles.Next}>{Title}</Button>)
+}

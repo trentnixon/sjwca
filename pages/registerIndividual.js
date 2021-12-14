@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { API } from "../config/index"
 import ReactMarkdown from 'react-markdown';
 import StructureStyles from "../styles/Structure/Structure.module.css";
@@ -8,8 +9,12 @@ import SupportersIcons from "../components/Structure/SupportersIcons"
 // Type
 import { H2 } from "../components/type";
 import SupportingSideNav from "../components/Structure/SupportingSideNav"
+import {RegIndividualTerms} from '../components/buttons'
+import CreateNewPlayerForm from '../components/RegisterIndividual/CreateNewPlayer'
+
 const RegisterIndividual = ({individual})=>{
 
+    const [AgreedTerms, setAgreedTerms] = useState(false)
         
   return(
     <div className={StructureStyles.Outer}>
@@ -20,12 +25,14 @@ const RegisterIndividual = ({individual})=>{
         />
 
             <ContentContainer> 
-                <div className={`${StructureStyles.Width70} ${StructureStyles.ReactMarkdown}`} >
-                  <H2>{individual.Name}</H2>
-                  { <ReactMarkdown>{individual.Description}</ReactMarkdown> }
-                </div>
+            {
+              AgreedTerms ? <RegisterIndividualForm setAgreedTerms={setAgreedTerms} />:
+                  <RegisterIndividualInstructions individual={individual} setAgreedTerms={setAgreedTerms}/>
+            }
+                
+                
                 <div className={`${StructureStyles.Width30}`} >
-                <SupportingSideNav />
+                  <SupportingSideNav />
                 </div>
               </ContentContainer> 
               <SupportersIcons />
@@ -40,4 +47,28 @@ export const getStaticProps = async (context) => {
   const individualRes = await fetch(`${API}register-individual`)
   const individual = await individualRes.json()
 return {  props: {individual} }
+}
+
+
+
+const RegisterIndividualInstructions = (props)=>{
+  const {individual, setAgreedTerms} = props
+  return(
+    <div className={`${StructureStyles.Width70} ${StructureStyles.ReactMarkdown}`} >
+                  <H2>{individual.Name}</H2>
+                  { <ReactMarkdown>{individual.Description}</ReactMarkdown> }
+                  <RegIndividualTerms SetState={setAgreedTerms} state={true} Title='Register Player'/>
+                </div>
+  )
+}
+
+
+const RegisterIndividualForm = (props)=>{
+  const {setAgreedTerms} = props
+  return(
+    <div className={`${StructureStyles.Width70}`} >
+        <CreateNewPlayerForm /> 
+      <RegIndividualTerms SetState={setAgreedTerms} state={false} Title='Back'/>
+    </div>
+  )
 }

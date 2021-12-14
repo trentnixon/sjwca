@@ -34,11 +34,11 @@ const AddPlayer = (props)=>{
                 !isMyCricketIDEntered ? <NewPlayerPath  ResetParentComponent={ResetParentComponent} PlayerRoster={PlayerRoster} setPlayerRoster={setPlayerRoster} {...props} />:<Interim /> 
             }
         </>
-    )
+    ) 
 }
 export default AddPlayer;
 
-
+ 
 
 
 

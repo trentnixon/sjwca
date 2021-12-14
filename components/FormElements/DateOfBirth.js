@@ -29,7 +29,7 @@ export default function MaterialUIPickers({setPlayerDOB}) {
     <LocalizationProvider dateAdapter={AdapterDateFns}>
      
         <DesktopDatePicker
-          label="Date desktop"
+          label="Date of Birth"
           inputFormat="dd/MM/yyyy"
           value={value}
           variant="standard"

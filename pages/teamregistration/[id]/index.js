@@ -60,3 +60,4 @@ export const getServerSideProps = async(ctx)=>{
 
         return{ props:{ Team:Team, Completed: false, RegistrationInsructions:RegistrationInsructions, switchboard:switchboard }} 
 }
+ 

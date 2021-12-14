@@ -2,7 +2,7 @@ import ButtonStyles from "../../styles/Structure/Buttons.module.css"
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 //import {UpdateRegistrationFormHandler} from "../../actions/Registration/handleTeamRegistration"
-import {UpdateTeamSeasonRoster} from "../../actions/Registration/handlePlayerRoster"
+import {RemovePlayerFromTeamSeasonRoster} from "../../actions/Registration/handlePlayerRoster"
 
 import {filter} from 'lodash';
 
@@ -18,7 +18,7 @@ const DeletePlayerFromRoster = ({player,RefreshUIonDelete,PlayerRoster,Requestne
             _ROSTERID:PlayerRoster.id,
         }
     
-       UpdateTeamSeasonRoster(OBJ)
+        RemovePlayerFromTeamSeasonRoster(OBJ) 
        RefreshUIonDelete() 
     }
     

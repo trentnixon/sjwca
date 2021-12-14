@@ -30,7 +30,7 @@ const UpdateExictingPlayer = (props)=>{
             PlayerReturn[0].Season_receipts.map((receipt, )=>{
                
                 OBJ.push({
-                    ReceiptNumber:receipt.ReceiptNumber,
+                    //ReceiptNumber:receipt.ReceiptNumber,
                     Confirmed:receipt.Confirmed,
                     season:receipt.season.id,
                     team: !receipt.team ? [] :receipt.team.id
@@ -61,18 +61,18 @@ const UpdateExictingPlayer = (props)=>{
                     _PLAYERID:PlayerReturn[0].id,
                     _PLAYER_SEASON_RECEIPTS:CreateNewReceiptObj(),
                     _SEASON:Season,
-                    _RECEIPTNUM:ReceiptNum,
+                    //_RECEIPTNUM:ReceiptNum,
                     _TEAMID:SelectedTeam.id,
                     _CURRENTSEASONID:CurrentSeasonID,
                     _TEAMROSTER:CreateTeamRosterforStrapi(PlayerRoster),
                     _ROSTERID:PlayerRoster.id,
                     _CALLBACK:RequestnewDatafromStrapi
                 }
-                UpdatePlayer(OBJ)
+                UpdatePlayer(OBJ) 
     }
 
     useEffect(()=>{
-        if(Season && ReceiptNum)
+        if(Season)
             setDisabled(false)
     },[Season,ReceiptNum])
 
@@ -80,8 +80,8 @@ const UpdateExictingPlayer = (props)=>{
             <FormElementGroup>
                 <H4>MyCricket ID : {PlayerReturn[0].MyCricketID} </H4>
                 <H2>Player Name : {PlayerReturn[0].Name} </H2>
-                
-                <SeasonReceipt setReceiptNum={setReceiptNum}/>
+                 
+              
                 <Select_Seasons setSeason={setSeason}/>
                     <div className={ButtonStyle.BtnRight}>
                         <div className={ButtonStyle.BtnGroup}>
@@ -93,3 +93,5 @@ const UpdateExictingPlayer = (props)=>{
         )
 }
 export default UpdateExictingPlayer;
+
+//  <SeasonReceipt setReceiptNum={setReceiptNum}/>

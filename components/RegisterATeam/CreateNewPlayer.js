@@ -30,8 +30,8 @@ const CreateNewPlayer = (props)=>{
     const [PlayerContactNumber, setPlayerContactNumber] = useState(false)
     const [PlayerDOB, setPlayerDOB] = useState(false)
     
-
-
+ 
+ 
 
     const handleClick = ()=>{
 
@@ -43,7 +43,6 @@ const CreateNewPlayer = (props)=>{
             _PLAYERNAME:PlayerName,
             _SEASON:Season,  
             _MyCricketID:MyCricketID,
-            _RECEIPTNUM:ReceiptNum,
             _TEAMID:SelectedTeam.id,
             _CURRENTSEASONID:CurrentSeasonID,
             _GENDER:Gender,
@@ -54,18 +53,21 @@ const CreateNewPlayer = (props)=>{
             _ROSTERID:PlayerRoster.id,
             _CALLBACK:RequestnewDatafromStrapi,
            _PLAYER_SEASON_RECEIPTS:FirstReciept,
+           _AGE:SelectedTeam.age_group?.id?SelectedTeam.age_group.id:null,
+           _DIVISION:SelectedTeam.division?.id?SelectedTeam.division.id:null,
+           _REGION: SelectedTeam.region?.id ?SelectedTeam.region.id:null,
           
         }
+            console.log(OBJ)
        
             AddNewPlayer(OBJ)
            
     }
 
-
     const FieldCheck = ()=>{
         console.log('FieldCheck')
         console.log(Gender)
-        if(Season && ReceiptNum && PlayerName && Gender && PlayerEmail && PlayerContactNumber && PlayerDOB)
+        if(Season && PlayerName && Gender && PlayerEmail && PlayerContactNumber && PlayerDOB)
             return true 
                 return false
     }
@@ -75,17 +77,21 @@ const CreateNewPlayer = (props)=>{
     },[Season , ReceiptNum , PlayerName , Gender, PlayerEmail , PlayerContactNumber , PlayerDOB])
 
         return(
+            <>
             <FormElementGroup>
-                <H2>Create New Player</H2>
+            <H4>About this Season</H4>
                 <H4>My Cricket ID : {MyCricketID}</H4>
            
                     <Create_Player_Name setPlayerName={setPlayerName}/>
-                    <Create_PlayerContactNumber setPlayerContactNumber={setPlayerContactNumber}/>
+                    <Select_Seasons setSeason={setSeason}/>
+                    
+            </FormElementGroup>
+            <FormElementGroup>
+            <Create_PlayerContactNumber setPlayerContactNumber={setPlayerContactNumber}/>
                     <Create_PlayerEmail setPlayerEmail={setPlayerEmail}/>
                     <Select_Gender setGender={setGender}/>   
                     <DateOfBirth setPlayerDOB={setPlayerDOB} />
-                    <SeasonReceipt setReceiptNum={setReceiptNum}/>
-                    <Select_Seasons setSeason={setSeason}/>
+             
                     
                     <div className={ButtonStyle.BtnRight}>
                         <div className={ButtonStyle.BtnGroup}>
@@ -94,8 +100,10 @@ const CreateNewPlayer = (props)=>{
                         </div>
                     </div>
             </FormElementGroup>
+            </>
         )
 }
 export default CreateNewPlayer;
 
 // / <DateOfBirth />
+// <SeasonReceipt setReceiptNum={setReceiptNum}/>
