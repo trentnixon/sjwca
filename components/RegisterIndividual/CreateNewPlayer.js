@@ -9,8 +9,9 @@ import Create_Player_Name from "../FormElements/PlayerName";
 import Create_Mycricket_ID from "../FormElements/PlayerMyCricketID";
 import Create_PlayerEmail from "../FormElements/PlayerEmail";
 import Create_PlayerContactNumber from "../FormElements/PlayerContactNumber";
-import SeasonReceipt from "../FormElements/SeasonReceipt"
+// import SeasonReceipt from "../FormElements/SeasonReceipt"
 import Select_Seasons from "../FormElements/Select_Seasons"
+import Select_TeamStatus from "../FormElements/Select_TeamStatus"
 import Select_Gender from "../FormElements/Select_Gender"
 import Select_AgeGroup_Individual from "../FormElements/Select_AgeGroup_Individual"
 import Select_Division_Individual from "../FormElements/Select_Division_Individual"
@@ -31,6 +32,7 @@ const CreateNewPlayer = (props)=>{
     const [PlayerName, setPlayerName] = useState(false)
     const [ReceiptNum, setReceiptNum] = useState(0)
     const [Season, setSeason] = useState(0)
+    const [TeamStatus, setTeamStatus] = useState(false)
     const [Gender, setGender] = useState(0)
     const [PlayerEmail, setPlayerEmail] = useState(false)
     const [PlayerContactNumber, setPlayerContactNumber] = useState(false) 
@@ -64,10 +66,12 @@ const CreateNewPlayer = (props)=>{
              _GENDER:Gender,
              _MyCricketID:MyCricketID,
              _TEAMID:SelectedTeam,
-             _ROSTERID:PlayerRosterID,
+             _ROSTERID:TeamStatus ? null:PlayerRosterID ,
              _AGE:AgeGroup,
              _DIVISION:Division,
              _REGION:Region,
+             _TeamStatus:TeamStatus,
+             _EmailTemplate:'new',
              _CALLBACK:CALLBACK,
           /*  
             _TEAMROSTER:CreateTeamRosterforStrapi(PlayerRoster),
@@ -77,7 +81,7 @@ const CreateNewPlayer = (props)=>{
         }
        
         console.log(OBJ)
-        AddNewPlayer(OBJ)
+        AddNewPlayer(OBJ) 
            
     }
 
@@ -85,14 +89,14 @@ const CreateNewPlayer = (props)=>{
     const FieldCheck = ()=>{
         console.log('FieldCheck')
         console.log(Gender)
-        if(Season && PlayerName && AgeGroup && Division && MyCricketID && Gender && PlayerEmail && PlayerContactNumber && PlayerDOB)
+        if(Season  && PlayerName && AgeGroup && Division && MyCricketID && Gender && PlayerEmail && PlayerContactNumber && PlayerDOB)
             return true 
                 return false
     }
 
     useEffect(()=>{
         FieldCheck() ? setDisabled(false) :setDisabled(true)
-    },[Season , ReceiptNum , PlayerName , Gender, PlayerEmail , PlayerContactNumber , PlayerDOB])
+    },[Season , ReceiptNum , PlayerName , Gender, PlayerEmail , PlayerContactNumber , PlayerDOB,TeamStatus])
 
 
     if(iscallback)
@@ -108,6 +112,8 @@ const CreateNewPlayer = (props)=>{
             <H4>About this Season</H4>
                     <Create_Player_Name setPlayerName={setPlayerName}/>
                     <Create_Mycricket_ID setMyCricketID={setMyCricketID}/>
+                   
+                    <Select_TeamStatus setTeamStatus={setTeamStatus}/>
                     <Select_Seasons setSeason={setSeason}/>
                     <Select_Region_Individual setRegion={setRegion}/>
                     <Select_AgeGroup_Individual setAgeGroup={setAgeGroup}/>

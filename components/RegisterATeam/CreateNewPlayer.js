@@ -52,6 +52,8 @@ const CreateNewPlayer = (props)=>{
             _TEAMROSTER:CreateTeamRosterforStrapi(PlayerRoster),
             _ROSTERID:PlayerRoster.id,
             _CALLBACK:RequestnewDatafromStrapi,
+            _TeamStatus:true, // true, player has a team
+            _EmailTemplate:'assigned',
            _PLAYER_SEASON_RECEIPTS:FirstReciept,
            _AGE:SelectedTeam.age_group?.id?SelectedTeam.age_group.id:null,
            _DIVISION:SelectedTeam.division?.id?SelectedTeam.division.id:null,
@@ -59,8 +61,7 @@ const CreateNewPlayer = (props)=>{
           
         }
             console.log(OBJ)
-       
-            AddNewPlayer(OBJ)
+            AddNewPlayer(OBJ) 
            
     }
 

@@ -66,9 +66,10 @@ const UpdateExictingPlayer = (props)=>{
                     _CURRENTSEASONID:CurrentSeasonID,
                     _TEAMROSTER:CreateTeamRosterforStrapi(PlayerRoster),
                     _ROSTERID:PlayerRoster.id,
+                    _EmailTemplate:'assigned',
                     _CALLBACK:RequestnewDatafromStrapi
                 }
-                UpdatePlayer(OBJ) 
+                UpdatePlayer(OBJ)  
     }
 
     useEffect(()=>{

@@ -14,10 +14,13 @@ const RegistrationHeader = (props)=>{
                 <div className={Registrationstyles.Frosted}>
                        
                         <div>
+                                
+                               
                                 <H2 style={{ textTransform: 'uppercase',letterSpacing:'2px'}}>Sydney</H2>
+                                
                                 <img src={logoLarge.image.url} className={Registrationstyles.Logo}  />
-                                <S style={{fontWeight:200, textTransform:'uppercase'}} >established 2005</S>
                                 <H2 style={{fontWeight:800,textTransform: 'uppercase'}}>17th Season</H2>
+                                <S style={{fontWeight:200, textTransform:'uppercase'}} >established 2005</S>
                         </div>
 
                         <div>

@@ -29,11 +29,8 @@ const AddPlayer = (props)=>{
     if(!PlayerRoster)
     return( <PlayerLookupCheck setPlayerRoster={setPlayerRoster} {...props}/>)
     return(
-        <>
-            {
-                !isMyCricketIDEntered ? <NewPlayerPath  ResetParentComponent={ResetParentComponent} PlayerRoster={PlayerRoster} setPlayerRoster={setPlayerRoster} {...props} />:<Interim /> 
-            }
-        </>
+      !isMyCricketIDEntered ? <NewPlayerPath  ResetParentComponent={ResetParentComponent} PlayerRoster={PlayerRoster} setPlayerRoster={setPlayerRoster} {...props} />:<Interim />
+
     ) 
 }
 export default AddPlayer;
@@ -84,19 +81,20 @@ const NewPlayerPath = (props)=>{
     console.log(PlayerReturn)
         if(isStallUI)
         return(
-            <><H2>Processing Request</H2></>
+            <H2>Processing Request</H2>
         )
         return(
-            <>
+            <div>
                 {
                     !PlayerReturn.length ?
-                            <>
+                            <div>
                                 <Btn_ConfirmTeam PlayerRoster={PlayerRoster} {...props} />
                                 <PlayerID  {...props} setMyCricketID={setMyCricketID} setPlayerReturn={setPlayerReturn}/>
                                 <SelectedPlayerList {...props} RefreshUIonDelete={RefreshUIonDelete}  RequestnewDatafromStrapi={RequestnewDatafromStrapi}/>
-                            </> :  <CreateorUpdatePlayer {...props} MyCricketID={MyCricketID} PlayerReturn={PlayerReturn} BacktoIDInput={BacktoIDInput}  RefreshUIonAddUpdate={RefreshUIonAddUpdate} RequestnewDatafromStrapi={RequestnewDatafromStrapi}/>
+                            </div> 
+                            :  <CreateorUpdatePlayer {...props} MyCricketID={MyCricketID} PlayerReturn={PlayerReturn} BacktoIDInput={BacktoIDInput}  RefreshUIonAddUpdate={RefreshUIonAddUpdate} RequestnewDatafromStrapi={RequestnewDatafromStrapi}/>
                 }
-            </>
+            </div>
         )
 }
 
@@ -117,17 +115,17 @@ const CreateorUpdatePlayer = (props)=>{
     
     if(hasPlayeralreadyBeenAssignedToTeam())
         return(
-            <>
+            <div>
                 <H2>PLAYER ALREADY IN TEAM</H2>
                 <Btn_ResetParentComponent ResetParentComponent={BacktoIDInput}/>
-            </>
+            </div>
         )
         return(
-            <>
+            <div>
                 {
                     PlayerReturn[0].id ? <UpdateExictingPlayer  {... props} />:<CreateNewPlayer {... props} />
                 }
-            </>
+            </div>
         )
 } 
 

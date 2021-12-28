@@ -22,10 +22,10 @@ const FormSuccess = ()=>{
 
     return(
         <>
-                <H2>Registration of Interest Recieved</H2>
+                <H2>Registration of Interest Received</H2>
                 <P>Thank you for your interest in this Seasons Competition</P>
                 <P>We have sent a confirmation email and further instructions on Team Registration and Team Rosters to  the Email address provided.</P>
-                <P>It is reccomended to read over the "Things you need to register a team" Documentation before completing this step.</P>
+                <P>It is recommended to read over the "Things you need to register a team" Documentation before completing this step.</P>
                   <P>If you have any questions or queries, please feel free to contact us via our Facebook page [here]</P>
                     [button to documentation]
             </>

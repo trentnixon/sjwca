@@ -7,7 +7,7 @@ const RegistrationSubmitted  = ()=>{
     return(
         <div className={`${StructureStyles.COl2} ${StructureStyles.ContentWidth}  ${StructureStyles.Column}`}>
            
-                <H2>Team Submition Recieved</H2>
+                <H2>Team Submission Received</H2>
                 <P>Thank you for your registration for the coming Sydney Junior Winter Cricket Season </P>
                 <P>The SJWCA Team will be reviewing your Submission and be in contact shortly.</P>
                 <SupportersIcons />

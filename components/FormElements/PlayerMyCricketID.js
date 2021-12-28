@@ -14,9 +14,9 @@ const PlayerName = (props)=>{
             <DialpadIcon />
                 <TextField 
                         id="outlined-basic" 
-                        label={`My Cricket ID`}
+                        label={`MyCricket ID`}
                         variant="standard" 
-                        placeholder={`My Cricket ID`} 
+                        placeholder={`MyCricket ID`} 
                         fullWidth
                         onBlur={handleChange}
                 />

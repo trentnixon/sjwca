@@ -37,7 +37,7 @@ const SubmissionUnderReview  = ({SelectedTeam, setUX, refreshData, Insructions})
     }
     return(
         <div className={`${StructureStyles.COl2} ${StructureStyles.ContentWidth}  ${StructureStyles.Column}`}>
-                <H1>Team Regisration Guidelines</H1>
+                <H1>Team Registration Guidelines</H1>
                 <P>Hello {DisplayName()}, thank you for your interest in this seasons SJWCA Season.</P>
                     <div className={RegistrationRequirements.MainList}>
                             { <ReactMarkdown>{Insructions}</ReactMarkdown> }
@@ -46,7 +46,6 @@ const SubmissionUnderReview  = ({SelectedTeam, setUX, refreshData, Insructions})
                     <div className={ButtonStyle.BtnRight}>
                             <P>Agree to the SJWCA <Link href="/terms">Terms and Conditions</Link> <Switch {...label}   onChange={handleChange} label="Label"/></P>
                             <Button variant="contained" className={ButtonStyle.Next} onClick={()=>{BeginRegistraion()}}  disabled={!Agreed}>Begin Registration</Button>
-                     
                     </div>
                 <SupportersIcons />
         </div>

@@ -1,5 +1,6 @@
 const axios = require('axios');
 import { API } from "../../config/index";
+import {EMAIL_NewPlayerRegister} from "../Emails/index"
 //import {UpdateRegistrationFormHandler} from "./handleTeamRegistration"
 
 
@@ -103,7 +104,7 @@ export const UpdatePlayer = (OBJ)=>{
 
             OBJ._TEAMROSTER.push(OBJ._PLAYERID)
             UpdateTeamSeasonRosterVersion2(OBJ,OBJ._PLAYERID)
-            
+            EMAIL_NewPlayerRegister(OBJ,response.data.id)
            
            
         })
@@ -115,6 +116,7 @@ export const UpdatePlayer = (OBJ)=>{
 
 }
 
+// Add new Player HERE
 export const AddNewPlayer = (OBJ)=>{ 
     //console.log(OBJ)
 
@@ -138,10 +140,11 @@ export const AddNewPlayer = (OBJ)=>{
             }
         })
     .then(function (response) {
-        // Prep Roster and send to Team Update 
-           // OBJ._TEAMROSTER.push(response.data.id)
+            // Prep Roster and send to Team Update 
+            // OBJ._TEAMROSTER.push(response.data.id)
           
-           UpdateTeamSeasonRosterVersion2(OBJ,response.data.id)
+           UpdateTeamSeasonRosterVersion2(OBJ,response.data.id);
+           EMAIL_NewPlayerRegister(OBJ,response.data.id)
            
     })
     .catch(function (error) {

@@ -12,43 +12,39 @@ import FormElementsContainer from "./FormElementContainer"
 import SportsCricketIcon from '@mui/icons-material/SportsCricket';
 import {isEmpty} from "../../actions/handleUX"
 
- const SelectARegion = ({setSeason}) => {
+ const SelectARegion = ({setTeamStatus}) => {
 
     const fetcher = (url) => fetch(url).then((res) => res.json());
-    const { data, error } =  useSWR(`${server}api/seasons`, fetcher)
+    //const { data, error } =  useSWR(`${server}api/seasons`, fetcher)
     const [value, setvalue] = React.useState('');
 
 
     const handleChange = (event) => {
      
         setvalue(event.target.value)
-        isEmpty(event.target.value) ?  setSeason(false) :setSeason(event.target.value) 
+        isEmpty(event.target.value) ?  setTeamStatus(false) :setTeamStatus(event.target.value) 
     };
   
-  if (error) return <div>Failed to load</div>
-  if (!data) return <div>Loading...</div>
+ /*  if (error) return <div>Failed to load</div>
+  if (!data) return <div>Loading...</div> */
  
   return (
     <FormElementsContainer>
       <SportsCricketIcon />
       <FormControl fullWidth>
-        <InputLabel id="Select-Age-Group">Select a Season</InputLabel>
+        <InputLabel id="Select-Age-Group">Do You Have a Team?</InputLabel>
         <Select
           labelId="Select-Age-Group"
           id="demo-simple-select"
           value={value}
-          label="Region"
+          label="Do You Have a Team?"
           variant="standard"
           fullWidth
           onChange={handleChange}
         >
-            {
-                data.map((item,i)=>{
-                    return(
-                        <MenuItem key={i} value={item.id}>{item.Season}</MenuItem>
-                    )
-                })
-            }
+        <MenuItem value={false}>I need to be assigned to a team</MenuItem>
+        <MenuItem value={true}>I have a team already</MenuItem>
+            
         </Select>
       </FormControl>
     </FormElementsContainer>
