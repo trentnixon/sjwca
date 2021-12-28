@@ -106,35 +106,34 @@ const CreateNewPlayer = (props)=>{
                 </FormElementGroup>
                 )
         return(
-            <>
+            <div>
             <H2>Register New Individual Player</H2>
             <FormElementGroup>
+                <H4>About Player</H4>
+                <Create_Player_Name setPlayerName={setPlayerName}/>
+                <Create_PlayerEmail setPlayerEmail={setPlayerEmail}/>
+                <Create_PlayerContactNumber setPlayerContactNumber={setPlayerContactNumber}/>
+                <Select_Gender setGender={setGender}/>   
+                <DateOfBirth setPlayerDOB={setPlayerDOB} />
+                
+            </FormElementGroup>
+            <FormElementGroup>
             <H4>About this Season</H4>
-                    <Create_Player_Name setPlayerName={setPlayerName}/>
+                   
                     <Create_Mycricket_ID setMyCricketID={setMyCricketID}/>
                    
                     <Select_TeamStatus setTeamStatus={setTeamStatus}/>
                     <Select_Seasons setSeason={setSeason}/>
                     <Select_Region_Individual setRegion={setRegion}/>
                     <Select_AgeGroup_Individual setAgeGroup={setAgeGroup}/>
-                    <Select_Division_Individual setDivision={setDivision}/>                    
-            </FormElementGroup>
-            <FormElementGroup>
-                <H4>About Player</H4>
-                
-                <Create_PlayerEmail setPlayerEmail={setPlayerEmail}/>
-                <Create_PlayerContactNumber setPlayerContactNumber={setPlayerContactNumber}/>
-                <Select_Gender setGender={setGender}/>   
-                <DateOfBirth setPlayerDOB={setPlayerDOB} />
-                <div className={ButtonStyle.BtnRight}>
+                    <Select_Division_Individual setDivision={setDivision}/>    
+                    <div className={ButtonStyle.BtnRight}>
                         <div className={ButtonStyle.BtnGroup}>
                             <Button variant="contained" className={ButtonStyle.Next} onClick={()=>{handleClick()}} disabled={disabled}>Submit Registration</Button>
                         </div>
-                    </div>
+                    </div>                
             </FormElementGroup>
-            
-            
-            </>
+            </div>
         )
 }
 export default CreateNewPlayer;

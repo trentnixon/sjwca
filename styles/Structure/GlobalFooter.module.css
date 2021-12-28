@@ -5,6 +5,8 @@
     justify-content: center;
     align-items: center;
     align-content: center;
+    flex-direction: column;
+    overflow: hidden;
 }
 
 .Tab{
@@ -21,4 +23,28 @@
     color: #7a7a7a;
     font-size: .85rem !important;
     margin: 0 !important;
+}
+
+.FooterLinks{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: 1rem 0;
+    width: 60vw;
+    overflow: hidden;
+}
+.FooterLinks p{
+    padding: .5rem 0;
+    flex: 0 0 30%;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    display: flex;
+    text-transform: uppercase;
+}
+.FooterLinks p a{
+    text-decoration: none;
 }

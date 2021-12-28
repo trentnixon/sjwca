@@ -13,7 +13,7 @@
         align-items: flex-start;
         align-content: center;
  
-}
+} 
 /* Page Width Breaks*/
 .FullWidth{ width: 100%;  }
 .ContentWidth{  
@@ -28,6 +28,7 @@
     .BaseLine div >div.Width70{ flex:0 0 70%; padding: 1rem;}
     .BaseLine div >div.Width30{flex:0 0 30%;   padding: 1rem;}
  
+   
 
 /* Structures*/
 
@@ -47,6 +48,7 @@
     justify-content: center;
     align-items: center;
     align-content: center;
+    overflow: hidden;
     
 }
 .HeaderCopy{
@@ -72,6 +74,7 @@
     width: 100%;
     height: 55vh;
     z-index: 0;
+    top:0;
 }
 
 
@@ -87,7 +90,19 @@
     font-weight: 400;
 }
 
-
+.ReactMarkdown ul, .ReactMarkdown ol{
+    padding: 1rem;
+}
+.ReactMarkdown ul li{
+    padding: .3rem 0 ;
+    line-height: 1.1rem;
+    list-style-type: disc;
+}
+.ReactMarkdown ol li{
+    padding: .3rem 0 ;
+    line-height: 1.1rem;
+    list-style-type:decimal
+}
 
 /* Large screens ----------- */
 @media only screen and (min-width : 1824px) {
