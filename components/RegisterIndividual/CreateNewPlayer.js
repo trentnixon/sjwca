@@ -11,12 +11,12 @@ import Create_PlayerEmail from "../FormElements/PlayerEmail";
 import Create_PlayerContactNumber from "../FormElements/PlayerContactNumber";
 // import SeasonReceipt from "../FormElements/SeasonReceipt"
 import Select_Seasons from "../FormElements/Select_Seasons"
+import Select_Ethnicity from "../FormElements/Select_Ethnicity"
 import Select_TeamStatus from "../FormElements/Select_TeamStatus"
 import Select_Gender from "../FormElements/Select_Gender"
 import Select_AgeGroup_Individual from "../FormElements/Select_AgeGroup_Individual"
 import Select_Division_Individual from "../FormElements/Select_Division_Individual"
 import Select_Region_Individual from "../FormElements/Select_Region_Individual"
-
 import DateOfBirth from "../FormElements/DateOfBirth"
 import Button from '@mui/material/Button';
 
@@ -30,10 +30,10 @@ const CreateNewPlayer = (props)=>{
     const [iscallback,setCallback] = useState(false)
     const [MyCricketID, setMyCricketID] = useState(false)
     const [PlayerName, setPlayerName] = useState(false)
-    const [ReceiptNum, setReceiptNum] = useState(0)
-    const [Season, setSeason] = useState(0)
+    const [Season, setSeason] = useState(false)
+    const [Ethnicity, setEthnicity] = useState(false)
     const [TeamStatus, setTeamStatus] = useState(false)
-    const [Gender, setGender] = useState(0)
+    const [Gender, setGender] = useState(false)
     const [PlayerEmail, setPlayerEmail] = useState(false)
     const [PlayerContactNumber, setPlayerContactNumber] = useState(false) 
     const [PlayerDOB, setPlayerDOB] = useState(false)
@@ -63,6 +63,7 @@ const CreateNewPlayer = (props)=>{
              _EMAIL:PlayerEmail,
              _CONTACTNUMBER:PlayerContactNumber,
              _DOB : PlayerDOB,
+             _Ethnicity:Ethnicity,
              _GENDER:Gender,
              _MyCricketID:MyCricketID,
              _TEAMID:SelectedTeam,
@@ -81,23 +82,24 @@ const CreateNewPlayer = (props)=>{
         }
        
         console.log(OBJ)
-        AddNewPlayer(OBJ) 
+        AddNewPlayer(OBJ)  
            
     }
 
 
     const FieldCheck = ()=>{
-        console.log('FieldCheck')
-        console.log(Gender)
-        if(Season  && PlayerName && AgeGroup && Division && MyCricketID && Gender && PlayerEmail && PlayerContactNumber && PlayerDOB)
+        
+        let ARR=[Season,PlayerName,AgeGroup,Division,MyCricketID,Gender,PlayerEmail,Ethnicity,PlayerContactNumber,PlayerDOB]
+        console.log('FieldCheck',ARR.indexOf(false) )
+        if(ARR.indexOf(false) === -1)
             return true 
                 return false
     }
 
     useEffect(()=>{
         FieldCheck() ? setDisabled(false) :setDisabled(true)
-    },[Season , ReceiptNum , PlayerName , Gender, PlayerEmail , PlayerContactNumber , PlayerDOB,TeamStatus])
-
+    })
+    //Season , ReceiptNum , PlayerName , Gender, PlayerEmail , PlayerContactNumber , PlayerDOB,TeamStatus,Ethnicity
 
     if(iscallback)
         return( <FormElementGroup>
@@ -107,26 +109,28 @@ const CreateNewPlayer = (props)=>{
                 )
         return(
             <div>
-            <H2>Register New Individual Player</H2>
+            <H2>Register for the New Season</H2>
             <FormElementGroup>
                 <H4>About Player</H4>
-                <Create_Player_Name setPlayerName={setPlayerName}/>
-                <Create_PlayerEmail setPlayerEmail={setPlayerEmail}/>
-                <Create_PlayerContactNumber setPlayerContactNumber={setPlayerContactNumber}/>
-                <Select_Gender setGender={setGender}/>   
-                <DateOfBirth setPlayerDOB={setPlayerDOB} />
+                <Create_Player_Name setPlayerName={setPlayerName} PlayerName={PlayerName}/>
+                <Create_PlayerEmail setPlayerEmail={setPlayerEmail} PlayerEmail={PlayerEmail}/>
+                <Create_PlayerContactNumber setPlayerContactNumber={setPlayerContactNumber} PlayerContactNumber={PlayerContactNumber}/>
+                <Select_Gender setGender={setGender} Gender={Gender}/>   
+                <DateOfBirth setPlayerDOB={setPlayerDOB} PlayerDOB={PlayerDOB} />
                 
+                <Select_Ethnicity setEthnicity={setEthnicity} Ethnicity={Ethnicity}/>
+                 
             </FormElementGroup>
             <FormElementGroup>
             <H4>About this Season</H4>
                    
-                    <Create_Mycricket_ID setMyCricketID={setMyCricketID}/>
+                    <Create_Mycricket_ID setMyCricketID={setMyCricketID} MyCricketID={MyCricketID}/>
                    
-                    <Select_TeamStatus setTeamStatus={setTeamStatus}/>
-                    <Select_Seasons setSeason={setSeason}/>
-                    <Select_Region_Individual setRegion={setRegion}/>
-                    <Select_AgeGroup_Individual setAgeGroup={setAgeGroup}/>
-                    <Select_Division_Individual setDivision={setDivision}/>    
+                    <Select_TeamStatus setTeamStatus={setTeamStatus} TeamStatus={TeamStatus}/>
+                    <Select_Seasons setSeason={setSeason} Season={Season}/>
+                    <Select_Region_Individual setRegion={setRegion} Region={Region}/>
+                    <Select_AgeGroup_Individual setAgeGroup={setAgeGroup} AgeGroup={AgeGroup}/>
+                    <Select_Division_Individual setDivision={setDivision} Division={Division}/>    
                     <div className={ButtonStyle.BtnRight}>
                         <div className={ButtonStyle.BtnGroup}>
                             <Button variant="contained" className={ButtonStyle.Next} onClick={()=>{handleClick()}} disabled={disabled}>Submit Registration</Button>

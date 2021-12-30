@@ -11,8 +11,8 @@ import { server, API } from "../../config/index"
 import FormElementsContainer from "./FormElementContainer"
 import SportsCricketIcon from '@mui/icons-material/SportsCricket';
 import {isEmpty} from "../../actions/handleUX"
-
- const SelectARegion = ({setSeason}) => {
+import HasFieldBeenFilledIn from './hasFieldBeenFilledIn'
+ const SelectARegion = ({setSeason, Season}) => {
 
     const fetcher = (url) => fetch(url).then((res) => res.json());
     const { data, error } =  useSWR(`${server}api/seasons`, fetcher)
@@ -51,6 +51,7 @@ import {isEmpty} from "../../actions/handleUX"
             }
         </Select>
       </FormControl>
+      <HasFieldBeenFilledIn Value={Season} />
     </FormElementsContainer>
   );
 }

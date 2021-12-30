@@ -1,37 +1,45 @@
 import * as React from 'react';
-
+import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import FormElementsContainer from "./FormElementContainer"
+
 import useSWR from 'swr';
 import { server, API } from "../../config/index"
-import {UpdateRegistrationFormHandler} from "../../actions/Registration/handleTeamRegistration";
+//import {UpdateRegistrationFormHandler} from "../../actions/Registration/handleTeamRegistration";
+import FormElementsContainer from "./FormElementContainer"
+import SportsCricketIcon from '@mui/icons-material/SportsCricket';
+import {isEmpty} from "../../actions/handleUX"
 import HasFieldBeenFilledIn from './hasFieldBeenFilledIn'
-
- const SelectARegion = ({setRegion,Region, setUX, SelectedTeam}) => {
+ const SelectARegion = ({setEthnicity, Ethnicity}) => {
 
     const fetcher = (url) => fetch(url).then((res) => res.json());
-    const { data, error } =  useSWR(`${server}api/Regions`, fetcher)
-    const [value, setvalue] = React.useState();
+    const { data, error } =  useSWR(`${server}api/ethnicities`, fetcher)
+    const [value, setvalue] = React.useState('');
 
-    const handleChange = (event) => {
-        setvalue(event.target.value);
-        setRegion(event.target.value)
+
+    const handleChange = (event) => { 
+     
+        setvalue(event.target.value)
+        isEmpty(event.target.value) ?  setEthnicity(false) :setEthnicity(event.target.value) 
     };
   
-  if (error) return <div>Failed to load</div>
+  if (error) return <div>Ethnicity Values Failed to load</div>
   if (!data) return <div>Loading...</div>
+ 
   return (
     <FormElementsContainer>
+      <SportsCricketIcon />
       <FormControl fullWidth>
-        <InputLabel id="Select-Age-Group">We would like to play in</InputLabel>
+        <InputLabel id="Select-Age-Group">Players Ethnicity</InputLabel>
         <Select
           labelId="Select-Age-Group"
           id="demo-simple-select"
           value={value}
-          label="We would like to play in"
+          label="Players Ethnicity"
+          variant="standard"
+          fullWidth 
           onChange={handleChange}
         >
             {
@@ -43,7 +51,7 @@ import HasFieldBeenFilledIn from './hasFieldBeenFilledIn'
             }
         </Select>
       </FormControl>
-      <HasFieldBeenFilledIn Value={Region} />
+      <HasFieldBeenFilledIn Value={Ethnicity} />
     </FormElementsContainer>
   );
 }

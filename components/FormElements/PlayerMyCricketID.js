@@ -4,8 +4,10 @@ import FormElementsContainer from "./FormElementContainer"
 
 import {isEmpty} from "../../actions/handleUX";
 import DialpadIcon from '@mui/icons-material/Dialpad';
+import HasFieldBeenFilledIn from './hasFieldBeenFilledIn'
+
 const PlayerName = (props)=>{
-    const {setMyCricketID} = props;
+    const {setMyCricketID, MyCricketID} = props;
     const handleChange = (e)=>{ 
         isEmpty(e.target.value) ?  setMyCricketID(false)  : setMyCricketID(e.target.value)  
     }
@@ -20,6 +22,7 @@ const PlayerName = (props)=>{
                         fullWidth
                         onBlur={handleChange}
                 />
+                <HasFieldBeenFilledIn Value={MyCricketID} />
         </FormElementsContainer>
         ); 
 }

@@ -61,7 +61,7 @@ const UpdateExictingPlayer = (props)=>{
                     _PLAYERID:PlayerReturn[0].id,
                     _PLAYER_SEASON_RECEIPTS:CreateNewReceiptObj(),
                     _SEASON:Season,
-                    //_RECEIPTNUM:ReceiptNum,
+                 
                     _TEAMID:SelectedTeam.id,
                     _CURRENTSEASONID:CurrentSeasonID,
                     _TEAMROSTER:CreateTeamRosterforStrapi(PlayerRoster),
@@ -83,7 +83,7 @@ const UpdateExictingPlayer = (props)=>{
                 <H2>Player Name : {PlayerReturn[0].Name} </H2>
                  
               
-                <Select_Seasons setSeason={setSeason}/>
+                <Select_Seasons setSeason={setSeason} Season={Season}/>
                     <div className={ButtonStyle.BtnRight}>
                         <div className={ButtonStyle.BtnGroup}>
                             <Button variant="contained"  className={ButtonStyle.Next} onClick={()=>{handleClick()}} disabled={disabled}>Add {PlayerReturn[0].Name}</Button>

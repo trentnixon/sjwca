@@ -8,10 +8,14 @@ import FormElementGroup from "../FormElements/FormElementGroup"
 import Create_Player_Name from "../FormElements/PlayerName";
 import Create_PlayerEmail from "../FormElements/PlayerEmail";
 import Create_PlayerContactNumber from "../FormElements/PlayerContactNumber";
-import SeasonReceipt from "../FormElements/SeasonReceipt"
+import Select_Ethnicity from "../FormElements/Select_Ethnicity"
 import Select_Seasons from "../FormElements/Select_Seasons"
 import Select_Gender from "../FormElements/Select_Gender"
 import DateOfBirth from "../FormElements/DateOfBirth"
+import Select_AgeGroup_Individual from "../FormElements/Select_AgeGroup_Individual"
+import Select_Division_Individual from "../FormElements/Select_Division_Individual"
+import Select_Region_Individual from "../FormElements/Select_Region_Individual"
+
 import Btn_ResetParentComponent from "./Btn_ResetParentComponent"
 import Button from '@mui/material/Button';
 
@@ -23,19 +27,22 @@ const CreateNewPlayer = (props)=>{
     const {SelectedTeam, RefreshUIonAddUpdate, MyCricketID, CurrentSeasonID,BacktoIDInput,RequestnewDatafromStrapi,PlayerRoster} = props;
     const [disabled, setDisabled] = useState(true)
     const [PlayerName, setPlayerName] = useState(false)
-    const [ReceiptNum, setReceiptNum] = useState(0)
-    const [Season, setSeason] = useState(0)
-    const [Gender, setGender] = useState(0)
+   
+    const [Ethnicity, setEthnicity] = useState(false)
+    const [Season, setSeason] = useState(false)
+    const [Gender, setGender] = useState(false)
     const [PlayerEmail, setPlayerEmail] = useState(false)
     const [PlayerContactNumber, setPlayerContactNumber] = useState(false)
     const [PlayerDOB, setPlayerDOB] = useState(false)
-    
+    const [Region, setRegion] = useState(false)
+    const [AgeGroup, setAgeGroup] = useState(false)
+    const [Division, setDivision] = useState(false)
  
  
 
     const handleClick = ()=>{
 
-        let FirstReciept =[{ReceiptNumber:ReceiptNum, season:[Season],team:[SelectedTeam.id] }]
+        let FirstReciept =[{season:[Season],team:[SelectedTeam.id] }]
         //console.log(PlayerDOB)
          RefreshUIonAddUpdate(true)
         const OBJ={
@@ -49,62 +56,75 @@ const CreateNewPlayer = (props)=>{
             _EMAIL:PlayerEmail,
             _CONTACTNUMBER:PlayerContactNumber,
             _DOB : PlayerDOB,
+            _Ethnicity:Ethnicity,
             _TEAMROSTER:CreateTeamRosterforStrapi(PlayerRoster),
             _ROSTERID:PlayerRoster.id,
             _CALLBACK:RequestnewDatafromStrapi,
             _TeamStatus:true, // true, player has a team
             _EmailTemplate:'assigned',
            _PLAYER_SEASON_RECEIPTS:FirstReciept,
-           _AGE:SelectedTeam.age_group?.id?SelectedTeam.age_group.id:null,
-           _DIVISION:SelectedTeam.division?.id?SelectedTeam.division.id:null,
-           _REGION: SelectedTeam.region?.id ?SelectedTeam.region.id:null,
+           _AGE:SelectedTeam.age_group?.id?SelectedTeam.age_group.id:AgeGroup,
+           _DIVISION:SelectedTeam.division?.id?SelectedTeam.division.id:Division,
+           _REGION: SelectedTeam.region?.id ?SelectedTeam.region.id:Region,
           
         }
-            console.log(OBJ)
+            //console.log(OBJ) 
             AddNewPlayer(OBJ) 
            
     }
 
     const FieldCheck = ()=>{
         console.log('FieldCheck')
-        console.log(Gender)
-        if(Season && PlayerName && Gender && PlayerEmail && PlayerContactNumber && PlayerDOB)
+        let ARR=[Season,PlayerName,MyCricketID,Gender,PlayerEmail,Ethnicity,PlayerContactNumber,PlayerDOB]
+        console.log('FieldCheck',ARR.indexOf(false) )
+        if(ARR.indexOf(false) === -1)
             return true 
                 return false
     }
 
     useEffect(()=>{
         FieldCheck() ? setDisabled(false) :setDisabled(true)
-    },[Season , ReceiptNum , PlayerName , Gender, PlayerEmail , PlayerContactNumber , PlayerDOB])
+    })
 
         return(
-            <>
+            <div>
+            <FormElementGroup>
+                <H4>About Player</H4>
+                <H4>My Cricket ID : {MyCricketID}</H4>
+                <Create_Player_Name setPlayerName={setPlayerName} PlayerName={PlayerName}/>
+                <Create_PlayerEmail setPlayerEmail={setPlayerEmail} PlayerEmail={PlayerEmail}/>
+                <Create_PlayerContactNumber setPlayerContactNumber={setPlayerContactNumber} PlayerContactNumber={PlayerContactNumber}/>
+                <Select_Gender setGender={setGender} Gender={Gender}/>   
+                <DateOfBirth setPlayerDOB={setPlayerDOB} PlayerDOB={PlayerDOB} />
+                
+                <Select_Ethnicity setEthnicity={setEthnicity} Ethnicity={Ethnicity}/>
+                 
+            </FormElementGroup>
+         
             <FormElementGroup>
             <H4>About this Season</H4>
-                <H4>My Cricket ID : {MyCricketID}</H4>
-           
-                    <Create_Player_Name setPlayerName={setPlayerName}/>
-                    <Select_Seasons setSeason={setSeason}/>
+                   
+                    <Select_Seasons setSeason={setSeason} Season={Season}/>
+                    {
+                        SelectedTeam.region?.id ? null:<Select_Region_Individual setRegion={setRegion} Region={Region}/>
+                    }
+                      
+                    {
+                        SelectedTeam.age_group?.id ? null:<Select_AgeGroup_Individual setAgeGroup={setAgeGroup} AgeGroup={AgeGroup}/>
+                    }
                     
-            </FormElementGroup>
-            <FormElementGroup>
-            <Create_PlayerContactNumber setPlayerContactNumber={setPlayerContactNumber}/>
-                    <Create_PlayerEmail setPlayerEmail={setPlayerEmail}/>
-                    <Select_Gender setGender={setGender}/>   
-                    <DateOfBirth setPlayerDOB={setPlayerDOB} />
-             
-                    
+                    {
+                        SelectedTeam.division?.id? null : <Select_Division_Individual setDivision={setDivision} Division={Division}/> 
+                    }
+                  
                     <div className={ButtonStyle.BtnRight}>
                         <div className={ButtonStyle.BtnGroup}>
                             <Button variant="contained" className={ButtonStyle.Next} onClick={()=>{handleClick()}} disabled={disabled}>Create New Player</Button>
                             <Btn_ResetParentComponent ResetParentComponent={BacktoIDInput}/>
                         </div>
-                    </div>
+                    </div>            
             </FormElementGroup>
-            </>
+            </div>
         )
 }
 export default CreateNewPlayer;
-
-// / <DateOfBirth />
-// <SeasonReceipt setReceiptNum={setReceiptNum}/>

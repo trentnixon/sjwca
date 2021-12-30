@@ -9,8 +9,8 @@ import Select from '@mui/material/Select';
 import useSWR from 'swr';
 import { server, API } from "../../config/index"
 import FormElementsContainer from "./FormElementContainer";
-
- const SelectAgeGroup = ({setAgeGroup}) => {
+import HasFieldBeenFilledIn from './hasFieldBeenFilledIn'
+ const SelectAgeGroup = ({setAgeGroup,AgeGroup}) => {
 
 
  
@@ -45,6 +45,7 @@ import FormElementsContainer from "./FormElementContainer";
             }
         </Select>
       </FormControl>
+      <HasFieldBeenFilledIn Value={AgeGroup} />
     </FormElementsContainer>
   );
 }

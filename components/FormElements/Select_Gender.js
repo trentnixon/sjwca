@@ -9,7 +9,8 @@ import useSWR from 'swr';
 import { server, API } from "../../config/index"
 import WcIcon from '@mui/icons-material/Wc';
 import {isEmpty} from "../../actions/handleUX"
- const SelectGender = ({setGender}) => {
+import HasFieldBeenFilledIn from './hasFieldBeenFilledIn'
+ const SelectGender = ({setGender,Gender}) => {
 
     const fetcher = (url) => fetch(url).then((res) => res.json());
     const { data, error } =  useSWR(`${server}api/Gender`, fetcher)
@@ -48,6 +49,7 @@ import {isEmpty} from "../../actions/handleUX"
             }
         </Select>
       </FormControl>
+      <HasFieldBeenFilledIn Value={Gender} />
     </FormElementsContainer>
   );
 }

@@ -124,7 +124,7 @@ const CreateorUpdatePlayer = (props)=>{
             <div>
                 {
                     PlayerReturn[0].id ? <UpdateExictingPlayer  {... props} />:<CreateNewPlayer {... props} />
-                }
+                } 
             </div>
         )
 } 

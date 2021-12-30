@@ -9,9 +9,9 @@ import DesktopDatePicker from '@mui/lab/DesktopDatePicker';
 import FormElementsContainer from "./FormElementContainer"
 import DateRangeIcon from '@mui/icons-material/DateRange';
 import {isEmpty} from "../../actions/handleUX"
+import HasFieldBeenFilledIn from './hasFieldBeenFilledIn'
 
-
-export default function MaterialUIPickers({setPlayerDOB}) {
+export default function MaterialUIPickers({setPlayerDOB, PlayerDOB}) {
 
   const [value, setValue] = React.useState(new Date('2000-01-01'));
 
@@ -37,6 +37,7 @@ export default function MaterialUIPickers({setPlayerDOB}) {
           renderInput={(params) => <TextField variant="standard" fullWidth {...params} />}
         />
     </LocalizationProvider>
+    <HasFieldBeenFilledIn Value={PlayerDOB} />
     </FormElementsContainer>
   );
 }

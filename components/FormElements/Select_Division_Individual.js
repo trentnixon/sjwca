@@ -7,8 +7,8 @@ import Select from '@mui/material/Select';
 import FormElementsContainer from "./FormElementContainer"
 import useSWR from 'swr';
 import { server, API } from "../../config/index"
-
- const SelectDivision = ({setDivision}) => {
+import HasFieldBeenFilledIn from './hasFieldBeenFilledIn'
+ const SelectDivision = ({setDivision, Division}) => {
 
     const fetcher = (url) => fetch(url).then((res) => res.json());
     const { data, error } =  useSWR(`${server}api/Division`, fetcher)
@@ -42,6 +42,7 @@ import { server, API } from "../../config/index"
             }
         </Select>
       </FormControl>
+      <HasFieldBeenFilledIn Value={Division} />
     </FormElementsContainer>
   );
 }

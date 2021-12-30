@@ -6,9 +6,9 @@ import {EmailError} from "./Errors"
 import {validateEmail} from "../../actions/handleUX"
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import {isEmpty} from "../../actions/handleUX"
-
+import HasFieldBeenFilledIn from './hasFieldBeenFilledIn'
 const PlayerName = (props)=>{
-    const {setPlayerEmail} = props;
+    const {setPlayerEmail,PlayerEmail} = props;
 
     const [isEmail, setisEmail] = useState('')
     const [Email, setEmail] = useState('')
@@ -36,6 +36,7 @@ const PlayerName = (props)=>{
                                 fullWidth
                                 onBlur={handleChange}
                         />
+                        <HasFieldBeenFilledIn Value={PlayerEmail} />
                 </FormElementsContainer>
                 <EmailError Valid={isEmail} Email={Email}/>
         </>

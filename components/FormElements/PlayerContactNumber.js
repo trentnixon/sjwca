@@ -6,10 +6,10 @@ import {ValidateNumberOnly} from "../../actions/handleUX"
 import {NumberError} from "./Errors"
 import ContactPhoneIcon from '@mui/icons-material/ContactPhone';
 import {isEmpty} from "../../actions/handleUX"
-
+import HasFieldBeenFilledIn from './hasFieldBeenFilledIn'
 const PlayerName = (props)=>{
     
-    const {setPlayerContactNumber} = props;
+    const {setPlayerContactNumber, PlayerContactNumber} = props;
     const [isNumber, setisNumber] = useState('')
     const [Number, setNumber] = useState('')
     
@@ -35,6 +35,7 @@ const PlayerName = (props)=>{
                     fullWidth
                     onBlur={handleChange}
             />
+            <HasFieldBeenFilledIn Value={PlayerContactNumber} />
         </FormElementsContainer>
         <NumberError Valid={isNumber} Number={Number}/>
         </> 

@@ -133,6 +133,7 @@ export const AddNewPlayer = (OBJ)=>{
                 gender:[OBJ._GENDER],
                 player_email:OBJ._EMAIL,
                 mobile_phone:OBJ._CONTACTNUMBER,
+                ethnicity:[OBJ._Ethnicity],
                 DOB:OBJ._DOB,
                 age_group: OBJ._AGE ? [OBJ._AGE]: null,
                 division: OBJ._DIVISION ? [OBJ._DIVISION]:null,
