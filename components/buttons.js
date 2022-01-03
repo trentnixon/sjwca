@@ -20,6 +20,6 @@ export const GoToRegionBtn = ({href}) => {
           )
 }
 
-export const RegIndividualTerms = ({SetState, state, Title}) => {
-  return (<Button variant="contained" onClick={()=>{SetState(state)}} className={ButtonStyles.Next}>{Title}</Button>)
+export const RegIndividualTerms = ({SetState, state, Title, isDisabled=false}) => {
+  return (<Button variant="contained" onClick={()=>{SetState(state)}} className={ButtonStyles.Next} disabled={isDisabled}>{Title}</Button>)
 }

@@ -16,6 +16,19 @@
     align-content: center;
     width: 100%;
 }
+.BtnGroupRow{
+    display: flex;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    align-content: center !important;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+.BtnGroupRow button{
+    width: 48%;
+    line-height: 1rem;
+}
 
 .Next{
     background-color: var(--Next-color) !important ;
@@ -30,7 +43,7 @@
     color: var(--base-color) !important ;
 }
 
-.Next a{
+.Next a, .Success a{
     text-decoration: none;
     color: var(--main-bg-colo);
 }
@@ -44,4 +57,13 @@
 }
 
 
-.Success{ fill: var(--Success-color) !important; }
+.Success{ 
+        fill: var(--Success-color) !important; 
+        background-color: var(--Success-color) !important ;
+        color: var(--base-color) !important ;
+    }
+.Success:hover{ 
+        fill: var(--Success-color) !important; 
+        background-color: var(--base-color) !important ;
+        color: var(--Success-color) !important ;
+    }

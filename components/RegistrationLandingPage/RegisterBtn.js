@@ -4,8 +4,10 @@ import Buttonsstyles from "../../styles/Structure/Buttons.module.css";
 import Link from 'next/link'
 
 
-export const RegisterButton = () => {
-    return (<Button variant="contained" className={Buttonsstyles.Next}> <Link href={`/registerTeam`}> Register a team today </Link></Button>)
+export const RegisterATeamButton = () => {
+    return (<Button variant="contained" className={Buttonsstyles.Next}> <Link href={`/registerTeam`}>team Registration </Link></Button>)
   }
 
-  export default RegisterButton;
+export const RegisterIndividualButton = () => {
+    return (<Button variant="contained" className={Buttonsstyles.Success}> <Link href={`/registerIndividual`}> Player Registration </Link></Button>)
+  }

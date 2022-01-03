@@ -42,11 +42,11 @@
 .Frosted div:nth-child(1) {text-align: center;}
 
   .Frosted div:nth-child(2) { 
-      text-align: right;
+      text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
+    justify-content: flex-end;
+    align-items: center;
     align-content: center;
 }
   .Frosted div:nth-child(2) h3{     

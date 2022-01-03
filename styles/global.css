@@ -11,8 +11,8 @@
 	--dark-color : #373737;
     --accent-color: #FF9813;
     --Error-color:#c96b6b;
-	--Success-color:#6bc98a;
-	--Next-color:#6ba3c9;
+	--Success-color:#1bcb4e;
+	--Next-color:#1b81cb;
 	--Border-Radius: 5px;
 	--Title-Border-Radius:  0;
 
@@ -23,6 +23,12 @@
 
 	--Landing-Color-Dark:#373737;
 	--Landing-accent-color:#6A93CA
+  }
+
+
+  /* TYpe Colors */
+ p,h1,h2,h3,h4{
+	  color: var(--dark-color);
   }
  
 

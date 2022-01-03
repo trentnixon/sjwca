@@ -1,8 +1,9 @@
 import Registrationstyles from "../../styles/LandingPage/registrationHeader.module.css";
+import Buttonsstyles from "../../styles/Structure/Buttons.module.css";
 import {  H2, H3, S} from "../type";
 import Spliter from "./SplitterBottom";
 
-import RegisterButton from "./RegisterBtn"
+import {RegisterATeamButton, RegisterIndividualButton} from "./RegisterBtn"
 
 const RegistrationHeader = (props)=>{
 
@@ -25,7 +26,11 @@ const RegistrationHeader = (props)=>{
 
                         <div>
                                 <H3>REGISTRATIONS ARE NOW OPEN FOR 2022</H3>
-                                <RegisterButton />
+                                <div className={Buttonsstyles.BtnGroupRow}>
+                                        <RegisterIndividualButton /> 
+                                        <RegisterATeamButton />
+                                </div>
+                                
                         </div>
                         
                         <div>

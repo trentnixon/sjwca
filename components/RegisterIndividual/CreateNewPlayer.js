@@ -25,10 +25,10 @@ import Button from '@mui/material/Button';
 import {H1,H2,H3,H4,P} from "../type";
 
 const CreateNewPlayer = (props)=>{
-    const {PlayerRoster} = props;
+    const {MyCricketID} = props;
     const [disabled, setDisabled] = useState(true)
     const [iscallback,setCallback] = useState(false)
-    const [MyCricketID, setMyCricketID] = useState(false)
+    //const [MyCricketID, setMyCricketID] = useState(MyCricketID)
     const [PlayerName, setPlayerName] = useState(false)
     const [Season, setSeason] = useState(false)
     const [Ethnicity, setEthnicity] = useState(false)
@@ -104,14 +104,15 @@ const CreateNewPlayer = (props)=>{
     if(iscallback)
         return( <FormElementGroup>
                     <H2>Player Registered</H2>
-                    <p>Thank you for your interest with SJWCA. We will be in touch shortly</p>
+                    <P>Thank you for your interest with SJWCA. We will be in touch shortly</P>
+                    <P>Next Steps : </P>
                 </FormElementGroup>
                 )
         return(
             <div>
             <H2>Register for the New Season</H2>
             <FormElementGroup>
-                <H4>About Player</H4>
+                <H4>About Player ({MyCricketID})</H4>
                 <Create_Player_Name setPlayerName={setPlayerName} PlayerName={PlayerName}/>
                 <Create_PlayerEmail setPlayerEmail={setPlayerEmail} PlayerEmail={PlayerEmail}/>
                 <Create_PlayerContactNumber setPlayerContactNumber={setPlayerContactNumber} PlayerContactNumber={PlayerContactNumber}/>
@@ -124,8 +125,8 @@ const CreateNewPlayer = (props)=>{
             <FormElementGroup>
             <H4>About this Season</H4>
                    
-                    <Create_Mycricket_ID setMyCricketID={setMyCricketID} MyCricketID={MyCricketID}/>
-                   
+                    
+                    
                     <Select_TeamStatus setTeamStatus={setTeamStatus} TeamStatus={TeamStatus}/>
                     <Select_Seasons setSeason={setSeason} Season={Season}/>
                     <Select_Region_Individual setRegion={setRegion} Region={Region}/>
@@ -144,3 +145,4 @@ export default CreateNewPlayer;
 
 // <DateOfBirth />
 // <SeasonReceipt setReceiptNum={setReceiptNum}/>
+// /<Create_Mycricket_ID setMyCricketID={setMyCricketID} MyCricketID={MyCricketID}/>

@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import Registrationstyles from "../../styles/registrationPage/registrationPage.module.css";
+import Buttonsstyles from "../../styles/Structure/Buttons.module.css";
 import Section5Styles from "../../styles/LandingPage/Section5.module.css";
-import RegisterButton from "./RegisterBtn"
+import {RegisterATeamButton, RegisterIndividualButton}  from "./RegisterBtn"
 
 import { H1, H2, H3, H4, P,P_ERROR, S} from "../type";
 
@@ -22,7 +23,12 @@ const RegisterNow = (props)=>{
             </div>
           <H1>{registrationPage.ReasonsToPlay[11].Reason}</H1>
          
-          <RegisterButton />
+          <div className={`${Buttonsstyles.BtnGroupRow} ${Section5Styles.LogoBracket}`}>
+                <RegisterIndividualButton /> 
+                <RegisterATeamButton />
+          </div>
+
+         
           <H2>{registrationPage.ReasonsToPlay[12].Reason}</H2>
         </div>
   

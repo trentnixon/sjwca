@@ -2,6 +2,7 @@ import { API } from "../config/index"
 import Link from 'next/link'
 import ReactMarkdown from 'react-markdown';
 import StructureStyles from "../styles/Structure/Structure.module.css";
+import Buttonsstyles from "../styles/Structure/Buttons.module.css";
 import SideNav from "../styles/registrationPage/SideNav.module.css";
 // Components
 import PageHeaderSmall from "../components/Structure/PageHeaderSmall"
@@ -10,7 +11,7 @@ import ContentContainer from "../components/Structure/ContentContainer"
 import { H2,H4 } from "../components/type";
 import SupportingSideNav from "../components/Structure/SupportingSideNav"
 import SupportersIcons from "../components/Structure/SupportersIcons"
-import RegisterButton from "../components/RegistrationLandingPage/RegisterBtn"
+import {RegisterATeamButton, RegisterIndividualButton} from "../components/RegistrationLandingPage/RegisterBtn"
 const NewSeason = ({about})=>{
   return(
     <div className={StructureStyles.Outer}>
@@ -24,13 +25,15 @@ const NewSeason = ({about})=>{
                 <div className={`${StructureStyles.Width70} ${StructureStyles.ReactMarkdown}`} >
                   <H2>{about.Name}</H2>
                   { <ReactMarkdown>{about.Description}</ReactMarkdown> }
-              <RegisterButton />
-
-
                 </div>
 
                 <div className={`${StructureStyles.Width30}`} >
+                
                   <SupportingSideNav />
+                  <div className={Buttonsstyles.BtnGroupRow}>
+                        <RegisterIndividualButton /> 
+                        <RegisterATeamButton />
+                </div>
                 </div>
               </ContentContainer> 
               <SupportersIcons />
