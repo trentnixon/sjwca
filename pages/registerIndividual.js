@@ -87,7 +87,7 @@ const RegisterIndividualForm = (props)=>{
     <div className={`${StructureStyles.Width70}`} >
         <CreateNewPlayerForm MyCricketID={MyCricketID}/> 
         <RegIndividualTerms SetState={ResetForm} state={false} Title='Back' /> 
-    </div>
+    </div> 
   )
 } 
 

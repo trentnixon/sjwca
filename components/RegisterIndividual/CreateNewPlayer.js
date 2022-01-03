@@ -24,7 +24,7 @@ import Button from '@mui/material/Button';
 
 import {H1,H2,H3,H4,P} from "../type";
 
-const CreateNewPlayer = (props)=>{
+const CreateNewPlayer = (props)=>{ 
     const {MyCricketID} = props;
     const [disabled, setDisabled] = useState(true)
     const [iscallback,setCallback] = useState(false)
@@ -55,6 +55,7 @@ const CreateNewPlayer = (props)=>{
        // let FirstReciept =[{ReceiptNumber:ReceiptNum, season:[Season],team:[SelectedTeam] }]
         //console.log(PlayerDOB)
          //RefreshUIonAddUpdate(true)
+         setCallback(null)
         const OBJ={
                   
             _PLAYERNAME:PlayerName,
@@ -100,7 +101,12 @@ const CreateNewPlayer = (props)=>{
         FieldCheck() ? setDisabled(false) :setDisabled(true)
     })
     //Season , ReceiptNum , PlayerName , Gender, PlayerEmail , PlayerContactNumber , PlayerDOB,TeamStatus,Ethnicity
-
+    if(iscallback===null)
+        return(
+            <FormElementGroup>
+            <H2>Processing Form</H2>
+            </FormElementGroup>
+        )
     if(iscallback)
         return( <FormElementGroup>
                     <H2>Player Registered</H2>
