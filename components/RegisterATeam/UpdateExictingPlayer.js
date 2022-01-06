@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 //Actions
 import {UpdatePlayer,CreateTeamRosterforStrapi} from "../../actions/Registration/handlePlayerRoster"
-
+import { API } from "../../config/index"
 import  ButtonStyle from "../../styles/Structure/Buttons.module.css"
 import {H1,H2,H3,H4,P, P_ERROR} from "../type";
 import FormElementGroup from "../FormElements/FormElementGroup"
@@ -21,7 +21,7 @@ const UpdateExictingPlayer = (props)=>{
     const [disabled, setDisabled] = useState(true)
 
 
-    const CreateNewReceiptObj = ()=>{
+    const CreateNewReceiptObj = ()=>{ 
         let OBJ=[] 
 
         console.log(PlayerReturn[0].Season_receipts.length, PlayerReturn[0].Season_receipts)
@@ -55,13 +55,11 @@ const UpdateExictingPlayer = (props)=>{
                 RefreshUIonAddUpdate(true)
 
                 //let FirstReciept =[{ReceiptNumber:ReceiptNum, season:[Season],team:[SelectedTeam.id] }]
-                CreateNewReceiptObj()
                 console.log(PlayerReturn[0].Season_receipts)
                 const OBJ={
                     _PLAYERID:PlayerReturn[0].id,
                     _PLAYER_SEASON_RECEIPTS:CreateNewReceiptObj(),
                     _SEASON:Season,
-                 
                     _TEAMID:SelectedTeam.id,
                     _CURRENTSEASONID:CurrentSeasonID,
                     _TEAMROSTER:CreateTeamRosterforStrapi(PlayerRoster),
@@ -81,8 +79,6 @@ const UpdateExictingPlayer = (props)=>{
             <FormElementGroup>
                 <H4>MyCricket ID : {PlayerReturn[0].MyCricketID} </H4>
                 <H2>Player Name : {PlayerReturn[0].Name} </H2>
-                 
-              
                 <Select_Seasons setSeason={setSeason} Season={Season}/>
                     <div className={ButtonStyle.BtnRight}>
                         <div className={ButtonStyle.BtnGroup}>
@@ -94,5 +90,3 @@ const UpdateExictingPlayer = (props)=>{
         )
 }
 export default UpdateExictingPlayer;
-
-//  <SeasonReceipt setReceiptNum={setReceiptNum}/>

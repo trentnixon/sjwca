@@ -18,8 +18,7 @@ const AddPlayer = (props)=>{
     const [PlayerRoster, setPlayerRoster] = useState(false);
 
     const ResetParentComponent = ()=>{  
-        setisMyCricketIDEntered(false) 
-     
+        setisMyCricketIDEntered(false)
     }
     
     useEffect(()=>{ console.log(PlayerRoster) },[PlayerRoster]) 
@@ -141,6 +140,6 @@ const PlayerLookupCheck = (props)=>{
 const Interim = (props)=>{
 
     return(
-        <H2>Gathering Information...</H2> 
+        <H2>Gathering Information...</H2>  
     )
 }

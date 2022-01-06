@@ -17,6 +17,7 @@ import HasFieldBeenFilledIn from './hasFieldBeenFilledIn'
     const fetcher = (url) => fetch(url).then((res) => res.json());
     const { data, error } =  useSWR(`${server}api/seasons`, fetcher)
     const [value, setvalue] = React.useState('');
+    const [Year,setYear] = React.useState(new Date().getFullYear())
 
 
     const handleChange = (event) => {
@@ -32,7 +33,7 @@ import HasFieldBeenFilledIn from './hasFieldBeenFilledIn'
     <FormElementsContainer>
       <SportsCricketIcon />
       <FormControl fullWidth>
-        <InputLabel id="Select-Age-Group">Select a Season</InputLabel>
+        <InputLabel id="Select-Age-Group">Confirm Season</InputLabel>
         <Select
           labelId="Select-Age-Group"
           id="demo-simple-select"
@@ -44,6 +45,7 @@ import HasFieldBeenFilledIn from './hasFieldBeenFilledIn'
         >
             {
                 data.map((item,i)=>{
+                  if(item.Season == Year)
                     return(
                         <MenuItem key={i} value={item.id}>{item.Season}</MenuItem>
                     )

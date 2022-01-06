@@ -13,6 +13,7 @@ export const FindPlayerDetails = (OBJ)=>{
     .then(function (response) {
         //console.log(response.data)
         OBJ._CALLBACK([response.data], OBJ._MYCRICKETID)
+    
         // always executed
     })
     .catch(function (error) {
@@ -23,32 +24,9 @@ export const FindPlayerDetails = (OBJ)=>{
 }
 
 
-/* const PrepTeamRosterforUpdate = (OBJ, ID)=>{
-    OBJ._URI =`${API}teams/${OBJ._TEAMID}` 
-    // Add new player ID to the Team Registration and Save
-    if(OBJ._TEAMROSTER.length === 0){
-        let TempSeason=[{
-            season:[OBJ._SEASON],
-            TeamRoster:[{players : [ID]}]
-        }]
-        OBJ._DATA = {TeamSeason :TempSeason}
-    }
-    else{
-        OBJ._TEAMROSTER.map((Season,i)=>{
-            let isSeason = Season.season.indexOf(OBJ._CURRENTSEASONID)
-            if(isSeason != -1){ OBJ._TEAMROSTER[i].TeamRoster[0].players.push(ID)}
-        })
-        OBJ._DATA = {TeamSeason :OBJ._TEAMROSTER}
-    }
-   
-    console.log("PrepTeamRosterforUpdate", OBJ)
-    UpdateRegistrationFormHandler(OBJ)
-}
- */
 
 
-
-export const RemovePlayerFromTeamSeasonRoster = (OBJ, PLAYERID)=>{
+export const RemovePlayerFromTeamSeasonRoster = (OBJ)=>{
    
     const URI =`${API}team-season-rosters/${OBJ._ROSTERID}`
 
@@ -56,6 +34,7 @@ export const RemovePlayerFromTeamSeasonRoster = (OBJ, PLAYERID)=>{
     .then(function (response) { 
         //console.log(response)
         OBJ._CALLBACK(true)
+        UpdatePlayerSeason(OBJ)
     })
     .catch(function (error) {
         // handle error
@@ -82,6 +61,22 @@ export const UpdateTeamSeasonRosterVersion2 = (OBJ, PLAYERID)=>{
 
 }
 
+const UpdatePlayerSeason=(OBJ)=>{
+    // update the players Team list after removal from roster
+   
+    console.log(OBJ)
+    const URI =`${API}players/updateSeasonReceipts`
+    axios({ url: URI, method: 'post', data:{OBJ :OBJ}})
+    .then(function (response) { 
+        console.log(response)
+        OBJ._CALLBACK(true)
+    })
+    .catch(function (error) {
+        // handle error
+        console.log('UpdatePlayer ERROR ',error);
+        OBJ._CALLBACK(true)
+    })
+}
 
 export const UpdatePlayer = (OBJ)=>{
     const URI =`${API}players/${OBJ._PLAYERID}`
@@ -99,8 +94,6 @@ export const UpdatePlayer = (OBJ)=>{
 
     axios({ url: URI, method: 'put', data:_PLAYER_UPDATE_DATA})
         .then(function (response) { 
-          
-            console.log(response)
 
             OBJ._TEAMROSTER.push(OBJ._PLAYERID)
             UpdateTeamSeasonRosterVersion2(OBJ,OBJ._PLAYERID)

@@ -28,7 +28,7 @@ const TeamRegistration = ({Team, RegistrationInsructions, switchboard})=>{
 
 
   useEffect(()=>{ setSelectedTeam(Team) },[Team])
- 
+   //623532653244
     
     if(SelectedTeam.length === 0){ 
       return( <DataLoadingPlaceHolder Copy={`Gathering Details`}/>)

@@ -6,7 +6,7 @@ import {RemovePlayerFromTeamSeasonRoster} from "../../actions/Registration/handl
 
 import {filter} from 'lodash';
 
-const DeletePlayerFromRoster = ({player,RefreshUIonDelete,PlayerRoster,RequestnewDatafromStrapi})=>{
+const DeletePlayerFromRoster = ({player,RefreshUIonDelete,PlayerRoster,RequestnewDatafromStrapi,SelectedTeam})=>{
 
     const handleDelete = ()=>{
 
@@ -16,12 +16,15 @@ const DeletePlayerFromRoster = ({player,RefreshUIonDelete,PlayerRoster,Requestne
             _TEAMROSTER : PlayerRoster.Roster[0].players,
             _CALLBACK:RequestnewDatafromStrapi,
             _ROSTERID:PlayerRoster.id,
+            _TEAMID:SelectedTeam.id,
+            _PLAYERID:player.id
         }
     
-        RemovePlayerFromTeamSeasonRoster(OBJ) 
-       RefreshUIonDelete() 
+        RemovePlayerFromTeamSeasonRoster(OBJ)  
+       RefreshUIonDelete()  
     }
     
+    console.log(player,SelectedTeam.id)
     return(
         <IconButton aria-label="delete" onClick={handleDelete} className={ButtonStyles.Error}>
             <DeleteIcon />
@@ -29,4 +32,4 @@ const DeletePlayerFromRoster = ({player,RefreshUIonDelete,PlayerRoster,Requestne
     )
 }
 
-export default DeletePlayerFromRoster;
+export default DeletePlayerFromRoster; 
