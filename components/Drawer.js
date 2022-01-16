@@ -17,8 +17,10 @@ import navStyles from '../styles/Nav.module.css';
 // Icons
 import MenuIcon from '@mui/icons-material/Menu';
 import HomeIcon from '@mui/icons-material/Home';
+import InfoIcon from '@mui/icons-material/Info';
 import AcUnitIcon from '@mui/icons-material/AcUnit';
 import HelpIcon from '@mui/icons-material/Help';
+import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import GroupIcon from '@mui/icons-material/Group';
 import PersonIcon from '@mui/icons-material/Person';
 import EditLocationAltIcon from '@mui/icons-material/EditLocationAlt';
@@ -55,8 +57,12 @@ export default function TemporaryDrawer() {
     },{
       label:'About SJWCA',
       url:'/about',
-      Icon:<HelpIcon />
-  }
+      Icon:<InfoIcon />
+  },{
+    label:'FAQs',
+    url:'/faq',
+    Icon:<HelpOutlineIcon />
+}
 ]
 
 
