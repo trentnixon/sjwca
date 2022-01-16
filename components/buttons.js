@@ -11,11 +11,11 @@ export const ClearButton = () => {
 }
 
 
-export const GoToRegionBtn = ({href}) => {
+export const GoToRegionBtn = ({href, Name,Conference}) => {
   return (
-          <Button variant="contained" className={ButtonStyles.Next}>
+          <Button variant="contained" className={ButtonStyles[Conference]}>
                 <Link href={href}>
-                 <a> Visit Region <EditLocationAltIcon /></a></Link>
+                 <a> Visit {Name} <EditLocationAltIcon /></a></Link>
           </Button>
           )
 }

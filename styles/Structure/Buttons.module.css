@@ -71,3 +71,14 @@ button.Success:hover{
         fill: var(--Success-color) !important; 
     
     }
+
+    .Sixers, .Sixers a{ 
+        background-color: var(--sixers) !important ;
+        color: var(--dark-100) !important ;
+        text-decoration: none;
+    }
+    .Thunder, .Thunder a{ 
+        background-color: var(--thunder) !important ;
+        color: var(--dark-900) !important ;
+        text-decoration: none;
+    }

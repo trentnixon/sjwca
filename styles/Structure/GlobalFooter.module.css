@@ -47,4 +47,5 @@
 }
 .FooterLinks p a{
     text-decoration: none;
+    color: var(--Next-color);
 }

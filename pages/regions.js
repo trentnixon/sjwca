@@ -12,12 +12,14 @@ import SupportersIcons from "../components/Structure/SupportersIcons"
 import { H2,H4,P} from "../components/type";
 
 
+const RegisterIndividual = ({conferences})=>{
 
+  console.log(conferences)
 
-
-const RegisterIndividual = ({regions})=>{
-
-
+  const SetClass=(ARR)=>{
+    console.log(ARR)
+    return ARR
+  }
   return(
     <div className={StructureStyles.Outer}>
         <PageHeaderSmall 
@@ -27,53 +29,71 @@ const RegisterIndividual = ({regions})=>{
         />
 
             <ContentContainer> 
-                <div className={`${StructureStyles.Width70} ${StructureStyles.ReactMarkdown}`} >
-                  <H2>Regions</H2>
-                  <P>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</P>
-                  
-                </div>
-                <div className={`${StructureStyles.Width30}`} >
-                 
-                  
-                </div>
-                </ContentContainer>
-                <ContentContainer>  
-                <div className={`${StructureStyles.Width100} ${StructureStyles.ReactMarkdown}`} >
-                <div className={RegionStyles.CardContainer}>
-                    {
-                      regions.map((region,i)=>{
-                          return(
-                            <RegionCard key={i} region={region}/>
-                            
-                          )
-                      })
-                    }
+            <div className={`${StructureStyles.Width70} ${StructureStyles.ReactMarkdown}`} >
+            <H2>Conferences</H2>
+            <P>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</P>
+            
+            </div>
+            <div className={`${StructureStyles.Width30}`} ></div>
 
-                  </div>
-                </div>
+            
+            </ContentContainer>
+            <ContentContainer>  
+            <div className={`${StructureStyles.Width100} ${StructureStyles.ReactMarkdown}`} >
+           
+              {
+                conferences.map((Conference,i)=>{
+                    return(
+                      <div key={i} className={SetClass(Conference.Conference)} >
+                        <H2 >{Conference.Conference}</H2>
+                        <ConfrenceRegions regions={Conference.regions} Conference={Conference.Conference}/>
+                      </div>
+                    )
+                })
+              }
+              
+            </div>
               </ContentContainer> 
               <SupportersIcons />
-
-
       </div>
           
-) 
+  ) 
 }
+
+
+/* <RegionCard key={i} region={region}/> */
+
 
 export default RegisterIndividual
 
 export const getStaticProps = async (context) => {
-  const regionsRes = await fetch(`${API}regions`)
-  const regions = await regionsRes.json()
-return {  props: {regions} }
+  const conferencesRes = await fetch(`${API}conferences`)
+  const conferences = await conferencesRes.json()
+return {  props: {conferences} }
 }
 
 
 
+const ConfrenceRegions = ({regions,Conference})=>{
 
-const RegionCard = ({region})=>{
+  return(
+    <div className={RegionStyles.CardContainer}>
+    
+      {
+        regions.map((region,i)=>{
+          return(<RegionCard key={i} region={region} Conference={Conference}/>)
+        })
+      }
+      </div>
+  )
+}
+
+
+const RegionCard = ({region,Conference})=>{
 
  
+  console.log('Conference', Conference)
+
   const center = {
     lat: parseFloat(region.Lat),
     lng: parseFloat(region.Long)
@@ -94,25 +114,23 @@ const RegionCard = ({region})=>{
     anchor: new google.maps.Point(0, 0),
   }
 
-  console.log(region, center)
+  //console.log(region, center)
 
   const CreateSummary = (ABOUT)=>{
-    return ABOUT.substring(0,100);
+    return ABOUT?.substring(0,100);
   }
 
   return(
-    <div className={RegionStyles.RegionCard}>
+    <div className={RegionStyles.RegionContainer} >
       <H4>{region.Name}  </H4>  
-                  <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={9}>
-                    <Marker icon={svgMarker} position={{lat: parseFloat(region.Lat),lng: parseFloat(region.Long) }} />
-                  </GoogleMap>  
-                  
-                  <P>{`${CreateSummary(region.About)} ...`} </P>
-                       
-                  <GoToRegionBtn href={`/region/${region.id}`}/>
-                  
-               
-       
+      <P>{region.About}  </P> 
+          <GoToRegionBtn href={`/region/${region.id}`} Name={region.Name} Conference={Conference} />
     </div>
   )
 }
+
+/* <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={9}>
+<Marker icon={svgMarker} position={{lat: parseFloat(region.Lat),lng: parseFloat(region.Long) }} />
+</GoogleMap> */  
+// <P>{`${CreateSummary(region.About)} ...`} </P>
+//className={RegionStyles.RegionCard}

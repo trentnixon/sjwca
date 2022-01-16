@@ -1,3 +1,21 @@
+.RegionContainer{
+    margin-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    border-bottom: 1px solid var(--dark-300);
+    padding-bottom: 1rem;
+}
+.RegionContainer button{
+   display: flex;
+   align-self: flex-end;
+  
+}
+
+
+/* OLD*/
+
 
 .List_col{
     display: flex;
@@ -9,7 +27,6 @@
     border-radius: var(--Border-Radius);
     background: var(--base-color);
     box-shadow: var(--DropShadow) var(--DropShadow) var(--DropShadowSpread) #CBDDF4, var(--DropShadowMinus) var(--DropShadowMinus) var(--DropShadowSpread) rgba(255, 255, 255, 0.7);
-   
 
 }
 

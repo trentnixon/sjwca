@@ -85,9 +85,8 @@ const TeamRegistrationForm = (props)=>{
 
                 <H4>Grading <GradeIcon /></H4>
                 <FormElementGroup>
-                    
-                    <SelectAgeGroup setAgeGroup={setAgeGroup} SelectedTeam={SelectedTeam} setUX={setUX}/>
                     <SelectRegion setRegion={setRegion} setUX={setUX} SelectedTeam={SelectedTeam}/>
+                    <SelectAgeGroup setAgeGroup={setAgeGroup} SelectedTeam={SelectedTeam} setUX={setUX}/>
                     <SelectDivision setDivision={setDivision} SelectedTeam={SelectedTeam}  setUX={setUX}/>
                     
                 </FormElementGroup>
