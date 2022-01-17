@@ -15,7 +15,7 @@ import { useState } from "react";
 
 const SingleRegion = (region)=>{
 
-    console.log(region.region)
+    console.log(region.region.region.conference)
     const [useRegion, setuseRegion] = useState(region.region)
     const containerStyle = {
         width: '100%',
@@ -28,10 +28,10 @@ const SingleRegion = (region)=>{
       };
   
 
-      
+      //61e3916be982364ef834ced6
   const GroundMarker = {
     path: "M15.05 12.81 6.56 4.32a.9959.9959 0 0 0-1.41 0L2.32 7.15c-.39.39-.39 1.02 0 1.41l8.49 8.49c.39.39 1.02.39 1.41 0l2.83-2.83c.39-.39.39-1.02 0-1.41zm-.7088 4.9462 1.4142-1.4142 4.2426 4.2426-1.4142 1.4142z",
-    fillColor: "#FF9813",
+    fillColor: region.region.region.conference === '61e3916be982364ef834ced6'?"#EA008A":"#96D701",
     fillOpacity: 1,
     strokeWeight: 0,
     rotation: 0,
@@ -45,21 +45,10 @@ const SingleRegion = (region)=>{
         <div className={StructureStyles.Outer}> 
                 <PageHeaderSmall 
                         HeaderCopy={useRegion.Name}  
-                        SubCopy={`Region`} 
+                        SubCopy={`Ground`} 
                         BGIMG={`/images/BGIMG/RegoBG.jpg`}/>
-                    
-                    <ContentContainer>
-                        <div className={`${StructureStyles.Width70} ${StructureStyles.ReactMarkdown}`} >
-                            <H2>{useRegion.Name}</H2>
-                                { <ReactMarkdown>{useRegion.About}</ReactMarkdown> }
-                        </div>
-                        <div className={`${StructureStyles.Width30}`} >
-                              
-                        </div>
-                    </ContentContainer>
-
                     <FullWidthContainer> 
-                      <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={18}>
+                      <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={15}>
                         <Marker icon={GroundMarker} position={{lat: parseFloat(useRegion.Lat),lng: parseFloat(useRegion.Long) }} />
                       </GoogleMap>
                   </FullWidthContainer>
@@ -75,3 +64,8 @@ export const getServerSideProps = async(ctx)=>{
         const region = await res.json()
         return{ props:{ region:region }} 
 }
+
+/* <div className={`${StructureStyles.Width70} ${StructureStyles.ReactMarkdown}`} >
+                            <H2>{useRegion.Name}</H2>
+                                { <ReactMarkdown>{useRegion.About}</ReactMarkdown> }
+                        </div> */

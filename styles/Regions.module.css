@@ -14,7 +14,6 @@
 }
 
 
-/* OLD*/
 
 
 .List_col{
@@ -59,7 +58,7 @@
 
 .List_col li a{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     align-items: center;
     align-content: center;
     text-decoration: none;

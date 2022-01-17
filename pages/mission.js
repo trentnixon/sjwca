@@ -52,5 +52,5 @@ export const getStaticProps = async (context) => {
     const misson = await missonRes.json()
     const values = await valuesRes.json()
     const vision = await visionRes.json()
-  return {  props: {misson,values,vision} }
+  return {  props: {misson,values,vision} } 
 }

@@ -9,8 +9,8 @@ import ManagerSignupForm from "../components/ManagerSeasonSignup/ManagerSignupFo
 import ContentContainer from "../components/Structure/ContentContainer";
 import RegistrationSideNav from "../components/RegisterATeam/RegistrationSideNav";
 import { useState } from "react";
-const RegisterTeam = ({switchboard})=>{
-        console.log(switchboard.season.id)
+const RegisterTeam = ({switchboard,registerteam})=>{
+        console.log(registerteam)
         const [CurrentSeasonID, setCurrentSeasonID] = useState(switchboard.season.id)
         return(
            <>
@@ -21,7 +21,7 @@ const RegisterTeam = ({switchboard})=>{
                 />
                 <ContentContainer>
                         <div className={StructureStyles.Width70}>
-                                <ManagerSignupForm CurrentSeasonID={CurrentSeasonID }/>
+                                <ManagerSignupForm CurrentSeasonID={CurrentSeasonID } registerteamCopy={registerteam}/>
                         </div>
 
                         <div className={`${StructureStyles.Width30}`} >
@@ -36,7 +36,9 @@ const RegisterTeam = ({switchboard})=>{
 export default RegisterTeam
 
 export const getStaticProps = async (context) => {
+        const registerteamRes = await fetch(`${API}register-team-landing`)
         const switchboardRes = await fetch(`${API}switchboard`)
+        const registerteam = await registerteamRes.json()
         const switchboard = await switchboardRes.json()
-      return {  props: {switchboard} }
+      return {  props: {switchboard,registerteam} }
     }

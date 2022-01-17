@@ -12,7 +12,7 @@ import { H2,H4 } from "../components/type";
 import SupportingSideNav from "../components/Structure/SupportingSideNav"
 import SupportersIcons from "../components/Structure/SupportersIcons"
 import {RegisterATeamButton, RegisterIndividualButton} from "../components/RegistrationLandingPage/RegisterBtn"
-const NewSeason = ({about})=>{
+const NewSeason = ({newseason})=>{
   return(
     <div className={StructureStyles.Outer}>
         <PageHeaderSmall 
@@ -23,8 +23,8 @@ const NewSeason = ({about})=>{
 
             <ContentContainer> 
                 <div className={`${StructureStyles.Width70} ${StructureStyles.ReactMarkdown}`} >
-                  <H2>{about.Name}</H2>
-                  { <ReactMarkdown>{about.Description}</ReactMarkdown> }
+                  <H2>{newseason.Name}</H2>
+                  { <ReactMarkdown>{newseason.Description}</ReactMarkdown> }
                 </div>
 
                 <div className={`${StructureStyles.Width30}`} >
@@ -47,14 +47,12 @@ export default NewSeason
 
 export const getStaticProps = async (context) => {
 
-/*   const aboutRes = await fetch(`${server}api/about`)
-  const about = await aboutRes.json() */
   ///newseason
-  const aboutRes = await fetch(`${API}newseason`)
-  const about = await aboutRes.json()
+  const newseasonRes = await fetch(`${API}newseason`)
+  const newseason = await newseasonRes.json()
 
   return {
-    props: {about},
+    props: {newseason},
   }
 }
 

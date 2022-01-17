@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 // Actions
 import {validateEmail,ValidateNumberOnly} from "../../actions/handleUX"
 import {handleCreateNewTeam} from "../../actions/Registration/handleTeamRegistration";
+import ReactMarkdown from 'react-markdown';
 
-
+// Style
+import StructureStyles from "../../styles/Structure/Structure.module.css";
 import FormElementGroup from "../FormElements/FormElementGroup"
 import FormElementsContainer from "../FormElements/FormElementContainer"
 // FOrm Elements
@@ -25,8 +27,8 @@ import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import ContactPhoneIcon from '@mui/icons-material/ContactPhone';
 import PersonIcon from '@mui/icons-material/Person';
 import {isEmpty} from "../../actions/handleUX" 
-const SignupForm  = ({setisFormSent, setResponse, CurrentSeasonID})=>{
-    const label = { inputProps: { 'aria-label': 'Agree to the terms and conditions' } };
+const SignupForm  = ({setisFormSent, setResponse, CurrentSeasonID,registerteamCopy})=>{
+    //const label = { inputProps: { 'aria-label': 'Agree to the terms and conditions' } };
 
     const data=['Manager', 'Coach']
 
@@ -102,7 +104,7 @@ const SignupForm  = ({setisFormSent, setResponse, CurrentSeasonID})=>{
 
     return(
         <>
-        <RegisterFormCopy />
+        <RegisterFormCopy registerteamCopy={registerteamCopy}/>
         <FormElementGroup>
           
                 <FormElementsContainer>
@@ -151,12 +153,12 @@ export default SignupForm;
 
 
 
-const RegisterFormCopy=()=>{
-
+const RegisterFormCopy=({registerteamCopy})=>{
+    console.log(registerteamCopy)
     return(
-        <>
-            <H2>Register a team</H2>
-            <P>The SJWCA Season begins in * of * 2022. Registrations for this coming season will close * of weeks before the seasons starts, and there are limited spaces in each region</P>                                
-        </>
+        <div className={`${StructureStyles.Width70} ${StructureStyles.ReactMarkdown}`} >
+            <H2>{registerteamCopy.Title}</H2>
+            { <ReactMarkdown>{registerteamCopy.Description}</ReactMarkdown> }
+        </div>
     )
-}
+} 
