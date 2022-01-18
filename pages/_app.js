@@ -10,7 +10,7 @@ const store = configureStore()
 let APIKEY = process.env.NEXT_PUBLIC_REACT_APP_GOOGLEAPI;
 
 export default function MyApp({ Component, pageProps }) {
-  console.log(process.env)
+
   return (
     <Provider store={store}>
        <LoadScript googleMapsApiKey={APIKEY}>
