@@ -23,8 +23,6 @@ const DeletePlayerFromRoster = ({player,RefreshUIonDelete,PlayerRoster,Requestne
         RemovePlayerFromTeamSeasonRoster(OBJ)  
        RefreshUIonDelete()  
     }
-    
-    console.log(player,SelectedTeam.id)
     return(
         <IconButton aria-label="delete" onClick={handleDelete} className={ButtonStyles.Error}>
             <DeleteIcon />

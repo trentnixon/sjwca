@@ -1,4 +1,4 @@
-
+import store from '../store/index';
 /// FOrm REGX
 
 export const validateEmail = (email) => {

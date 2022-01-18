@@ -128,7 +128,8 @@ const PlayerIDCheck = (props)=>{
   if(isNew === null)
   return(
     <div>
-      <H1>SJWCA: Player check for ID {props.MyCricketID}</H1>
+      <H2>SJWCA: Player check.</H2>
+      <H2>ID {props.MyCricketID}</H2>
       <PageLoader />
     </div>
   )

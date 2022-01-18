@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from "react"
-
 import StructureStyles from "../../styles/Structure/Structure.module.css";
+
 import FormElementsStyles from "../../styles/Structure/FormElements.module.css";
 // Form Elements
 import FormElementGroup from "../FormElements/FormElementGroup"
@@ -35,7 +35,7 @@ import AccessibilityNewIcon from '@mui/icons-material/AccessibilityNew';
 import {H1,H2,H3,H4, P} from "../type"
 
 const TeamRegistrationForm = (props)=>{
-    
+     
     const {SelectedTeam, CurrentSeasonID} = props
   
     const [UX, setUX] = useState(false) 
@@ -44,6 +44,7 @@ const TeamRegistrationForm = (props)=>{
     const [AgeGroup, setAgeGroup] = useState(false)
     const [Division, setDivision] = useState(false)
     const [Region, setRegion] = useState(false)
+    const [Conference, setConference] = useState(false)
     const [TeamName, setTeamName] = useState(false)
 
     const [TeamManagerName, setTeamManagerName] = useState(false)
@@ -55,7 +56,9 @@ const TeamRegistrationForm = (props)=>{
     const [TeamCoachNumber, setTeamCoachNumber] = useState(false)
      
 
-    useEffect(()=>{ },[UX, SelectedTeam])
+    useEffect(()=>{ 
+     
+    },[UX, SelectedTeam])
 
     
     
@@ -70,7 +73,11 @@ const TeamRegistrationForm = (props)=>{
             { UX ? <PageLoader />: false}
             <div className={StructureStyles.Width70}>
                 <H2>Register your team</H2>
-                <P>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</P>
+                <H4>HOW TO REGISTER:</H4>
+                <P>Enter a player's MyCricket ID into the form below to add them to your Player Roster.</P>
+                <P>Once your team roster is completed, Include your Team Name, Region of choice, Age group and Prefered division to assign your team to a League.</P>
+                <P>Teams requires a Min of 9 Players within its roster before submitting to SJWCA</P>
+                <P>&nbsp;</P>
                 <FindPlayerID {...props} CurrentSeasonID={CurrentSeasonID} setUX={setUX} sethasUserSumbitted={sethasUserSumbitted}/>
             </div> 
 
@@ -85,10 +92,11 @@ const TeamRegistrationForm = (props)=>{
 
                 <H4>Grading <GradeIcon /></H4>
                 <FormElementGroup>
-                    <SelectRegion setRegion={setRegion} setUX={setUX} SelectedTeam={SelectedTeam}/>
+                    <SelectRegion setRegion={setRegion} setConference={setConference} setUX={setUX} SelectedTeam={SelectedTeam}/>
+                    
                     <SelectAgeGroup setAgeGroup={setAgeGroup} SelectedTeam={SelectedTeam} setUX={setUX}/>
                     <SelectDivision setDivision={setDivision} SelectedTeam={SelectedTeam}  setUX={setUX}/>
-                    
+                    <ConfrenceSelected Conference={Conference}/>
                 </FormElementGroup>
 
                 <H4>Manager Details <ManageAccountsIcon /></H4>
@@ -114,3 +122,14 @@ const TeamRegistrationForm = (props)=>{
     )
 }
 export default TeamRegistrationForm;
+
+const ConfrenceSelected = ({Conference})=>{
+    console.log(Conference)
+    if(Conference)
+    return(
+        <div className = {FormElementsStyles[Conference.Conference]}>
+            <P> Confrence : {Conference.Conference}</P>
+        </div>
+    )
+        return null
+}

@@ -92,7 +92,7 @@ const ConfrenceRegions = ({regions,Conference})=>{
 const RegionCard = ({region,Conference})=>{
 
  
-  console.log('Conference', Conference)
+  //console.log('Conference', Conference)
 
   const center = {
     lat: parseFloat(region.Lat),

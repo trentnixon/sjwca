@@ -106,12 +106,12 @@ const CreateNewPlayer = (props)=>{
             <FormElementGroup>
             <H2>Processing Form</H2>
             </FormElementGroup>
-        )
+        ) 
     if(iscallback)
         return( <FormElementGroup>
                     <H2>Player Registered</H2>
                     <P>Thank you for your interest with SJWCA. We will be in touch shortly</P>
-                    <P>Next Steps : </P>
+                    
                 </FormElementGroup>
                 )
         return(

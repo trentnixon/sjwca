@@ -44,7 +44,7 @@ const TeamRegistration = ({Team, RegistrationInsructions, switchboard})=>{
                     </ContentContainer> 
         </div> 
     )   
-}
+} 
 export default TeamRegistration;
 
 

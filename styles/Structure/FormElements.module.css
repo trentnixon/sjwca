@@ -4,7 +4,6 @@
     margin: .5rem 1rem 2rem;
     padding: 1rem;
     border-radius: var(--Border-Radius);
-   
     background: var(--base-color);
     box-shadow: var(--DropShadow) var(--DropShadow) var(--DropShadowSpread) #CBDDF4, var(--DropShadowMinus) var(--DropShadowMinus) var(--DropShadowSpread) rgba(255, 255, 255, 0.7);
 
@@ -37,4 +36,22 @@
 .FormTitles h4 svg{
   margin: 0 0 0 10px;
   fill: var(--accent-color);
+}
+.Thunder{
+  background-color: var(--thunder);
+  padding: .2rem ;
+  border-radius: var(--Border-Radius);
+}
+
+.Sixers{
+  background-color:var(--sixers);
+  padding: .2rem ;
+  border-radius: var(--Border-Radius);
+}
+
+.Sixers p,.Thunder p{
+  color:  var(--dark-100);
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0 !important;
 }
