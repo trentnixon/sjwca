@@ -10,7 +10,7 @@ import Select_Seasons from "../FormElements/Select_Seasons"
 import Btn_ResetParentComponent from "./Btn_ResetParentComponent"
 import Button from '@mui/material/Button';
 
-
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
 
 const UpdateExictingPlayer = (props)=>{
 
@@ -77,8 +77,9 @@ const UpdateExictingPlayer = (props)=>{
 
         return(
             <FormElementGroup>
+                
+                <H4>{PlayerReturn[0].Name} <PersonAddIcon /> </H4>
                 <H4>MyCricket ID : {PlayerReturn[0].MyCricketID} </H4>
-                <H2>Player Name : {PlayerReturn[0].Name} </H2>
                 <Select_Seasons setSeason={setSeason} Season={Season}/>
                     <div className={ButtonStyle.BtnRight}>
                         <div className={ButtonStyle.BtnGroup}>

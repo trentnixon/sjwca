@@ -12,14 +12,7 @@ const IconGroup = ()=>{
             <H2>Proudly supported by:</H2>
             <div className={`${ImageGroupStyles.Group}`}>
                 
-                    <Image
-                        
-                        src="/images/logos/PlayCricket.png"
-                        alt="Picture of the author"
-                        width={ImgSize(243)}
-                        height={ImgSize(250)}
-                    
-                        />
+                   
                          <Image
                         
                         src="/images/logos/MyCricket.png"
@@ -39,3 +32,13 @@ const IconGroup = ()=>{
 }
 
 export default IconGroup;
+/*
+ <Image
+                        
+                        src="/images/logos/PlayCricket.png"
+                        alt="Picture of the author"
+                        width={ImgSize(243)}
+                        height={ImgSize(250)}
+                    
+                        />
+*/

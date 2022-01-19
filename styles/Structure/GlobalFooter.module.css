@@ -19,10 +19,11 @@
     padding: .5rem 2rem;
 }
 
-.Tab p{
+.Tab p{ 
     color: #7a7a7a;
     font-size: .85rem !important;
     margin: 0 !important;
+    text-align: center;
 }
 
 .FooterLinks{
@@ -49,3 +50,10 @@
     text-decoration: none;
     color: var(--Next-color);
 }
+@media only screen and (max-width : 768px)  {
+    /* Styles */
+    .FooterLinks{
+        flex-direction: column;
+    }
+  
+    }

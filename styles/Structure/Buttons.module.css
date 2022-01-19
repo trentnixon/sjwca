@@ -27,7 +27,7 @@
 }
 .BtnGroupRow button{
     width: 48%;
-    line-height: 1rem;
+    line-height: 1rem; 
 }
 
 .Next{
@@ -82,3 +82,10 @@ button.Success:hover{
         color: var(--dark-900) !important ;
         text-decoration: none;
     }
+
+/*Catch ALL */
+    @media only screen and (max-width : 768px)  {
+        /* Styles */
+        .BtnGroup{ flex-direction: column; }
+        .BtnGroup button{ margin: .5rem 0 ;}
+        } 

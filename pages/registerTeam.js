@@ -13,7 +13,7 @@ const RegisterTeam = ({switchboard,registerteam})=>{
         console.log(registerteam)
         const [CurrentSeasonID, setCurrentSeasonID] = useState(switchboard.season.id)
         return(
-           <>
+           <div>
                 <PageHeaderSmall 
                         HeaderCopy={`REGISTER YOUR TEAM`}  
                         SubCopy={`SJWCA 2022`} 
@@ -29,7 +29,7 @@ const RegisterTeam = ({switchboard,registerteam})=>{
                         </div>
                 </ContentContainer> 
                 <SupportersIcons />
-            </> 
+            </div> 
         ) 
 }
 

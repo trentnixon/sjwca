@@ -41,7 +41,7 @@ const TeamRegistration = ({Team, RegistrationInsructions, switchboard})=>{
                     BGIMG={`/images/BGIMG/RegoBG.jpg`}/> 
                     <ContentContainer>
                       <TeamRegistrationForm SelectedTeam={SelectedTeam} refreshData={refreshData} CurrentSeasonID={CurrentSeasonID} Insructions={RegistrationInsructions.Insructions}/>
-                    </ContentContainer> 
+                    </ContentContainer>  
         </div> 
     )   
 } 

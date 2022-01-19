@@ -66,7 +66,7 @@
 }
 .HeaderCopy h1{ text-align: center;}
 
-.HeaderCopy h1, .HeaderCopy h2{ margin: 0 !important; color:  var(--base-color);}
+.HeaderCopy h1, .HeaderCopy h2{ margin: 0 !important; color:  var(--base-color); text-align: center;}
 .FixedHeaderIMG{
     background-size: cover;
     background-position: center top;
@@ -152,7 +152,7 @@
 @media only screen and (max-width : 768px)  {
     /* Styles */
     .BaseLine div >div.Width70{ width:90%; }
-    .BaseLine div >div.Width30{width:90%;}
+    .BaseLine div >div.Width30{width:90%; }
   
     }
 
@@ -163,5 +163,5 @@
 
     @media only screen and (min-width : 320px) and (max-width : 480px)  {
         /* Styles */
-            .ContentWidth{ width: 100vw; flex-direction: column; }
+            .ContentWidth{ width: 96vw; flex-direction: column; }
         }
