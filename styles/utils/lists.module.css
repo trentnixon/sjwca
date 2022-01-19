@@ -1,0 +1,37 @@
+/* Registration Subbmission list */
+
+.TeamInfoList{
+    margin:0
+}
+.TeamInfoList li{
+    margin: .5rem 0;
+    padding:.2rem 0;
+    font-size: 1.165rem;
+    color: var(--dark-color);
+}
+
+ 
+
+.TeamRoster{
+    margin:0 0 0 1rem;
+    list-style: decimal;
+}
+
+.TeamRoster li{
+    padding:.5rem 0 0 .5rem;
+    margin-top: 1px;
+    font-size: 1rem;
+    color: var(--dark-color);
+   
+}
+
+/* Thunder */
+.TeamInfoList.Thunder li{  border-bottom: 1px solid var(--thunder); }
+.TeamRoster.Thunder li{  border-right: 10px solid var(--thunder); }
+li.Copy_Thunder{ color: var(--thunder); font-weight: 800!important;}
+
+/* Sixers*/
+
+.TeamInfoList.Sixers li{  border-bottom: 1px solid var(--sixers); }
+.TeamRoster.Sixers li{  border-right: 7px solid var(--sixers); }
+li.Copy_Sixers{ color: var(--sixers); font-weight: 800!important;}

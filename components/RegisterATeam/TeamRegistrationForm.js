@@ -57,7 +57,7 @@ const TeamRegistrationForm = (props)=>{
      
 
     useEffect(()=>{ 
-     
+        console.log(SelectedTeam)
     },[UX, SelectedTeam])
 
     
@@ -65,7 +65,7 @@ const TeamRegistrationForm = (props)=>{
     if(!SelectedTeam.hasReadInstructions || !SelectedTeam.hasAgreedToTerms)
         return(<RegistrationInsructions SelectedTeam={SelectedTeam} setUX={setUX} {...props}/>)
     if(hasUserSumbitted) 
-        return(<RegistrationSubmitted />)
+        return(<RegistrationSubmitted SelectedTeam={SelectedTeam}/>)
     if(!SelectedTeam.RegistrationOpen || hasUserSumbitted)
         return(<SubmissionUnderReview />)
     return(

@@ -4,9 +4,9 @@ import StructureStyles from "../styles/Structure/Structure.module.css";
 // Components
 import PageHeaderSmall from "../components/Structure/PageHeaderSmall"
 import ContentContainer from "../components/Structure/ContentContainer"
-
+import SupportingSideNav from "../components/Structure/SupportingSideNav"
 import { H2 } from "../components/type";
-const about = ({about})=>{
+const about = ({terms})=>{
 
         return(
             <div className={StructureStyles.Outer}>
@@ -18,11 +18,11 @@ const about = ({about})=>{
 
                     <ContentContainer> 
                         <div className={`${StructureStyles.Width70} ${StructureStyles.ReactMarkdown}`} >
-                          <H2>{about.Name}</H2>
-                          { <ReactMarkdown>{about.Description}</ReactMarkdown> }
+                          <H2>{terms.Name}</H2>
+                          { <ReactMarkdown>{terms.Description}</ReactMarkdown> }
                         </div>
                         <div className={`${StructureStyles.Width30}`} >
-                        hello there this is a new change
+                          <SupportingSideNav />
                         </div>
                       </ContentContainer> 
               </div>
@@ -32,7 +32,7 @@ const about = ({about})=>{
 export default about
 
 export const getStaticProps = async (context) => {
-    const aboutRes = await fetch(`${API}about`)
-    const about = await aboutRes.json()
-  return {  props: {about} }
+    const termsRes = await fetch(`${API}terms`)
+    const terms = await termsRes.json()
+  return {  props: {terms} }
 }
