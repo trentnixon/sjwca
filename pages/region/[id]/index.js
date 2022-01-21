@@ -2,7 +2,8 @@ import RegionStyles from "../../../styles/Regions.module.css";
 
 import { API } from "../../../config/index"
 import Link from 'next/link'
-import ReactMarkdown from 'react-markdown';
+
+import MarkdownContainer from '../../../components/Structure/MarkdownContainer'
 import fetch from 'node-fetch';
 import { GoogleMap, Marker } from '@react-google-maps/api';
 
@@ -10,7 +11,7 @@ import StructureStyles from "../../../styles/Structure/Structure.module.css";
 import PageHeaderSmall from "../../../components/Structure/PageHeaderSmall"
 import ContentContainer from "../../../components/Structure/ContentContainer"
 import FullWidthContainer from "../../../components/Structure/FullWidthContainer"
-import { H2 } from "../../../components/type";
+import { H1 } from "../../../components/type";
 import { useState } from "react";
 import LaunchIcon from '@mui/icons-material/Launch';
 import EditLocationAltIcon from '@mui/icons-material/EditLocationAlt';
@@ -73,9 +74,9 @@ const SingleRegion = (region)=>{
                         BGIMG={`/images/BGIMG/RegoBG.jpg`}/>
                     
                     <ContentContainer>
-                        <div className={`${StructureStyles.Width70} ${StructureStyles.ReactMarkdown}`} >
-                            <H2>{useRegion.Name}</H2>
-                                { <ReactMarkdown>{useRegion.About}</ReactMarkdown> }
+                        <div className={`${StructureStyles.Width70}`} >
+                            <H1>{useRegion.Name}</H1>
+                                { <MarkdownContainer>{useRegion.About}</MarkdownContainer> }
                         </div>
                         <div className={`${StructureStyles.Width30}`} > 
                                

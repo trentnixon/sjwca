@@ -9,7 +9,7 @@ import ContentContainer from "../components/Structure/ContentContainer"
 import {GoToRegionBtn} from "../components/buttons"
 import SupportersIcons from "../components/Structure/SupportersIcons"
 // Type
-import { H2,H4,P} from "../components/type";
+import { H1, H2,H4,P} from "../components/type";
 
 
 const RegisterIndividual = ({conferences})=>{
@@ -29,9 +29,9 @@ const RegisterIndividual = ({conferences})=>{
         />
 
             <ContentContainer> 
-            <div className={`${StructureStyles.Width70} ${StructureStyles.ReactMarkdown}`} >
-            <H2>Conferences</H2>
-            <P>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</P>
+            <div className={`${StructureStyles.Width70}`} >
+            <H1>Conferences</H1>
+            <P>This season we will be continuing to split the competition into the Sixers and Thunder Conferences. In a big change to seasons past, we will be having set grades playing out of particular grounds. This should lead to teams only playing out of 1-2 venues and hopefully played closer to home. With limited fields available and registrations increasing we’ll be taking registrations on a first come first served basis. If the region and grade you’re hoping for your team to play in is full, you will need to consider the other remaining options available at the time of registration.</P>
             
             </div>
             <div className={`${StructureStyles.Width30}`} ></div>
@@ -39,7 +39,7 @@ const RegisterIndividual = ({conferences})=>{
             
             </ContentContainer>
             <ContentContainer>  
-            <div className={`${StructureStyles.Width100} ${StructureStyles.ReactMarkdown}`} >
+            <div className={`${StructureStyles.Width100}`} >
            
               {
                 conferences.map((Conference,i)=>{

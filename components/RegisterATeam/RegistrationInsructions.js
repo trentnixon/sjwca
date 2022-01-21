@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Link from 'next/link'
-import ReactMarkdown from 'react-markdown';
+import MarkdownContainer from '../../components/Structure/MarkdownContainer'
 import {UpdateRegistrationFormHandler} from "../../actions/Registration/handleTeamRegistration"
 import { API } from "../../config/index"
 
@@ -42,7 +42,8 @@ const SubmissionUnderReview  = ({SelectedTeam, setUX, refreshData, Insructions})
                 <P>Hello {DisplayName()}, thank you for your interest in this seasons SJWCA Season.</P>
               
                     <div className={RegistrationRequirements.MainList}>
-                            { <ReactMarkdown>{Insructions}</ReactMarkdown> }
+                    <MarkdownContainer>{Insructions}</MarkdownContainer>
+                          
                     </div>
                    
                     <div className={ButtonStyle.BtnRight}>

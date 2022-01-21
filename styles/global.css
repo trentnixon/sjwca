@@ -31,15 +31,95 @@
   /* TYpe Colors */
  p,h1,h2,h3,h4{
 	  color: var(--dark-color);
+	  font-family:'Heebo'; 	
+	  letter-spacing: -1px;
+	  padding: '0';
+	  margin: '0 0 0.5rem';
   }
  
+  body p{
+    margin: 1rem 0;
+    margin: 0 0 .5rem;
+    line-height: 1.3rem;
+    font-size: 1rem;
+    font-weight: 400;
+	letter-spacing: 0px;
+}
+
+	body p small{
+		font-weight: '800';
+		font-size:' .8rem';
+	}
+body h1{
+    line-height: 2rem;
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin: 0rem 0 1rem;
+    padding: 0;
+	text-transform: uppercase;
+}
+
+body h2{
+    line-height: 2.2rem;
+    font-size: 2rem;
+    font-weight: 300;
+    margin: 2rem 0 1rem;
+    padding: 0 0 .5rem 0 ;
+
+}
+body h3{
+	line-height: 1.3rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 2rem 0 1rem;
+    padding: 0;
+}
+
+body h4{
+	line-height: 1.1rem;
+    font-size: 1.3rem;
+    font-weight: 900;
+    margin: 1rem 0 0rem;
+    padding: 0;
+}
+
+
+body strong{
+    font-weight: 800;
+}
+body em{
+    font-style:italic;  
+    padding: .1.5rem;
+    line-height: 1.9rem;
+    background-color: var(--accent-color);
+	color: var(--dark-100);
+	border-radius: var(--Border-Radius);
+}
+body em::before{ padding: 5px; content: '';}
+body em::after{ padding: 5px; content: '';}
+
+
+/* utils*/
+body ul, body ol{
+    padding: 1rem;
+}
+body ul li{
+    padding: .5rem 0 ;
+    line-height: 1.1rem;
+    list-style-type: none;
+}
+body ol li{
+    padding: .3rem 0 ;
+    line-height: 1.1rem;
+    list-style-type:decimal
+}
 
   /* Confrence Globals */
 
   
   .Sixers{
 	  border-left:10px solid var(--sixers);
-	  padding: 2rem 0 5rem 1rem;
+	  padding: 0rem 0 1rem 1rem;
 	 
   }
   .Sixers h2{
@@ -48,7 +128,7 @@
   }
   .Thunder{
 	border-left:10px solid var(--thunder);
-	padding: 2rem 0 5rem 1rem;
+	padding: 0rem 0 1rem 1rem;
 }
   .Thunder h2{
 	color:  var(--thunder);

@@ -1,6 +1,7 @@
 import { API } from "../../../config/index"
 
-import ReactMarkdown from 'react-markdown';
+//import MarkdownContainer from '../components/Structure/MarkdownContainer'
+
 import fetch from 'node-fetch';
 import { GoogleMap, Marker } from '@react-google-maps/api';
 
@@ -65,7 +66,7 @@ export const getServerSideProps = async(ctx)=>{
         return{ props:{ region:region }} 
 }
 
-/* <div className={`${StructureStyles.Width70} ${StructureStyles.ReactMarkdown}`} >
+/* <div className={`${StructureStyles.Width70} `} >
                             <H2>{useRegion.Name}</H2>
-                                { <ReactMarkdown>{useRegion.About}</ReactMarkdown> }
+                                { <MarkdownContainer>{useRegion.About}</MarkdownContainer> }
                         </div> */

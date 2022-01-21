@@ -1,18 +1,21 @@
+import {useState} from 'react'
 import { API } from "../config/index"
 import Link from 'next/link'
-import ReactMarkdown from 'react-markdown';
 import StructureStyles from "../styles/Structure/Structure.module.css";
 import Buttonsstyles from "../styles/Structure/Buttons.module.css";
-import SideNav from "../styles/registrationPage/SideNav.module.css";
+
 // Components
 import PageHeaderSmall from "../components/Structure/PageHeaderSmall"
 import ContentContainer from "../components/Structure/ContentContainer"
+import MarkdownContainer from '../components/Structure/MarkdownContainer'
 // Type
-import { H2,H4 } from "../components/type";
+import { H1 } from "../components/type";
 import SupportingSideNav from "../components/Structure/SupportingSideNav"
 import SupportersIcons from "../components/Structure/SupportersIcons"
-import {RegisterATeamButton, RegisterIndividualButton} from "../components/RegistrationLandingPage/RegisterBtn"
+import {RegisterATeamButton, RegisterIndividualButton} from "../components/RegistrationLandingPage/RegisterBtn";
+import Button from '@mui/material/Button';
 const NewSeason = ({newseason})=>{
+  const [Conference, setConference] = useState(true)
   return(
     <div className={StructureStyles.Outer}>
         <PageHeaderSmall 
@@ -22,10 +25,24 @@ const NewSeason = ({newseason})=>{
         />
 
             <ContentContainer> 
-                <div className={`${StructureStyles.Width70} ${StructureStyles.ReactMarkdown}`} >
-                  <H2>{newseason.Name}</H2>
-                  { <ReactMarkdown>{newseason.Description}</ReactMarkdown> }
-                </div>
+                <div className={`${StructureStyles.Width70}`} >
+                  <H1>{newseason.Name}</H1>
+                    <MarkdownContainer>{newseason.Description}</MarkdownContainer>
+                 
+                  <div className={Buttonsstyles.BtnGroupRow}>
+                  <Button variant="contained" onClick={()=>{setConference(!Conference)}} 
+                        className={Conference ? Buttonsstyles['Sixers']:Buttonsstyles['Thunder']}>
+                    { Conference ?'View Sixers CONFERENCE':'View Thunder CONFERENCE'}
+                  </Button>
+                  </div>
+                    {
+                      Conference  ? <DisplayConference COPY={newseason.Thunder} CLASS='Thunder'/> : 
+                                    <DisplayConference COPY={newseason.Sixers} CLASS='Sixers'/>
+                    }
+                  
+
+                 
+                  </div>
 
                 <div className={`${StructureStyles.Width30}`} >
                 
@@ -56,3 +73,11 @@ export const getStaticProps = async (context) => {
   }
 }
 
+
+
+const DisplayConference = ({COPY, CLASS})=>{
+  return(
+    <MarkdownContainer class={CLASS}>{COPY}</MarkdownContainer>
+  
+  )
+}

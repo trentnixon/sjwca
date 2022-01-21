@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
 // Actions
 import {validateEmail,ValidateNumberOnly} from "../../actions/handleUX"
-import {handleCreateNewTeam} from "../../actions/Registration/handleTeamRegistration";
-import ReactMarkdown from 'react-markdown';
-
+import MarkdownContainer from '../../components/Structure/MarkdownContainer'
 // Style
 import StructureStyles from "../../styles/Structure/Structure.module.css";
 import FormElementGroup from "../FormElements/FormElementGroup"
@@ -103,7 +101,7 @@ const SignupForm  = ({setisFormSent, setResponse, CurrentSeasonID,registerteamCo
     useEffect(()=>{FormCheck() },[Position,Agreed,Name,Email,Number])
 
     return(
-        <>
+        <div>
         <RegisterFormCopy registerteamCopy={registerteamCopy}/>
         <FormElementGroup>
           
@@ -145,7 +143,7 @@ const SignupForm  = ({setisFormSent, setResponse, CurrentSeasonID,registerteamCo
                
                 <Button variant="contained" onClick={()=>{handleSendForm()}} disabled={disable}>Register</Button>
         </FormElementGroup>
-        </>
+        </div>
     )
 }
 export default SignupForm;
@@ -156,9 +154,10 @@ export default SignupForm;
 const RegisterFormCopy=({registerteamCopy})=>{
     console.log(registerteamCopy)
     return(
-        <div className={`${StructureStyles.Width70} ${StructureStyles.ReactMarkdown}`} >
-            <H2>{registerteamCopy.Title}</H2>
-            { <ReactMarkdown>{registerteamCopy.Description}</ReactMarkdown> }
+        
+        <div className={`${StructureStyles.Width70}`} >
+            <H1>{registerteamCopy.Title}</H1>
+            <MarkdownContainer>{registerteamCopy.Description}</MarkdownContainer>
         </div>
     )
 } 

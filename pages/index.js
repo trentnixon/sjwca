@@ -1,5 +1,5 @@
 import { server,API } from "../config/index"
-//import ReactMarkdown from 'react-markdown';
+
 //import Header from "../components/Header"
 
 import RegistrationLandingPage from "../components/RegistrationLandingPage/index"

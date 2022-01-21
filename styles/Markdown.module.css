@@ -1,0 +1,48 @@
+.ReactMarkdown {}
+
+.ReactMarkdown h2{ border-bottom: 1px solid;}
+
+
+ /* Confrence Globals */
+
+  
+ .Sixers {
+    border: 1px solid #fff;
+    border-radius: var(--Border-Radius);
+    background: var(--base-color);
+    box-shadow: var(--DropShadow) var(--DropShadow) var(--DropShadowSpread) #CBDDF4, var(--DropShadowMinus) var(--DropShadowMinus) var(--DropShadowSpread) rgba(255, 255, 255, 0.7);
+    padding: 0rem  2rem 0 1rem;
+    border-left: 10px solid var(--sixers);
+}
+.Sixers h3{
+  
+    font-weight: 800 !important;
+}
+.Sixers em{
+    background-color: var(--sixers);
+}
+
+.Thunder {
+    border: 1px solid #fff;
+    border-radius: var(--Border-Radius);
+    background: var(--base-color);
+    box-shadow: var(--DropShadow) var(--DropShadow) var(--DropShadowSpread) #CBDDF4, var(--DropShadowMinus) var(--DropShadowMinus) var(--DropShadowSpread) rgba(255, 255, 255, 0.7);
+    padding: 0rem  2rem 0 1rem;
+    border-left: 10px solid var(--thunder);
+}
+.Thunder h3{
+  
+    font-weight: 800 !important;
+}
+.Thunder em{
+    background-color: var(--thunder);
+}
+
+.Sixers h4,.Thunder h4{
+    margin: 1rem 0 0.5rem;
+    border-top: 1px solid;
+    padding-top: 1rem;
+}
+.Sixers ul,.Thunder ul{
+    padding: .2rem;
+}

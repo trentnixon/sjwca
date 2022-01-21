@@ -1,6 +1,5 @@
 import { API } from "../config/index"
-import Link from 'next/link'
-import ReactMarkdown from 'react-markdown';
+import MarkdownContainer from '../components/Structure/MarkdownContainer'
 import StructureStyles from "../styles/Structure/Structure.module.css";
 // Components
 import PageHeaderSmall from "../components/Structure/PageHeaderSmall"
@@ -20,15 +19,15 @@ const misson = ({misson,values,vision})=>{
                 />
 
                     <ContentContainer> 
-                        <div className={`${StructureStyles.Width70} ${StructureStyles.ReactMarkdown}`} >
+                        <div className={`${StructureStyles.Width70}`} >
                           <H2>{misson.Title}</H2>
-                          { <ReactMarkdown>{misson.Description}</ReactMarkdown> }
+                          { <MarkdownContainer>{misson.Description}</MarkdownContainer> }
                           
                           <H2>{vision.Name}</H2>
-                          { <ReactMarkdown>{vision.Description}</ReactMarkdown> }
+                          { <MarkdownContainer>{vision.Description}</MarkdownContainer> }
 
                           <H2>{values.Name}</H2>
-                          { <ReactMarkdown>{values.Description}</ReactMarkdown> }
+                          { <MarkdownContainer>{values.Description}</MarkdownContainer> }
                         </div>
                         <div className={`${StructureStyles.Width30}`} >
                           <SupportingSideNav />
