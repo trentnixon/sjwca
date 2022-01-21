@@ -138,7 +138,7 @@ export const AddNewPlayer = (OBJ)=>{
             // OBJ._TEAMROSTER.push(response.data.id)
           
            UpdateTeamSeasonRosterVersion2(OBJ,response.data.id);
-           EMAIL_NewPlayerRegister(OBJ,response.data.id)
+           EMAIL_NewPlayerRegister(OBJ,response.data.id) 
            
     })
     .catch(function (error) {

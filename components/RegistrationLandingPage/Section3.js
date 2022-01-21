@@ -5,7 +5,7 @@ import { H1 } from "../type";
 import Spliter from "./SplitterBottom";
 import { gsap } from 'gsap'
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger); 
 
 const Section3 = (props)=>{
         return(
