@@ -25,16 +25,18 @@ const RegistrationHeader = (props)=>{
                         </div>
 
                         <div>
-                                <H3>REGISTRATIONS ARE NOW OPEN FOR 2022</H3>
-                                <div className={Buttonsstyles.BtnGroupRow}>
-                                        <RegisterIndividualButton /> 
-                                        <RegisterATeamButton />
-                                </div>
                                 
+                                <H2>Sydney's ONLY Junior Winter Cricket Competition!</H2>
+                                <H3>REGISTRATIONS ARE NOW OPEN FOR 2022</H3>
+                               
                         </div>
                         
                         <div>
-                                <H2>Sydney's Only Junior Winter Cricket Competition!</H2>
+                                
+                                <div className={Buttonsstyles.BtnGroupRow}>
+                                <RegisterIndividualButton /> 
+                                <RegisterATeamButton />
+                        </div>
                         </div>
                 </div>
                 <Spliter color="#FBFDFF"/> 

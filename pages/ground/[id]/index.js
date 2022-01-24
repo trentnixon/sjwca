@@ -49,7 +49,7 @@ const SingleRegion = (region)=>{
                         SubCopy={`Ground`} 
                         BGIMG={`/images/BGIMG/RegoBG.jpg`}/>
                     <FullWidthContainer> 
-                      <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={15}>
+                      <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={18}>
                         <Marker icon={GroundMarker} position={{lat: parseFloat(useRegion.Lat),lng: parseFloat(useRegion.Long) }} />
                       </GoogleMap>
                   </FullWidthContainer>

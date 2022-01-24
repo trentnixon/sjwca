@@ -17,7 +17,7 @@ import Button from '@mui/material/Button';
 const NewSeason = ({newseason})=>{
   const [Conference, setConference] = useState(true)
   return(
-    <div className={StructureStyles.Outer}>
+    <div className={StructureStyles.Outer}> 
         <PageHeaderSmall 
           HeaderCopy={`2022 Season`}  
           SubCopy={`Sydney Junior Winter Cricket Association`} 

@@ -104,8 +104,7 @@ const SingleRegion = (region)=>{
 
                     <FullWidthContainer> 
                   <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={11}>
-                        <Marker icon={svgMarker} position={{lat: parseFloat(useRegion.Lat),lng: parseFloat(useRegion.Long) }} />
-                
+                        
                     {Markers()}
                   </GoogleMap>
               </FullWidthContainer>

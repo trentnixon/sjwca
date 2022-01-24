@@ -15,7 +15,6 @@ const GlobalFooter = ()=>{
             <div  className={GlobalFooterstyles.FooterLinks}>
                 <p><Link href="/mission">Our Mission</Link></p>
                 <p><Link href="/objectives">Objectives</Link></p>
-                <p><a href="https://www.sydneyjuniorwintercricket.org.au/assets/img/constitution.pdf" target='_blank'>constitution</a></p>
             </div>
 
             <div className={GlobalFooterstyles.Tab}>
@@ -28,3 +27,4 @@ const GlobalFooter = ()=>{
     )
 }
 export default GlobalFooter; 
+//<p><a href="https://www.sydneyjuniorwintercricket.org.au/assets/img/constitution.pdf" target='_blank'>constitution</a></p>

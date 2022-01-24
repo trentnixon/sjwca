@@ -14,8 +14,8 @@ const about = ({about})=>{
         return(
             <div className={StructureStyles.Outer}>
                 <PageHeaderSmall 
-                  HeaderCopy={`My Cricket`}  
-                  SubCopy={`How to Register a Player`} 
+                  HeaderCopy={`How to Register`}  
+                  SubCopy={`2022 Season`} 
                   BGIMG={`/images/BGIMG/RegoBG.jpg`}
                 />
 
@@ -29,7 +29,7 @@ const about = ({about})=>{
                         </div>
                       </ContentContainer> 
                       <SupportersIcons />
-              </div>
+              </div> 
                   
         ) 
 }

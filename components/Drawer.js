@@ -25,6 +25,7 @@ import GroupIcon from '@mui/icons-material/Group';
 import PersonIcon from '@mui/icons-material/Person';
 import EditLocationAltIcon from '@mui/icons-material/EditLocationAlt';
 import SportsCricketIcon from '@mui/icons-material/SportsCricket';
+import AddIcon from '@mui/icons-material/Add';
 export default function TemporaryDrawer() {
   const [state, setState] = React.useState({
     top: false,
@@ -42,6 +43,10 @@ export default function TemporaryDrawer() {
       label:'Winter 2022',
       url:'/2022season',
       Icon:<AcUnitIcon />
+    },{
+      label:'How to Register',
+      url:'/howToRegister',
+      Icon:<AddIcon />
     },{
       label:'Register a Team',
       url:'/registerTeam',
