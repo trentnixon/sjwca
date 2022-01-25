@@ -30,6 +30,15 @@
     line-height: 1rem; 
 }
 
+.Clear{
+    background-color: var(--dark-100) !important ;
+    color: var(--dark-900) !important ;
+}
+.Clear:hover{
+    background-color: var(--dark-900) !important ;
+    color: var(--dark-100) !important ;
+}
+
 .Next{
     background-color: var(--Next-color) !important ;
     color: var(--base-color) !important ;

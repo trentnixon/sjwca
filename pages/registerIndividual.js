@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
+import Link from 'next/link'
 import { API } from "../config/index"
 import MarkdownContainer from '../components/Structure/MarkdownContainer'
 import StructureStyles from "../styles/Structure/Structure.module.css";
+import Buttonsstyles from "../styles/Structure/Buttons.module.css";
 // Components
 import PageHeaderSmall from "../components/Structure/PageHeaderSmall"
 import ContentContainer from "../components/Structure/ContentContainer"
@@ -15,6 +17,8 @@ import FormElementGroup from "../components/FormElements/FormElementGroup"
 import Create_Mycricket_ID from "../components/FormElements/PlayerMyCricketID";
 import {FindPlayerDetails} from "../actions/Registration/handlePlayerRoster"
 import PageLoader from "../components/Structure/PageLoader";
+import Button from '@mui/material/Button';
+import ButtonGroup from '@mui/material/ButtonGroup';
 const RegisterIndividual = ({individual})=>{
 
     const [AgreedTerms, setAgreedTerms] = useState(false)
@@ -34,7 +38,7 @@ const RegisterIndividual = ({individual})=>{
             }
                 
                 
-                <div className={`${StructureStyles.Width30}`} >
+                <div className={`${StructureStyles.Width30}`} > 
                   <SupportingSideNav />
                 </div>
               </ContentContainer> 
@@ -55,9 +59,34 @@ return {  props: {individual} }
 
 
 const RegisterIndividualInstructions = (props)=>{
+
   const {individual, setAgreedTerms,setMyCricketID, MyCricketID} = props;
   const [btn,setbtn] = useState(true)
+  const [RegOption, setRegOption] = useState(0)
 
+
+  const BTNGRP=[
+    {
+      Label:'I have a Team',
+      Copy:'HaveTeamAndMyCricketID',
+      Form:'None'
+    },{
+      Label:'I am looking for a Team',
+      Copy:'NoTeamButHasMyCricketID',
+      Form:'None'
+    },{
+      Label:'I am a New Player',
+      Copy:'NoTeamNoMyCricketID',
+      Form:'None'
+    },
+  ]
+
+    const SetNoID = ()=>{
+      console.log('SetNoID')
+      setMyCricketID('000000');
+     
+      return true
+    }
   useEffect(()=>{
     if(MyCricketID){setbtn(false)}
   },[MyCricketID])
@@ -65,14 +94,47 @@ const RegisterIndividualInstructions = (props)=>{
     <div className={`${StructureStyles.Width70}`} >
                   <H1>{individual.Name}</H1>
                   { <MarkdownContainer>{individual.Description}</MarkdownContainer> }
+
+                  <div className={StructureStyles.VertSpacer}></div>
                   <FormElementGroup>
-                    <H4>Enter MyCricket ID</H4>  
-                      <Create_Mycricket_ID  setMyCricketID={setMyCricketID} MyCricketID={MyCricketID} />
+                    <P><strong>Select the option that best fits your situation</strong></P>
+                  <ButtonGroup variant="contained" aria-label="outlined primary button group">
+                  {
+                    BTNGRP.map((OPT,i)=>{
+                        return(
+                          <Button className={RegOption ===i  ? Buttonsstyles['Next']:Buttonsstyles['Clear']} key={i} 
+                          onClick={()=>{setRegOption(i); setMyCricketID(false); setbtn(true)}} >{OPT.Label}</Button>
+                        )
+                    })
+                  }
+                  </ButtonGroup>
+                  <div className={StructureStyles.VertSpacer}></div>
+                  </FormElementGroup>
+
+                  <RegistrationInformationOption  Option={BTNGRP[RegOption]} individual={individual}/>
+                 
+                  <FormElementGroup>
+                    {
+                      RegOption == 2 ? SetNoID() : <Create_Mycricket_ID  setMyCricketID={setMyCricketID} MyCricketID={MyCricketID} />
+                    }
+                   
                       <RegIndividualTerms SetState={setAgreedTerms} state={true} Title='Begin Registration' isDisabled={btn}/>
                     </FormElementGroup>
+                    <P><em>This form is for parents of players ONLY.</em></P>
+                    <P> Team Managers wishing to register a Team for the upcoming season please use our <Link href='/registerTeam' >Team Registration Page</Link>.</P>
                 </div>
   )
 }
+//   <Create_Mycricket_ID  setMyCricketID={setMyCricketID} MyCricketID={MyCricketID} />
+
+
+const RegistrationInformationOption = ({Option,individual})=>{
+  console.log(Option)
+  return(
+    <div>{ <MarkdownContainer>{individual[Option['Copy']]}</MarkdownContainer> }</div>
+  )
+}
+
 
 
 
@@ -117,7 +179,13 @@ const PlayerIDCheck = (props)=>{
 
  
 
+
   if(isNew === null){
+    
+    if(props.MyCricketID === '000000'){
+      setisNew({id: false})
+      return true
+    }
     const OBJ={
       _MYCRICKETID:props.MyCricketID,
       _CALLBACK:CALLBACK
@@ -134,6 +202,8 @@ const PlayerIDCheck = (props)=>{
     </div>
   )
  
+  console.log(props.MyCricketID, isNew)
+
   return( 
     <>
       {

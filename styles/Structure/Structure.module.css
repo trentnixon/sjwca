@@ -32,6 +32,9 @@
 
 /* Structures*/
 
+.VertSpacer{
+    height: 2rem;
+}
  
 
 .Column{ flex-direction: column;}
