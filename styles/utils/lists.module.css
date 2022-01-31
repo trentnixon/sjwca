@@ -11,6 +11,17 @@
 }
 
  
+.ListOfTeams{
+    margin: 0rem;
+    list-style: decimal;
+}
+.ListOfTeams li{
+    border-bottom: 1px solid;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+}
+
 
 .TeamRoster{
     margin:0 0 0 1rem;
@@ -22,7 +33,7 @@
     margin-top: 1px;
     font-size: 1rem;
     color: var(--dark-color);
-   
+    
 }
 
 /* Thunder */

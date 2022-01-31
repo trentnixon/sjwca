@@ -19,3 +19,10 @@ export const isEmpty = (STR)=>{
                 return false
         
 }
+
+export const FindDivision = (ID) => {
+    const { Divisions } = store.getState().SJWCA;
+    return find(Divisions, function (o) {
+      return o.id === ID;
+    });
+  };

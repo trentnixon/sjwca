@@ -7,7 +7,7 @@ import SupportersIcons from "../components/Structure/SupportersIcons"
 // Compoennts
 import ManagerSignupForm from "../components/ManagerSeasonSignup/ManagerSignupForm"
 import ContentContainer from "../components/Structure/ContentContainer";
-import RegistrationSideNav from "../components/RegisterATeam/RegistrationSideNav";
+import SupportingSideNav from "../components/Structure/SupportingSideNav"
 import { useState } from "react";
 const RegisterTeam = ({switchboard,registerteam})=>{
         console.log(registerteam)
@@ -25,8 +25,8 @@ const RegisterTeam = ({switchboard,registerteam})=>{
                         </div>
 
                         <div className={`${StructureStyles.Width30}`} >
-                                <RegistrationSideNav />
-                        </div>
+                                <SupportingSideNav />
+                        </div> 
                 </ContentContainer> 
                 <SupportersIcons />
             </div> 

@@ -36,11 +36,11 @@ export default function TemporaryDrawer() {
   const router = useRouter();
   const Nav = [
     {
-      label:'Play Cricket in 2022',
+      label:'Winter Cricket in 2022',
       url:'/',
       Icon:<SportsCricketIcon />
     },{
-      label:'Winter 2022',
+      label:'About the 2022 Season',
       url:'/2022season',
       Icon:<AcUnitIcon />
     },{
@@ -67,6 +67,14 @@ export default function TemporaryDrawer() {
     label:'FAQs',
     url:'/faq',
     Icon:<HelpOutlineIcon />
+},{
+  label:'Sixers Rosters',
+  url:'/SixersRoster',
+  Icon:<SportsCricketIcon />
+},{
+  label:'Thunder Rosters',
+  url:'/ThunderRoster',
+  Icon:<SportsCricketIcon />
 }
 ]
 

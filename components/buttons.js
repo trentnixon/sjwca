@@ -43,3 +43,13 @@ export const TeamRegistrationBtn = () => {
           </Button>
           )
 }
+
+export const ViewSelectedTeamBtn = ({href, Name,Conference})=>{
+  return(
+    <Button variant="contained" className={ButtonStyles[Conference]}>
+    <Link href={href}>
+     <a>Roster</a></Link>
+</Button>
+  )
+  
+}

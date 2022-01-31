@@ -78,6 +78,5 @@ export const getStaticProps = async (context) => {
 const DisplayConference = ({COPY, CLASS})=>{
   return(
     <MarkdownContainer class={CLASS}>{COPY}</MarkdownContainer>
-  
   )
-}
+} 
