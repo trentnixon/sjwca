@@ -148,7 +148,7 @@ const DisplayConference = ({conferences, CLASS})=>{
       options={Polyoptions}
     />
     </GoogleMap>
-    <br /><br /><br />
+    <br /><br /><br /> 
     <ConfrenceRegions regions={conferences.regions} Conference={conferences.Conference} />
 
   </div>
@@ -207,7 +207,7 @@ const RegionCard = ({region,Conference})=>{
   return(
     <div className={RegionStyles.RegionContainer} >
       <H4>{region.Name}  </H4>  
-      <P>{region.About}  </P> 
+      <P><MarkdownContainer>{region.Blurb}</MarkdownContainer>  </P>  
           <GoToRegionBtn href={`/region/${region.id}`} Name={region.Name} Conference={Conference} />
     </div>
   )
