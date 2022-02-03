@@ -57,7 +57,7 @@ const TeamRegistrationForm = (props)=>{
      
 
     useEffect(()=>{ 
-        //console.log(SelectedTeam)
+        console.log(SelectedTeam, Region)
     },[UX, SelectedTeam])
 
     
@@ -65,7 +65,7 @@ const TeamRegistrationForm = (props)=>{
     if(!SelectedTeam.hasReadInstructions || !SelectedTeam.hasAgreedToTerms)
         return(<RegistrationInsructions SelectedTeam={SelectedTeam} setUX={setUX} {...props}/>)
     if(hasUserSumbitted) 
-        return(<RegistrationSubmitted SelectedTeam={SelectedTeam}/>)
+        return(<RegistrationSubmitted SelectedTeam={SelectedTeam} Region={Region}/>) 
     if(!SelectedTeam.RegistrationOpen || hasUserSumbitted)
         return(<SubmissionUnderReview />)
     return(
@@ -93,7 +93,6 @@ const TeamRegistrationForm = (props)=>{
                 <H4>Grading <GradeIcon /></H4>
                 <FormElementGroup>
                     <SelectRegion setRegion={setRegion} setConference={setConference} setUX={setUX} SelectedTeam={SelectedTeam}/>
-                    
                     <SelectAgeGroup setAgeGroup={setAgeGroup} SelectedTeam={SelectedTeam} setUX={setUX}/>
                     <SelectDivision setDivision={setDivision} SelectedTeam={SelectedTeam}  setUX={setUX}/>
                     <ConfrenceSelected Conference={Conference}/>
