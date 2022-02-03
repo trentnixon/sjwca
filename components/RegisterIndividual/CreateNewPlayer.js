@@ -6,7 +6,7 @@ import {AddNewPlayer, CreateTeamRosterforStrapi} from "../../actions/Registratio
 // Build Form
 import FormElementGroup from "../FormElements/FormElementGroup"
 import Create_Player_Name from "../FormElements/PlayerName";
-import Create_Mycricket_ID from "../FormElements/PlayerMyCricketID";
+//import Create_Mycricket_ID from "../FormElements/PlayerMyCricketID";
 import Create_PlayerEmail from "../FormElements/PlayerEmail";
 import Create_PlayerContactNumber from "../FormElements/PlayerContactNumber";
 // import SeasonReceipt from "../FormElements/SeasonReceipt"
@@ -22,7 +22,7 @@ import Button from '@mui/material/Button';
 
 
 
-import {H1,H2,H3,H4,P} from "../type";
+import {H1,H2,H3,H4,P} from "../type"; 
 
 const CreateNewPlayer = (props)=>{ 
     const {MyCricketID} = props;
@@ -32,7 +32,7 @@ const CreateNewPlayer = (props)=>{
     const [PlayerName, setPlayerName] = useState(false)
     const [Season, setSeason] = useState(false)
     const [Ethnicity, setEthnicity] = useState(false)
-    const [TeamStatus, setTeamStatus] = useState(false)
+    const [TeamStatus, setTeamStatus] = useState(false) 
     const [Gender, setGender] = useState(false)
     const [PlayerEmail, setPlayerEmail] = useState(false)
     const [PlayerContactNumber, setPlayerContactNumber] = useState(false) 

@@ -73,7 +73,7 @@ const EmailNewTeamRegistrationPage = (TEAM)=>{
 
 
 
-export const handleCreateNewTeam = (OBJ)=>{
+export const handleCreateNewTeam = (OBJ)=>{ 
   
     /* const OBJ={
         _CALLBACK:setUX,

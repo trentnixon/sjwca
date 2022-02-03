@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
 // Actions
 import {validateEmail,ValidateNumberOnly} from "../../actions/handleUX"
+import {handleCreateNewTeam} from '../../actions/Registration/handleTeamRegistration'
 import MarkdownContainer from '../../components/Structure/MarkdownContainer'
 // Style
 import StructureStyles from "../../styles/Structure/Structure.module.css";
 import FormElementGroup from "../FormElements/FormElementGroup"
 import FormElementsContainer from "../FormElements/FormElementContainer"
 // FOrm Elements
-import FormControl from '@mui/material/FormControl';
+//import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import InputLabel from '@mui/material/InputLabel';
+//import InputLabel from '@mui/material/InputLabel';
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 import Switch from '@mui/material/Switch';
@@ -25,6 +26,7 @@ import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import ContactPhoneIcon from '@mui/icons-material/ContactPhone';
 import PersonIcon from '@mui/icons-material/Person';
 import {isEmpty} from "../../actions/handleUX" 
+
 const SignupForm  = ({setisFormSent, setResponse, CurrentSeasonID,registerteamCopy})=>{
     //const label = { inputProps: { 'aria-label': 'Agree to the terms and conditions' } };
 
@@ -58,7 +60,7 @@ const SignupForm  = ({setisFormSent, setResponse, CurrentSeasonID,registerteamCo
             }
           }
  
-          handleCreateNewTeam(OBJ)
+        handleCreateNewTeam(OBJ)  
         setisFormSent(true)
     }
 
@@ -92,8 +94,6 @@ const SignupForm  = ({setisFormSent, setResponse, CurrentSeasonID,registerteamCo
     
     
     const handleNumber  = (event)=>{
-  
-
         isEmpty(event.target.value) ?  setisNumber(false) :setisNumber(ValidateNumberOnly(event.target.value))
         isEmpty(event.target.value) ?  setNumber(false) :setNumber(event.target.value)
     }

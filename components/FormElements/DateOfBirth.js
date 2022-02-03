@@ -11,26 +11,42 @@ import DateRangeIcon from '@mui/icons-material/DateRange';
 import {isEmpty} from "../../actions/handleUX"
 import HasFieldBeenFilledIn from './hasFieldBeenFilledIn'
 
+const FindMinYear = ()=>{
+  var d = new Date();
+  var year = d.getFullYear();
+  var month = d.getMonth();
+  var day = d.getDate();
+  var c = new Date(year - 16, month, day);
+  console.log(c);
+  return c
+}
+
 export default function MaterialUIPickers({setPlayerDOB, PlayerDOB}) {
 
-  const [value, setValue] = React.useState(new Date('2000-01-01'));
+  const [value, setValue] = React.useState(FindMinYear());
 
   const handleChange = (newValue) => {
     let D = new Date(newValue)
-    
+    let min = FindMinYear()
+    if(parseInt(D.getTime()) < parseInt(min.getTime())){
+      setPlayerDOB(false)
+    }
+    else{
+      isEmpty(parseInt(D.getTime())) ?  setPlayerDOB(false) :setPlayerDOB(D.getTime())
+    }
     setValue(newValue);
+    
+  }; 
 
-    isEmpty(parseInt(D.getTime())) ?  setPlayerDOB(false) :setPlayerDOB(D.getTime())
-  };
- 
   return (
     <FormElementsContainer>
       <DateRangeIcon /> 
-    <LocalizationProvider dateAdapter={AdapterDateFns}>
+    <LocalizationProvider dateAdapter={AdapterDateFns}> 
      
         <DesktopDatePicker
           label="Date of Birth"
           inputFormat="dd/MM/yyyy"
+          minDate={FindMinYear()}
           value={value}
           variant="standard"
           onChange={handleChange}

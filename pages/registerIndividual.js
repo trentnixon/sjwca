@@ -36,7 +36,7 @@ const RegisterIndividual = ({individual})=>{
               AgreedTerms ? <PlayerIDCheck individual={individual} setAgreedTerms={setAgreedTerms} setMyCricketID={setMyCricketID} MyCricketID={MyCricketID}/>:
                   <RegisterIndividualInstructions individual={individual} setAgreedTerms={setAgreedTerms} setMyCricketID={setMyCricketID} MyCricketID={MyCricketID}/>
             }
-                
+                 
                 
                 <div className={`${StructureStyles.Width30}`} > 
                   <SupportingSideNav />
@@ -157,7 +157,7 @@ const RegisterIndividualForm = (props)=>{
 
 const PlayerAlreadyExists = (props)=>{
   console.log(props);
-  const ResetForm=()=>{
+  const ResetForm=()=>{ 
     props.setAgreedTerms(false)
     props.setMyCricketID(false)
   }

@@ -26,14 +26,15 @@ const PlayerName = (props)=>{
         <>
         
             <FormElementsContainer>
-            <ContactPhoneIcon />
+            <ContactPhoneIcon /> 
             <TextField 
                     id="outlined-basic" 
                     label={`Contact Number`}
                     variant="standard" 
-                    type='number'
+                    //type='number'
                     fullWidth
                     onBlur={handleChange}
+                    
             />
             <HasFieldBeenFilledIn Value={PlayerContactNumber} />
         </FormElementsContainer>
