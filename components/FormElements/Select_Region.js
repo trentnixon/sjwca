@@ -20,7 +20,7 @@ import {find,orderBy,groupBy} from 'lodash'
     const handleChange = (event) => {
      
 
-      console.log(groupBy(data,item => item.conference.Conference, ['asc']))
+      //console.log(groupBy(data,item => item.conference.Conference, ['asc']))
         setvalue(event.target.value);
       
         setRegion(event.target.value)
@@ -31,7 +31,7 @@ import {find,orderBy,groupBy} from 'lodash'
         }
  
           let Region = find(data, (o)=>{ return o.id === event.target.value })
-          console.log(data)
+          //console.log(data)
           setConference(Region.conference)
         UpdateRegistrationFormHandler(OBJ)
 

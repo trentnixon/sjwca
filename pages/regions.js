@@ -18,10 +18,10 @@ import Button from '@mui/material/Button';
 
 const RegisterIndividual = ({conferences,newseason})=>{
 
-  console.log(conferences)
+  //console.log(conferences)
   const [Conference, setConference] = useState(true)
   const SetClass=(ARR)=>{
-    console.log(ARR)
+    //console.log(ARR)
     return ARR
   }
   return(
@@ -71,7 +71,7 @@ return {  props: {conferences,newseason} }
 
 
 const DisplayConference = ({conferences, CLASS})=>{
-  console.log(conferences.Conference)
+  //console.log(conferences.Conference)
 
   const center = {
     lat: parseFloat(-33.83284347201585),

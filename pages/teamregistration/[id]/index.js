@@ -21,7 +21,6 @@ const TeamRegistration = ({Team, RegistrationInsructions, switchboard})=>{
   const [SelectedTeam, setSelectedTeam] = useState(Team)
   // call this method whenever you want to refresh server-side props
   const refreshData = () => {
-        console.log("router.replace has been called")
         router.replace(router.asPath);
         setSelectedTeam([])
   }

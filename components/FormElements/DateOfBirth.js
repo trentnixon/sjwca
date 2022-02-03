@@ -17,7 +17,6 @@ const FindMinYear = ()=>{
   var month = d.getMonth();
   var day = d.getDate();
   var c = new Date(year - 16, month, day);
-  console.log(c);
   return c
 }
 

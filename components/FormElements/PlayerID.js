@@ -28,8 +28,7 @@ export default function PlayerID({setPlayerReturn, setMyCricketID}) {
 
     const handleSubmit=(e)=>{
         e.preventDefault();
-        console.log( 'PlayerID:', InternalMyCricketID); 
-
+    
         //FindPlayerID()
         const OBJ={
             _CALLBACK:setPlayerReturn,

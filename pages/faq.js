@@ -9,7 +9,7 @@ import FormElementGroup from "../components/FormElements/FormElementGroup"
 
 import { H1, H2,H3,H4 } from "../components/type";
 const about = ({faqs})=>{
-    console.log(faqs)
+    //console.log(faqs)
         return(
             <div className={StructureStyles.Outer}>
                 <PageHeaderSmall 

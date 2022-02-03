@@ -152,7 +152,6 @@ export default SignupForm;
 
 
 const RegisterFormCopy=({registerteamCopy})=>{
-    console.log(registerteamCopy)
     return(
         
         <div className={`${StructureStyles.Width70}`} >

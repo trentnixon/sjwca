@@ -18,7 +18,6 @@ import EditLocationAltIcon from '@mui/icons-material/EditLocationAlt';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 const SingleRegion = (region)=>{
 
-    console.log(region.region.conference.Conference)
     const [useRegion, setuseRegion] = useState(region.region)
     const containerStyle = {
         width: '100%',

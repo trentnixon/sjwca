@@ -16,7 +16,7 @@ import { useState } from "react";
 
 const SingleRegion = (region)=>{
 
-    console.log(region.region.region.conference)
+    //console.log(region.region.region.conference)
     const [useRegion, setuseRegion] = useState(region.region)
     const containerStyle = {
         width: '100%',

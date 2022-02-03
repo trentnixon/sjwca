@@ -34,8 +34,6 @@ const Singleteams = (teams)=>{
         scale: 5,
         anchor: new google.maps.Point(15, 15),
       }
-
-    console.log(ThisTeam)
     return(
         <div className={StructureStyles.Outer}> 
                 <PageHeaderSmall 

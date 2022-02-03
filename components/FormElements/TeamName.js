@@ -8,7 +8,7 @@ export default function TeamName({setTeamName, CurrentName, SelectedTeam, setUX}
 
   const [focusClass, setFocusClass] = useState('false')
     const handleChange=(e)=>{
-      console.log("FOCVUISED OUT")
+      //console.log("FOCVUISED OUT")
       setFocusClass(false)
         if(e.target.value.length != 0 ){
             
@@ -25,7 +25,7 @@ export default function TeamName({setTeamName, CurrentName, SelectedTeam, setUX}
     }
 
     const handleonFocus = ()=>{
-        console.log("FOCVUISED")
+        //console.log("FOCVUISED")
         setFocusClass(true)
     }
  

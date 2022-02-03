@@ -24,7 +24,7 @@ const sjwcarules = ({conferences, teams})=>{
         
 
         useEffect(()=>{
-          console.log(teams)
+          //console.log(teams)
             let  FilterTeams = filter(teams, function(o) { return o.region?.conference === SelectedConference.id && o.includeTeamInSeason; })
             FilterTeams = orderBy(FilterTeams, (o)=>{ return o.region.id})
             setConferenceteams(groupBy(FilterTeams,(o)=>{return o.region.id}))

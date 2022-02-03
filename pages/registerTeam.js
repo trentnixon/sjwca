@@ -10,7 +10,7 @@ import ContentContainer from "../components/Structure/ContentContainer";
 import SupportingSideNav from "../components/Structure/SupportingSideNav"
 import { useState } from "react";
 const RegisterTeam = ({switchboard,registerteam})=>{
-        console.log(registerteam)
+        //console.log(registerteam)
         const [CurrentSeasonID, setCurrentSeasonID] = useState(switchboard.season.id)
         return(
            <div>

@@ -74,9 +74,9 @@ const CreateNewPlayer = (props)=>{
     }
 
     const FieldCheck = ()=>{
-        console.log('FieldCheck')
+        //console.log('FieldCheck')
         let ARR=[Season,PlayerName,MyCricketID,Gender,PlayerEmail,Ethnicity,PlayerContactNumber,PlayerDOB]
-        console.log('FieldCheck',ARR.indexOf(false) )
+        //console.log('FieldCheck',ARR.indexOf(false) )
         if(ARR.indexOf(false) === -1)
             return true 
                 return false

@@ -4,10 +4,7 @@ import LoadingAnimation from "../Structure/PageLoader"
 import ButtonStyles from "../../styles/Structure/Buttons.module.css"
 import { H2,P,P_ERROR } from "../type";
 import {TeamRegistrationBtn,AskOnFB} from "../buttons"
-const FormSent  = ({response})=>{
-    
-    console.log(response.status);
-    
+const FormSent  = ({response})=>{    
     if(!response.status)
         return(<AwaitingResponse />)
     if(response.status != 200)

@@ -61,7 +61,7 @@ const NewPlayerPath = (props)=>{
     }
 
     const RefreshUIonDelete = ()=>{
-        console.log("RefreshUIonDelete CLICKED")
+        //console.log("RefreshUIonDelete CLICKED")
         setisStallUI(true)
         setPlayerReturn([])
         ResetParentComponent()
@@ -69,7 +69,7 @@ const NewPlayerPath = (props)=>{
     }
 
     const RefreshUIonAddUpdate = ()=>{
-        console.log("RefreshUIonDelete CLICKED")
+        //console.log("RefreshUIonDelete CLICKED")
         setisStallUI(true)
         setPlayerReturn([])
         ResetParentComponent()
@@ -77,7 +77,7 @@ const NewPlayerPath = (props)=>{
     }
 
 //setUX={setUX} sethasUserSumbitted={sethasUserSumbitted}
-    console.log(PlayerReturn)
+  
         if(isStallUI)
         return(
             <H2>Processing Request</H2>

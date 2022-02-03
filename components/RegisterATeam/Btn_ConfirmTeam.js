@@ -8,7 +8,7 @@ import { S } from '../type';
 const Btn_ConfirmTeam = ({PlayerRoster,setUX,sethasUserSumbitted,SelectedTeam})=>{
   
     const MinPlayerNum = 9;
-    console.log(PlayerRoster.Roster[0].players)
+    //console.log(PlayerRoster.Roster[0].players)
 
     const [disabled,setDisabled] = useState(true)
     const [RosterLength, setRosterLength] = useState(PlayerRoster.Roster[0].players.length)
@@ -31,7 +31,7 @@ const Btn_ConfirmTeam = ({PlayerRoster,setUX,sethasUserSumbitted,SelectedTeam})=
       !PlayerRoster.Roster[0].players.length ? setDisabled(true) :
       PlayerRoster.Roster[0].players.length>=MinPlayerNum ?  setDisabled(false) :   setDisabled(true)
    
-        console.log(PlayerRoster.Roster[0].players)
+        //console.log(PlayerRoster.Roster[0].players)
     },[PlayerRoster])
 
     const PlayersLeft = ()=>{

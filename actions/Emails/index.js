@@ -14,7 +14,7 @@ const EmailTemplate_NewPlayer = (URI)=>{
 
 
 export const EMAIL_NewPlayerRegister =(OBJ,ID)=>{
-       console.log(OBJ, OBJ._EmailTemplate,ID)
+       //console.log(OBJ, OBJ._EmailTemplate,ID)
         if(OBJ._EmailTemplate === 'new')
             {
                 EmailTemplate_NewPlayer(`${API}players/New/${ID}`)

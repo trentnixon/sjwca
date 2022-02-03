@@ -129,7 +129,7 @@ const RegisterIndividualInstructions = (props)=>{
 
 
 const RegistrationInformationOption = ({Option,individual})=>{
-  console.log(Option)
+  //console.log(Option)
   return(
     <div>{ <MarkdownContainer>{individual[Option['Copy']]}</MarkdownContainer> }</div>
   )
@@ -156,7 +156,7 @@ const RegisterIndividualForm = (props)=>{
 
 
 const PlayerAlreadyExists = (props)=>{
-  console.log(props);
+  //console.log(props);
   const ResetForm=()=>{ 
     props.setAgreedTerms(false)
     props.setMyCricketID(false)
@@ -202,7 +202,7 @@ const PlayerIDCheck = (props)=>{
     </div>
   )
  
-  console.log(props.MyCricketID, isNew)
+  //console.log(props.MyCricketID, isNew)
 
   return( 
     <>

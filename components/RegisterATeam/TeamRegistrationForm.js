@@ -57,7 +57,7 @@ const TeamRegistrationForm = (props)=>{
      
 
     useEffect(()=>{ 
-        console.log(SelectedTeam)
+        //console.log(SelectedTeam)
     },[UX, SelectedTeam])
 
     
@@ -124,7 +124,7 @@ const TeamRegistrationForm = (props)=>{
 export default TeamRegistrationForm;
 
 const ConfrenceSelected = ({Conference})=>{
-    console.log(Conference)
+    //console.log(Conference)
     if(Conference)
     return(
         <div className = {FormElementsStyles[Conference.Conference]}>

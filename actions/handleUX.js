@@ -13,7 +13,7 @@ export const ValidateNumberOnly = (email) => {
 
 export const isEmpty = (STR)=>{
 
-    console.log('isEmpty', String(STR))
+    //console.log('isEmpty', String(STR))
         if(!STR|| String(STR).match(/^ *$/) !== null)
             return true
                 return false

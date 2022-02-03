@@ -60,11 +60,10 @@ export const handleSelectDivision = (OBJ)=>{
 
 const EmailNewTeamRegistrationPage = (TEAM)=>{
 
-    console.log(TEAM)
     const URI =`${API}NewTeamConfirm/${TEAM.id}`
   
     axios({ url: URI, method: 'get'}).then((res)=>{
-            console.log(res)
+            //console.log(res)
     })
 }
 
@@ -84,14 +83,14 @@ export const handleCreateNewTeam = (OBJ)=>{
     if(!OBJ._PROCESS)
         return false
 
-    console.log(OBJ)
+    //console.log(OBJ)
     OBJ._CALLBACK(true)
 
     const header = { headers: {'Content-Type': 'application/json',}}
    
     axios({ url: OBJ._URI, method: 'post', data:OBJ._DATA})
     .then(function (response) {
-        console.log(response.data)
+        //console.log(response.data)
         OBJ._CALLBACK(response)
         EmailNewTeamRegistrationPage(response.data) 
         CreateNewTeamSeasonRoster(response.data.id, OBJ._DATA.Current_Season_ID)
@@ -118,12 +117,12 @@ const CreateNewTeamSeasonRoster = (TEAMID, Current_Season_ID)=>{
             }
         })
     .then(function (response) {
-        console.log(response.data)
+        //console.log(response.data)
         // always executed 
     })
     .catch(function (error) {
         // handle error
-        console.log('CreateNewTeamSeasonRoster ERROR ', error);
+        //console.log('CreateNewTeamSeasonRoster ERROR ', error);
      
     })
 }
@@ -132,15 +131,15 @@ const CreateNewTeamSeasonRoster = (TEAMID, Current_Season_ID)=>{
 
 
 export const fetchLatestTeamRoster = async(TEAMID,SEASONID, CALLBACK)=>{ 
-    console.log(TEAMID)
+    //console.log(TEAMID)
  ///teams/:id
     
     const URI =`${API}teams/${TEAMID}`  
      await axios({ url: URI, method: 'get'})
             .then(function (response) {
-                console.log(response.data.team_season_rosters, SEASONID)
+                //console.log(response.data.team_season_rosters, SEASONID)
                 let INDEX = findIndex(response.data.team_season_rosters, function(o) { return o.season == SEASONID; })
-                console.log(response.data.team_season_rosters[INDEX]);
+                //console.log(response.data.team_season_rosters[INDEX]);
 
                 CALLBACK(response.data.team_season_rosters[INDEX]) 
                 // always executed 

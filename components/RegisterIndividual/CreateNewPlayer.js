@@ -46,7 +46,6 @@ const CreateNewPlayer = (props)=>{
 
 
     const CALLBACK = ()=>{
-        console.log('CALL BACK HERE')
         setCallback(true)
     }
 
@@ -81,17 +80,14 @@ const CreateNewPlayer = (props)=>{
             */
           
         }
-       
-        console.log(OBJ)
         AddNewPlayer(OBJ)  
-           
     }
 
 
     const FieldCheck = ()=>{
         
         let ARR=[Season,PlayerName,AgeGroup,Division,MyCricketID,Gender,PlayerEmail,Ethnicity,PlayerContactNumber,PlayerDOB]
-        console.log('FieldCheck',ARR.indexOf(false) )
+    
         if(ARR.indexOf(false) === -1)
             return true 
                 return false

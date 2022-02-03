@@ -11,7 +11,6 @@ import PersonIcon from '@mui/icons-material/Person';
 
 const Roster = (props)=>{
   
-    console.log(props)
     const {PlayerRoster} = props
     const [PlayerInt, setPlayerInt] = useState(PlayerRoster.Roster[0].players.length)
   

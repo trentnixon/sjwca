@@ -45,12 +45,12 @@ export const RemovePlayerFromTeamSeasonRoster = (OBJ)=>{
 
 
 export const UpdateTeamSeasonRosterVersion2 = (OBJ, PLAYERID)=>{
-    console.log({ROSTERID :OBJ._ROSTERID, PLAYERID:PLAYERID})
+    //console.log({ROSTERID :OBJ._ROSTERID, PLAYERID:PLAYERID})
    
     const URI =`${API}team-season-rosters/update`
     axios({ url: URI, method: 'post', data:{ROSTERID :OBJ._ROSTERID, PLAYERID:PLAYERID}})
     .then(function (response) { 
-        console.log(response)
+        //console.log(response)
         OBJ._CALLBACK(true)
     })
     .catch(function (error) {
@@ -64,11 +64,11 @@ export const UpdateTeamSeasonRosterVersion2 = (OBJ, PLAYERID)=>{
 const UpdatePlayerSeason=(OBJ)=>{
     // update the players Team list after removal from roster
    
-    console.log(OBJ)
+    //console.log(OBJ)
     const URI =`${API}players/updateSeasonReceipts`
     axios({ url: URI, method: 'post', data:{OBJ :OBJ}})
     .then(function (response) { 
-        console.log(response)
+        //console.log(response)
         OBJ._CALLBACK(true)
     })
     .catch(function (error) {
@@ -80,12 +80,7 @@ const UpdatePlayerSeason=(OBJ)=>{
 
 export const UpdatePlayer = (OBJ)=>{
     const URI =`${API}players/${OBJ._PLAYERID}`
-    //_TEAMID
-    //const header = { headers: {'Content-Type': 'application/json',}}
-
-    console.log(" OBJ._PLAYER_SEASON_RECEIPTS",  OBJ._PLAYER_SEASON_RECEIPTS)
-
-
+    
     const _PLAYER_UPDATE_DATA = {
         id:OBJ._PLAYERID, 
         Season_receipts : OBJ._PLAYER_SEASON_RECEIPTS 

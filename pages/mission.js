@@ -9,7 +9,7 @@ import SupportingSideNav from "../components/Structure/SupportingSideNav"
 import { H2 } from "../components/type";
 const misson = ({misson,values,vision})=>{
 
-    console.log(misson)
+    //console.log(misson)
         return(
             <div className={StructureStyles.Outer}>
                 <PageHeaderSmall 
