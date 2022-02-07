@@ -11,21 +11,29 @@ import LoadingAnimation from "./Structure/PageLoader"
 import { H2 } from "./type";
 
 const SJWCA_Layout =  ({children })=>{
-
+    const IsOpen = false
+    
     const fetcher = (url) => fetch(url).then((res) => res.json());
     const { data, error } =  useSWR(`${server}api/logosmall`, fetcher)
-
+    
   
         if (error) return  <div className="Container">Failed to load</div>
         if (!data) return  <LoadingPage />
         return(
             <>
                 <Meta />
-                <Nav data={data}/>
+                    {
+                        IsOpen ?<Nav data={data}/>:false
+                    }
+                
                     <div className="Container">
                         <main>{children}</main>
                     </div>
-                <GlobalFooter />
+
+                    {
+                        IsOpen ? <GlobalFooter />:false
+                    }
+               
             </>
         )
 }

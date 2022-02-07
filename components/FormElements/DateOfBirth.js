@@ -16,7 +16,8 @@ const FindMinYear = ()=>{
   var year = d.getFullYear();
   var month = d.getMonth();
   var day = d.getDate();
-  var c = new Date(year - 16, month, day);
+  var c = new Date(year - 16, 7, 31);
+  console.log(c)
   return c
 }
 
@@ -27,7 +28,8 @@ export default function MaterialUIPickers({setPlayerDOB, PlayerDOB}) {
   const handleChange = (newValue) => {
     let D = new Date(newValue)
     let min = FindMinYear()
-    if(parseInt(D.getTime()) < parseInt(min.getTime())){
+    console.log(parseInt(D.getTime()) , parseInt(min.getTime()))
+    if(parseInt(D.getTime()) > parseInt(min.getTime())){
       setPlayerDOB(false)
     }
     else{

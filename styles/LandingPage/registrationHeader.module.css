@@ -1,4 +1,18 @@
-
+.ComingSoonHeader{
+    background-color: var(--main-bg-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    background-image: url('/images/Registration/HeaderBG.jpg');
+    background-size: cover;
+    background-position: center top;
+    position: relative;
+    overflow: hidden;
+    z-index: 1000;
+}
 .RegistrationHeader{
     background-color: var(--main-bg-color);
     min-height: 80vh;

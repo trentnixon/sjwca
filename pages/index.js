@@ -1,7 +1,7 @@
 import { server,API } from "../config/index"
 
 //import Header from "../components/Header"
-
+import ComingSoonPage from "./ComingSoonPage";
 import RegistrationLandingPage from "../components/RegistrationLandingPage/index"
 /*
 git add .
@@ -10,10 +10,13 @@ git push heroku main:main
 
 */
 export default function Home(props) {
-  //const {tagline,registrationPage,logosmall} = props
+  const {tagline,registrationPage,logosmall, switchboard} = props
   return (
     <div>
-        <RegistrationLandingPage {... props}/>
+      {
+        switchboard.IsSiteLive ?<RegistrationLandingPage {... props}/>:<ComingSoonPage {... props}/>
+      }
+        
     </div>
   )
 }
@@ -34,7 +37,9 @@ export const getStaticProps = async (context) => {
     const logoLargeRes = await fetch(`${API}logo-large`)
     const logoLarge = await logoLargeRes.json() 
 
+    const switchboardRes = await fetch(`${API}switchboard`)
+    const switchboard = await switchboardRes.json()
     return {
-      props: {tagline,registrationPage, logoLarge},
+      props: {tagline,registrationPage, logoLarge, switchboard},
     }
   }
