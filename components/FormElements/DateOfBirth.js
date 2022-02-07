@@ -29,7 +29,7 @@ export default function MaterialUIPickers({setPlayerDOB, PlayerDOB}) {
     let D = new Date(newValue)
     let min = FindMinYear()
     console.log(parseInt(D.getTime()) , parseInt(min.getTime()))
-    if(parseInt(D.getTime()) > parseInt(min.getTime())){
+    if(parseInt(D.getTime()) < parseInt(min.getTime())){
       setPlayerDOB(false)
     }
     else{

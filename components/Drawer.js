@@ -48,13 +48,13 @@ export default function TemporaryDrawer() {
       url:'/howToRegister',
       Icon:<AddIcon />
     },{
-      label:'Register a Team',
-      url:'/registerTeam',
-      Icon:<GroupIcon />
-    },{
       label:'Register an Individual',
       url:'/registerIndividual',
       Icon:<PersonIcon />
+    },{
+      label:'Register a Team',
+      url:'/registerTeam',
+      Icon:<GroupIcon />
     },{
       label:'Regions we Play',
       url:'/regions',
@@ -67,7 +67,12 @@ export default function TemporaryDrawer() {
     label:'FAQs',
     url:'/faq',
     Icon:<HelpOutlineIcon />
-},{
+}
+]
+
+
+/*
+,{
   label:'Sixers Rosters',
   url:'/SixersRoster',
   Icon:<SportsCricketIcon />
@@ -76,15 +81,6 @@ export default function TemporaryDrawer() {
   url:'/ThunderRoster',
   Icon:<SportsCricketIcon />
 }
-]
-
-
-/*
-,{
-      label:'SJWCA Grounds',
-      url:'/grounds',
-      Icon:<SportsCricketIcon />
-    }
 */
   const toggleDrawer = (anchor, open) => (event) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {

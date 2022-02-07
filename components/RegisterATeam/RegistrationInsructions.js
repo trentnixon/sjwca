@@ -42,7 +42,7 @@ const SubmissionUnderReview  = ({SelectedTeam, setUX, refreshData, Insructions})
                 <P>Hello {DisplayName()}, thank you for your interest in this seasons SJWCA Season.</P>
               
                     <div className={RegistrationRequirements.MainList}>
-                    <MarkdownContainer>{Insructions}</MarkdownContainer>
+                    <MarkdownContainer>{Insructions}</MarkdownContainer> 
                           
                     </div>
                    

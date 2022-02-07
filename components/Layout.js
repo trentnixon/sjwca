@@ -11,7 +11,7 @@ import LoadingAnimation from "./Structure/PageLoader"
 import { H2 } from "./type";
 
 const SJWCA_Layout =  ({children })=>{
-    const IsOpen = false
+    const IsOpen = true
     
     const fetcher = (url) => fetch(url).then((res) => res.json());
     const { data, error } =  useSWR(`${server}api/logosmall`, fetcher)

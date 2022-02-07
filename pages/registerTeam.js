@@ -1,7 +1,8 @@
 import { API } from "../config/index"
 
 import StructureStyles from "../styles/Structure/Structure.module.css";
-
+import RegistrationRequirements from "../styles/registrationPage/RegistrationRequirements.module.css";
+import MarkdownContainer from '../components/Structure/MarkdownContainer'
 import PageHeaderSmall from "../components/Structure/PageHeaderSmall"
 import SupportersIcons from "../components/Structure/SupportersIcons"
 // Compoennts
@@ -9,9 +10,13 @@ import ManagerSignupForm from "../components/ManagerSeasonSignup/ManagerSignupFo
 import ContentContainer from "../components/Structure/ContentContainer";
 import SupportingSideNav from "../components/Structure/SupportingSideNav"
 import { useState } from "react";
-const RegisterTeam = ({switchboard,registerteam})=>{
-        //console.log(registerteam)
+import { H1, H2, P} from '../components/type'
+import Link from "next/link";
+
+const RegisterTeam = ({switchboard,registerteam, RegistrationInsructions})=>{
+        const RegisterTeamsOpen = switchboard.isRegisterTeamsOpen;
         const [CurrentSeasonID, setCurrentSeasonID] = useState(switchboard.season.id)
+        console.log(RegisterTeamsOpen)
         return(
            <div>
                 <PageHeaderSmall 
@@ -21,7 +26,12 @@ const RegisterTeam = ({switchboard,registerteam})=>{
                 />
                 <ContentContainer>
                         <div className={StructureStyles.Width70}>
-                                <ManagerSignupForm CurrentSeasonID={CurrentSeasonID } registerteamCopy={registerteam}/>
+                                {
+                                        RegisterTeamsOpen ?
+                                                <ManagerSignupForm CurrentSeasonID={CurrentSeasonID } registerteamCopy={registerteam}/> :
+                                                <RegisterTeamsClosed RegistrationInsructions={RegistrationInsructions}/>
+                                }
+                                
                         </div>
 
                         <div className={`${StructureStyles.Width30}`} >
@@ -35,10 +45,33 @@ const RegisterTeam = ({switchboard,registerteam})=>{
 
 export default RegisterTeam
 
+const RegisterTeamsClosed = ({RegistrationInsructions})=>{
+        console.log(RegistrationInsructions)
+        return(
+        
+                <div className={` ${StructureStyles.Column}`}>
+            <H1>Team Registrations</H1>
+            <H2>OPENING 28th FEBRUARY</H2>
+            <P>Team Registrations will be open to all team managers and coaches on the 28th of February.
+Until then, please ensure all players in your team have registered with BOTH Mycricket <Link href={`/registerIndividual`}><a>HERE</a></Link> and SJWCA via our <Link href={`/registerIndividual`}><a>Individual Registration</a></Link> form. 
+ all information about <Link href={`/howToRegister`}><a>registration</a></Link> this season,can be found <Link href={`/howToRegister`}><a>here</a></Link>.</P>
+<H2>Registration Preperation</H2>
+                        <div className={RegistrationRequirements.MainList}>
+                                <MarkdownContainer>{RegistrationInsructions.Insructions}</MarkdownContainer> 
+                        </div>
+        </div>
+        )
+}
+
+
 export const getStaticProps = async (context) => {
         const registerteamRes = await fetch(`${API}register-team-landing`)
         const switchboardRes = await fetch(`${API}switchboard`)
+        const resRego = await fetch(`${API}registration-insructions`);
+        const RegistrationInsructions = await resRego.json()
         const registerteam = await registerteamRes.json()
         const switchboard = await switchboardRes.json()
-      return {  props: {switchboard,registerteam} }
+      return {  props: {switchboard,registerteam,RegistrationInsructions} }
     }
+
+
