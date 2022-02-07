@@ -17,7 +17,7 @@ export default function MyApp({ Component, pageProps }) {
         <Layout>
           <Component {...pageProps} />
         </Layout> 
-      </LoadScript>
+      </LoadScript> 
     </Provider>
   ) 
 }

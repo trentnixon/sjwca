@@ -165,7 +165,6 @@ const PlayerAlreadyExists = (props)=>{
     <div className={`${StructureStyles.Width70}`} >
       <FormElementGroup>
         <P> Player : {props.isNew.Name} Already Exists within the SJWCA Family.</P>
-       <P>Next Steps:</P>
         </FormElementGroup> 
         <RegIndividualTerms SetState={ResetForm} state={false} Title='Back' />
       </div>
