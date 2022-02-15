@@ -11,10 +11,11 @@ git push heroku main:main
 */
 export default function Home(props) {
   const {tagline,registrationPage,logosmall, switchboard} = props
+  console.log(switchboard.isSiteLive)
   return (
     <div>
       {
-        switchboard.IsSiteLive ?<RegistrationLandingPage {... props}/>:<ComingSoonPage {... props}/>
+        switchboard.isSiteLive ?<RegistrationLandingPage {... props}/>:<ComingSoonPage {... props}/>
       }
         
     </div>
