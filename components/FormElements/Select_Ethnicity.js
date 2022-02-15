@@ -12,6 +12,7 @@ import FormElementsContainer from "./FormElementContainer"
 import SportsCricketIcon from '@mui/icons-material/SportsCricket';
 import {isEmpty} from "../../actions/handleUX"
 import HasFieldBeenFilledIn from './hasFieldBeenFilledIn'
+import {orderBy} from 'lodash'
  const SelectARegion = ({setEthnicity, Ethnicity}) => {
 
     const fetcher = (url) => fetch(url).then((res) => res.json());
@@ -23,7 +24,7 @@ import HasFieldBeenFilledIn from './hasFieldBeenFilledIn'
      
         setvalue(event.target.value)
         isEmpty(event.target.value) ?  setEthnicity(false) :setEthnicity(event.target.value) 
-    };
+    }; 
   
   if (error) return <div>Ethnicity Values Failed to load</div>
   if (!data) return <div>Loading...</div>
@@ -42,8 +43,9 @@ import HasFieldBeenFilledIn from './hasFieldBeenFilledIn'
           fullWidth 
           onChange={handleChange}
         >
+         
             {
-                data.map((item,i)=>{
+                 orderBy(data,['Name']).map((item,i)=>{
                     return(
                         <MenuItem key={i} value={item.id}>{item.Name}</MenuItem>
                     )

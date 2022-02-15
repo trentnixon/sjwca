@@ -24,12 +24,12 @@ const about = ({faqs})=>{
                             {
                                 faqs.map((q,i)=>{
                                     return(
-                                        <>
+                                        <div key={i}>
                                             <H4>{q.Question}</H4>
                                             <FormElementGroup>
                                             <MarkdownContainer>{q.Answer}</MarkdownContainer> 
                                             </FormElementGroup>
-                                        </>
+                                        </div>
                                     )
                                 })
                             }

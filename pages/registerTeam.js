@@ -16,7 +16,7 @@ import Link from "next/link";
 const RegisterTeam = ({switchboard,registerteam, RegistrationInsructions})=>{
         const RegisterTeamsOpen = switchboard.isRegisterTeamsOpen;
         const [CurrentSeasonID, setCurrentSeasonID] = useState(switchboard.season.id)
-        console.log(RegisterTeamsOpen)
+        //console.log(RegisterTeamsOpen)
         return(
            <div>
                 <PageHeaderSmall 
@@ -46,14 +46,14 @@ const RegisterTeam = ({switchboard,registerteam, RegistrationInsructions})=>{
 export default RegisterTeam
 
 const RegisterTeamsClosed = ({RegistrationInsructions})=>{
-        console.log(RegistrationInsructions)
+        //console.log(RegistrationInsructions)
         return(
         
                 <div className={` ${StructureStyles.Column}`}>
             <H1>Team Registrations</H1>
             <H2>OPENING 28th FEBRUARY</H2>
             <P>Team Registrations will be open to all team managers and coaches on the 28th of February.
-Until then, please ensure all players in your team have registered with BOTH Mycricket <Link href={`/registerIndividual`}><a>HERE</a></Link> and SJWCA via our <Link href={`/registerIndividual`}><a>Individual Registration</a></Link> form. 
+Until then, please ensure all players in your team have registered with BOTH Play-Cricket <Link target='_blank' href={`https://play.cricket.com.au/club/sydney-junior-winter-cricket-association/6fb6ee9f-87d8-eb11-a7ad-2818780da0cc`}><a>HERE</a></Link> and SJWCA via our <Link href={`/registerIndividual`}><a>Individual Registration</a></Link> form. 
  all information about <Link href={`/howToRegister`}><a>registration</a></Link> this season,can be found <Link href={`/howToRegister`}><a>here</a></Link>.</P>
 <H2>Registration Preperation</H2>
                         <div className={RegistrationRequirements.MainList}>

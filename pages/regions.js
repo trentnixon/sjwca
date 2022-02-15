@@ -56,8 +56,6 @@ const RegisterIndividual = ({conferences,newseason})=>{
 }
 
 
-
-
 export default RegisterIndividual
 
 export const getStaticProps = async (context) => {
@@ -207,7 +205,7 @@ const RegionCard = ({region,Conference})=>{
   return(
     <div className={RegionStyles.RegionContainer} >
       <H4>{region.Name}  </H4>  
-      <P><MarkdownContainer>{region.Blurb}</MarkdownContainer>  </P>  
+      <MarkdownContainer>{region.Blurb}</MarkdownContainer> 
           <GoToRegionBtn href={`/region/${region.id}`} Name={region.Name} Conference={Conference} />
     </div>
   )

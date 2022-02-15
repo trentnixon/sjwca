@@ -82,8 +82,8 @@ const RegisterIndividualInstructions = (props)=>{
   ]
 
     const SetNoID = ()=>{
-      console.log('SetNoID')
-      setMyCricketID('000000');
+      //console.log('SetNoID')
+      setMyCricketID('000000'); 
      
       return true
     }

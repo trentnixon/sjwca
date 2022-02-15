@@ -106,7 +106,7 @@ const CreateorUpdatePlayer = (props)=>{
         
         let INDEX = findIndex(PlayerRoster.Roster[0].players, function(o) { return o.id == PlayerReturn[0].id; });
         
-        console.log(PlayerRoster.Roster[0].players)
+        //console.log(PlayerRoster.Roster[0].players)
         if(INDEX != -1)
             return true
                 return false

@@ -57,7 +57,7 @@ const TeamRegistrationForm = (props)=>{
      
 
     useEffect(()=>{ 
-        console.log(SelectedTeam, Region)
+        //console.log(SelectedTeam, Region)
     },[UX, SelectedTeam])
 
     

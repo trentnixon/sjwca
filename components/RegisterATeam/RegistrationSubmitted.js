@@ -15,7 +15,7 @@ const RegistrationSubmitted  = ({SelectedTeam, Region})=>{
         return `Copy_${hasConference(ID)}` 
     }
 
-    console.log(SelectedTeam,Region)
+    //console.log(SelectedTeam,Region)
     return(
         <div className={`${StructureStyles.COl2} ${StructureStyles.ContentWidth}  ${StructureStyles.Column}`}>
         <div className={StructureStyles.Width70}>

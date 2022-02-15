@@ -41,8 +41,8 @@ const CreateNewPlayer = (props)=>{
     const [AgeGroup, setAgeGroup] = useState(false)
     const [Division, setDivision] = useState(false)
  
-    const SelectedTeam ='61b69cc20e40852ffc1e8b52';
-    const PlayerRosterID = '61b69cc40e40852ffc1e8b53';
+    const SelectedTeam ='62008a96fd91c7344475e321';
+    const PlayerRosterID = '62008a96fd91c7344475e322';
 
 
     const CALLBACK = ()=>{
@@ -105,9 +105,11 @@ const CreateNewPlayer = (props)=>{
         ) 
     if(iscallback)
         return( <FormElementGroup>
-                    <H2>Player Registered</H2>
+                    <H2>Player Registered.</H2>
                     <P>Thank you for your interest with SJWCA. We will be in touch shortly</P>
-                    
+                    <H2>Registration Fees</H2>
+                    <P>To ensure your playing spot in your team, make sure you have paid this seasons Registration Fees.</P>
+                     <P>Fees are handled by our partners at     <a href="https://play.cricket.com.au/club/sydney-junior-winter-cricket-association/6fb6ee9f-87d8-eb11-a7ad-2818780da0cc">play.cricket.com.au</a> and can be paid <a href="https://play.cricket.com.au/club/sydney-junior-winter-cricket-association/6fb6ee9f-87d8-eb11-a7ad-2818780da0cc">Here.</a></P>
                 </FormElementGroup>
                 )
         return(
