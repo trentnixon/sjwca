@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Link from 'next/link'
 import { API } from "../config/index"
+import {track_ga_event} from "../actions/GA"
 import MarkdownContainer from '../components/Structure/MarkdownContainer'
 import StructureStyles from "../styles/Structure/Structure.module.css";
 import Buttonsstyles from "../styles/Structure/Buttons.module.css";
@@ -20,7 +21,7 @@ import PageLoader from "../components/Structure/PageLoader";
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 const RegisterIndividual = ({individual})=>{
-
+  
     const [AgreedTerms, setAgreedTerms] = useState(false)
     const [MyCricketID, setMyCricketID] = useState(false)   
   return(
@@ -64,6 +65,12 @@ const RegisterIndividualInstructions = (props)=>{
   const [btn,setbtn] = useState(true)
   const [RegOption, setRegOption] = useState(0)
 
+  const GA = (i) => {
+    track_ga_event({
+      action: "Individual_Registration_Team_Options",
+      params : {  Option_Selected: BTNGRP[i].Label }
+    })
+  }
 
   const BTNGRP=[
     {
@@ -103,7 +110,7 @@ const RegisterIndividualInstructions = (props)=>{
                     BTNGRP.map((OPT,i)=>{
                         return(
                           <Button className={RegOption ===i  ? Buttonsstyles['Next']:Buttonsstyles['Clear']} key={i} 
-                          onClick={()=>{setRegOption(i); setMyCricketID(false); setbtn(true)}} >{OPT.Label}</Button>
+                          onClick={()=>{setRegOption(i); GA(i); setMyCricketID(false); setbtn(true)}} >{OPT.Label}</Button>
                         )
                     })
                   }
@@ -146,6 +153,15 @@ const RegisterIndividualForm = (props)=>{
     setMyCricketID(false)
   }
 
+
+  useEffect(()=>{
+    track_ga_event({
+      action: "RegisterIndividualForm",
+      params : {  Started: 'true'}
+    }) 
+  },[])
+
+
   return(
     <div className={`${StructureStyles.Width70}`} >
         <CreateNewPlayerForm MyCricketID={MyCricketID}/> 
@@ -161,6 +177,13 @@ const PlayerAlreadyExists = (props)=>{
     props.setAgreedTerms(false)
     props.setMyCricketID(false)
   }
+  useEffect(()=>{
+    track_ga_event({
+      action: "MyCricketIDSet",
+      params : {  MyCricketIDSet: 'true'}
+    }) 
+  },[])
+
   return(
     <div className={`${StructureStyles.Width70}`} >
       <FormElementGroup>
@@ -210,4 +233,4 @@ const PlayerIDCheck = (props)=>{
       }
     </>
   )
-} 
+}  

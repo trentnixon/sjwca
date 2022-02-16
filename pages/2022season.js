@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import { API } from "../config/index"
+import {track_ga_event} from "../actions/GA"
 import Link from 'next/link'
 import StructureStyles from "../styles/Structure/Structure.module.css";
 import Buttonsstyles from "../styles/Structure/Buttons.module.css";
@@ -16,6 +17,15 @@ import {RegisterATeamButton, RegisterIndividualButton} from "../components/Regis
 import Button from '@mui/material/Button';
 const NewSeason = ({newseason})=>{
   const [Conference, setConference] = useState(true)
+
+  const GA = (i) => {
+    track_ga_event({
+      action: "Btn_View_Conference",
+      params : {  Conference_Selected: Conference ? 'Sixers':'Thunder'}
+    })
+  }
+
+
   return(
     <div className={StructureStyles.Outer}> 
         <PageHeaderSmall 
@@ -30,7 +40,7 @@ const NewSeason = ({newseason})=>{
                     <MarkdownContainer>{newseason.Description}</MarkdownContainer>
                  
                   <div className={Buttonsstyles.BtnGroupRow}>
-                  <Button variant="contained" onClick={()=>{setConference(!Conference)}} 
+                  <Button variant="contained" onClick={()=>{setConference(!Conference); GA(!Conference)}} 
                         className={Conference ? Buttonsstyles['Sixers']:Buttonsstyles['Thunder']}>
                     { Conference ?'View Sixers CONFERENCE':'View Thunder CONFERENCE'}
                   </Button>

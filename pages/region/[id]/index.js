@@ -1,6 +1,7 @@
 import RegionStyles from "../../../styles/Regions.module.css";
 
 import { API } from "../../../config/index"
+import {track_ga_event} from "../../../actions/GA"
 import Link from 'next/link'
 
 import MarkdownContainer from '../../../components/Structure/MarkdownContainer'
@@ -19,6 +20,13 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 const SingleRegion = (region)=>{
 
     const [useRegion, setuseRegion] = useState(region.region)
+
+    const GA = (Name) => {
+      track_ga_event({
+        action: "Btn_View_Ground",
+        params : {  Ground_Selected: Name}
+      })
+    }
     const containerStyle = {
         width: '100%',
         height: '600px'
@@ -85,12 +93,12 @@ const SingleRegion = (region)=>{
                                         return(
                                             <li>
                                                 
-                                                <Link href={`/ground/${grounds.id}`}>
-                                                    <a>
+                                                <Link href={`/ground/${grounds.id}`} >
+                                                    <a onClick={()=>{GA(grounds.Name)}}>
                                               
                                                         <LocationOnIcon />
                                                         {grounds.Name}
-                                                    </a>
+                                                    </a> 
                                                 </Link>
                                               
                                             </li> 

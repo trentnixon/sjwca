@@ -1,6 +1,7 @@
 import { API } from "../config/index"
 import {useState} from 'react'
 import { GoogleMap, Marker,Polygon  } from '@react-google-maps/api';
+import {track_ga_event} from "../actions/GA"
 // Styles
 import StructureStyles from "../styles/Structure/Structure.module.css";
 import Buttonsstyles from "../styles/Structure/Buttons.module.css";
@@ -24,6 +25,13 @@ const RegisterIndividual = ({conferences,newseason})=>{
     //console.log(ARR)
     return ARR
   }
+  const GA = (i) => {
+    track_ga_event({
+      action: "Btn_View_Conference",
+      params : {  Conference_Selected: Conference ? 'Sixers':'Thunder'}
+    })
+  }
+
   return(
     <div className={StructureStyles.Outer}>
         <PageHeaderSmall  
@@ -36,7 +44,7 @@ const RegisterIndividual = ({conferences,newseason})=>{
               <div className={`${StructureStyles.Width70}`} >
               <H1>Conferences</H1>
               <P>This season we will be continuing to split the competition into the Sixers and Thunder Conferences. In a big change to seasons past, we will be having set grades playing out of particular grounds. This should lead to teams only playing out of 1-2 venues and hopefully played closer to home. With limited fields available and registrations increasing we’ll be taking registrations on a first come first served basis. If the region and grade you’re hoping for your team to play in is full, you will need to consider the other remaining options available at the time of registration.</P>
-                  <Button variant="contained" onClick={()=>{setConference(!Conference)}} 
+                  <Button variant="contained" onClick={()=>{setConference(!Conference);GA(!Conference)}} 
                       className={Conference ? Buttonsstyles['Thunder']:Buttonsstyles['Sixers']}>
                       { Conference ?'View Thunder  CONFERENCE':'View Sixers CONFERENCE'}
                   </Button>
@@ -193,7 +201,7 @@ const RegionCard = ({region,Conference})=>{
     strokeWeight: 0,
     rotation: 0,
     scale: 1.3,
-    anchor: new google.maps.Point(0, 0),
+    anchor: new google.maps.Point(0, 0), 
   }
 
   //console.log(region, center)

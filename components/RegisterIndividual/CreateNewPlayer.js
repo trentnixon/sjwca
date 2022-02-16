@@ -1,5 +1,6 @@
 import { useState,useEffect } from "react";
 import  ButtonStyle from "../../styles/Structure/Buttons.module.css"
+import {track_ga_event} from "../../actions/GA"
 //Actions
 import {AddNewPlayer, CreateTeamRosterforStrapi} from "../../actions/Registration/handlePlayerRoster"
 
@@ -80,6 +81,11 @@ const CreateNewPlayer = (props)=>{
             */
           
         }
+        track_ga_event({
+            action: "RegisterIndividualForm",
+            params : {  Submitted: 'true'}
+          }) 
+
         AddNewPlayer(OBJ)  
     }
 

@@ -3,12 +3,7 @@ import { server,API } from "../config/index"
 //import Header from "../components/Header"
 import ComingSoonPage from "./ComingSoonPage";
 import RegistrationLandingPage from "../components/RegistrationLandingPage/index"
-/*
-git add .
-git commit -am "Register Live"
-git push heroku main:main
 
-*/
 export default function Home(props) {
   const {tagline,registrationPage,logosmall, switchboard} = props
   console.log(switchboard.isSiteLive)

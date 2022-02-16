@@ -1,5 +1,6 @@
 const axios = require('axios');
 import { API } from "../../config/index";
+import {track_ga_event} from "../GA"
 import {EMAIL_NewPlayerRegister} from "../Emails/index"
 //import {UpdateRegistrationFormHandler} from "./handleTeamRegistration"
 
@@ -134,11 +135,20 @@ export const AddNewPlayer = (OBJ)=>{
           
            UpdateTeamSeasonRosterVersion2(OBJ,response.data.id);
            EMAIL_NewPlayerRegister(OBJ,response.data.id) 
+           track_ga_event({
+            action: "RegisterIndividualForm",
+            params : {  Recieved: 'true'}
+          }) 
+
            
     })
     .catch(function (error) {
         // handle error
         console.log('AddNewPlayer ERROR', error);
+        track_ga_event({
+            action: "RegisterIndividualForm",
+            params : {  Failed: 'true'}
+          }) 
         OBJ._CALLBACK()
     })
 }
