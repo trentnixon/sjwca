@@ -16,7 +16,7 @@ import {UpdateRegistrationFormHandler} from "../../actions/Registration/handleTe
     const [value, setvalue] = React.useState(SelectedTeam.division?.id);
 
 
-  DivisionBrRegions=[{}]
+  //DivisionBrRegions=[{}]
 
 
     const handleChange = (event) => {
@@ -38,7 +38,7 @@ import {UpdateRegistrationFormHandler} from "../../actions/Registration/handleTe
   return (
     <FormElementsContainer>
       <FormControl fullWidth>
-      {Region}
+    
         <InputLabel id="Select-Age-Group">Prefered Division </InputLabel>
         <Select
           labelId="Select-Age-Group"
