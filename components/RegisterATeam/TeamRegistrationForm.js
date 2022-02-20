@@ -85,7 +85,7 @@ const TeamRegistrationForm = (props)=>{
 
 
             <div className={`${StructureStyles.Width30} ${FormElementsStyles.FormTitles}`} >
-            <H4><strong>Note: This form will update your progress automatically</strong></H4>
+            <H4><strong>Note: This form will save your progress automatically</strong></H4>
             <P>&nbsp;</P>
             <P>&nbsp;</P>
                 <H4>Team Name <DriveFileRenameOutlineIcon /></H4>
