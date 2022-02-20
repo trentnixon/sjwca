@@ -74,6 +74,7 @@ const TeamRegistrationForm = (props)=>{
             <div className={StructureStyles.Width70}>
                 <H2>Register your team</H2>
                 <H4>HOW TO REGISTER:</H4>
+                
                 <P>Enter a player's MyCricket ID into the form below to add them to your Player Roster.</P>
                 <P>Once your team roster is completed, Include your Team Name, Region of choice, Age group and Prefered division to assign your team to a League.</P>
                 <P>Teams requires a Min of 9 Players within its roster before submitting to SJWCA</P>
@@ -84,7 +85,9 @@ const TeamRegistrationForm = (props)=>{
 
 
             <div className={`${StructureStyles.Width30} ${FormElementsStyles.FormTitles}`} >
-                   
+            <H4><strong>Note: This form will update your progress automatically</strong></H4>
+            <P>&nbsp;</P>
+            <P>&nbsp;</P>
                 <H4>Team Name <DriveFileRenameOutlineIcon /></H4>
                     <FormElementGroup>
                         <SelectTeamName setTeamName={setTeamName} CurrentName={SelectedTeam.Name} SelectedTeam={SelectedTeam} setUX={setUX} />
@@ -94,7 +97,7 @@ const TeamRegistrationForm = (props)=>{
                 <FormElementGroup>
                     <SelectRegion setRegion={setRegion} setConference={setConference} setUX={setUX} SelectedTeam={SelectedTeam}/>
                     <SelectAgeGroup setAgeGroup={setAgeGroup} SelectedTeam={SelectedTeam} setUX={setUX}/>
-                    <SelectDivision setDivision={setDivision} SelectedTeam={SelectedTeam}  setUX={setUX}/>
+                    <SelectDivision setDivision={setDivision} SelectedTeam={SelectedTeam}  setUX={setUX} Region={Region}/>
                     <ConfrenceSelected Conference={Conference}/>
                 </FormElementGroup>
 

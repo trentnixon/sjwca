@@ -14,7 +14,8 @@ import { H1, H2, P} from '../components/type'
 import Link from "next/link";
 
 const RegisterTeam = ({switchboard,registerteam, RegistrationInsructions})=>{
-        const RegisterTeamsOpen = switchboard.isRegisterTeamsOpen;
+        //const RegisterTeamsOpen = switchboard.isRegisterTeamsOpen;
+        const RegisterTeamsOpen = true;
         const [CurrentSeasonID, setCurrentSeasonID] = useState(switchboard.season.id)
         //console.log(RegisterTeamsOpen)
         return(

@@ -9,11 +9,15 @@ import useSWR from 'swr';
 import { server, API } from "../../config/index"
 import {UpdateRegistrationFormHandler} from "../../actions/Registration/handleTeamRegistration"
 
- const SelectDivision = ({setDivision,SelectedTeam, setUX}) => {
+ const SelectDivision = ({setDivision,SelectedTeam, setUX, Region}) => {
 
     const fetcher = (url) => fetch(url).then((res) => res.json());
     const { data, error } =  useSWR(`${server}api/Division`, fetcher)
     const [value, setvalue] = React.useState(SelectedTeam.division?.id);
+
+
+  DivisionBrRegions=[{}]
+
 
     const handleChange = (event) => {
         setvalue(event.target.value);
@@ -34,7 +38,8 @@ import {UpdateRegistrationFormHandler} from "../../actions/Registration/handleTe
   return (
     <FormElementsContainer>
       <FormControl fullWidth>
-        <InputLabel id="Select-Age-Group">Prefered Division</InputLabel>
+      {Region}
+        <InputLabel id="Select-Age-Group">Prefered Division </InputLabel>
         <Select
           labelId="Select-Age-Group"
           id="demo-simple-select"

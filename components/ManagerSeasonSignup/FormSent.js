@@ -26,14 +26,14 @@ const FormSuccess = ()=>{
                 <P>It is recommended to read over the "Things you need to register a team" Documentation before completing this step.</P>
                   <P>If you have any questions or queries, please feel free to contact us via our Facebook page.</P>
                   <div className={ButtonStyles.BtnGroup}>
-                    <TeamRegistrationBtn />
+             
                     <AskOnFB />
                   </div>
                    
             </>
     )
 }
- 
+ //       <TeamRegistrationBtn />
 
 const AwaitingResponse = ()=>{
     return(
