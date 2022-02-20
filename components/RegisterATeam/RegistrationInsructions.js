@@ -47,7 +47,10 @@ const SubmissionUnderReview  = ({SelectedTeam, setUX, refreshData, Insructions})
                     </div>
                    
                     <div className={ButtonStyle.BtnRight}>
-                            <P style={{color:'#FF9813'}}>I Agree to the SJWCA <Link target="_blank" href="/terms" >Terms and Conditions</Link> <Switch {...label}   onChange={handleChange} label="Label"/></P>
+                            <P style={{color:'#FF9813'}}>
+                                {
+                                    Agreed ? 'Lets Go!!':'Do you have all information required?'
+                                } <Switch {...label}   onChange={handleChange} label="Label"/></P>
                             <Button variant="contained" className={ButtonStyle.Next} onClick={()=>{BeginRegistraion()}}  disabled={!Agreed}>Begin Registration</Button>
                     </div> 
                    
@@ -57,3 +60,4 @@ const SubmissionUnderReview  = ({SelectedTeam, setUX, refreshData, Insructions})
 }
 
 export default SubmissionUnderReview;
+//<Link target="_blank" href="/terms" >Terms and Conditions</Link> 

@@ -30,7 +30,7 @@ const TeamRegistration = ({Team, RegistrationInsructions, switchboard})=>{
    //623532653244
     
     if(SelectedTeam.length === 0){ 
-      return( <DataLoadingPlaceHolder Copy={`Gathering Details`}/>)
+      return( <DataLoadingPlaceHolder Copy={`Gathering Details`}/>) 
     } 
     return(
         <div className={StructureStyles.Outer}> 
