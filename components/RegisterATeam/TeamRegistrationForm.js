@@ -96,9 +96,9 @@ const TeamRegistrationForm = (props)=>{
                 <H4>Grading <GradeIcon /></H4>
                 <FormElementGroup>
                     <SelectRegion setRegion={setRegion} setConference={setConference} setUX={setUX} SelectedTeam={SelectedTeam}/>
-                    <SelectAgeGroup setAgeGroup={setAgeGroup} SelectedTeam={SelectedTeam} setUX={setUX}/>
-                    <SelectDivision setDivision={setDivision} SelectedTeam={SelectedTeam}  setUX={setUX} Region={Region}/>
-                    <ConfrenceSelected Conference={Conference}/>
+                    <SelectAgeGroup setAgeGroup={setAgeGroup} SelectedTeam={SelectedTeam} setUX={setUX} Region={Region}/>
+                    <SelectDivision setDivision={setDivision} SelectedTeam={SelectedTeam}  setUX={setUX} Region={Region} AgeGroup={AgeGroup}/>
+                    <ConfrenceSelected Conference={Conference}/>  
                 </FormElementGroup>
 
                 <H4>Manager Details <ManageAccountsIcon /></H4>
