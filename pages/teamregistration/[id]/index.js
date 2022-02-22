@@ -9,6 +9,7 @@ import ContentContainer from "../../../components/Structure/ContentContainer"
 import DataLoadingPlaceHolder from "../../../components/Structure/DataLoadingPlaceHolder"
 // Form
 import TeamRegistrationForm from "../../../components/RegisterATeam/TeamRegistrationForm"
+
 import { useEffect, useState } from 'react';
 import { H2 } from '../../../components/type';
 
@@ -17,6 +18,7 @@ const TeamRegistration = ({Team, RegistrationInsructions, switchboard})=>{
     // In your component body
   const router = useRouter()
   const [CurrentSeasonID, setCurrentSeasonID] = useState(switchboard.season.id)
+
 
   const [SelectedTeam, setSelectedTeam] = useState(Team)
   // call this method whenever you want to refresh server-side props
@@ -37,9 +39,13 @@ const TeamRegistration = ({Team, RegistrationInsructions, switchboard})=>{
                 <PageHeaderSmall 
                   HeaderCopy={`Team Registration`}  
                   SubCopy={`SJWCA 2022`} 
-                    BGIMG={`/images/BGIMG/RegoBG.jpg`}/> 
+                    BGIMG={`/images/BGIMG/RegoBG.jpg`}/>  
                     <ContentContainer>
-                      <TeamRegistrationForm SelectedTeam={SelectedTeam} refreshData={refreshData} CurrentSeasonID={CurrentSeasonID} Insructions={RegistrationInsructions.Insructions}/>
+                     
+                      <TeamRegistrationForm 
+                          SelectedTeam={SelectedTeam} 
+                          AmendAgeGroup={router.query.AmendAgeGroup}
+                          refreshData={refreshData} CurrentSeasonID={CurrentSeasonID} Insructions={RegistrationInsructions.Insructions}/>
                     </ContentContainer>  
         </div> 
     )   

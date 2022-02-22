@@ -36,8 +36,10 @@ import {H1,H2,H3,H4, P} from "../type"
 
 const TeamRegistrationForm = (props)=>{
      
-    const {SelectedTeam, CurrentSeasonID} = props
+    const {SelectedTeam, CurrentSeasonID, AmendAgeGroup} = props
   
+
+    console.log('AmendAgeGroup', AmendAgeGroup)
     const [UX, setUX] = useState(false) 
     const [hasUserSumbitted, sethasUserSumbitted] = useState(false) 
 
@@ -61,13 +63,14 @@ const TeamRegistrationForm = (props)=>{
     },[UX, SelectedTeam])
 
     
-    
-    if(!SelectedTeam.hasReadInstructions || !SelectedTeam.hasAgreedToTerms)
-        return(<RegistrationInsructions SelectedTeam={SelectedTeam} setUX={setUX} {...props}/>)
-    if(hasUserSumbitted) 
-        return(<RegistrationSubmitted SelectedTeam={SelectedTeam} Region={Region}/>) 
-    if(!SelectedTeam.RegistrationOpen || hasUserSumbitted)
-        return(<SubmissionUnderReview />)
+    if(!AmendAgeGroup){
+        if(!SelectedTeam.hasReadInstructions || !SelectedTeam.hasAgreedToTerms)
+            return(<RegistrationInsructions SelectedTeam={SelectedTeam} setUX={setUX} {...props}/>)
+        if(hasUserSumbitted) 
+            return(<RegistrationSubmitted SelectedTeam={SelectedTeam} Region={Region}/>) 
+        if(!SelectedTeam.RegistrationOpen || hasUserSumbitted)
+            return(<SubmissionUnderReview />)
+    }
     return(
         <div className={`${StructureStyles.COl2} ${StructureStyles.ContentWidth}  ${FormElementsStyles.FormTitles}`}>
             { UX ? <PageLoader />: false}
