@@ -16,7 +16,7 @@ const Roster = (props)=>{
   
     return(
         <>
-        <H4>Team Roster ({PlayerInt ? PlayerInt: 0}) Min 9 <GroupIcon /></H4>
+        <H4>Team Roster ({PlayerInt ? PlayerInt: 0}) (U10 and U12 Min 9, U14 and U16 Min 11) <GroupIcon /></H4>
         <FormElementGroup>
          
                 <ul className={PlayerListCSS.PlayerListContainer}>
