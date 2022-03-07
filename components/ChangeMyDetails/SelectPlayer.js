@@ -34,13 +34,18 @@ const ChangeMyDetailsSelectPlayer = ({setProgress, PlayerResponse,Email, setSele
             <H1>Players Registered</H1>
             <P>The following players have been register under this email address {Email}.</P>
             <P>Select the player you wish to edit.</P>
+           
             {
                 PlayerResponse.map((player,i)=>{
+                    if(player.Season_receipts != 0)
                     return(
                         <Button key={i} variant="text" onClick={()=>{handelClick(player.id)}}>{player.Name}</Button>
                     )
                 })
             }
+            <br /><br />
+             <P>Q. Why is my child not showing up?</P>
+             <P>A. Only players that have not yet been assigned a team will be editable. If your child is not listed above, it is likely they have been selected for a team.</P>
         </>
     )
 }

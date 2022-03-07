@@ -17,6 +17,9 @@ import {find,orderBy,groupBy} from 'lodash'
     const { data, error } =  useSWR(`${server}api/Regions`, fetcher)
     const [value, setvalue] = React.useState(SelectedTeam.region?.id);
 
+
+  const FILLED=['61e15fe5162411001653e208','61e16098162411001653e20f']
+
     const handleChange = (event) => {
      
 
@@ -52,6 +55,7 @@ import {find,orderBy,groupBy} from 'lodash'
         >
             {
               orderBy(data, item => item.conference.id, ['asc']).map((item,i)=>{
+                if(FILLED.indexOf(item.id) === -1)
                     return(
                         <MenuItem key={i} value={item.id} className={item.conference.conference}>{item.Name}</MenuItem>
                     )

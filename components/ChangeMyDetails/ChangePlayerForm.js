@@ -63,8 +63,7 @@ const ChangeMyDetailsForm = ({setProgress, Selected, setSelected})=>{
             
             <ChangePlayerMyCricketID NewID={NewID} setNewID={setNewID}/>
             <ChangeRegion setRegion={setRegion} Region={Region}/>
-            <ChangeDivision Division={Division} setDivision={setDivision}/>
-            <ChangeAge AgeGroup={AgeGroup} setAgeGroup={setAgeGroup}/>
+            
             <HasDedicatedTeam DedicatedTeam={DedicatedTeam} setDedicatedTeam={setDedicatedTeam}/>
             <Button variant="contained" onClick={()=>{handleClick()}}>Submit</Button>
             </FormElementGroup>
@@ -72,3 +71,7 @@ const ChangeMyDetailsForm = ({setProgress, Selected, setSelected})=>{
     )
 }
 export default ChangeMyDetailsForm;
+/*
+<ChangeDivision Division={Division} setDivision={setDivision}/>
+            <ChangeAge AgeGroup={AgeGroup} setAgeGroup={setAgeGroup}/>
+*/
