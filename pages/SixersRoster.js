@@ -17,21 +17,37 @@ import {ViewSelectedTeamBtn} from "../components/buttons"
 import {filter, groupBy, orderBy} from 'lodash'
 
 
-const sjwcarules = ({conferences, teams})=>{
+const sjwcarules = ({conferences, teams,regions,ageGroup,division})=>{
         
         const [SelectedConference, SetSelectedConference]= useState(conferences[0])
-        const [Conferenceteams, setConferenceteams] = useState(null)
+        //const [Conferenceteams, setConferenceteams] = useState(null)
+        const [ConfrenceRegions, setConfrenceRegions] = useState([])
+ 
+  
+
+
+        const TeamsByDivision = (TEAMS)=>{
+       
+          let  FilterTeams = filter(TEAMS, function(o) { return o.includeTeamInSeason === true; })        
+            FilterTeams = orderBy(FilterTeams, (o)=>{ return o.division})
+          FilterTeams =  groupBy(FilterTeams,(o)=>{return o.division})
         
+          console.log(FilterTeams)
+          return FilterTeams
+        }
 
         useEffect(()=>{
-          //console.log(teams)
-            let  FilterTeams = filter(teams, function(o) { return o.region?.conference === SelectedConference.id && o.includeTeamInSeason; })
-            FilterTeams = orderBy(FilterTeams, (o)=>{ return o.region.id})
-            setConferenceteams(groupBy(FilterTeams,(o)=>{return o.region.id}))
+          let  Filterregions = filter(regions, function(o) { return o.conference.id === SelectedConference.id})
+          console.log(Filterregions)
+          setConfrenceRegions(Filterregions)
         },[])
 
-        if(!Conferenceteams)
-         return(<div>Loading</div>)
+
+        const DivisionLabel = (ID)=>{
+          console.log(filter(division,(o)=>{ return o.id ===ID }))
+          return filter(division,(o)=>{ return o.id ===ID })
+        }
+      
         return(
             <div className={StructureStyles.Outer}>
                 <PageHeaderSmall 
@@ -46,14 +62,27 @@ const sjwcarules = ({conferences, teams})=>{
                           { <MarkdownContainer>{SelectedConference.About}</MarkdownContainer> }
 
                         <H2>The 2022 Roster</H2>
-                          {Object.keys(Conferenceteams).map((Division, i) => {
+
+                        {
+                          ConfrenceRegions.map((region,i)=>{
+                            //console.log(region.teams)
+                            const BYDIVISION = TeamsByDivision(region.teams)
+                            return(
+                              <div key={i}>
+                                   <H3 style={{color:'#FF9813'}}>{region.Name}</H3>
+                                  
+                          {Object.keys(BYDIVISION).map((Division, i) => {
                             return (
                                 <div key={i}>
-                                  <H3 style={{color:'#FF9813'}}>{Conferenceteams[Division][0].region.Name}</H3>
-                                  <AgeGroupBracket Division={Conferenceteams[Division]}/>
+                                  <H3 style={{color:'#FF9813'}}>{DivisionLabel(Division)[0].Name}</H3>
+                                  <AgeGroupBracket Division={BYDIVISION[Division]} ageGroup={ageGroup}/>
                                 </div>
                               );
                           })}
+                              </div>
+                            )
+                          })
+                        }
                         </div>
                         <div className={`${StructureStyles.Width30}`} >
                           <SupportingSideNav />
@@ -68,14 +97,19 @@ const sjwcarules = ({conferences, teams})=>{
 export default sjwcarules
 
 
-  const AgeGroupBracket = ({Division})=>{
+  const AgeGroupBracket = ({Division,ageGroup})=>{
      
       const [OrderRegion, setOrderRegion] = useState(null)
-      
+      console.log(ageGroup)
       useEffect(()=>{
-       let RegionTeams = orderBy(Division, (o)=>{ return o.division.id})
-       setOrderRegion(groupBy(RegionTeams,(o)=>{return o.age_group.id}))
+       let RegionTeams = orderBy(Division, (o)=>{ return o.age_group})
+       setOrderRegion(groupBy(RegionTeams,(o)=>{return o.age_group}))
     },[])
+
+    const AgeGroupLabel = (ID)=>{
+      console.log(filter(ageGroup,(o)=>{ return o.id ===ID }))
+      return filter(ageGroup,(o)=>{ return o.id ===ID })
+    }
 
     if(!OrderRegion)
     return(<div>Loading</div>)
@@ -83,9 +117,10 @@ export default sjwcarules
         <div>
         {
             Object.keys(OrderRegion).map((Team, i) => {
+              console.log(OrderRegion[Team][0].age_group)
             return(
                     <div key={i}>
-                        <H2 style={{justifyContent:'center', display:'flex'}}>{OrderRegion[Team][0].age_group.Name}</H2>
+                        <H2 style={{justifyContent:'center', display:'flex'}}>{AgeGroupLabel(OrderRegion[Team][0].age_group)[0].Name}</H2>
                         <ListTeams TeamList={OrderRegion[Team]}/>
                     </div>
                 )
@@ -104,7 +139,7 @@ export default sjwcarules
                 TeamList.map((Team,i)=>{
                     return(
                         <li key={i}>
-                            <P>{Team.Name}</P>
+                            <P style={{margin:0}}>{Team.Name}</P> 
                             <ViewSelectedTeamBtn href={`/team/${Team.id}`} Conference={`Sixers`} />
                         </li>
                     )
@@ -120,5 +155,15 @@ export default sjwcarules
     const conferences = await conferencesRes.json()
     const teamsRes = await fetch(`${API}teams`)
     const teams = await teamsRes.json()
-  return {  props: {conferences, teams} }
+
+    const regionRes = await fetch(`${API}regions`)
+    const regions = await regionRes.json()
+
+    const ageGroups = await fetch(`${API}age-groups`)
+    const ageGroup = await ageGroups.json()
+
+    const divisions = await fetch(`${API}divisions`)
+    const division = await divisions.json()
+
+  return {  props: {conferences, teams,regions,ageGroup,division} }
   }

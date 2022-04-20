@@ -40,6 +40,14 @@ export default function TemporaryDrawer() {
       url:'/',
       Icon:<SportsCricketIcon />
     },{
+      label:'Sixers Rosters',
+      url:'/SixersRoster',
+      Icon:<SportsCricketIcon />
+    },{
+      label:'Thunder Rosters',
+      url:'/ThunderRoster',
+      Icon:<SportsCricketIcon />
+    },{
       label:'About the 2022 Season',
       url:'/2022season',
       Icon:<AcUnitIcon />
@@ -72,15 +80,7 @@ export default function TemporaryDrawer() {
 
 
 /*
-,{
-  label:'Sixers Rosters',
-  url:'/SixersRoster',
-  Icon:<SportsCricketIcon />
-},{
-  label:'Thunder Rosters',
-  url:'/ThunderRoster',
-  Icon:<SportsCricketIcon />
-}
+
 */
   const toggleDrawer = (anchor, open) => (event) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
