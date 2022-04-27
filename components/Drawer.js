@@ -60,10 +60,6 @@ export default function TemporaryDrawer() {
       url:'/registerIndividual',
       Icon:<PersonIcon />
     },{
-      label:'Register a Team',
-      url:'/registerTeam',
-      Icon:<GroupIcon />
-    },{
       label:'Regions we Play',
       url:'/regions',
       Icon:<EditLocationAltIcon />
@@ -80,7 +76,11 @@ export default function TemporaryDrawer() {
 
 
 /*
-
+{
+      label:'Register a Team',
+      url:'/registerTeam',
+      Icon:<GroupIcon />
+    },
 */
   const toggleDrawer = (anchor, open) => (event) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {

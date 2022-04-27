@@ -59,19 +59,7 @@ const Singleteams = (teams)=>{
                             }
                               </ul>
                               </FormElementGroup>
-                            <H3>Playing in the {ThisTeam.region.Name} Region</H3>
                             
-                            <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={14}>
-                        
-                                <Marker 
-                                    icon={GroundMarker}
-                                    position={{
-                                        lat: parseFloat(ThisTeam.region.Lat),
-                                        lng: parseFloat(ThisTeam.region.Long)
-                                    }}
-                                />
-                            </GoogleMap>
-                           
                             
                         </div>
                         <div className={`${StructureStyles.Width30}`} > 
