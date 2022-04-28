@@ -44,7 +44,7 @@ const Singleteams = (teams)=>{
                     <ContentContainer>
                         <div className={`${StructureStyles.Width70}`} >
                             <H1>{ThisTeam.Name}</H1>
-                            <H2> Team Roster</H2>
+                            <H2>Team Roster.</H2>
                             <FormElementGroup>
                             <ul className={ListsStyles.ListOfTeams}>
                             {
