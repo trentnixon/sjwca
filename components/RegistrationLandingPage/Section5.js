@@ -24,8 +24,8 @@ const RegisterNow = (props)=>{
           <H1>{registrationPage.ReasonsToPlay[11].Reason}</H1>
          
           <div className={`${Buttonsstyles.BtnGroupRow} ${Section5Styles.LogoBracket}`}>
-                <RegisterIndividualButton /> 
-                <RegisterATeamButton />
+                {/* <RegisterIndividualButton /> 
+                <RegisterATeamButton /> */}
           </div>
 
          

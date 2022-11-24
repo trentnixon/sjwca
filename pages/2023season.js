@@ -28,7 +28,7 @@ const NewSeason = ({newseason})=>{
 
   return(
     <div className={StructureStyles.Outer}> 
-        <PageHeaderSmall 
+        <PageHeaderSmall  
           HeaderCopy={`2023 Season`}  
           SubCopy={`Sydney Junior Winter Cricket Association`} 
           BGIMG={`/images/BGIMG/RegoBG.jpg`}
@@ -45,7 +45,7 @@ const NewSeason = ({newseason})=>{
                     { Conference ?'View Sixers CONFERENCE':'View Thunder CONFERENCE'}
                   </Button>
                   </div>
-                    {
+                    { 
                       Conference  ? <DisplayConference COPY={newseason.Thunder} CLASS='Thunder'/> : 
                                     <DisplayConference COPY={newseason.Sixers} CLASS='Sixers'/>
                     }
@@ -58,8 +58,8 @@ const NewSeason = ({newseason})=>{
                 
                   <SupportingSideNav />
                   <div className={Buttonsstyles.BtnGroupRow}>
-                        <RegisterIndividualButton /> 
-                        <RegisterATeamButton />
+                        {/* <RegisterIndividualButton /> 
+                        <RegisterATeamButton /> */}
                 </div>
                 </div>
               </ContentContainer> 

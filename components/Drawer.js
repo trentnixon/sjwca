@@ -49,7 +49,7 @@ export default function TemporaryDrawer() {
       Icon:<SportsCricketIcon />
     }, */{
       label:'About the 2023 Season',
-      url:'/2022season',
+      url:'/2023season',
       Icon:<AcUnitIcon />
     },/* {
       label:'How to Register',

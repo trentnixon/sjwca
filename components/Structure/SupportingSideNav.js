@@ -15,9 +15,9 @@ const SupportingSideNav = ()=>{
         <div className={SideNav.SideNav}>
              <H4>Further Information</H4>
                     <ul className={SideNav.ul}>
-                    <Link href={`/howToRegister`}><li>How to Register<SportsCricketIcon /></li></Link>
+                    {/* <Link href={`/howToRegister`}><li>How to Register<SportsCricketIcon /></li></Link>
                     <Link href={`/registerIndividual`}><li> Register a Player <PersonIcon /></li></Link>
-                    <Link href={`/registerTeam`}><li> Register a Team <GroupIcon /></li></Link>
+                    <Link href={`/registerTeam`}><li> Register a Team <GroupIcon /></li></Link> */}
                     <Link href={`/regions`}><li> Where we play <LocationOnIcon /></li></Link>
                     <Link href={`/rules`}><li>SJWCA Rules <GavelIcon /></li></Link>
                     <a target="_blank" href={`https://www.facebook.com/SydneyJuniorWinterCricket/`}><li>Ask the Community <FacebookIcon /></li></a> 

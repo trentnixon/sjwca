@@ -20,7 +20,7 @@ const RegistrationHeader = (props)=>{
                                 <H2 style={{ textTransform: 'uppercase',letterSpacing:'2px'}}>Sydney</H2>
                                 
                                 <img src={logoLarge.image.url} className={Registrationstyles.Logo}  />
-                                <H2 style={{fontWeight:800,textTransform: 'uppercase'}}>17th Season</H2>
+                                <H2 style={{fontWeight:800,textTransform: 'uppercase'}}>19th Season</H2>
                                 <S style={{fontWeight:200, textTransform:'uppercase'}} >established 2005</S>
                         </div>
 
@@ -34,8 +34,8 @@ const RegistrationHeader = (props)=>{
                         <div>
                                 
                                 <div className={Buttonsstyles.BtnGroupRow}>
-                                <RegisterIndividualButton /> 
-                                <RegisterATeamButton />
+                                {/* <RegisterIndividualButton /> 
+                                <RegisterATeamButton /> */}
                         </div>
                         </div>
                 </div>
