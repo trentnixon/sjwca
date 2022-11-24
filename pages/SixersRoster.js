@@ -52,7 +52,7 @@ const sjwcarules = ({conferences, teams,regions,ageGroup,division})=>{
             <div className={StructureStyles.Outer}>
                 <PageHeaderSmall 
                   HeaderCopy={SelectedConference.Conference}  
-                  SubCopy={`The 2022 Roster`} 
+                  SubCopy={`The 2023 Roster`} 
                   BGIMG={`/images/BGIMG/RegoBG.jpg`}
                 />
 
@@ -61,7 +61,7 @@ const sjwcarules = ({conferences, teams,regions,ageGroup,division})=>{
                           <H1>{SelectedConference.Conference}</H1>
                           { <MarkdownContainer>{SelectedConference.About}</MarkdownContainer> }
 
-                        <H2>The 2022 Roster</H2>
+                        <H2>The 2023 Roster</H2>
 
                         {
                           ConfrenceRegions.map((region,i)=>{
