@@ -26,8 +26,8 @@ const RegistrationHeader = (props)=>{
 
                         <div>
                                 
-                                <H2>Sydney's ONLY Junior Winter Cricket Competition!</H2>
-                                <H3>REGISTRATIONS ARE NOW OPEN FOR 2022</H3>
+                                <H2>Sydney's Longest Running Junior Winter Cricket Competition!</H2>
+                                <H3>REGISTRATIONS OPENING SOON FOR 2023</H3>
                                
                         </div>
                         
