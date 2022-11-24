@@ -1,6 +1,11 @@
 import { server,API } from "../config/index"
 
 //import Header from "../components/Header"
+/*
+git add .
+git commit -am "Push New Version"
+git push heroku HEAD:main
+*/
 import ComingSoonPage from "./ComingSoonPage";
 import RegistrationLandingPage from "../components/RegistrationLandingPage/index"
 
