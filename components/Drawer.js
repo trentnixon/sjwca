@@ -36,10 +36,10 @@ export default function TemporaryDrawer() {
   const router = useRouter();
   const Nav = [
     {
-      label:'Winter Cricket in 2022',
+      label:'Winter Cricket in 2023',
       url:'/',
       Icon:<SportsCricketIcon />
-    },{
+    },/* {
       label:'Sixers Rosters',
       url:'/SixersRoster',
       Icon:<SportsCricketIcon />
@@ -47,11 +47,11 @@ export default function TemporaryDrawer() {
       label:'Thunder Rosters',
       url:'/ThunderRoster',
       Icon:<SportsCricketIcon />
-    },{
-      label:'About the 2022 Season',
+    }, */{
+      label:'About the 2023 Season',
       url:'/2022season',
       Icon:<AcUnitIcon />
-    },{
+    },/* {
       label:'How to Register',
       url:'/howToRegister',
       Icon:<AddIcon />
@@ -59,7 +59,7 @@ export default function TemporaryDrawer() {
       label:'Register an Individual',
       url:'/registerIndividual',
       Icon:<PersonIcon />
-    },{
+    } */,{
       label:'Regions we Play',
       url:'/regions',
       Icon:<EditLocationAltIcon />
