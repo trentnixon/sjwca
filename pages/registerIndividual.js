@@ -38,10 +38,10 @@ const RegisterIndividual = ({individual,RegionToAge})=>{
                   <H1>{individual.Name}</H1>
                   { <MarkdownContainer>{individual.Description}</MarkdownContainer> }
 
-                  <BasicTable RegionToAge={RegionToAge} />
+                 {/*  <BasicTable RegionToAge={RegionToAge} /> */}
                   <div className={StructureStyles.VertSpacer}></div>
                 
-                    <P><em>This form is for parents of players ONLY.</em></P>
+                    <P><em>Player Registration details will be made available shortly</em></P>
                     <P> Team Managers wishing to register a Team for the upcoming season please use our <Link href='/registerTeam' >Team Registration Page</Link>.</P>
                 </div>
 
