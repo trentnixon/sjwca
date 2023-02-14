@@ -23,8 +23,8 @@ const Roster = (props)=>{
                 <li>
                 <span></span>
                     <span>Player Name</span>
-                    <span>MyCricket ID</span>
-                    <span>Remove</span> 
+                    <span>PlayHQ ID</span>
+                    <span>Remove</span>  
                 </li>
                         {
                             PlayerRoster.Roster[0].players?.map((player,i)=>{
@@ -39,7 +39,7 @@ const Roster = (props)=>{
                                     </li> 
                                 )
                             })
-                        }
+                        } 
                 </ul>
         </FormElementGroup>
         </>

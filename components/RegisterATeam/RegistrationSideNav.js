@@ -16,7 +16,7 @@ const RegistrationSideNav = ()=>{
                 <ul className={SideNav.ul}>
                    
                         <Link href={`/regions`}><li> Where we play <LocationOnIcon /></li></Link>
-                        <Link href={`/howToRegister`}><li>My Cricket Registration <SportsCricketIcon /></li></Link>
+                        <Link href={`/howToRegister`}><li>PlayHQ Registration <SportsCricketIcon /></li></Link>
                         <Link href={`/rules`}><li>SJWCA Rules <GavelIcon /></li></Link>
                         <a target="_blank" href={`https://www.facebook.com/SydneyJuniorWinterCricket/`}><li>Ask the Community <FacebookIcon /></li></a> 
                 </ul>

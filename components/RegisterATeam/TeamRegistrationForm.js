@@ -78,7 +78,7 @@ const TeamRegistrationForm = (props)=>{
                 <H2>Register your team</H2>
                 <H4>HOW TO REGISTER:</H4>
                 
-                <P>Enter a player's MyCricket ID into the form below to add them to your Player Roster.</P>
+                <P>Enter a player's PlayHQ ID into the form below to add them to your Player Roster.</P>
                 <P>Once your team roster is completed, Include your Team Name, Region of choice, Age group and Prefered division to assign your team to a League.</P>
                 <P>Teams requires a Min of 9 Players within its roster before submitting to SJWCA</P>
                 <P>&nbsp;</P>
@@ -99,8 +99,10 @@ const TeamRegistrationForm = (props)=>{
                 <H4>Grading <GradeIcon /></H4>
                 <FormElementGroup>
                     <SelectRegion setRegion={setRegion} setConference={setConference} setUX={setUX} SelectedTeam={SelectedTeam}/>
-                    <SelectAgeGroup setAgeGroup={setAgeGroup} SelectedTeam={SelectedTeam} setUX={setUX} Region={Region}/>
-                    <SelectDivision setDivision={setDivision} SelectedTeam={SelectedTeam}  setUX={setUX} Region={Region} AgeGroup={AgeGroup}/>
+                    {
+                        !Region ?'Awaiting Region':<SelectAgeGroup setAgeGroup={setAgeGroup} SelectedTeam={SelectedTeam} setUX={setUX} Region={Region}/>
+                    }
+    <SelectDivision setDivision={setDivision} SelectedTeam={SelectedTeam}  setUX={setUX} Region={Region} AgeGroup={AgeGroup}/>
                     <ConfrenceSelected Conference={Conference}/>  
                 </FormElementGroup>
 

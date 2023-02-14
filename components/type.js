@@ -23,3 +23,4 @@ export const P = (props) =>         (<p  style={{...styles.PBase, ...props.style
 export const P_ERROR = (props) =>   (<p  style={{...styles.PBase, ...props.style}} className="Error">{props.children}</p>);
 export const P_WARNING = (props) => (<p  style={{...styles.PBase, ...props.style, ...styles.Warning}} className="Warning">{props.children}</p>);
 export const S = (props) =>         (<p  style={{...styles.PBase, ...props.style, ...styles.S}} className=""><small>{props.children}</small></p>);
+export const SPAN = (props) =>        (<span style={{...styles.HeaderBase, ...props.style, ...styles.H1}} className="">{props.children}</span>);

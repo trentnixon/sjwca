@@ -33,7 +33,7 @@ import { P } from '../type';
     
     const CreateAgeGroupByRegion = ()=>{
       
-      let FindRegionAgeGroup = filter(data,(o)=>{return o.region.id=== (Region ? Region : SelectedTeam.region?.id)})
+      let FindRegionAgeGroup = filter(data,(o)=>{return o.region?.id=== (Region ? Region : SelectedTeam.region?.id)})
      
      
       let FindDivision = filter(FindRegionAgeGroup,(o)=>{return o.age_group.id=== (AgeGroup ? AgeGroup : SelectedTeam.age_group?.id)})

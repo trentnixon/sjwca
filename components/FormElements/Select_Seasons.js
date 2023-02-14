@@ -19,6 +19,9 @@ import HasFieldBeenFilledIn from './hasFieldBeenFilledIn'
     const [value, setvalue] = React.useState('');
     const [Year,setYear] = React.useState(new Date().getFullYear())
 
+    React.useEffect(()=>{
+      console.log(data)
+    },[data])
 
     const handleChange = (event) => {
      
@@ -40,12 +43,12 @@ import HasFieldBeenFilledIn from './hasFieldBeenFilledIn'
           value={value}
           label="Region"
           variant="standard"
-          fullWidth
+          fullWidth 
           onChange={handleChange}
         >
             {
                 data.map((item,i)=>{
-                  if(item.Season == Year)
+                  //if(item.Season == Year)
                     return(
                         <MenuItem key={i} value={item.id}>{item.Season}</MenuItem>
                     )

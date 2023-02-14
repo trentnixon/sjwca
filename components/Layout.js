@@ -24,7 +24,7 @@ const SJWCA_Layout =  ({children})=>{
         return(
             <>
                 <Meta />
-                    {
+                    { 
                         IsOpen ?<Nav data={data}/>:false
                     }
                 

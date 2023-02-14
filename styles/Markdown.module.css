@@ -12,7 +12,7 @@
     background: var(--base-color);
     box-shadow: var(--DropShadow) var(--DropShadow) var(--DropShadowSpread) #CBDDF4, var(--DropShadowMinus) var(--DropShadowMinus) var(--DropShadowSpread) rgba(255, 255, 255, 0.7);
     padding: 0rem  2rem 0 1rem;
-    border-left: 10px solid var(--sixers);
+  
 }
 .Sixers h3{
   
@@ -28,7 +28,7 @@
     background: var(--base-color);
     box-shadow: var(--DropShadow) var(--DropShadow) var(--DropShadowSpread) #CBDDF4, var(--DropShadowMinus) var(--DropShadowMinus) var(--DropShadowSpread) rgba(255, 255, 255, 0.7);
     padding: 0rem  2rem 0 1rem;
-    border-left: 10px solid var(--thunder);
+   
 }
 .Thunder h3{
   

@@ -16,7 +16,7 @@ export default function TeamName({setTeamName, CurrentName, SelectedTeam, setUX}
             
             const OBJ={
                 _CALLBACK:setUX,
-                _URI:`${API}teams/${SelectedTeam.id}`,
+                _URI:`${API}teams/${SelectedTeam.id}`, 
                 _DATA:{Name:e.target.value}
               }
       

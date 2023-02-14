@@ -27,9 +27,9 @@ const PlayerName = (props)=>{
                 inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
                 
                         id="outlined-basic" 
-                        label={`MyCricket ID`}
+                        label={`PlayHQ ID`}
                         variant="standard" 
-                        placeholder={`MyCricket ID`} 
+                        placeholder={`PlayHQ ID`} 
                         type='number'
                         fullWidth
                         onBlur={handleChange}

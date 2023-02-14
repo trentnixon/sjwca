@@ -115,7 +115,7 @@ const CreateNewPlayer = (props)=>{
                     <P>Thank you for your interest with SJWCA. We will be in touch shortly</P>
                     <H2>Registration Fees</H2>
                     <P>To ensure your playing spot in your team, make sure you have paid this seasons Registration Fees.</P>
-                     <P>Fees are handled by our partners at     <a href="https://play.cricket.com.au/club/sydney-junior-winter-cricket-association/6fb6ee9f-87d8-eb11-a7ad-2818780da0cc">play.cricket.com.au</a> and can be paid <a href="https://play.cricket.com.au/club/sydney-junior-winter-cricket-association/6fb6ee9f-87d8-eb11-a7ad-2818780da0cc">Here.</a></P>
+                     <P>Fees are handled by our partners at <a href="https://play.cricket.com.au/club/sydney-junior-winter-cricket-association/6fb6ee9f-87d8-eb11-a7ad-2818780da0cc">play.cricket.com.au</a> and can be paid <a href="https://play.cricket.com.au/club/sydney-junior-winter-cricket-association/6fb6ee9f-87d8-eb11-a7ad-2818780da0cc">Here.</a></P>
                 </FormElementGroup>
                 )
         return(

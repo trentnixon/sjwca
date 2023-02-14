@@ -30,7 +30,7 @@ export default function MyApp({ Component, pageProps }) {
   return (
     <Provider store={store}>
        <LoadScript googleMapsApiKey={APIKEY}>
-        <Layout>
+        <Layout> 
           <Component {...pageProps} />
         </Layout> 
       </LoadScript> 

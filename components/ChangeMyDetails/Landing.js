@@ -55,8 +55,8 @@ const ChangeMyDetailsLanding = ({setProgress,setPlayerResponse, StoreEmail})=>{
     return(
         <>
             <H1>Change my details</H1>
-            <P>The upcoming Winter 2022 season is taking shape and it's clear to see this will be the biggest season to date!!</P>
-            <P>The North-West region, in particular, is massively oversubscribed. Our stance this season was to prioritise full team registrations. With many full teams registering and the general demand for the competition in North-West Sydney mixed with a lack of available grounds, this has led to many individual registrations (and team registrations!) missing out on a spot in the North-West Region for the 2022 season. The good news is that we do have space in other nearby regions.</P>
+            <P>The upcoming Winter 2023 season is taking shape and it's clear to see this will be the biggest season to date!!</P>
+            <P>The North-West region, in particular, is massively oversubscribed. Our stance this season was to prioritise full team registrations. With many full teams registering and the general demand for the competition in North-West Sydney mixed with a lack of available grounds, this has led to many individual registrations (and team registrations!) missing out on a spot in the North-West Region for the 2023 season. The good news is that we do have space in other nearby regions.</P>
             <P>Please check the other <Link href={`/regions`}><a>Regions available </a></Link></P>
             
             <FormElementGroup>

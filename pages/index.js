@@ -21,7 +21,7 @@ export default function Home(props) {
     </div>
   )
 }
-
+ 
 
 
 export const getStaticProps = async (context) => {

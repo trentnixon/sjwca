@@ -118,7 +118,7 @@ body ol li{
 
   
   .Sixers{
-	  border-left:10px solid var(--sixers);
+	 
 	  padding: 0rem 0 1rem 1rem;
 	 
   }
@@ -127,7 +127,7 @@ body ol li{
 	  font-weight: 800 !important;
   }
   .Thunder{
-	border-left:10px solid var(--thunder);
+
 	padding: 0rem 0 1rem 1rem;
 }
   .Thunder h2{

@@ -23,9 +23,9 @@ const PlayerName = ({NewID, setNewID})=>{
                 inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
                 
                         id="outlined-basic" 
-                        label={`Change MyCricket ID ${NewID}`}
+                        label={`Change PlayHQ ID ${NewID}`}
                         variant="standard" 
-                        placeholder={`Change MyCricket ID ${NewID}`} 
+                        placeholder={`Change PlayHQ ID ${NewID}`} 
                         type='number'
                         fullWidth
                         onBlur={handleChange}

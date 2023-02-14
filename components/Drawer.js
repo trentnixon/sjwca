@@ -8,7 +8,7 @@ import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
+import ListItemText from '@mui/material/ListItemText'; 
 
 import Link from 'next/link'
 import { useRouter } from 'next/router';
@@ -51,15 +51,19 @@ export default function TemporaryDrawer() {
       label:'About the 2023 Season',
       url:'/2023season',
       Icon:<AcUnitIcon />
+    },{
+      label:'Register a Team',
+      url:'/registerTeam',
+      Icon:<GroupIcon />
     },/* {
       label:'How to Register',
       url:'/howToRegister',
       Icon:<AddIcon />
-    },{
+    }, */{
       label:'Register an Individual',
       url:'/registerIndividual',
       Icon:<PersonIcon />
-    } */,{
+    },{
       label:'Regions we Play',
       url:'/regions',
       Icon:<EditLocationAltIcon />
@@ -76,11 +80,7 @@ export default function TemporaryDrawer() {
 
 
 /*
-{
-      label:'Register a Team',
-      url:'/registerTeam',
-      Icon:<GroupIcon />
-    },
+
 */
   const toggleDrawer = (anchor, open) => (event) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {

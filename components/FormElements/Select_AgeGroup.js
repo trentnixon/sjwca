@@ -18,8 +18,9 @@ import { P } from '../type';
  const SelectAgeGroup = ({setAgeGroup, SelectedTeam, setUX, Region}) => {
 
 
-    const [SelectData, setSelectData] = useState()
-    const fetcher = (url) => fetch(url).then((res) => res.json());
+  console.log(Region)
+    const [SelectData, setSelectData] = useState([])
+    const fetcher = (url) => fetch(url).then((res) => res.json()); 
     const { data, error } =  useSWR(`${API}region-to-agegroups`, fetcher)
     const [value, setvalue] = React.useState(SelectedTeam.age_group?.id);
   
@@ -39,24 +40,30 @@ import { P } from '../type';
 
 
     const CreateAgeGroupByRegion = ()=>{
-      
-      let FindRegionAgeGroup = filter(data,(o)=>{return o.region.id=== (Region ? Region : SelectedTeam.region?.id)})
+      console.log(data)
+      console.log(SelectedTeam.region?.id)
+      let FindRegionAgeGroup = filter(data,(o)=>{
+          console.log(o.region?.id, SelectedTeam.region?.id)
+        return o.region?.id=== (Region ? Region : SelectedTeam.region?.id)}
+        )
       let AgeGroups = []
       FindRegionAgeGroup.map((group,i)=>{
         if(findIndex(AgeGroups, function(o) { return o.id === group.age_group.id; }) === -1)
           AgeGroups.push(group.age_group)
       })
     
-      setSelectData( AgeGroups)
+      console.log(AgeGroups)
+      setSelectData(AgeGroups)
     }
 
 
     useEffect(()=>{ 
-  
-      CreateAgeGroupByRegion() 
+      if(data)
+        CreateAgeGroupByRegion() 
     },[Region])
 
     useEffect(()=>{
+     
       Region = (Region ? Region : SelectedTeam.region?.id)
       if(!firstLoad && data) {
         CreateAgeGroupByRegion()

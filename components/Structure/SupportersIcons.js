@@ -15,10 +15,10 @@ const IconGroup = ()=>{
                    
                          <Image
                         
-                        src="/images/logos/MyCricket.png"
+                        src="/images/logos/playhqlogo.png"
                         alt="Picture of the author"
-                        width={ImgSize(195)}
-                        height={ImgSize(250)}
+                        width={ImgSize(300)}
+                        height={ImgSize(162)}
                         />
                          <Image
                             src="/images/logos/cricketnsw.png"

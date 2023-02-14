@@ -5,6 +5,8 @@ import {track_ga_event} from "../actions/GA"
 import MarkdownContainer from '../components/Structure/MarkdownContainer'
 import StructureStyles from "../styles/Structure/Structure.module.css";
 import Buttonsstyles from "../styles/Structure/Buttons.module.css";
+import { Table, Button } from "@mantine/core";
+import { IconUsers } from '@tabler/icons';
 // Components
 import PageHeaderSmall from "../components/Structure/PageHeaderSmall"
 import ContentContainer from "../components/Structure/ContentContainer"
@@ -18,27 +20,32 @@ import FormElementGroup from "../components/FormElements/FormElementGroup"
 import Create_Mycricket_ID from "../components/FormElements/PlayerMyCricketID";
 import {FindPlayerDetails} from "../actions/Registration/handlePlayerRoster"
 import PageLoader from "../components/Structure/PageLoader";
-import Button from '@mui/material/Button';
-import ButtonGroup from '@mui/material/ButtonGroup';
-const RegisterIndividual = ({individual})=>{
-  
-    const [AgreedTerms, setAgreedTerms] = useState(false)
-    const [MyCricketID, setMyCricketID] = useState(false)   
+
+const RegisterIndividual = ({individual,RegionToAge})=>{
+    console.log(RegionToAge)
+
   return(
     <div className={StructureStyles.Outer}>
         <PageHeaderSmall 
           HeaderCopy={individual.Name}  
-          SubCopy={`Sydney Junior Winter Cricket Association`} 
+          SubCopy={`Sydney Junior Winter Cricket Association`}  
           BGIMG={`/images/BGIMG/RegoBG.jpg`}
         />
 
             <ContentContainer> 
-            {
-              AgreedTerms ? <PlayerIDCheck individual={individual} setAgreedTerms={setAgreedTerms} setMyCricketID={setMyCricketID} MyCricketID={MyCricketID}/>:
-                  <RegisterIndividualInstructions individual={individual} setAgreedTerms={setAgreedTerms} setMyCricketID={setMyCricketID} MyCricketID={MyCricketID}/>
-            }
-                 
+            
+            <div className={`${StructureStyles.Width70}`} >
+                  <H1>{individual.Name}</H1>
+                  { <MarkdownContainer>{individual.Description}</MarkdownContainer> }
+
+                  <BasicTable RegionToAge={RegionToAge} />
+                  <div className={StructureStyles.VertSpacer}></div>
                 
+                    <P><em>This form is for parents of players ONLY.</em></P>
+                    <P> Team Managers wishing to register a Team for the upcoming season please use our <Link href='/registerTeam' >Team Registration Page</Link>.</P>
+                </div>
+
+
                 <div className={`${StructureStyles.Width30}`} > 
                   <SupportingSideNav />
                 </div>
@@ -51,11 +58,125 @@ const RegisterIndividual = ({individual})=>{
 
 export default RegisterIndividual
 
-export const getStaticProps = async (context) => {
+export const getServerSideProps = async (context) => {
   const individualRes = await fetch(`${API}register-individual`)
   const individual = await individualRes.json()
-return {  props: {individual} }
+  const RegionToAgeRes = await fetch(`${API}region-to-agegroups`);
+  const RegionToAge = await RegionToAgeRes.json();
+return {  props: {individual,RegionToAge} }
 }
+
+
+/* export async function getServerSideProps(context) {
+  const registerteamRes = await fetch(`${API}register-team-landing`);
+  const switchboardRes = await fetch(`${API}switchboard`);
+  const resRego = await fetch(`${API}registration-insructions`);
+  const RegionToAgeRes = await fetch(`${API}region-to-agegroups`);
+  const RegistrationInsructions = await resRego.json();
+  const registerteam = await registerteamRes.json();
+  const switchboard = await switchboardRes.json();
+
+  const RegionToAge = await RegionToAgeRes.json();
+
+  return {
+    props: { switchboard, registerteam, RegistrationInsructions, RegionToAge },
+  };
+} */
+
+
+/*
+{
+              AgreedTerms ? <PlayerIDCheck individual={individual} setAgreedTerms={setAgreedTerms} setMyCricketID={setMyCricketID} MyCricketID={MyCricketID}/>:
+                  <RegisterIndividualInstructions individual={individual} setAgreedTerms={setAgreedTerms} setMyCricketID={setMyCricketID} MyCricketID={MyCricketID}/>
+            }
+*/
+
+function BasicTable({ RegionToAge }) {
+  console.log(RegionToAge);
+  function groupByIdentifier(array) {
+    const grouped = {};
+    array.forEach((item) => {
+      const identifier = item?.region?.Name;
+      if (!grouped[identifier]) {
+        grouped[identifier] = [];
+      }
+      grouped[identifier].push(item);
+    });
+    return grouped;
+  }
+
+  const grouped = groupByIdentifier(RegionToAge);
+  console.log(grouped);
+  return (
+    <>
+      {Object.keys(groupByIdentifier(RegionToAge)).map((key, i) => {
+        return (
+          <div key={i}>
+            <H3>{key}</H3>
+            <Table verticalSpacing="sm" >
+              <thead> 
+                <tr>
+                  <th>League</th>
+                  <th>Age</th>
+                  <th>Division</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                {groupByIdentifier(RegionToAge)[key].map((row, ii) => {
+                  if (row.PlayHQPlayerRegoLink)
+                    return (
+                      <tr key={ii}>
+                        <td>{row?.region?.Name}</td>
+                        <td>{row?.age_group.Name}</td>
+                        <td> {row?.division.Name}</td>
+                        <td>
+                          <Button
+                            variant="outline"
+                            color="orange"
+                            uppercase
+                            href={row.PlayHQPlayerRegoLink}
+                            component="a"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            rightIcon={<IconUsers size={14} />}
+                            styles={(theme) => ({
+                              root: {
+                                paddingLeft: 20,
+                                paddingRight: 20,
+
+                                "&:hover": {
+                                  backgroundColor:'#fd7e14',
+                                  color:'white'
+                                },
+                              },
+
+                              leftIcon: {
+                                marginRight: 15,
+                              },
+                            })}
+                          >
+                            Register
+                          </Button>
+                        </td>
+                      </tr>
+                    );
+                })}
+              </tbody>
+            </Table>
+          </div>
+        );
+      })}
+
+     
+    </>
+  );
+}
+
+
+
+
+/* 
 
 
 
@@ -233,4 +354,4 @@ const PlayerIDCheck = (props)=>{
       }
     </>
   )
-}  
+}   */

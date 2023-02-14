@@ -15,7 +15,7 @@ const RegistrationLandingPage = (props)=>{
           <Section2 {...props} />
           <Section3 {...props}  />
           <Section4 {...props}/>
-          <Section5 {...props}/>
+          <Section5 {...props}/> 
         </>
     ) 
 }

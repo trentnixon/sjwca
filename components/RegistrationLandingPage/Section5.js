@@ -8,6 +8,7 @@ import { H1, H2, H3, H4, P,P_ERROR, S} from "../type";
 
 import { gsap } from 'gsap'
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { Group } from "@mantine/core";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -18,15 +19,15 @@ const RegisterNow = (props)=>{
         <div className={` ${Section5Styles.RegisterNow}`}>
           <BatBall />
             <div className={Section5Styles.LogoBracket}>
-                <img src="/images/logos/MyCricket.png" />
+                <img src="/images/logos/playhqlogo.png" />
                 <img src="/images/logos/PlayCricket.png" />
             </div>
           <H1>{registrationPage.ReasonsToPlay[11].Reason}</H1>
          
-          <div className={`${Buttonsstyles.BtnGroupRow} ${Section5Styles.LogoBracket}`}>
-                {/* <RegisterIndividualButton /> 
-                <RegisterATeamButton /> */}
-          </div>
+          <Group position="apart" grow>
+            <RegisterIndividualButton />
+            <RegisterATeamButton />
+          </Group>
 
          
           <H2>{registrationPage.ReasonsToPlay[12].Reason}</H2>

@@ -79,7 +79,7 @@ const UpdateExictingPlayer = (props)=>{
             <FormElementGroup>
                 
                 <H4>{PlayerReturn[0].Name} <PersonAddIcon /> </H4>
-                <H4>MyCricket ID : {PlayerReturn[0].MyCricketID} </H4>
+                <H4>PlayHQ ID : {PlayerReturn[0].MyCricketID} </H4>
                 <Select_Seasons setSeason={setSeason} Season={Season}/>
                     <div className={ButtonStyle.BtnRight}>
                         <div className={ButtonStyle.BtnGroup}>

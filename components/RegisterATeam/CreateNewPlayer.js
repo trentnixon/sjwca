@@ -90,7 +90,7 @@ const CreateNewPlayer = (props)=>{
             <div>
             <FormElementGroup>
                 <H4>About Player</H4>
-                <H4>My Cricket ID : {MyCricketID}</H4>
+                <H4>PlayHQ ID : {MyCricketID}</H4>
                 <Create_Player_Name setPlayerName={setPlayerName} PlayerName={PlayerName}/>
                 <Create_PlayerEmail setPlayerEmail={setPlayerEmail} PlayerEmail={PlayerEmail}/>
                 <Create_PlayerContactNumber setPlayerContactNumber={setPlayerContactNumber} PlayerContactNumber={PlayerContactNumber}/>
