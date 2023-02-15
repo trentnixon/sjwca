@@ -1,71 +1,74 @@
 import { useEffect, useState } from "react";
-import Link from 'next/link'
-import { API } from "../config/index"
-import {track_ga_event} from "../actions/GA"
-import MarkdownContainer from '../components/Structure/MarkdownContainer'
+import Link from "next/link";
+import { API } from "../config/index";
+import { track_ga_event } from "../actions/GA";
+import MarkdownContainer from "../components/Structure/MarkdownContainer";
 import StructureStyles from "../styles/Structure/Structure.module.css";
 import Buttonsstyles from "../styles/Structure/Buttons.module.css";
 import { Table, Button } from "@mantine/core";
-import { IconUsers } from '@tabler/icons';
+import { IconUsers } from "@tabler/icons";
 // Components
-import PageHeaderSmall from "../components/Structure/PageHeaderSmall"
-import ContentContainer from "../components/Structure/ContentContainer"
-import SupportersIcons from "../components/Structure/SupportersIcons"
+import PageHeaderSmall from "../components/Structure/PageHeaderSmall";
+import ContentContainer from "../components/Structure/ContentContainer";
+import SupportersIcons from "../components/Structure/SupportersIcons";
 // Type
-import { P,H2, H3, H4, H1 } from "../components/type";
-import SupportingSideNav from "../components/Structure/SupportingSideNav"
-import {RegIndividualTerms} from '../components/buttons'
-import CreateNewPlayerForm from '../components/RegisterIndividual/CreateNewPlayer'
-import FormElementGroup from "../components/FormElements/FormElementGroup"
+import { P, H2, H3, H4, H1 } from "../components/type";
+import SupportingSideNav from "../components/Structure/SupportingSideNav";
+import { RegIndividualTerms } from "../components/buttons";
+import CreateNewPlayerForm from "../components/RegisterIndividual/CreateNewPlayer";
+import FormElementGroup from "../components/FormElements/FormElementGroup";
 import Create_Mycricket_ID from "../components/FormElements/PlayerMyCricketID";
-import {FindPlayerDetails} from "../actions/Registration/handlePlayerRoster"
+import { FindPlayerDetails } from "../actions/Registration/handlePlayerRoster";
 import PageLoader from "../components/Structure/PageLoader";
 
-const RegisterIndividual = ({individual,RegionToAge})=>{
-    console.log(RegionToAge)
+const RegisterIndividual = ({ individual, RegionToAge }) => {
+  console.log(RegionToAge);
 
-  return(
+  return (
     <div className={StructureStyles.Outer}>
-        <PageHeaderSmall 
-          HeaderCopy={individual.Name}  
-          SubCopy={`Sydney Junior Winter Cricket Association`}  
-          BGIMG={`/images/BGIMG/RegoBG.jpg`}
-        />
+      <PageHeaderSmall
+        HeaderCopy={individual.Name}
+        SubCopy={`Sydney Junior Winter Cricket Association`}
+        BGIMG={`/images/BGIMG/RegoBG.jpg`}
+      />
 
-            <ContentContainer> 
-            
-            <div className={`${StructureStyles.Width70}`} >
-                  <H1>{individual.Name}</H1>
-                  { <MarkdownContainer>{individual.Description}</MarkdownContainer> }
+      <ContentContainer>
+        <div className={`${StructureStyles.Width70}`}>
+          <H1>{individual.Name}</H1>
+          {<MarkdownContainer>{individual.Description}</MarkdownContainer>}
 
-                 {/*  <BasicTable RegionToAge={RegionToAge} /> */}
-                  <div className={StructureStyles.VertSpacer}></div>
-                
-                    <P><em>Player Registration details will be made available shortly</em></P>
-                    <P> Team Managers wishing to register a Team for the upcoming season please use our <Link href='/registerTeam' >Team Registration Page</Link>.</P>
-                </div>
+          {/*  <BasicTable RegionToAge={RegionToAge} /> */}
+          <div className={StructureStyles.VertSpacer}></div>
 
+          <P>
+            <em>Player Registration details will be made available shortly</em>
+          </P>
+          <P>
+            {" "}
+            Team Managers wishing to register a Team for the upcoming season
+            please use our{" "}
+            <Link href="/registerTeam">Team Registration Page</Link>.
+          </P>
+        </div>
 
-                <div className={`${StructureStyles.Width30}`} > 
-                  <SupportingSideNav />
-                </div>
-              </ContentContainer> 
-              <SupportersIcons />
-      </div>
-           
-) 
-}
+        <div className={`${StructureStyles.Width30}`}>
+          <SupportingSideNav />
+        </div>
+      </ContentContainer>
+      <SupportersIcons />
+    </div>
+  );
+};
 
-export default RegisterIndividual
+export default RegisterIndividual;
 
 export const getServerSideProps = async (context) => {
-  const individualRes = await fetch(`${API}register-individual`)
-  const individual = await individualRes.json()
+  const individualRes = await fetch(`${API}register-individual`);
+  const individual = await individualRes.json();
   const RegionToAgeRes = await fetch(`${API}region-to-agegroups`);
   const RegionToAge = await RegionToAgeRes.json();
-return {  props: {individual,RegionToAge} }
-}
-
+  return { props: { individual, RegionToAge } };
+};
 
 /* export async function getServerSideProps(context) {
   const registerteamRes = await fetch(`${API}register-team-landing`);
@@ -82,7 +85,6 @@ return {  props: {individual,RegionToAge} }
     props: { switchboard, registerteam, RegistrationInsructions, RegionToAge },
   };
 } */
-
 
 /*
 {
@@ -113,8 +115,8 @@ function BasicTable({ RegionToAge }) {
         return (
           <div key={i}>
             <H3>{key}</H3>
-            <Table verticalSpacing="sm" >
-              <thead> 
+            <Table verticalSpacing="sm">
+              <thead>
                 <tr>
                   <th>League</th>
                   <th>Age</th>
@@ -146,8 +148,8 @@ function BasicTable({ RegionToAge }) {
                                 paddingRight: 20,
 
                                 "&:hover": {
-                                  backgroundColor:'#fd7e14',
-                                  color:'white'
+                                  backgroundColor: "#fd7e14",
+                                  color: "white",
                                 },
                               },
 
@@ -167,14 +169,9 @@ function BasicTable({ RegionToAge }) {
           </div>
         );
       })}
-
-     
     </>
   );
 }
-
-
-
 
 /* 
 
