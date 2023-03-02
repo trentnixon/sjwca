@@ -85,7 +85,19 @@ function BasicTable({ RegionToAge }) {
       }
       grouped[identifier].push(item);
     });
-    return grouped;
+  
+    Object.keys(grouped).forEach((key) => {
+      grouped[key].sort((a, b) => a.age_group.Name.localeCompare(b.age_group.Name));
+    });
+  
+    const sorted = {};
+    Object.keys(grouped)
+      .sort((a, b) => grouped[a][0].age_group.Name.localeCompare(grouped[b][0].age_group.Name))
+      .forEach((key) => {
+        sorted[key] = grouped[key];
+      });
+  
+    return sorted;
   }
 
   const grouped = groupByIdentifier(RegionToAge);
