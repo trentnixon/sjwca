@@ -43,7 +43,7 @@ const NewSeason = ({ newseason }) => {
           <H1>{newseason.Name}</H1>
           <MarkdownContainer>{newseason.Description}</MarkdownContainer>
           <Space h={30} />
-          <Tabs color="orange" variant="pills" defaultValue="gallery">
+        {/*   <Tabs color="orange" variant="pills" defaultValue="gallery">
             <Tabs.List grow position="center">
               <Tabs.Tab value="gallery" icon={<IconMapPin size={14} />}>
                 THUNDER CONFERENCE
@@ -60,7 +60,7 @@ const NewSeason = ({ newseason }) => {
             <Tabs.Panel value="messages" pt="xs">
               <DisplayConference COPY={newseason.Sixers} CLASS="Sixers" />
             </Tabs.Panel>
-          </Tabs>
+          </Tabs> */}
         </div>
 
         <div className={`${StructureStyles.Width30}`}>
