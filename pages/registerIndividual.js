@@ -40,9 +40,9 @@ const RegisterIndividual = ({ individual, RegionToAge }) => {
           {/*  <BasicTable RegionToAge={RegionToAge} /> */}
           <div className={StructureStyles.VertSpacer}></div>
 
-          <P>
+          {/* <P>
             <em>Player Registration details will be made available shortly</em>
-          </P>
+          </P> */}
           <P>
             {" "}
             Team Managers wishing to register a Team for the upcoming season
