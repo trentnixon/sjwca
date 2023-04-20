@@ -49,7 +49,7 @@ const RegisterIndividual = ({ individual, RegionToAge }) => {
             pull together some extra sides.
           </P>{" "}
           <P>
-            If you are still looking for a team please email
+            If you are still looking for a team please email{" "} 
             <a href="mailto:sjwca@sydneyjuniorwintercricket.org.au">
               sjwca@sydneyjuniorwintercricket.org.au
             </a>{" "}
