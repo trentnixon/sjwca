@@ -43,6 +43,15 @@ const RegisterIndividual = ({ individual, RegionToAge }) => {
           {/* <P>
             <em>Player Registration details will be made available shortly</em>
           </P> */}
+
+
+          <P><em>Are you still looking for a team this Winter? Most regions still have some availability. We're working hard to pull together some extra sides.
+If you are still looking for a team please email sjwca@sydneyjuniorwintercricket.org.au with the following details:
+Name
+DOB
+Suburb
+If you have any friends looking to join with you, please let us know on that front too.
+Team Registrations are still open in some grades. See details here - https://www.sydneyjuniorwintercricket.org.au/registerTeam</em></P>
           <P>
             {" "}
             Team Managers wishing to register a Team for the upcoming season
