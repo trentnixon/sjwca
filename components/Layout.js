@@ -12,7 +12,7 @@ import { H2 } from "./type";
 import { useEffect } from "react";
 
 const SJWCA_Layout =  ({children})=>{
-    const IsOpen = true
+    const IsOpen = false
 
     const fetcher = (url) => fetch(url).then((res) => res.json());
 
