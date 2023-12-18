@@ -40,7 +40,7 @@ const RegisterTeam = ({
     <div>
       <PageHeaderSmall
         HeaderCopy={`REGISTER YOUR TEAM`}
-        SubCopy={`SJWCA 2023`}
+        SubCopy={`SJWCA 2024`}
         BGIMG={`/images/BGIMG/RegoBG.jpg`}
       />
       <ContentContainer>

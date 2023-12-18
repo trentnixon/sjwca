@@ -19,7 +19,7 @@ const RegistrationHeader = (props) => {
 
           <img src={logoLarge.image.url} className={Registrationstyles.Logo} />
           <H2 style={{ fontWeight: 800, textTransform: "uppercase" }}>
-            19th Season
+            20th Season
           </H2>
           <S style={{ fontWeight: 200, textTransform: "uppercase" }}>
             established 2005
@@ -28,7 +28,7 @@ const RegistrationHeader = (props) => {
 
         <div>
           <H2>Sydney's Longest Running Junior Winter Cricket Competition!</H2>
-          <H3>REGISTRATIONS NOW OPEN FOR 2023</H3>
+          <H3>REGISTRATIONS NOW OPEN FOR 2024</H3>
         </div>
 
        {/*  <div>

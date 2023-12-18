@@ -11,7 +11,7 @@ const DataLoadingPlaceholder = (props)=>{
         <div className={StructureStyles.Outer}> 
                 <PageHeaderSmall 
                   HeaderCopy={`Team Registration`}  
-                  SubCopy={`SJWCA 2023`} 
+                  SubCopy={`SJWCA 2024`} 
                     BGIMG={`/images/BGIMG/RegoBG.jpg`}/> 
                     <ContentContainer>
                      <H2>{props.Copy}</H2>

@@ -121,8 +121,7 @@ export const TeamRegistrationBtn = () => {
     >
       <Link target="_blank" href={`/pdf/SJWCA How to Register a player.pdf`}>
         <a>
-          {" "}
-          2023 Team Registration <SportsCricketIcon />
+          2024 Team Registration <SportsCricketIcon />
         </a>
       </Link>
     </Button>

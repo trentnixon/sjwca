@@ -27,7 +27,7 @@ const RegistrationHeader = (props)=>{
                         <div>
                                 
                                 <H2>Sydney's ONLY Junior Winter Cricket Competition!</H2>
-                                <H3>REGISTRATIONS FOR 2023 OPENING SOON</H3>
+                                <H3>REGISTRATIONS FOR 2024 OPENING SOON</H3>
                                
                         </div>
                         

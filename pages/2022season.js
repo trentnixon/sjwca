@@ -29,7 +29,7 @@ const NewSeason = ({newseason})=>{
   return(
     <div className={StructureStyles.Outer}> 
         <PageHeaderSmall 
-          HeaderCopy={`2023 Season`}  
+          HeaderCopy={`2024 Season`}  
           SubCopy={`Sydney Junior Winter Cricket Association`} 
           BGIMG={`/images/BGIMG/RegoBG.jpg`}
         />

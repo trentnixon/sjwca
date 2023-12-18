@@ -36,7 +36,7 @@ export default function TemporaryDrawer() {
   const router = useRouter();
   const Nav = [
     {
-      label:'Winter Cricket in 2023',
+      label:'Winter Cricket in 2024',
       url:'/',
       Icon:<SportsCricketIcon />
     },/* {
@@ -48,8 +48,8 @@ export default function TemporaryDrawer() {
       url:'/ThunderRoster',
       Icon:<SportsCricketIcon />
     }, */{
-      label:'About the 2023 Season',
-      url:'/2023season',
+      label:'About the 2024 Season',
+      url:'/2024season',
       Icon:<AcUnitIcon />
     },{
       label:'Register a Team',

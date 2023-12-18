@@ -15,7 +15,7 @@ const about = ({about})=>{
             <div className={StructureStyles.Outer}>
                 <PageHeaderSmall 
                   HeaderCopy={`How to Register`}  
-                  SubCopy={`2023 Season`} 
+                  SubCopy={`2024 Season`} 
                   BGIMG={`/images/BGIMG/RegoBG.jpg`} 
                 />
 
