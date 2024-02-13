@@ -1,4 +1,4 @@
-import { API } from "../../../config/index"
+import { API } from "../../config/index"
 
 //import MarkdownContainer from '../components/Structure/MarkdownContainer'
 
@@ -6,10 +6,10 @@ import fetch from 'node-fetch';
 import { GoogleMap, Marker } from '@react-google-maps/api';
 
 import StructureStyles from "../../../styles/Structure/Structure.module.css";
-import PageHeaderSmall from "../../../components/Structure/PageHeaderSmall"
-import ContentContainer from "../../../components/Structure/ContentContainer"
-import FullWidthContainer from "../../../components/Structure/FullWidthContainer"
-import { H2 } from "../../../components/type";
+import PageHeaderSmall from "../../components/Structure/PageHeaderSmall"
+import ContentContainer from "../../components/Structure/ContentContainer"
+import FullWidthContainer from "../../components/Structure/FullWidthContainer"
+import { H2 } from "../../components/type";
 import { useState } from "react";
 
 

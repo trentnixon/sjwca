@@ -1,52 +1,131 @@
-import { API } from "../config/index"
-import MarkdownContainer from '../components/Structure/MarkdownContainer'
+import { API } from "../config/index";
+import MarkdownContainer from "../components/Structure/MarkdownContainer";
 import StructureStyles from "../styles/Structure/Structure.module.css";
 // Components
-import PageHeaderSmall from "../components/Structure/PageHeaderSmall"
-import ContentContainer from "../components/Structure/ContentContainer"
-import SupportingSideNav from "../components/Structure/SupportingSideNav"
-import FormElementGroup from "../components/FormElements/FormElementGroup"
+import PageHeaderSmall from "../components/Structure/PageHeaderSmall";
+import ContentContainer from "../components/Structure/ContentContainer";
+import SupportingSideNav from "../components/Structure/SupportingSideNav";
+import FormElementGroup from "../components/FormElements/FormElementGroup";
 
-import { H1, H2,H3,H4 } from "../components/type";
-const about = ({faqs})=>{
-    //console.log(faqs)
-        return(
-            <div className={StructureStyles.Outer}>
-                <PageHeaderSmall 
-                  HeaderCopy={`FAQs`}  
-                  SubCopy={`Sydney Junior Winter Cricket Association`} 
-                  BGIMG={`/images/BGIMG/RegoBG.jpg`}
-                />
+import { H1, H2, H3, H4 } from "../components/type";
+const about = () => {
 
-                    <ContentContainer> 
-                        <div className={`${StructureStyles.Width70}`} >
-                          <H1>FAQs</H1>
-                            {
-                                faqs.map((q,i)=>{
-                                    return(
-                                        <div key={i}>
-                                            <H4>{q.Question}</H4>
-                                            <FormElementGroup>
-                                            <MarkdownContainer>{q.Answer}</MarkdownContainer> 
-                                            </FormElementGroup>
-                                        </div>
-                                    )
-                                })
-                            }
-                          { <MarkdownContainer>{about.Description}</MarkdownContainer> }
-                        </div>
-                        <div className={`${StructureStyles.Width30}`} >
-                            <SupportingSideNav />
-                        </div>
-                      </ContentContainer> 
+  return (
+    <div className={StructureStyles.Outer}>
+      <PageHeaderSmall
+        HeaderCopy={`FAQs`}
+        SubCopy={`Sydney Junior Winter Cricket Association`}
+        BGIMG={`/images/BGIMG/RegoBG.jpg`}
+      />
+
+      <ContentContainer>
+        <div className={`${StructureStyles.Width70}`}>
+          <H1>FAQs</H1>
+          {FAQS.map((q, i) => {
+            return (
+              <div key={i}>
+                <H4>{q.Question}</H4>
+                <FormElementGroup>
+                  <MarkdownContainer>{q.Answer}</MarkdownContainer>
+                </FormElementGroup>
               </div>
-                  
-        ) 
-}
-export default about
+            );
+          })}
+          {<MarkdownContainer>{about.Description}</MarkdownContainer>}
+        </div>
+        <div className={`${StructureStyles.Width30}`}>
+          <SupportingSideNav />
+        </div>
+      </ContentContainer>
+    </div>
+  );
+};
+export default about;
 
-export const getStaticProps = async (context) => {
-    const faqsRes = await fetch(`${API}faqs`)
-    const faqs = await faqsRes.json()
-  return {  props: {faqs} }
-}
+
+const FAQS = [
+  {
+    Question: "What Are The 2024 Season Dates?",
+    Answer:
+      "The season will commence on Sunday 30th April 2024 and run for 8-9 weeks up to and including Sunday 18th/25th June 2024.",
+  },
+  {
+    Question: "Do You Need To Be Experienced?",
+    Answer: "No. We cater for all playing standards",
+  },
+  {
+    Question: "Do We Need Our Own Playing Equipment?",
+    Answer:
+      "Yes. You will need your personal equipment, including; bat, pads, gloves, helmet and a box.\nThere may be the opportunity to borrow gear but you will need to check with your nominated team manager.\n",
+  },
+  {
+    Question: "What Equipment Is Supplied By The SWJCA?",
+    Answer:
+      "In season 2024 we’ll be supplying every team with 1 set of stumps, bails, markers, match balls and a kit bag. The team kit is included in registration costs and does not need to be returned at the end of the season!!",
+  },
+  {
+    Question: "What Do We Wear?",
+    Answer:
+      "You can wear your normal cricket whites or club t-shirt and white pants. If you are in a team that wants to develop its own playing attire/uniform the design, colour etc that is fine also.",
+  },
+  {
+    Question: "Where Are Games Played?",
+    Answer:
+      "We're currently confirming grounds with councils but to give you an idea, in 2022 matches were played in the following LGA's:\n- Blacktown\n- Campbelltown\n- Canada Bay\n- Canterbury-Bankstown\n- Centennial Parkland and Moore Park Trust\n- Cumberland\n- Ku-ring-gai\n- Liverpool\n- North Sydney\n- Northern Beaches\n- Penrith\n",
+  },
+  {
+    Question: "Are Umpires Supplied For Each Game?",
+    Answer: "No. Team Managers/Coaches will officiate the matches.",
+  },
+  {
+    Question: "Can My Child Play Up An Age Group?",
+    Answer:
+      "Yes. You will need to register your child in the age group based on their DOB. Once registered please forward the registration confirmation with the request to move age groups",
+  },
+  {
+    Question: "Is The 2021 Presentation Night Still Going Ahead?",
+    Answer:
+      "No, unfortunately once again, Covid has impacted on our ability to host the many players for an official function. We will have the trophies and medals available for the winning teams and individual players at the kit collection evenings in April 2022.",
+  },
+  {
+    Question: "What Is The Cost?",
+    Answer: "Individual registration costs $100.",
+  },
+  {
+    Question: "Do You Accept Active Kids Vouchers?",
+    Answer: "Yes!",
+  },
+  {
+    Question: "Is There Training?",
+    Answer:
+      "No there is no training, so winter cricket doesn’t affect your normal winter sport training commitments.\nIf a team elects to train that is up the the manager/parents",
+  },
+  {
+    Question: "What Are The Age Group Cut Offs?",
+    Answer:
+      "Based on feedback received, we have changed the age group dates. In past seasons, age groups were the same as the previous Summer. The updated age group cut off dates are as follows:\n- Under 16 Grade less than 16 years as at midnight 31st August 2022\n- Under 14 Grade less than 14 years as at midnight 31st August 2022\n- Under 12 Grade less than 12 years as at midnight 31st August 2022\n- Under 10 Grade less than 10 years as at midnight 31st August 2022\n",
+  },
+  {
+    Question: "Will Age Groups Be Graded?",
+    Answer: "Yes. We have multiple grades.",
+  },
+  {
+    Question: "How Many Players Does Each Team Need?",
+    Answer:
+      "- U10’s can have up to 9 players participate per game. There can only be 7 players on the field at the same time.\n- U12’s can have up to 11 players participate per game. There can only be 9 players on the field at the same time.\n- U14’s and U16’s can have up to 11 players participate per game.\n",
+  },
+  {
+    Question: "Who Do I Contact If I Have Further Questions?",
+    Answer: "Please email sjwca@sydneyjuniorwintercricket.org.au",
+  },
+  {
+    Question: "What Time Are Matches Played?",
+    Answer:
+      "Matches are played morning, lunchtime and afternoons on Sundays. Times vary week to week.",
+  },
+  {
+    Question: "I Still Have My Kit From Last Season, How Do I Return It?",
+    Answer:
+      "Kits can be returned in April 2022 at our kit collection evenings.",
+  },
+];

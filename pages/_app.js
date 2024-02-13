@@ -1,7 +1,7 @@
 import { Provider } from 'react-redux'
 import {useHost} from '../actions/useHost'
 import Layout from '../components/Layout'
-import { LoadScript } from '@react-google-maps/api';
+//import { LoadScript } from '@react-google-maps/api';
 import '../styles/global.css'
 
 import configureStore from "../store/index"
@@ -9,7 +9,7 @@ import { useRouter } from 'next/router';
 import { useEffect } from "react";
 const store = configureStore()
 
-let APIKEY = process.env.NEXT_PUBLIC_REACT_APP_GOOGLEAPI;
+//let APIKEY = process.env.NEXT_PUBLIC_REACT_APP_GOOGLEAPI;
 
 export default function MyApp({ Component, pageProps }) {
   const [host,FindHost] = useHost()
@@ -29,11 +29,9 @@ export default function MyApp({ Component, pageProps }) {
 
   return (
     <Provider store={store}>
-       <LoadScript googleMapsApiKey={APIKEY}>
-        <Layout> 
+       <Layout> 
           <Component {...pageProps} />
         </Layout> 
-      </LoadScript> 
     </Provider>
   ) 
 }

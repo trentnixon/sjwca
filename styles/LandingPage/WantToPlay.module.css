@@ -12,12 +12,12 @@
 }
 .WantToPlay div{ z-index: 100;}
 .WantToPlay h2{
-    text-align: left;
+    text-align: right;
     text-transform: uppercase;
     font-size: 4rem !important;
     line-height: 4rem !important;
     color: var(--Landing-Color-Dark);
-    margin: 0 !important;
+    margin: 0 1em 0 4em !important;
 }
 .WantToPlay h1{
     text-align: left;

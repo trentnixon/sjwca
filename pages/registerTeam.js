@@ -1,41 +1,22 @@
-import { API } from "../config/index";
-
 import * as React from "react";
-/* import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper"; 
-import { Button } from "@mui/material";*/
 
-import { Table, Button } from "@mantine/core";
-import { IconUsers } from '@tabler/icons';
+import { SimpleGrid, Divider } from "@mantine/core";
+
 import StructureStyles from "../styles/Structure/Structure.module.css";
 import RegistrationRequirements from "../styles/registrationPage/RegistrationRequirements.module.css";
 import MarkdownContainer from "../components/Structure/MarkdownContainer";
 import PageHeaderSmall from "../components/Structure/PageHeaderSmall";
 import SupportersIcons from "../components/Structure/SupportersIcons";
 // Compoennts
-import ManagerSignupForm from "../components/ManagerSeasonSignup/ManagerSignupForm";
 import ContentContainer from "../components/Structure/ContentContainer";
 import SupportingSideNav from "../components/Structure/SupportingSideNav";
-import { useState } from "react";
-import { H1, H2, H3, P } from "../components/type";
+
+import { H1, H2, H4, P } from "../components/type";
 import Link from "next/link";
-
-
-const RegisterTeam = ({
-  switchboard,
-  registerteam,
-  RegistrationInsructions,
-  RegionToAge,
-}) => {
-  //const RegisterTeamsOpen = switchboard.isRegisterTeamsOpen;
-  const RegisterTeamsOpen = true;
-  const [CurrentSeasonID, setCurrentSeasonID] = useState(switchboard.season.id);
-  //console.log(RegisterTeamsOpen)
+import { Conferences } from "../data/confrences";
+import { CTABTN } from "../components/buttons";
+const RegisterTeam = () => {
+  console.log(Conferences);
   return (
     <div>
       <PageHeaderSmall
@@ -44,15 +25,51 @@ const RegisterTeam = ({
         BGIMG={`/images/BGIMG/RegoBG.jpg`}
       />
       <ContentContainer>
-        <div className={StructureStyles.Width70}>
-          {/* {
-                                        RegisterTeamsOpen ?
-                                                <ManagerSignupForm CurrentSeasonID={CurrentSeasonID } registerteamCopy={registerteam}/> :
-                                                <RegisterTeamsClosed RegistrationInsructions={RegistrationInsructions}/>
-                                } */}
-          <RegisterFormCopy registerteamCopy={registerteam} />
+        <div class="Structure_Width70__1DM3-">
+          <h1 class="">Register a Team</h1>
+          <div class="undefined Markdown_ReactMarkdown__nlrzp">
+            <P>
+              Gear up for the start of the SJWCA season on April 30, 2024!
+              Following an unprecedented surge in participation last year, we're
+              thrilled to build on that momentum by welcoming even more teams
+              across various age groups throughout the city.
+            </P>
+            <P>
+              With last season reaching full capacity earlier than expected, we
+              urge teams to register without delay. Secure your team's place
+              early and ensure you're part of the action for our most exciting
+              season yet!
+            </P>
 
-          <BasicTable RegionToAge={RegionToAge} />
+            <P>
+              Make sure to register your team as soon as possible to secure your
+              spot in the competition. We look forward to seeing you on the
+              field in 2024!
+            </P>
+            <P style={{ textAlign: "center" }}>
+              <em>
+                The Team application process is for Team managers to complete
+                only.
+              </em>
+            </P>
+            <P style={{ textAlign: "center" }}>
+              <em>
+                For parents registering their son or daughter for the season,
+                please refer to the player registration options
+              </em>
+            </P>
+          </div>
+          <H2>How to Register</H2>
+          <H2>{Conferences.Thunder.Conference}</H2>
+          <P>{Conferences.Thunder.About}</P>
+          <Divider my={20} />
+          <ListTeamRegistrationLinks conference={Conferences.Thunder} />
+          <Divider my={20} />
+          <H2>{Conferences.Sixers.Conference}</H2>
+          <P>{Conferences.Sixers.About}</P>
+          <Divider my={20} />
+          <ListTeamRegistrationLinks conference={Conferences.Sixers} />
+          <Divider my={20} />
         </div>
 
         <div className={`${StructureStyles.Width30}`}>
@@ -65,108 +82,43 @@ const RegisterTeam = ({
 };
 
 export default RegisterTeam;
-const RegisterFormCopy = ({ registerteamCopy }) => {
+
+const ListTeamRegistrationLinks = ({ conference }) => {
+  console.log(conference.color);
   return (
-    <div className={`${StructureStyles.Width70}`}>
-      <H1>{registerteamCopy.Title}</H1>
-      <MarkdownContainer>{registerteamCopy.Description}</MarkdownContainer>
+    <div>
+      {conference.regions.map((link, i) => {
+        return (
+          <SimpleGrid
+            px="lg"
+            my={10}
+            breakpoints={[
+              { minWidth: "sm", cols: 1 },
+              { minWidth: "md", cols: 2 },
+            ]}
+          >
+            <H4
+              style={{
+                margin: "0px",
+                fontWeight: 400,
+                lineHeight: "1.2em",
+                fontSize: "1.1em",
+              }}
+            >
+              {link.Name}
+            </H4>
+
+            <CTABTN
+              CTA={link.CTA.TeamRegistration}
+              item={0}
+              color={conference.color}
+            />
+          </SimpleGrid>
+        );
+      })}
     </div>
   );
 };
-
-function BasicTable({ RegionToAge }) {
-  console.log(RegionToAge);
-  function groupByIdentifier(array) {
-    const grouped = {};
-    array.forEach((item) => {
-      const identifier = item?.region?.Name;
-      if (!grouped[identifier]) {
-        grouped[identifier] = [];
-      }
-      grouped[identifier].push(item);
-    });
-  
-    Object.keys(grouped).forEach((key) => {
-      grouped[key].sort((a, b) => a.age_group.Name.localeCompare(b.age_group.Name));
-    });
-  
-    const sorted = {};
-    Object.keys(grouped)
-      .sort((a, b) => grouped[a][0].age_group.Name.localeCompare(grouped[b][0].age_group.Name))
-      .forEach((key) => {
-        sorted[key] = grouped[key];
-      });
-  
-    return sorted;
-  }
-
-  const grouped = groupByIdentifier(RegionToAge);
-  console.log(grouped);
-  return (
-    <>
-      {Object.keys(groupByIdentifier(RegionToAge)).map((key, i) => {
-        return (
-          <>
-            <H3>{key}</H3>
-            <Table verticalSpacing="sm" >
-              <thead> 
-                <tr>
-                  <th>League</th>
-                  <th>Age</th>
-                  <th>Division</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                {groupByIdentifier(RegionToAge)[key].map((row, i) => {
-                  if (row.PlayHQTeamRegoLink)
-                    return (
-                      <tr key={i}>
-                        <td>{row?.region?.Name}</td>
-                        <td>{row?.age_group.Name}</td>
-                        <td> {row?.division.Name}</td>
-                        <td>
-                          <Button
-                            variant="outline"
-                            color="orange"
-                            uppercase
-                            href={row.PlayHQTeamRegoLink}
-                            component="a"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            rightIcon={<IconUsers size={14} />}
-                            styles={(theme) => ({
-                              root: {
-                                paddingLeft: 20,
-                                paddingRight: 20,
-
-                                "&:hover": {
-                                  backgroundColor:'#fd7e14',
-                                  color:'white'
-                                },
-                              },
-
-                              leftIcon: {
-                                marginRight: 15,
-                              },
-                            })}
-                          >
-                            Register
-                          </Button>
-                        </td>
-                      </tr>
-                    );
-                })}
-              </tbody>
-            </Table>
-          </>
-        );
-      })}
-
-     
-    </>
-  );
-}
 
 const RegisterTeamsClosed = ({ RegistrationInsructions }) => {
   //console.log(RegistrationInsructions)
@@ -207,29 +159,3 @@ const RegisterTeamsClosed = ({ RegistrationInsructions }) => {
     </div>
   );
 };
-
-/* export const getStaticProps = async (context) => {
-  const registerteamRes = await fetch(`${API}register-team-landing`);
-  const switchboardRes = await fetch(`${API}switchboard`);
-  const resRego = await fetch(`${API}registration-insructions`);
-  const RegistrationInsructions = await resRego.json();
-  const registerteam = await registerteamRes.json();
-  const switchboard = await switchboardRes.json();
-  return { props: { switchboard, registerteam, RegistrationInsructions } };
-}; */
-
-export async function getServerSideProps(context) {
-  const registerteamRes = await fetch(`${API}register-team-landing`);
-  const switchboardRes = await fetch(`${API}switchboard`);
-  const resRego = await fetch(`${API}registration-insructions`);
-  const RegionToAgeRes = await fetch(`${API}region-to-agegroups`);
-  const RegistrationInsructions = await resRego.json();
-  const registerteam = await registerteamRes.json();
-  const switchboard = await switchboardRes.json();
-
-  const RegionToAge = await RegionToAgeRes.json();
-
-  return {
-    props: { switchboard, registerteam, RegistrationInsructions, RegionToAge },
-  };
-}

@@ -2,17 +2,14 @@ import { useEffect } from "react";
 
 import WantToPlaystyles from "../../styles/LandingPage/WantToPlay.module.css";
 import Spliter from "./SplitterBottom";
-import { H1, H2, SPAN } from "../type";
+import { H2, SPAN } from "../type";
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { color } from "@mui/system";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Section1 = (props) => {
-  const { registrationPage } = props;
-
+const Section1 = () => {
   const GSAP = () => {
     gsap
       .timeline({
@@ -22,8 +19,6 @@ const Section1 = (props) => {
           start: "top center",
           end: "bottom bottom",
           scrub: 1,
-          //pin: true,
-          //markers:true
         },
       })
       .fromTo(
@@ -53,15 +48,17 @@ const Section1 = (props) => {
 
   useEffect(() => {
     GSAP();
-  }, [registrationPage]);
+  }, []);
 
   return (
     <section className={` ${WantToPlaystyles.WantToPlay}`} id="WantToPlay">
       <Questionmark />
       <div className={` ${WantToPlaystyles.Copy}`} id="Copy">
         <H2>
-          {registrationPage.ReasonsToPlay[0].Reason}{' '}
-          <SPAN style={{color:'#1b81cb', fontWeight:'bold'}}>{registrationPage.ReasonsToPlay[1].Reason}</SPAN>
+          does your son or daughter want to
+          <SPAN style={{ color: "#1b81cb", fontWeight: "bold" }}>
+            play cricket during the winter months?
+          </SPAN>
         </H2>
       </div>
       <div className={`IMG ${WantToPlaystyles.IMG}`}>
@@ -73,7 +70,7 @@ const Section1 = (props) => {
       <Spliter color="#4D4D4D" />
     </section>
   );
-};
+}; 
 
 export default Section1;
 

@@ -7,6 +7,7 @@ import { Button as MantineButton } from "@mantine/core";
 import EditLocationAltIcon from "@mui/icons-material/EditLocationAlt";
 import SportsCricketIcon from "@mui/icons-material/SportsCricket";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
+import { IconUsers } from "@tabler/icons-react";
 
 export const ClearButton = () => {
   return <Button variant="contained">Clear Button</Button>;
@@ -148,5 +149,48 @@ export const ViewSelectedTeamBtn = ({ href, Name, Conference }) => {
         <a>Roster</a>
       </Link>
     </Button>
+  );
+};
+
+
+export const CTABTN = ({ CTA, item, color }) => {
+  console.log(CTA, item, color)
+  // Determine if the item is 0 or 1 and set the variant accordingly
+  const variant = item === 0 ? "outline" : "filled";
+  const hoverBackgroundColor = item === 0 ? color : "#f1f7ff";
+  const hoverColor = item === 0 ? "#f1f7ff" : color;
+
+  // Conditionally set the color and borderColor based on the item
+  const buttonColor = variant === "outline" ? color : "#f1f7ff";
+  const borderColor = variant === "outline" ? color : "transparent";
+
+  return (
+    <MantineButton
+      variant={variant}
+      uppercase
+      href={CTA.Href}
+      component="a"
+      target="_blank"
+      rel="noopener noreferrer"
+      rightIcon={<IconUsers size={14} />}
+      styles={(theme) => ({
+        root: {
+          paddingLeft: 20,
+          paddingRight: 20,
+          backgroundColor: variant === "filled" ? color : "#f1f7ff",
+          color: buttonColor,
+          borderColor: borderColor,
+          "&:hover": {
+            backgroundColor: hoverBackgroundColor,
+            color: hoverColor,
+          },
+        },
+        leftIcon: {
+          marginRight: 15,
+        },
+      })}
+    >
+      {CTA.Name}
+    </MantineButton>
   );
 };

@@ -1,21 +1,20 @@
 import { useRouter } from "next/router";
 import { API } from "../../../config/index";
 import fetch from "node-fetch";
-
 import StructureStyles from "../../../styles/Structure/Structure.module.css";
 import PageHeaderSmall from "../../../components/Structure/PageHeaderSmall";
 import ContentContainer from "../../../components/Structure/ContentContainer";
 import DataLoadingPlaceHolder from "../../../components/Structure/DataLoadingPlaceHolder";
 // Form
 import TeamRegistrationForm from "../../../components/RegisterATeam/TeamRegistrationForm";
-
 import { useEffect, useState } from "react";
-import { H2 } from "../../../components/type";
 
 const TeamRegistration = ({ Team, RegistrationInsructions, switchboard }) => {
   // In your component body
   const router = useRouter();
-  const [CurrentSeasonID, setCurrentSeasonID] = useState(switchboard.season?.id);
+  const [CurrentSeasonID, setCurrentSeasonID] = useState(
+    switchboard.season?.id
+  );
 
   const [SelectedTeam, setSelectedTeam] = useState(Team);
   // call this method whenever you want to refresh server-side props
