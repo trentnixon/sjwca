@@ -5,7 +5,7 @@ import { server, API } from "../config/index";
 git add .
 git commit --allow-empty -am "Push New Version"
 git push heroku HEAD:main
-
+ 
 //--allow-empty
 */
 import ComingSoonPage from "./ComingSoonPage";
