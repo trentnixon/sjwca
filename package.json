@@ -9,7 +9,6 @@
     "heroku-postbuild": "npm run build"
   },
   "dependencies": {
-    "@date-io/dayjs": "^2.11.0",
     "@emotion/react": "^11.10.5",
     "@emotion/server": "^11.10.0",
     "@emotion/styled": "^11.3.0",
