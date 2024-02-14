@@ -29,7 +29,7 @@ const RegisterTeam = () => {
           <h1 class="">Register a Team</h1>
           <div class="undefined Markdown_ReactMarkdown__nlrzp">
             <P>
-              Gear up for the start of the SJWCA season on April 30, 2024!
+              Gear up for the start of the SJWCA season on 5th May 2024!
               Following an unprecedented surge in participation last year, we're
               thrilled to build on that momentum by welcoming even more teams
               across various age groups throughout the city.

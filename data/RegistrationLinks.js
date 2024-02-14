@@ -10,11 +10,11 @@ export const Links = {
       Blurb: "",
       Href: "https://www.playhq.com/cricket-australia/register/2f5529",
     },
-    NorthernSuburbs: {
+   /*  NorthernSuburbs: {
       Name: "Register your Team",
       Blurb: "",
       Href: "https://www.playhq.com/cricket-australia/register/2f5529",
-    },
+    }, */
     SouthWestSydney: {
       Name: "Register your Team",
       Blurb: "",
@@ -30,6 +30,12 @@ export const Links = {
       Blurb: "",
       Href: "https://www.playhq.com/cricket-australia/register/f69e3e",
     },
+    CentralCoast: {
+      Name: "Register your Team",
+      Blurb: "",
+      Href: "https://www.playhq.com/cricket-australia/register/a65b3e",
+    },
+    
   },
   EOF: {
     Name: "Register a Player",

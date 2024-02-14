@@ -46,14 +46,14 @@ const NewSeason = () => {
             </p>
             <h2>SEASON DATES</h2>
             <p>
-              The season will commence on Sunday 30th April 2024 and run for 8
+              The season will commence on Sunday 5th May 2024 and run for 8
               weeks, finishing on Sunday 18th June. We have one reserve weekend,
               Sunday 25th June.
             </p>
             <h2>SEASON FEES</h2>
             <p>
               This season's Subscription fees will once again be paid via our
-              partners at PlayHQ. This year's fee remains at $100 per player. As
+              partners at PlayHQ. This year's fee remains at $110 per player. As
               part of the PlayHQ changes, Cricket Australia will charge all
               junior players a one off annual charge named the "National
               Registration Fee". This $16 fee may also be payable during the
@@ -84,7 +84,7 @@ const NewSeason = () => {
                 2023
               </li>
             </ul>
-            <h2>THE TWO CONFERENCE SYSTEM</h2>
+          {/*   <h2>THE TWO CONFERENCE SYSTEM</h2>
             <p>
               This season we will be continuing to split the competition into
               the Sixers and Thunder Conferences. After the successful
@@ -100,7 +100,7 @@ const NewSeason = () => {
               register and find a team to play with, we give priority to full
               team registrations so try to find a team to register with if you
               can!
-            </p>
+            </p> */}
           </div>
 
           <Space h={30} />

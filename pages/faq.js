@@ -47,7 +47,7 @@ const FAQS = [
   {
     Question: "What Are The 2024 Season Dates?",
     Answer:
-      "The season will commence on Sunday 30th April 2024 and run for 8-9 weeks up to and including Sunday 18th/25th June 2024.",
+      "The season will commence on Sunday 5th May 2024 and run for 8-9 weeks up to and including Sunday 18th/25th June 2024.",
   },
   {
     Question: "Do You Need To Be Experienced?",
@@ -83,13 +83,8 @@ const FAQS = [
       "Yes. You will need to register your child in the age group based on their DOB. Once registered please forward the registration confirmation with the request to move age groups",
   },
   {
-    Question: "Is The 2021 Presentation Night Still Going Ahead?",
-    Answer:
-      "No, unfortunately once again, Covid has impacted on our ability to host the many players for an official function. We will have the trophies and medals available for the winning teams and individual players at the kit collection evenings in April 2022.",
-  },
-  {
     Question: "What Is The Cost?",
-    Answer: "Individual registration costs $100.",
+    Answer: "Individual registration costs $110.",
   },
   {
     Question: "Do You Accept Active Kids Vouchers?",
@@ -122,10 +117,5 @@ const FAQS = [
     Question: "What Time Are Matches Played?",
     Answer:
       "Matches are played morning, lunchtime and afternoons on Sundays. Times vary week to week.",
-  },
-  {
-    Question: "I Still Have My Kit From Last Season, How Do I Return It?",
-    Answer:
-      "Kits can be returned in April 2022 at our kit collection evenings.",
-  },
+  }
 ];

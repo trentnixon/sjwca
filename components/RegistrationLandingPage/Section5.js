@@ -24,7 +24,7 @@ const RegisterNow = () => {
         <RegisterATeamButton />
       </Group>
 
-      <H2>STARTING IN APRIL 2024</H2>
+      <H2>STARTING IN MAY 2024</H2>
     </div>
   );
 };

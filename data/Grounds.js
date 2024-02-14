@@ -143,4 +143,23 @@ export const Grounds = {
     Lat: "-33.72710861101054",
     Long: "151.1307698260621",
   },
+  ForsythPark: {
+    Name: "Forsyth Park",
+    Address: "Forsyth Park, Neutral Bay",
+    Lat: "-33.833350517451976",
+    Long: "151.21500241534164",
+  },
+  PassmoreRes: {
+    Name: "Passmore Res",
+    Address: "Passmore Res, Manly",
+    Lat: "-33.78001260145705",
+    Long: "151.27137640370645",
+  },
+
+  TBC: {
+    Name: "Grounds yet to be Confirmed",
+    Address: "TBC",
+    Lat: "",
+    Long: "",
+  },
 };
