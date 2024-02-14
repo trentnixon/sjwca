@@ -76,9 +76,8 @@ export const Regions = {
       sporting community where athleticism and teamwork take center stage.`,
     Grounds: [
       Grounds.BlinmanOval,
-      Grounds.HammondvilleOval,
-
       Grounds.PaciulloPark,
+      Grounds.VictoriaParkMinto
     ],
     AgeGroups: [AgeGroups.U10, AgeGroups.U12, AgeGroups.U14, AgeGroups.U16],
   },

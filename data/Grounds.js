@@ -155,6 +155,14 @@ export const Grounds = {
     Lat: "-33.78001260145705",
     Long: "151.27137640370645",
   },
+  VictoriaParkMinto: {
+    Name: "Victoria Park",
+    Address: "Victoria Park, Minto",
+    Lat: "-34.01818122659014",
+    Long: "150.8486493527943",
+  },
+
+   
 
   TBC: {
     Name: "Grounds yet to be Confirmed",
