@@ -9,7 +9,6 @@ import FormElementGroup from "../components/FormElements/FormElementGroup";
 
 import { H1, H2, H3, H4 } from "../components/type";
 const about = () => {
-
   return (
     <div className={StructureStyles.Outer}>
       <PageHeaderSmall
@@ -42,7 +41,6 @@ const about = () => {
 };
 export default about;
 
-
 const FAQS = [
   {
     Question: "What Are The 2024 Season Dates?",
@@ -71,7 +69,7 @@ const FAQS = [
   {
     Question: "Where Are Games Played?",
     Answer:
-      "We're currently confirming grounds with councils but to give you an idea, in 2022 matches were played in the following LGA's:\n- Blacktown\n- Campbelltown\n- Canada Bay\n- Canterbury-Bankstown\n- Centennial Parkland and Moore Park Trust\n- Cumberland\n- Ku-ring-gai\n- Liverpool\n- North Sydney\n- Northern Beaches\n- Penrith\n",
+      "We're currently confirming grounds with councils but to give you an idea, in 2023 matches were played in the following LGA's:\n- Blacktown\n- Campbelltown\n- Canada Bay\n- Canterbury-Bankstown\n- Centennial Parkland and Moore Park Trust\n- Cumberland\n- Ku-ring-gai\n- Liverpool\n- North Sydney\n- Northern Beaches\n- Penrith\n",
   },
   {
     Question: "Are Umpires Supplied For Each Game?",
@@ -98,7 +96,7 @@ const FAQS = [
   {
     Question: "What Are The Age Group Cut Offs?",
     Answer:
-      "Based on feedback received, we have changed the age group dates. In past seasons, age groups were the same as the previous Summer. The updated age group cut off dates are as follows:\n- Under 16 Grade less than 16 years as at midnight 31st August 2022\n- Under 14 Grade less than 14 years as at midnight 31st August 2022\n- Under 12 Grade less than 12 years as at midnight 31st August 2022\n- Under 10 Grade less than 10 years as at midnight 31st August 2022\n",
+      "Based on feedback received, we have changed the age group dates. In past seasons, age groups were the same as the previous Summer. The updated age group cut off dates are as follows:\n- Under 16 Grade less than 16 years as at midnight 31st August 2023\n- Under 14 Grade less than 14 years as at midnight 31st August 2023\n- Under 12 Grade less than 12 years as at midnight 31st August 2023\n- Under 10 Grade less than 10 years as at midnight 31st August 2023\n",
   },
   {
     Question: "Will Age Groups Be Graded?",
@@ -117,5 +115,5 @@ const FAQS = [
     Question: "What Time Are Matches Played?",
     Answer:
       "Matches are played morning, lunchtime and afternoons on Sundays. Times vary week to week.",
-  }
+  },
 ];
