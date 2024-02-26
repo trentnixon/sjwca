@@ -8,12 +8,12 @@ import Section5 from "./Section5";
 const RegistrationLandingPage = (props) => {
   return (
     <>
-      <RegistrationHeader {...props} />
-     {/*  <Section1 />
+      {/* <RegistrationHeader {...props} /> */}
+      <Section1 />
       <Section2 />
       <Section3 />
       <Section4 />
-      <Section5 /> */}
+      <Section5 />
     </>
   );
 };
