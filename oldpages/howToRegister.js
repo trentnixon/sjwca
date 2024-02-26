@@ -8,7 +8,7 @@ import SupportingSideNav from "../components/Structure/SupportingSideNav";
 import SupportersIcons from "../components/Structure/SupportersIcons";
 
 import { H1 } from "../components/type";
-const about = ({ about }) => {
+const about = () => {
   return (
     <div className={StructureStyles.Outer}>
       <PageHeaderSmall
@@ -18,8 +18,8 @@ const about = ({ about }) => {
       />
       <ContentContainer>
         <div className={`${StructureStyles.Width70}`}>
-          <H1>{about.Name}</H1>
-          {<MarkdownContainer>{about.Description}</MarkdownContainer>}
+         {/*  <H1>{about.Name}</H1>
+          {<MarkdownContainer>{about.Description}</MarkdownContainer>} */}
         </div>
         <div className={`${StructureStyles.Width30}`}>
           <SupportingSideNav />
@@ -32,8 +32,9 @@ const about = ({ about }) => {
 
 export default about;
 
-export const getStaticProps = async (context) => {
+/* export const getStaticProps = async (context) => {
   const aboutRes = await fetch(`${API}my-cricket-registration`);
   const about = await aboutRes.json();
   return { props: { about } };
 };
+ */

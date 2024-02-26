@@ -6,8 +6,8 @@ import Spliter from "./SplitterBottom";
 import { RegisterATeamButton, RegisterIndividualButton } from "./RegisterBtn";
 import { Group } from "@mantine/core";
 
-const RegistrationHeader = (props) => {
-  const { tagline, registrationPage, logoLarge } = props;
+const RegistrationHeader = () => {
+  //const { tagline, registrationPage, logoLarge } = props;
 
   return (
     <section className={Registrationstyles.RegistrationHeader}>
@@ -17,7 +17,7 @@ const RegistrationHeader = (props) => {
             Sydney
           </H2>
 
-          <img src={logoLarge.image.url} className={Registrationstyles.Logo} />
+          <img src={"/images/SJ_Large_new.png"} className={Registrationstyles.Logo} />
           <H2 style={{ fontWeight: 800, textTransform: "uppercase" }}>
             20th Season
           </H2>

@@ -1,27 +1,27 @@
 import StructureStyles from "../styles/Structure/Structure.module.css";
-import { useHost } from "../actions/useHost";
+/* import { useHost } from "../actions/useHost"; */
 import ContentContainer from "../components/Structure/ContentContainer";
 import Nav from "../components/Nav";
 import Meta from "./Meta";
 import GlobalFooter from "./Structure/GlobalFooter";
-import useSWR from "swr";
-import { server } from "../config/index";
+/* import useSWR from "swr";
+import { server } from "../config/index"; */
 import LoadingAnimation from "./Structure/PageLoader";
 import { H2 } from "./type";
 
 const SJWCA_Layout = ({ children }) => {
   const IsOpen = true;
 
-  const fetcher = (url) => fetch(url).then((res) => res.json());
+ // const fetcher = (url) => fetch(url).then((res) => res.json());
 
-  const { data, error } = useSWR(`${server}api/logosmall`, fetcher);
+  //const { data, error } = useSWR(`${server}api/logosmall`, fetcher);
 
-  if (error) return <div className="Container">Failed to load</div>;
-  if (!data) return <LoadingPage />;
+/*   if (error) return <div className="Container">Failed to load</div>;
+  if (!data) return <LoadingPage />; */
   return (
     <>
       <Meta />
-      {IsOpen ? <Nav data={data} /> : false}
+      {IsOpen ? <Nav  /> : false}
 
       <div className="Container">
         <main>{children}</main>

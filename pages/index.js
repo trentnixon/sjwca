@@ -16,15 +16,15 @@ export default function Home(props) {
   return (
     <div>
       {!isSiteLive ? (
-        <RegistrationLandingPage {...props} />
+        <RegistrationLandingPage />
       ) : (
-        <ComingSoonPage {...props} />
+        <ComingSoonPage  />
       )}
     </div>
   );
 }
 
-export const getStaticProps = async (context) => {
+/* export const getStaticProps = async (context) => {
   //const registrationPageRes = await fetch(`${server}api/registrationPage`)
   const registrationPageRes = await fetch(`${API}registration-page`);
   const registrationPage = await registrationPageRes.json();
@@ -42,4 +42,4 @@ export const getStaticProps = async (context) => {
   return {
     props: { tagline, registrationPage, logoLarge, switchboard },
   };
-};
+}; */
