@@ -47,8 +47,8 @@ const NewSeason = () => {
             <h2>SEASON DATES</h2>
             <p>
               The season will commence on Sunday 5th May 2024 and run for 8
-              weeks, finishing on Sunday 18th June. We have one reserve weekend,
-              Sunday 25th June.
+              weeks, finishing on Sunday 23rd June. We have one reserve weekend,
+              Sunday 30th June.
             </p>
             <h2>SEASON FEES</h2>
             <p>
@@ -84,7 +84,7 @@ const NewSeason = () => {
                 2023
               </li>
             </ul>
-          {/*   <h2>THE TWO CONFERENCE SYSTEM</h2>
+            {/*   <h2>THE TWO CONFERENCE SYSTEM</h2>
             <p>
               This season we will be continuing to split the competition into
               the Sixers and Thunder Conferences. After the successful
