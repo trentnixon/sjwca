@@ -20,7 +20,7 @@ const SJWCA_Layout = ({ children }) => {
   if (!data) return <LoadingPage />; */
   return (
     <>
-      <Meta />
+     {/*  <Meta /> */}
       {IsOpen ? <Nav  /> : false}
 
       <div className="Container">
