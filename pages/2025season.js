@@ -29,14 +29,14 @@ const NewSeason = () => {
   return (
     <div className={StructureStyles.Outer}>
       <PageHeaderSmall
-        HeaderCopy={`2024 Season`}
+        HeaderCopy={`2025 Season`}
         SubCopy={`Sydney Junior Winter Cricket Association`}
         BGIMG={`/images/BGIMG/RegoBG.jpg`}
       />
 
       <ContentContainer>
         <div className={`${StructureStyles.Width70}`}>
-          <H1>Our 2024 Seasons</H1>
+          <H1>Our 2025 Seasons</H1>
 
           <div class=" Markdown_ReactMarkdown__nlrzp">
             <p>
@@ -46,9 +46,8 @@ const NewSeason = () => {
             </p>
             <h2>SEASON DATES</h2>
             <p>
-              The season will commence on Sunday 5th May 2024 and run for 8
-              weeks, finishing on Sunday 23rd June. We have one reserve weekend,
-              Sunday 30th June.
+              The season will commence on Sunday 4th May 2025 and run for 9
+              weeks, finishing on Sunday 29th June.
             </p>
             <h2>SEASON FEES</h2>
             <p>
@@ -69,19 +68,19 @@ const NewSeason = () => {
             <ul>
               <li>
                 Under 16 Grade less than 16 years as at midnight 31st August
-                2023
+                2024
               </li>
               <li>
                 Under 14 Grade less than 14 years as at midnight 31st August
-                2023
+                2024
               </li>
               <li>
                 Under 12 Grade less than 12 years as at midnight 31st August
-                2023
+                2024
               </li>
               <li>
                 Under 10 Grade less than 10 years as at midnight 31st August
-                2023
+                2024
               </li>
             </ul>
             {/*   <h2>THE TWO CONFERENCE SYSTEM</h2>

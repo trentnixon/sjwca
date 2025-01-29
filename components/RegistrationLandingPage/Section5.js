@@ -17,14 +17,14 @@ const RegisterNow = () => {
         <img src="/images/logos/playhqlogo.png" />
         <img src="/images/logos/PlayCricket.png" />
       </div>
-      <H1>REGISTRATIONS ARE NOW OPEN FOR our 20th season.</H1>
+      <H1>REGISTRATIONS ARE NOW OPEN FOR our 21st season.</H1>
 
       <Group position="apart" grow>
         <RegisterIndividualButton />
         <RegisterATeamButton />
       </Group>
 
-      <H2>STARTING IN MAY 2024</H2>
+      <H2>STARTING IN MAY 2025</H2>
     </div>
   );
 };

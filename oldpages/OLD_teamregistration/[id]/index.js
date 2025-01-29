@@ -35,7 +35,7 @@ const TeamRegistration = ({ Team, RegistrationInsructions, switchboard }) => {
     <div className={StructureStyles.Outer}>
       <PageHeaderSmall
         HeaderCopy={`Team Registration`}
-        SubCopy={`SJWCA 2024`}
+        SubCopy={`SJWCA 2025`}
         BGIMG={`/images/BGIMG/RegoBG.jpg`}
       />
       <ContentContainer>

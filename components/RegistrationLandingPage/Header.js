@@ -17,9 +17,12 @@ const RegistrationHeader = () => {
             Sydney
           </H2>
 
-          <img src={"/images/SJ_Large_new.png"} className={Registrationstyles.Logo} />
+          <img
+            src={"/images/SJ_Large_new.png"}
+            className={Registrationstyles.Logo}
+          />
           <H2 style={{ fontWeight: 800, textTransform: "uppercase" }}>
-            20th Season
+            21st Season
           </H2>
           <S style={{ fontWeight: 200, textTransform: "uppercase" }}>
             established 2005
@@ -28,10 +31,10 @@ const RegistrationHeader = () => {
 
         <div>
           <H2>Sydney's Longest Running Junior Winter Cricket Competition!</H2>
-          <H3>REGISTRATIONS NOW OPEN FOR 2024</H3>
+          <H3>We'll be opening registrations on Monday 3rd February.</H3>
         </div>
 
-       {/*  <div>
+        {/*  <div>
           <Group position="apart" grow>
             <RegisterIndividualButton />
             <RegisterATeamButton />

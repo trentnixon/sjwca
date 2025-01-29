@@ -17,7 +17,7 @@ import { IconMap, IconMapPinFilled } from "@tabler/icons-react";
 import { useMediaQuery } from "@mantine/hooks";
 import { CTABTN } from "../../buttons";
 
-const NewRegionCard = ({ region, Conference }) => { 
+const NewRegionCard = ({ region, Conference }) => {
   console.log(region, Conference);
   const isDesktop = useMediaQuery("(min-width: 48em)");
   console.log(isDesktop);
@@ -74,7 +74,7 @@ const CTA = ({ CTA, color }) => {
     <>
       <Divider my={20} mx={50} />
       <P style={{ textAlign: "center" }}>
-        Secure your spot for the 2024 season by selecting 'Team' or 'Player'
+        Secure your spot for the 2025 season by selecting 'Team' or 'Player'
         registration options below through PlayHQ.
       </P>
       <Group position="center" m={20}>
@@ -85,7 +85,6 @@ const CTA = ({ CTA, color }) => {
     </>
   );
 };
-
 
 const AgeGroups = ({ AgeGroups, isDesktop }) => {
   return (

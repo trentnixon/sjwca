@@ -56,7 +56,7 @@ const ChangeMyDetailsLanding = ({
     <>
       <H1>Change my details</H1>
       <P>
-        The upcoming Winter 2024 season is taking shape and it's clear to see
+        The upcoming Winter 2025 season is taking shape and it's clear to see
         this will be the biggest season to date!!
       </P>
       <P>
@@ -65,7 +65,7 @@ const ChangeMyDetailsLanding = ({
         full teams registering and the general demand for the competition in
         North-West Sydney mixed with a lack of available grounds, this has led
         to many individual registrations (and team registrations!) missing out
-        on a spot in the North-West Region for the 2024 season. The good news is
+        on a spot in the North-West Region for the 2025 season. The good news is
         that we do have space in other nearby regions.
       </P>
       <P>

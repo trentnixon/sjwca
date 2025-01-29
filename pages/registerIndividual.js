@@ -26,11 +26,11 @@ const RegisterIndividual = () => {
 
       <ContentContainer>
         <div className={`${StructureStyles.Width70}`}>
-          <H1>INDIVIDUAL PLAYER REGISTRATION OPEN FOR 2024</H1>
+          <H1>INDIVIDUAL PLAYER REGISTRATION OPEN FOR 2025</H1>
           <div class="undefined Markdown_ReactMarkdown__nlrzp">
             <P>
               Get ready to hit the pitch for the Sydney Junior Winter Cricket
-              2024 season! We're welcoming young cricketers aged 7-16 years to
+              2025 season! We're welcoming young cricketers aged 7-16 years to
               sign up for an exhilarating season ahead.
             </P>
             <P>

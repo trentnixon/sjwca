@@ -5,7 +5,7 @@ export const Conferences = {
   Sixers: {
     color: "#ea008a",
     Conference: "SIXERS",
-    About: `In 2024 we will be offering U10s, U12s, U14s and U16s in the Sixers Conference`,
+    About: `In 2025 we will be offering U10s, U12s, U14s and U16s in the Sixers Conference`,
     CTA: Links,
     regions: [
       Regions.InnerWestCanterburyBankstown,
@@ -18,7 +18,7 @@ export const Conferences = {
     color: "#96d701",
     Conference: "THUNDER",
     CTA: Links,
-    About: `In 2024 we will be offering U10s, U12s, U14s and U16s in the Thunder Conference.`,
+    About: `In 2025 we will be offering U10s, U12s, U14s and U16s in the Thunder Conference.`,
     regions: [
       Regions.SouthWestSydney,
       //Regions.Parramatta,

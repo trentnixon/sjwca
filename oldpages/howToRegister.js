@@ -13,12 +13,12 @@ const about = () => {
     <div className={StructureStyles.Outer}>
       <PageHeaderSmall
         HeaderCopy={`How to Register`}
-        SubCopy={`2024 Season`}
+        SubCopy={`2025 Season`}
         BGIMG={`/images/BGIMG/RegoBG.jpg`}
       />
       <ContentContainer>
         <div className={`${StructureStyles.Width70}`}>
-         {/*  <H1>{about.Name}</H1>
+          {/*  <H1>{about.Name}</H1>
           {<MarkdownContainer>{about.Description}</MarkdownContainer>} */}
         </div>
         <div className={`${StructureStyles.Width30}`}>

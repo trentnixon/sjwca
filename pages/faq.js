@@ -43,9 +43,9 @@ export default about;
 
 const FAQS = [
   {
-    Question: "What Are The 2024 Season Dates?",
+    Question: "What Are The 2025 Season Dates?",
     Answer:
-      "The season will commence on Sunday 5th May 2024 and run for 8-9 weeks up to and including Sunday 18th/25th June 2024.",
+      "The season will commence on Sunday 4th May 2025 and run for 8-9 weeks up to and including Sunday 18th/25th June 2025.",
   },
   {
     Question: "Do You Need To Be Experienced?",
@@ -59,7 +59,7 @@ const FAQS = [
   {
     Question: "What Equipment Is Supplied By The SWJCA?",
     Answer:
-      "In season 2024 we’ll be supplying every team with 1 set of stumps, bails, markers, match balls and a kit bag. The team kit is included in registration costs and does not need to be returned at the end of the season!!",
+      "In season 2025 we’ll be supplying every team with 1 set of stumps, bails, markers, match balls and a kit bag. The team kit is included in registration costs and does not need to be returned at the end of the season!!",
   },
   {
     Question: "What Do We Wear?",
