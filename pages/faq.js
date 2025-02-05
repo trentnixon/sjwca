@@ -48,6 +48,12 @@ const FAQS = [
       "The season will commence on Sunday 4th May 2025 and run for 8-9 weeks up to and including Sunday 18th/25th June 2025.",
   },
   {
+    Question:
+      "I'm registered with a club team for the summer season—what do I need to do regarding the season permit?",
+    Answer:
+      "If you are currently registered with a club team this summer season, you will be prompted via Play HQ to complete a season permit—simply click through the &quot;season permit across&quot; prompt, and once your permit is approved, proceed to complete your registration and pay any associated fees; for more detailed instructions, please visit the Play Cricket Support website. https://playcricketsupport.cricket.com.au/hc/en-us/articles/6957106664079-What-is-a-Player-Led-Season-Permit-and-how-can-I-apply",
+  },
+  {
     Question: "Do You Need To Be Experienced?",
     Answer: "No. We cater for all playing standards",
   },

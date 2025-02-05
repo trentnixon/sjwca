@@ -1,5 +1,5 @@
 import Registrationstyles from "../../styles/LandingPage/registrationHeader.module.css";
-import Buttonsstyles from "../../styles/Structure/Buttons.module.css";
+
 import { H2, H3, S } from "../type";
 import Spliter from "./SplitterBottom";
 
@@ -31,15 +31,15 @@ const RegistrationHeader = () => {
 
         <div>
           <H2>Sydney's Longest Running Junior Winter Cricket Competition!</H2>
-          <H3>We'll be opening registrations on Monday 3rd February.</H3>
+          <H3>Registrations are now open for the 2025 season.</H3>
         </div>
 
-        {/*  <div>
+        <div>
           <Group position="apart" grow>
             <RegisterIndividualButton />
             <RegisterATeamButton />
           </Group>
-        </div> */}
+        </div>
       </div>
       <Spliter color="#FBFDFF" />
     </section>
