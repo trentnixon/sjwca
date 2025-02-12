@@ -162,7 +162,24 @@ export const Grounds = {
     Long: "150.8486493527943",
   },
 
-   
+  ArthurWalkerRes: {
+    Name: "Arthur Walker Res",
+    Address: "Arthur Walker Res, Concord",
+    Lat: "-33.844902073230514",
+    Long: "151.09641056812922",
+  },
+  RussellPark: {
+    Name: "Russell Park",
+    Address: "Russell Park, Russell",
+    Lat: "-33.85357112384153",
+    Long: "151.143504929949",
+  },
+  Greenlees: {
+    Name: "Greenlees",
+    Address: "Greenlees, Concord",
+    Lat: "-33.85656002589037",
+    Long: "151.1068244582994",
+  },
 
   TBC: {
     Name: "Grounds yet to be Confirmed",
